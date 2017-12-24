@@ -1,0 +1,9 @@
+dir: docs
+output: dist
+site: JavaScript 教程
+theme: wangdoc
+customization: false
+themeDir: loppo-theme
+direction: ltr
+id: javascript
+hasComments: true

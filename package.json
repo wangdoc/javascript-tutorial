@@ -1,0 +1,38 @@
+{
+  "name": "javascript-tutorial",
+  "version": "0.0.1",
+  "description": "JavaScript 教程",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "prepush": "npm update",
+    "build": "loppo --site \"JavaScript 教程\" --id javascript --theme wangdoc",
+    "build-and-commit": "npm run build && npm run commit",
+    "commit": "gh-pages --dist dist --dest dist/javascript --branch master --repo git@github.com:wangdoc/website.git",
+    "chapter": "loppo chapter",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangdoc/javascript-tutorial.git"
+  },
+  "keywords": [
+    "WangDoc",
+    "Tutorial",
+    "Document"
+  ],
+  "author": "Ruan Yifeng",
+  "license": "Creative Commons Attribution-ShareAlike License",
+  "bugs": {
+    "url": "https://github.com/wangdoc/javascript-tutorial/issues"
+  },
+  "homepage": "https://github.com/wangdoc/javascript-tutorial",
+  "dependencies": {
+    "gh-pages": "^1.1.0",
+    "husky": "^0.14.3",
+    "loppo": "latest",
+    "loppo-theme-wangdoc": "latest"
+  }
+}
