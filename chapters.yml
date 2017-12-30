@@ -1,5 +1,6 @@
 - introduction.md: 导论
 - history.md: JavaScript 语言的历史
+- basic/: 入门篇
 - basic/grammar.md: 基本语法
 - basic/types.md: 数据类型
 - basic/null-undefined-boolean.md: null，undefined 和布尔值
