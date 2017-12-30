@@ -25,6 +25,15 @@ JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整�
 // false
 ```
 
+为了改善这个问题，JavaScript 提供了`Number.EPSILON`, 该属性表示 1 和大于 1 的最小值（可表示为 Number）的差值。
+```js
+  function isEqual(x, y) {
+      return Math.abs(x - y) < Number.EPSILON; //Math.abs() - 取绝对值
+  }
+
+  console.log(isEqual(0.1+0.2, 0.3)); // true
+```
+
 ### 数值精度
 
 根据国际标准 IEEE 754，JavaScript 浮点数的64个二进制位，从最左边开始，是这样组成的。
@@ -650,4 +659,5 @@ isFinite(-1) // true
 
 - Dr. Axel Rauschmayer, [How numbers are encoded in JavaScript](http://www.2ality.com/2012/04/number-encoding.html)
 - Humphry, [JavaScript 中 Number 的一些表示上/下限](http://blog.segmentfault.com/humphry/1190000000407658)
+- Mozilla Developer, [Number.EPSILON 属性](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON)
 
