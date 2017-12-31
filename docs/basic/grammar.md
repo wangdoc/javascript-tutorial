@@ -465,9 +465,9 @@ var myVar;
 console.log(
   myVar ?
   'myVar has a value' :
-  'myVar do not has a value'
+  'myVar does not have a value'
 )
-// myVar do not has a value
+// myVar does not have a value
 ```
 
 上面代码利用三元运算符，输出相应的提示。
