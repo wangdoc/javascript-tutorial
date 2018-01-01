@@ -364,7 +364,7 @@ var obj = {};
 var obj = {a: 1, b: 2, c: 3};
 
 for (var i in obj) {
-  console.log(o[i]);
+  console.log(obj[i]);
 }
 // 1
 // 2
@@ -420,7 +420,7 @@ for (var key in person) {
 // name
 ```
 
-## with语句
+## with 语句
 
 `with`语句的格式如下：
 
