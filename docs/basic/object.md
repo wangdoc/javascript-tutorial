@@ -188,7 +188,7 @@ eval('({foo: 123})') // {foo: 123}
 
 ## 属性的操作
 
-### 读取属性
+### 属性的读取
 
 读取对象的属性，有两种方法，一种是使用点运算符，还有一种是使用方括号运算符。
 
@@ -276,7 +276,7 @@ var obj = {};
 obj.p = 1;
 ```
 
-### 查看所有属性
+### 属性的查看
 
 查看一个对象本身的所有属性，可以使用`Object.keys`方法。
 
@@ -290,7 +290,7 @@ Object.keys(obj);
 // ['key1', 'key2']
 ```
 
-### delete 命令
+### 属性的删除：delete 命令
 
 `delete`命令用于删除对象的属性，删除成功后返回`true`。
 
@@ -338,7 +338,7 @@ obj.toString // function toString() { [native code] }
 
 上面代码中，`toString`是对象`obj`继承的属性，虽然`delete`命令返回`true`，但该属性并没有被删除，依然存在。这个例子还说明，即使`delete`返回`true`，该属性依然可能读取到值。
 
-### in 运算符
+### 属性是否存在：in 运算符
 
 `in`运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），如果包含就返回`true`，否则返回`false`。
 
@@ -351,12 +351,21 @@ var obj = { p: 1 };
 
 ```javascript
 var obj = {};
-'toString' in o // true
+'toString' in obj // true
 ```
 
 上面代码中，`toString`方法不是对象`obj`自身的属性，而是继承的属性。但是，`in`运算符不能识别，对继承的属性也返回`true`。
 
-### for...in 循环
+这时，可以使用对象的`hasOwnProperty`方法判断一下，是否为对象自身的属性。
+
+```javascript
+var obj = {};
+if ('toString' in obj) {
+  console.log(obj.hasOwnProperty('toString')) // false
+}
+```
+
+### 属性的遍历：for...in 循环
 
 `for...in`循环用来遍历一个对象的全部属性。
 
