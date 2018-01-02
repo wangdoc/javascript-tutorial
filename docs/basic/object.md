@@ -373,28 +373,15 @@ if ('toString' in obj) {
 var obj = {a: 1, b: 2, c: 3};
 
 for (var i in obj) {
-  console.log(obj[i]);
+  console.log('键名：', i);
+  console.log('键值：', obj[i]);
 }
-// 1
-// 2
-// 3
-```
-
-下面是一个使用`for...in`循环，提取对象属性名的例子。
-
-```javascript
-var obj = {
-  x: 1,
-  y: 2
-};
-var props = [];
-var i = 0;
-
-for (var p in obj) {
-  props[i++] = p
-}
-
-props // ['x', 'y']
+// 键名： a
+// 键值： 1
+// 键名： b
+// 键值： 2
+// 键名： c
+// 键值： 3
 ```
 
 `for...in`循环有两个使用注意点。
@@ -406,6 +393,7 @@ props // ['x', 'y']
 
 ```javascript
 var obj = {};
+
 // toString 属性是存在的
 obj.toString // toString() { [native code] }
 
