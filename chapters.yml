@@ -1,6 +1,6 @@
 - introduction.md: 导论
 - history.md: JavaScript 语言的历史
-- basic/: 入门篇
+- basic/: 基本语法和数据类型
 - basic/grammar.md: 基本语法
 - basic/types.md: 数据类型
 - basic/null-undefined-boolean.md: null，undefined 和布尔值
@@ -9,3 +9,5 @@
 - basic/object.md: 对象
 - basic/function.md: 函数
 - basic/array.md: 数组
+- calculation/: 运算规则
+- calculation/arithmetic.md: 算术运算符
