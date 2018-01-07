@@ -1,13 +1,13 @@
 - introduction.md: 导论
-- history.md: JavaScript 语言的历史
-- basic/: 基本语法和数据类型
-- basic/grammar.md: 基本语法
-- basic/types.md: 数据类型
-- basic/null-undefined-boolean.md: null，undefined 和布尔值
-- basic/number.md: 数值
-- basic/string.md: 字符串
-- basic/object.md: 对象
-- basic/function.md: 函数
-- basic/array.md: 数组
+- history.md: 历史
+- grammar.md: 基本语法
+- types/: 数据类型
+- types/general.md: 概述
+- types/null-undefined-boolean.md: null，undefined 和布尔值
+- types/number.md: 数值
+- types/string.md: 字符串
+- types/object.md: 对象
+- types/function.md: 函数
+- types/array.md: 数组
 - calculation/: 运算规则
 - calculation/arithmetic.md: 算术运算符
