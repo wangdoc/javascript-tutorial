@@ -67,7 +67,7 @@ toInt32(Math.pow(2, 32) - 1) // -1
 // -2147483647
 ```
 
-## 二进制或运算符
+## 二进制与运算符
 
 二进制与运算符（`|`）的规则是逐位比较两个运算子，两个二进制位之中只要有一个位为`0`，就返回`0`，否则返回`1`。
 
@@ -348,4 +348,10 @@ flags = flags ^ mask;
 ```javascript
 flags = ~flags;
 ```
+
+## 参考链接
+
+- Michal Budzynski, [JavaScript: The less known parts. Bitwise Operators](http://michalbe.blogspot.co.uk/2013/03/javascript-less-known-parts-bitwise.html)
+- Axel Rauschmayer, [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html)
+- Mozilla Developer Network, [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 

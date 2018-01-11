@@ -14,3 +14,4 @@
 - calculation/comparison.md: 比较运算符
 - calculation/boolean.md: 布尔运算符
 - calculation/bit.md: 二进制位运算符
+- calculation/priority.md: 其他运算符，运算顺序
