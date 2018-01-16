@@ -353,7 +353,7 @@ if (m !== 1) {
 // world
 ```
 
-### switch结构
+### switch 结构
 
 多个`if...else`连在一起使用的时候，可以转为使用更方便的`switch`结构。
 
@@ -406,7 +406,7 @@ switch (x) {
 `switch`语句部分和`case`语句部分，都可以使用表达式。
 
 ```javascript
-switch(1 + 3) {
+switch (1 + 3) {
   case 2 + 2:
     f();
     break;
@@ -687,6 +687,21 @@ top:
 ```
 
 上面代码为一个双重循环区块，`break`命令后面加上了`top`标签（注意，`top`不用加引号），满足条件时，直接跳出双层循环。如果`break`语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。
+
+标签也可以用于跳出代码块。
+
+```javascript
+foo: {
+  console.log(1);
+  break foo;
+  console.log('本行不会输出');
+}
+console.log(2);
+// 1
+// 2
+```
+
+上面代码执行到`break foo`，就会跳出区块。
 
 `continue`语句也可以与标签配合使用。
 
