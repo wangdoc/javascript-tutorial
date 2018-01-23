@@ -21,3 +21,4 @@
 - features/style.md: 编程风格
 - stdlib/: 标准库
 - stdlib/object.md: Object 对象
+- stdlib/attributes.md: 属性描述对象
