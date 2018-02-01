@@ -1,6 +1,7 @@
-- introduction.md: 导论
-- history.md: 历史
-- grammar.md: 基本语法
+- basic/: 入门篇
+- basic/introduction.md: 导论
+- basic/history.md: 历史
+- basic/grammar.md: 基本语法
 - types/: 数据类型
 - types/general.md: 概述
 - types/null-undefined-boolean.md: null，undefined 和布尔值
@@ -24,5 +25,6 @@
 - stdlib/attributes.md: 属性描述对象
 - stdlib/array.md: Array 对象
 - stdlib/wrapper.md: 包装对象
+- stdlib/boolean.md: Boolean 对象
 - advanced/: 高级语法
 - advanced/strict.md: 严格模式
