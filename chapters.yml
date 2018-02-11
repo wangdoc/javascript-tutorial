@@ -26,6 +26,7 @@
 - stdlib/array.md: Array 对象
 - stdlib/wrapper.md: 包装对象
 - stdlib/boolean.md: Boolean 对象
-- stdlib/number.md: number 对象
+- stdlib/number.md: Number 对象
+- stdlib/string.md: String 对象
 - advanced/: 高级语法
 - advanced/strict.md: 严格模式
