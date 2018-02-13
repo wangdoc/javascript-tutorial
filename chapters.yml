@@ -29,5 +29,6 @@
 - stdlib/number.md: Number 对象
 - stdlib/string.md: String 对象
 - stdlib/math.md: Math 对象
+- stdlib/date.md: Date 对象
 - advanced/: 高级语法
 - advanced/strict.md: 严格模式
