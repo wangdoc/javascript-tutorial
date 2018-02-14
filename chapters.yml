@@ -30,5 +30,6 @@
 - stdlib/string.md: String 对象
 - stdlib/math.md: Math 对象
 - stdlib/date.md: Date 对象
+- stdlib/regexp.md: RegExp 对象
 - advanced/: 高级语法
 - advanced/strict.md: 严格模式
