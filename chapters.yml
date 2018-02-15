@@ -31,5 +31,6 @@
 - stdlib/math.md: Math 对象
 - stdlib/date.md: Date 对象
 - stdlib/regexp.md: RegExp 对象
+- stdlib/json.md: JSON 对象
 - advanced/: 高级语法
 - advanced/strict.md: 严格模式
