@@ -20,6 +20,7 @@
 - features/conversion.md: 数据类型的转换
 - features/error.md: 错误处理机制
 - features/style.md: 编程风格
+- features/console.md: console 对象与控制台
 - stdlib/: 标准库
 - stdlib/object.md: Object 对象
 - stdlib/attributes.md: 属性描述对象
