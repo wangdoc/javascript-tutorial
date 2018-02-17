@@ -35,5 +35,6 @@
 - stdlib/json.md: JSON 对象
 - oop/: 面向对象编程
 - oop/new.md: 实例对象与 new 命令
+- oop/this.md: this 关键字
 - advanced/: 高级语法
 - advanced/strict.md: 严格模式

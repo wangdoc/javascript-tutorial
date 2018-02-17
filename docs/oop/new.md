@@ -251,5 +251,5 @@ person2.greeting() // Hi! I'm 张三.
 
 上面代码中，对象`person1`是`person2`的模板，后者继承了前者的属性和方法。
 
-`Object.create()`的详细介绍，请看下文的相关章节。
+`Object.create()`的详细介绍，请看后面的相关章节。
 
