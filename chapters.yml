@@ -37,6 +37,6 @@
 - oop/new.md: 实例对象与 new 命令
 - oop/this.md: this 关键字
 - oop/prototype.md: 对象的继承
-- oop/prototype.md: Object 对象的相关方法
+- oop/object.md: Object 对象的相关方法
 - advanced/: 高级语法
 - advanced/strict.md: 严格模式
