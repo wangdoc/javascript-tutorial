@@ -38,5 +38,4 @@
 - oop/this.md: this 关键字
 - oop/prototype.md: 对象的继承
 - oop/object.md: Object 对象的相关方法
-- advanced/: 高级语法
-- advanced/strict.md: 严格模式
+- oop/strict.md: 严格模式
