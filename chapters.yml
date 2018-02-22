@@ -41,3 +41,4 @@
 - oop/strict.md: 严格模式
 - async/: 异步操作
 - async/general.md: 概述
+- async/timer.md: 定时器
