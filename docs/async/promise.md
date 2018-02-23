@@ -202,11 +202,9 @@ f1().then(f2)
   .then(f3);
 ```
 
-## Promise 的实例
+## 实例：图片加载
 
-### 加载图片
-
-我们可以把图片的加载写成一个`Promise`对象。
+下面是使用 Promise 完成图片的加载。
 
 ```javascript
 var preloadImage = function (path) {
@@ -219,83 +217,12 @@ var preloadImage = function (path) {
 };
 ```
 
-### Ajax 操作
-
-Ajax 操作是典型的异步操作，传统上往往写成下面这样。
+上面的`preloadImage`函数用法如下。
 
 ```javascript
-function search(term, onload, onerror) {
-  var xhr, results, url;
-  url = 'http://example.com/search?q=' + term;
-
-  xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-
-  xhr.onload = function (e) {
-    if (this.status === 200) {
-      results = JSON.parse(this.responseText);
-      onload(results);
-    }
-  };
-  xhr.onerror = function (e) {
-    onerror(e);
-  };
-
-  xhr.send();
-}
-
-search('Hello World', console.log, console.error);
-```
-
-如果使用 Promise 对象，就可以写成下面这样。
-
-```javascript
-function search(term) {
-  var url = 'http://example.com/search?q=' + term;
-  var xhr = new XMLHttpRequest();
-  var result;
-
-  var p = new Promise(function (resolve, reject) {
-    xhr.open('GET', url, true);
-    xhr.onload = function (e) {
-      if (this.status === 200) {
-        result = JSON.parse(this.responseText);
-        resolve(result);
-      }
-    };
-    xhr.onerror = function (e) {
-      reject(e);
-    };
-    xhr.send();
-  });
-
-  return p;
-}
-
-search('Hello World').then(console.log, console.error);
-```
-
-加载图片的例子，也可以用 Ajax 操作完成。
-
-```javascript
-function imgLoad(url) {
-  return new Promise(function (resolve, reject) {
-    var request = new XMLHttpRequest();
-    request.open('GET', url);
-    request.responseType = 'blob';
-    request.onload = function () {
-      if (request.status === 200) {
-        resolve(request.response);
-      } else {
-        reject(new Error('图片加载失败：' + request.statusText));
-      }
-    };
-    request.onerror = function () {
-      reject(new Error('发生网络错误'));
-    };
-    request.send();
-  });
-}
+preloadImage('https://example.com/my.jpg')
+  .then(function (e) { document.body.append(e.target) })
+  .then(function () { console.log('加载成功') })
 ```
 
 ## 小结
