@@ -42,3 +42,4 @@
 - async/: 异步操作
 - async/general.md: 概述
 - async/timer.md: 定时器
+- async/promise.md: Promise 对象
