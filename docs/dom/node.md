@@ -4,7 +4,7 @@
 
 ## 属性
 
-### Node.nodeType
+### Node.prototype.nodeType
 
 `nodeType`属性返回一个整数值，表示节点的类型。
 
@@ -41,7 +41,7 @@ if (node.nodeType !== Node.ELEMENT_NODE) {
 }
 ```
 
-### Node.nodeName
+### Node.prototype.nodeName
 
 `nodeName`属性返回节点的名称。
 
@@ -64,7 +64,7 @@ div.nodeName // "DIV"
 - 文档类型节点（DocumentType）：文档的类型
 - 注释节点（Comment）：`#comment`
 
-### Node.nodeValue
+### Node.prototype.nodeValue
 
 `nodeValue`属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。
 
@@ -80,7 +80,7 @@ div.firstChild.nodeValue // "hello world"
 
 上面代码中，`div`是元素节点，`nodeValue`属性返回`null`。`div.firstChild`是文本节点，所以可以返回文本值。
 
-### Node.textContent
+### Node.prototype.textContent
 
 `textContent`属性返回当前节点和它的所有后代节点的文本内容。
 
@@ -106,7 +106,7 @@ document.getElementById('foo').textContent = '<p>GoodBye!</p>';
 
 文档节点（document）和文档类型节点（doctype）的`textContent`属性为`null`。如果要读取整个文档的内容，可以使用`document.documentElement.textContent`。
 
-### Node.baseURI
+### Node.prototype.baseURI
 
 `baseURI`属性返回一个字符串，表示当前网页的绝对路径。浏览器根据这个属性，计算网页上的相对路径的 URL。该属性为只读。
 
@@ -127,7 +127,7 @@ document.baseURI
 
 设置了以后，`baseURI`属性就返回`<base>`标签设置的值。
 
-### Node.ownerDocument
+### Node.prototype.ownerDocument
 
 `Node.ownerDocument`属性返回当前节点所在的顶层文档对象，即`document`对象。
 
@@ -138,7 +138,7 @@ d === document // true
 
 `document`对象本身的`ownerDocument`属性，返回`null`。
 
-### Node.nextSibling
+### Node.prototype.nextSibling
 
 `Node.nextSibling`属性返回紧跟在当前节点后面的第一个同级节点。如果当前节点后面没有同级节点，则返回`null`。
 
@@ -168,7 +168,7 @@ while (el !== null) {
 
 上面代码遍历`div1`节点的所有子节点。
 
-### Node.previousSibling
+### Node.prototype.previousSibling
 
 `previousSibling`属性返回当前节点前面的、距离最近的一个同级节点。如果当前节点前面没有同级节点，则返回`null`。
 
@@ -185,7 +185,7 @@ d2.nextSibling === d1 // true
 
 注意，该属性还包括文本节点和评论节点。因此如果当前节点前面有空格，该属性会返回一个文本节点，内容为空格。
 
-### Node.parentNode
+### Node.prototype.parentNode
 
 `parentNode`属性返回当前节点的父节点。对于一个节点来说，它的父节点只可能是三种类型：元素节点（element）、文档节点（document）和文档片段节点（documentfragment）。
 
@@ -199,7 +199,7 @@ if (node.parentNode) {
 
 文档节点（document）和文档片段节点（documentfragment）的父节点都是`null`。另外，对于那些生成后还没插入 DOM 树的节点，父节点也是`null`。
 
-### Node.parentElement
+### Node.prototype.parentElement
 
 `parentElement`属性返回当前节点的父元素节点。如果当前节点没有父节点，或者父节点类型不是元素节点，则返回`null`。
 
@@ -213,7 +213,7 @@ if (node.parentElement) {
 
 由于父节点只可能是三种类型：元素节点、文档节点（document）和文档片段节点（documentfragment）。`parentElement`属性相当于把后两种父节点都排除了。
 
-### Node.firstChild，Node.lastChild
+### Node.prototype.firstChild，Node.prototype.lastChild
 
 `firstChild`属性返回当前节点的第一个子节点，如果当前节点没有子节点，则返回`null`。
 
@@ -241,7 +241,7 @@ p1.firstChild.nodeName // "#text"
 
 `lastChild`属性返回当前节点的最后一个子节点，如果当前节点没有子节点，则返回`null`。用法与`firstChild`属性相同。
 
-### Node.childNodes
+### Node.prototype.childNodes
 
 `childNodes`属性返回一个类似数组的对象（`NodeList`集合），成员包括当前节点的所有子节点。
 
@@ -277,7 +277,7 @@ for (var i = 0; i < children.length; i++) {
 
 注意，除了元素节点，`childNodes`属性的返回值还包括文本节点和注释节点。如果当前节点不包括任何子节点，则返回一个空的`NodeList`集合。由于`NodeList`对象是一个动态集合，一旦子节点发生变化，立刻会反映在返回结果之中。
 
-### Node.isConnected
+### Node.prototype.isConnected
 
 `isConnected`属性返回一个布尔值，表示当前节点是否在文档之中。
 
@@ -293,7 +293,7 @@ test.isConnected // true
 
 ## 方法
 
-### Node.appendChild()
+### Node.prototype.appendChild()
 
 `appendChild`方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点。该方法的返回值就是插入文档的子节点。
 
@@ -316,7 +316,7 @@ var element = document
 
 如果`appendChild`方法的参数是`DocumentFragment`节点，那么插入的是`DocumentFragment`的所有子节点，而不是`DocumentFragment`节点本身。返回值是一个空的`DocumentFragment`节点。
 
-### Node.hasChildNodes()
+### Node.prototype.hasChildNodes()
 
 `hasChildNodes`方法返回一个布尔值，表示当前节点是否有子节点。
 
@@ -330,7 +330,7 @@ if (foo.hasChildNodes()) {
 
 上面代码表示，如果`foo`节点有子节点，就移除第一个子节点。
 
-注意，子节点包括所有节点，哪怕节点只包含一个空格，`hasChildNodes`方法也会返回`true`。
+注意，子节点包括所有类型的节点，并不仅仅是元素节点。哪怕节点只包含一个空格，`hasChildNodes`方法也会返回`true`。
 
 判断一个节点有没有子节点，有许多种方法，下面是其中的三种。
 
@@ -356,7 +356,7 @@ DOMComb(document.body, console.log)
 
 上面代码中，`DOMComb`函数的第一个参数是某个指定的节点，第二个参数是回调函数。这个回调函数会依次作用于指定节点，以及指定节点的所有后代节点。
 
-### Node.cloneNode()
+### Node.prototype.cloneNode()
 
 `cloneNode`方法用于克隆一个节点。它接受一个布尔值作为参数，表示是否同时克隆子节点。它的返回值是一个克隆出来的新节点。
 
@@ -372,7 +372,7 @@ var cloneUL = document.querySelector('ul').cloneNode(true);
 
 （3）克隆一个节点之后，DOM 有可能出现两个有相同`id`属性（即`id="xxx"`）的网页元素，这时应该修改其中一个元素的`id`属性。如果原节点有`name`属性，可能也需要修改。
 
-### Node.insertBefore()
+### Node.prototype.insertBefore()
 
 `insertBefore`方法用于将某个节点插入父节点内部的指定位置。
 
@@ -410,7 +410,7 @@ parent.insertBefore(s1, s2.nextSibling);
 
 如果要插入的节点是`DocumentFragment`类型，那么插入的将是`DocumentFragment`的所有子节点，而不是`DocumentFragment`节点本身。返回值将是一个空的`DocumentFragment`节点。
 
-### Node.removeChild()
+### Node.prototype.removeChild()
 
 `removeChild`方法接受一个子节点作为参数，用于从当前节点移除该子节点。返回值是移除的子节点。
 
@@ -434,7 +434,7 @@ while (element.firstChild) {
 
 如果参数节点不是当前节点的子节点，`removeChild`方法将报错。
 
-### Node.replaceChild()
+### Node.prototype.replaceChild()
 
 `replaceChild`方法用于将一个新的节点，替换当前节点的某一个子节点。
 
@@ -453,7 +453,7 @@ divA.parentNode.replaceChild(newSpan, divA);
 
 上面代码是如何将指定节点`divA`替换走。
 
-### Node.contains()
+### Node.prototype.contains()
 
 `contains`方法返回一个布尔值，表示参数节点是否满足以下三个条件之一。
 
@@ -473,7 +473,7 @@ document.body.contains(node)
 nodeA.contains(nodeA) // true
 ```
 
-### Node.compareDocumentPosition()
+### Node.prototype.compareDocumentPosition()
 
 `compareDocumentPosition`方法的用法，与`contains`方法完全一致，返回一个七个比特位的二进制值，表示参数节点与当前节点的关系。
 
@@ -516,7 +516,7 @@ if (head.compareDocumentPosition(body) & 4) {
 
 上面代码中，`compareDocumentPosition`的返回值与`4`（又称掩码）进行与运算（`&`），得到一个布尔值，表示`<head>`是否在`<body>`前面。
 
-### Node.isEqualNode()，Node.isSameNode()
+### Node.prototype.isEqualNode()，Node.prototype.isSameNode()
 
 `isEqualNode`方法返回一个布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。
 
@@ -537,7 +537,7 @@ p1.isSameNode(p2) // false
 p1.isSameNode(p1) // true
 ```
 
-### Node.normalize()
+### Node.prototype.normalize()
 
 `normailize`方法用于清理当前节点内部的所有文本节点（text）。它会去除空的文本节点，并且将毗邻的文本节点合并成一个，也就是说不存在空的文本节点，以及毗邻的文本节点。
 
@@ -556,11 +556,14 @@ wrapper.childNodes.length // 1
 
 该方法是`Text.splitText`的逆方法，可以查看《Text 节点对象》一章，了解更多内容。
 
-### Node.getRootNode()
+### Node.prototype.getRootNode()
 
-`getRootNode`方法返回当前节点所在文档的根节点。
+`getRootNode`方法返回当前节点所在文档的根节点，与`ownerDocument`属性的作用相同。
 
 ```javascript
-document.body.firstChild.getRootNode() === document // true
+document.body.firstChild.getRootNode() === document
+// true
+document.body.firstChild.getRootNode() === document.body.firstChild.ownerDocument
+// true
 ```
 

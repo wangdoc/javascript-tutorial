@@ -46,3 +46,4 @@
 - dom/: DOM
 - dom/general.md: 概述
 - dom/node.md: Node 接口
+- dom/nodelist.md: NodeList 接口，HTMLCollection 接口
