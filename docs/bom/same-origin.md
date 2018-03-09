@@ -56,7 +56,7 @@
 - window.focus()
 - window.postMessage()
 
-上面的九个属性之中，只有`window.location`是可读写的，其他八个全部都是只读。
+上面的九个属性之中，只有`window.location`是可读写的，其他八个全部都是只读。而且，即使是`location`对象，非同源的情况下，也只允许调用`location.replace`方法和写入`location.href`属性。
 
 虽然这些限制是必要的，但是有时很不方便，合理的用途也受到影响。下面介绍如何规避上面的限制。
 
@@ -95,7 +95,7 @@ Set-Cookie: key=value; domain=.example.com; path=/
 
 这样的话，二级域名和三级域名不用做任何设置，都可以读取这个 Cookie。
 
-## iframe
+## iframe 和多窗口通信
 
 `iframe`元素可以在当前网页之中，嵌入其他网页。每个`iframe`元素形成自己的窗口，即有自己的`window`对象。`iframe`窗口之中的脚本，可以获得父窗口和子窗口。但是，只有在同源的情况下，父窗口和子窗口才能通信；如果跨域，就无法拿到对方的 DOM。
 
