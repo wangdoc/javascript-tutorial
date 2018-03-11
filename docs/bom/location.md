@@ -1,4 +1,4 @@
-# Location 对象，URL 对象
+# Location 对象，URL 对象，URLSearchParams 对象
 
 URL 是互联网的基础设施之一。浏览器提供了一些原生对象，用来管理 URL。
 
@@ -265,8 +265,178 @@ function handleFiles(files) {
 
 ## URLSearchParams 对象
 
+`URLSearchParams`对象是浏览器的原生对象，用来构造、解析和处理 URL 的查询字符串。
+
+它本身也是一个构造函数，可以生成实例。参数可以为查询字符串，起首的问号`?`有没有都行，也可以为对应查询字符串的数组或对象。
+
 ```javascript
-// 当前 URL 为 https://example.com/?id=123
-var parsedUrl = new URL(window.location.href);
-parsedUrl.searchParams.get('id') // 123
+// 方法一：传入字符串
+var params = new URLSearchParams('?foo=1&bar=2');
+// 等同于
+var params = new URLSearchParams(document.location.search);
+
+// 方法二：传入数组
+var params = new URLSearchParams([['foo', 1], ['bar', 2]]);
+
+// 方法三：传入对象
+var params = new URLSearchParams({'foo' : 1 , 'bar' : 2});
 ```
+
+`URLSearchParams`会对查询字符串自动编码。
+
+```javascript
+var params = new URLSearchParams({'foo': '你好'});
+params.toString() // "foo=%E4%BD%A0%E5%A5%BD"
+```
+
+上面代码中，`foo`的值是汉字，`URLSearchParams`对其自动进行 URL 编码。
+
+`URLSearchParams`实例有遍历器接口，可以用`for...of`循环遍历（详见《ES6 标准入门》的《Iterator》一章）。
+
+```javascript
+var params = new URLSearchParams({'foo': 1 , 'bar': 2});
+for (var p of params) {
+  console.log(p[0] + ': ' + p[1]);
+}
+// foo: 1
+// bar: 2
+```
+
+`URLSearchParams`没有实例属性，只有实例方法。
+
+## URLSearchParams.toString()
+
+`toString`方法返回实例的字符串形式。
+
+```javascript
+var url = new URL('https://example.com?foo=1&bar=2');
+var params = new URLSearchParams(url.search);
+
+params.toString() // "foo=1&bar=2'
+```
+
+### URLSearchParams.append()
+
+`append`方法用来追加一个查询参数。它接受两个参数，第一个为键名，第二个为键值，没有返回值。
+
+```javascript
+var params = new URLSearchParams({'foo': 1 , 'bar': 2});
+params.append('baz', 3);
+params.toString() // "foo=1&bar=2&baz=3"
+```
+
+`append`方法不会识别是否键名已经存在。
+
+```javascript
+var params = new URLSearchParams({'foo': 1 , 'bar': 2});
+params.append('foo', 3);
+params.toString() // "foo=1&bar=2&foo=3"
+```
+
+上面代码中，查询字符串里面`foo`已经存在了，但是`append`依然会追加一个同名键。
+
+### URLSearchParams.delete()
+
+`delete`方法用来删除指定的查询参数。它接受键名作为参数。
+
+```javascript
+var params = new URLSearchParams({'foo': 1 , 'bar': 2});
+params.delete('bar');
+params.toString() // "foo=1"
+```
+
+### URLSearchParams.has()
+
+`has`方法返回一个布尔值，表示查询字符串是否包含指定的键名。
+
+```javascript
+var params = new URLSearchParams({'foo': 1 , 'bar': 2});
+params.has('bar') // true
+params.has('baz') // false
+```
+
+### URLSearchParams.set()
+
+`set`方法用来设置查询字符串的键值。
+
+它接受两个参数，第一个是键名，第二个是键值。如果是已经存在的键，键值会被改写，否则会被追加。
+
+```javascript
+var params = new URLSearchParams('?foo=1');
+params.set('foo', 2);
+params.toString() // "foo=2"
+params.set('bar', 3);
+params.toString() // "foo=2&bar=3"
+```
+
+上面代码中，`foo`是已经存在的键，`bar`是还不存在的键。
+
+### URLSearchParams.get()，URLSearchParams.getAll()
+
+`get`方法用来读取查询字符串里面的指定键。它接受键名作为参数。
+
+```javascript
+var params = new URLSearchParams('?foo=1');
+params.get('foo') // "1"
+params.get('bar') // bar
+```
+
+两个地方需要注意。第一，它返回的是字符串，如果原始值是数值，需要转一下类型；第二，如果指定的键名不存在，返回值是`null`。
+
+`getAll`方法返回一个数组，成员是指定键的所有键值。它接受键名作为参数。
+
+```javascript
+var params = new URLSearchParams('?foo=1&foo=2');
+params.getAll('foo') // ["1", "2"]
+```
+
+上面代码中，查询字符串有两个`foo`键，`getAll`返回的数组就有两个成员。
+
+### URLSearchParams.sort()
+
+`sort`方法对查询字符串里面的键进行排序，规则是按照 Unicode 码点从小到大排列。
+
+该方法没有返回值，或者说返回值是`undefined`。
+
+```javascript
+var params = new URLSearchParams('c=4&a=2&b=3&a=1');
+params.sort();
+params.toString() // "a=2&a=1&b=3&c=4"
+```
+
+上面代码中，如果有两个同名的键`a`，它们之间不会排序，而是保留原始的顺序。
+
+### URLSearchParams.keys()，URLSearchParams.values()，URLSearchParams.entries()
+
+这三个方法都返回一个遍历器对象，供`for...of`循环消费。它们的区别在于，`keys`方法返回的是键名的遍历器，`values`方法返回的是键值的遍历器，`entries`返回的是键值的遍历器。
+
+```javascript
+var params = new URLSearchParams('a=1&b=2');
+
+for(var p of params.keys()) {
+  console.log(p);
+}
+// a
+// b
+
+for(var p of params.values()) {
+  console.log(p);
+}
+// 1
+// 2
+
+for(var p of params.entries()) {
+  console.log(p);
+}
+// ["a", "1"]
+// ["b", "2"]
+```
+
+如果直接对`URLSearchParams`进行遍历，其实内部调用的就是`entries`接口。
+
+```javascript
+for (var p of params) {}
+// 等同于
+for (var p of params.entries()) {}
+```
+
