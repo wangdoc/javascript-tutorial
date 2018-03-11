@@ -117,6 +117,18 @@ window.location.reload(true);
 
 `URL`对象是浏览器的原生对象，可以用来构造、解析和编码 URL。一般情况下，通过`window.URL`可以拿到这个对象。
 
+`<a>`元素和`<area>`元素都部署了这个接口。这就是说，它们的 DOM 节点对象可以 URL 的实例属性和方法。
+
+```javascript
+var a = document.createElement('a');
+a.href = 'http://example.com/?foo=1';
+
+a.hostname // "example.com"
+a.search // "?foo=1"
+```
+
+上面代码中，`a`是`<a>`元素的 DOM 节点对象。可以在这个对象上使用 URL 的实例属性，比如`hostname`和`search`。
+
 ### 构造函数
 
 `URL`对象本身是一个构造函数，可以生成 URL 实例。
@@ -291,6 +303,27 @@ params.toString() // "foo=%E4%BD%A0%E5%A5%BD"
 
 上面代码中，`foo`的值是汉字，`URLSearchParams`对其自动进行 URL 编码。
 
+浏览器向服务器发送表单数据时，可以直接使用`URLSearchParams`实例作为表单数据。
+
+```javascript
+const params = new URLSearchParams({foo: 1, bar: 2});
+fetch('https://example.com/api', {
+  method: 'POST',
+  body: params
+}).then(...)
+```
+
+上面代码中，`fetch`命令向服务器发送命令时，可以直接使用`URLSearchParams`实例。
+
+URL 实例的`searchParams`属性就是一个`URLSearchParams`实例，只不过这个实例是只读的。
+
+```javascript
+var url = new URL('http://example.com/?foo=1');
+url.searchParams.get('foo') // "1"
+```
+
+上面代码中，URL 实例的`searchParams`属性可以使用`URLSearchParams`的`get`方法。
+
 `URLSearchParams`实例有遍历器接口，可以用`for...of`循环遍历（详见《ES6 标准入门》的《Iterator》一章）。
 
 ```javascript
@@ -314,6 +347,15 @@ var params = new URLSearchParams(url.search);
 
 params.toString() // "foo=1&bar=2'
 ```
+
+那么需要字符串的场合，会自动调用`toString`方法。
+
+```javascript
+var params = new URLSearchParams({version: 2.0});
+window.location.href = location.pathname + '?' + params;
+```
+
+上面代码中，`location.href`赋值时，可以直接使用`params`对象。这时就会自动调用`toString`方法。
 
 ### URLSearchParams.append()
 
@@ -371,6 +413,14 @@ params.toString() // "foo=2&bar=3"
 
 上面代码中，`foo`是已经存在的键，`bar`是还不存在的键。
 
+如果有多个的同名键，`set`会移除现存所有的键。
+
+```javascript
+var params = new URLSearchParams('?foo=1&foo=2');
+params.set('foo', 3);
+params.toString() // "foo=3"
+```
+
 ### URLSearchParams.get()，URLSearchParams.getAll()
 
 `get`方法用来读取查询字符串里面的指定键。它接受键名作为参数。
@@ -382,6 +432,15 @@ params.get('bar') // bar
 ```
 
 两个地方需要注意。第一，它返回的是字符串，如果原始值是数值，需要转一下类型；第二，如果指定的键名不存在，返回值是`null`。
+
+如果有多个的同名键，`get`返回位置最前面的那个键值。
+
+```javascript
+var params = new URLSearchParams('?foo=3&foo=2&foo=1');
+params.get('foo') // "3"
+```
+
+上面代码中，查询字符串有三个`foo`键，`get`方法返回最前面的键值`3`。
 
 `getAll`方法返回一个数组，成员是指定键的所有键值。它接受键名作为参数。
 
@@ -439,4 +498,11 @@ for (var p of params) {}
 // 等同于
 for (var p of params.entries()) {}
 ```
+
+## 参考链接
+
+- [Location](https://developer.mozilla.org/en-US/docs/Web/API/Location), by MDN
+- [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL), by MDN
+- [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams), by MDN
+- [Easy URL Manipulation with URLSearchParams](https://developers.google.com/web/updates/2016/01/urlsearchparams?hl=en), by Eric Bidelman
 
