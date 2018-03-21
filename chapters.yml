@@ -48,6 +48,7 @@
 - dom/node.md: Node 接口
 - dom/nodelist.md: NodeList 接口，HTMLCollection 接口
 - dom/parentnode.md: ParentNode 接口，ChildNode 接口
+- dom/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
 - bom/same-origin.md: 同源限制
