@@ -100,9 +100,9 @@ document.oncontextmenu = function () {
 
 上面代码中，`oncontextmenu`属性执行后返回`false`，右键菜单就不会出现。
 
-## 拖动相关事件
+## 拖动相关属性
 
-拖动相关的事件执行器分成两类。
+拖动相关属性分成两类：一类与被拖动元素相关，另一类接收被拖动元素的容器元素相关。
 
 被拖动元素的相关属性。
 
@@ -110,12 +110,12 @@ document.oncontextmenu = function () {
 - GlobalEventHandlers.ondrag：拖动过程中，每隔几百毫秒触发一次
 - GlobalEventHandlers.ondragend：拖动结束
 
-接收被拖动元素的区块元素的相关属性。
+接收被拖动元素的容器元素的相关属性。
 
-- GlobalEventHandlers.ondragenter：被拖动元素进入区块元素。
-- GlobalEventHandlers.ondragleave：被拖动元素离开区块元素。
-- GlobalEventHandlers.ondragover：被拖动元素在区块元素上方，每隔几百毫秒触发一次。
-- GlobalEventHandlers.ondrop：松开鼠标后，被拖动元素放入区块元素。
+- GlobalEventHandlers.ondragenter：被拖动元素进入容器元素。
+- GlobalEventHandlers.ondragleave：被拖动元素离开容器元素。
+- GlobalEventHandlers.ondragover：被拖动元素在容器元素上方，每隔几百毫秒触发一次。
+- GlobalEventHandlers.ondrop：松开鼠标后，被拖动元素放入容器元素。
 
 以上属性的函数参数都是事件对象。
 
@@ -133,11 +133,19 @@ element.ondragEnd = function (ev) {
 }
 ```
 
-## 表单相关的属性
+## 表单相关属性
 
-### GlobalEventHandlers.onchange
+### GlobalEventHandlers.oninput，GlobalEventHandlers.onchange
 
-`<input>`、`<select>`、`<textarea>`元素的值发生变更时，会触发`change`事件，导致执行`onchange()`。
+`<input>`、`<select>`、`<textarea>`元素的值发生任何一点变更时，都会同步触发`input`事件，导致执行`oninput()`。当用户的输入告一段落后，输入框失去焦点之后，才会触发`change`事件，导致执行`onchange()`，也就是说不是每一次输入，都会触发`change`事件。
+
+另外，打开`contenteditable`属性的元素（变成可编辑模式）的内容发生变化时，也会触发`input`事件。
+
+`oninput`和`onchange`的参数就是事件对象，可以从`event.target.value`上拿到用户输入的值。
+
+### GlobalEventHandlers.oninvalid
+
+一个表单元素的值不符合规定条件时，就会触发`invalid`事件，导致`oninvalid()`执行。
 
 ## 特定元素的属性
 
