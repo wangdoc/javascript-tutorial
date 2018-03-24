@@ -51,6 +51,12 @@ element.onerror = function (event) {
 
 注意，一般来说，资源的加载错误不会触发`window.onerror`。
 
+## GlobalEventHandlers.onload、GlobalEventHandlers.onloadstart
+
+元素完成加载时，会触发`load`事件，执行`onload()`。它的典型使用场景是`window`对象和`<img>`元素。对于`window`对象来说，只有页面的所有资源加载完成（包括图片、脚本、样式表、字体等所有外部资源），才会触发`load`事件。
+
+对于`<img>`和`<video>`等元素，加载开始时还会触发`loadstart`事件，导致执行`onloadstart`。
+
 ## GlobalEventHandlers.onfocus，GlobalEventHandlers.onblur
 
 当前元素获得焦点时，会触发`element.onfocus`；失去焦点时，会触发`element.onblur`。
@@ -88,7 +94,11 @@ element.ondblclick = function () {
 };
 ```
 
-### GlobalEventHandlers.oncontextmenu
+## GlobalEventHandlers.onscroll
+
+页面或元素滚动时，会触发`scroll`事件，导致执行`onscroll()`。
+
+## GlobalEventHandlers.oncontextmenu，GlobalEventHandlers.onshow
 
 用户在页面上按下鼠标的右键，会触发`contextmenu`事件，导致执行`oncontextmenu()`。如果该属性执行后返回`false`，就等于禁止了右键菜单。`document.oncontextmenu`与`window.oncontextmenu`效果一样。
 
@@ -99,6 +109,49 @@ document.oncontextmenu = function () {
 ```
 
 上面代码中，`oncontextmenu`属性执行后返回`false`，右键菜单就不会出现。
+
+元素的右键菜单显示时，会触发该元素的`onshow`事件。
+
+## 鼠标相关属性
+
+- GlobalEventHandlers.onmousedown
+- GlobalEventHandlers.onmouseenter
+- GlobalEventHandlers.onmouseleave
+- GlobalEventHandlers.onmousemove
+- GlobalEventHandlers.onmouseout
+- GlobalEventHandlers.onmouseover
+- GlobalEventHandlers.onmouseup
+- GlobalEventHandlers.onwheel
+
+## 键盘相关属性
+
+- GlobalEventHandlers.onkeydown
+- GlobalEventHandlers.onkeypress
+- GlobalEventHandlers.onkeyup
+
+## 表单相关属性
+
+### GlobalEventHandlers.oninput，GlobalEventHandlers.onchange
+
+`<input>`、`<select>`、`<textarea>`元素的值发生任何一点变更时，都会同步触发`input`事件，导致执行`oninput()`。当用户的输入告一段落后，输入框失去焦点之后，才会触发`change`事件，导致执行`onchange()`，也就是说不是每一次输入，都会触发`change`事件。
+
+另外，打开`contenteditable`属性的元素（变成可编辑模式）的内容发生变化时，也会触发`input`事件。
+
+`oninput`和`onchange`的参数就是事件对象，可以从`event.target.value`上拿到用户输入的值。
+
+### GlobalEventHandlers.oninvalid，GlobalEventHandlers.onreset
+
+一个表单元素的值不符合规定条件时，就会触发`invalid`事件，导致`oninvalid()`执行。
+
+用户重置表单时，会触发`reset`事件，导致执行`onreset()`。
+
+### GlobalEventHandlers.onselect
+
+表单的`<input>`文本输入框和`<textarea>`里面的文本被选中，会触发`select`事件，导致执行`onselect()`。
+
+### GlobalEventHandlers.onsubmit
+
+用户提交表单时，会触发表单元素的`submit`事件，导致执行`onsubmit()`。
 
 ## 拖动相关属性
 
@@ -133,19 +186,12 @@ element.ondragEnd = function (ev) {
 }
 ```
 
-## 表单相关属性
+## 触摸相关事件
 
-### GlobalEventHandlers.oninput，GlobalEventHandlers.onchange
-
-`<input>`、`<select>`、`<textarea>`元素的值发生任何一点变更时，都会同步触发`input`事件，导致执行`oninput()`。当用户的输入告一段落后，输入框失去焦点之后，才会触发`change`事件，导致执行`onchange()`，也就是说不是每一次输入，都会触发`change`事件。
-
-另外，打开`contenteditable`属性的元素（变成可编辑模式）的内容发生变化时，也会触发`input`事件。
-
-`oninput`和`onchange`的参数就是事件对象，可以从`event.target.value`上拿到用户输入的值。
-
-### GlobalEventHandlers.oninvalid
-
-一个表单元素的值不符合规定条件时，就会触发`invalid`事件，导致`oninvalid()`执行。
+- GlobalEventHandlers.ontouchcancel
+- GlobalEventHandlers.ontouchend
+- GlobalEventHandlers.ontouchmove
+- GlobalEventHandlers.ontouchstart
 
 ## 特定元素的属性
 
