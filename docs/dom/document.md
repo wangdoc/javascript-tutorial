@@ -1,8 +1,8 @@
-# document 对象
+# Document 节点
 
 ## 概述
 
-`document`对象是文档的根节点，每张网页都有自己的`document`对象。`window.document`属性就指向这个对象。只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用。
+`document`节点对象是文档的根节点，每张网页都有自己的`document`对象。`window.document`属性就指向这个对象。只要浏览器开始载入 HTML 文档，该对象就存在了，可以直接使用。
 
 `document`对象有不同的办法可以获取。
 
@@ -574,7 +574,7 @@ var element = document.elementFromPoint(50, 50);
 var elements = document.elementsFromPoint(x, y);
 ```
 
-## document.caretPositionFromPoint()
+### document.caretPositionFromPoint()
 
 `document.caretPositionFromPoint()`返回一个 CaretPosition 对象，包含了指定坐标点在节点对象内部的位置信息。CaretPosition 对象就是光标插入点的概念，用于确定光标点在文本对象内部的具体位置。
 

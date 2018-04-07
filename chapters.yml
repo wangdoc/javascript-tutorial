@@ -48,7 +48,8 @@
 - dom/node.md: Node 接口
 - dom/nodelist.md: NodeList 接口，HTMLCollection 接口
 - dom/parentnode.md: ParentNode 接口，ChildNode 接口
-- dom/document.md: document 对象
+- dom/document.md: Document 节点
+- dom/element.md: Element 节点
 - dom/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
