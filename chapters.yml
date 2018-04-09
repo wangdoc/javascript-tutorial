@@ -51,7 +51,8 @@
 - dom/document.md: Document 节点
 - dom/element.md: Element 节点
 - dom/attributes.md: 属性的操作
-- dom/globaleventhandlers.md: GlobalEventHandlers 接口
+- dom/text.md: Text 节点和 DocumentFragment 节点
+- dom/globaleventhandlers.md: GlobalEventHandlers 接
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
 - bom/same-origin.md: 同源限制
