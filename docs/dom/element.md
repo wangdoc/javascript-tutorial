@@ -122,7 +122,7 @@ HTML 元素可以设置`contentEditable`属性，使得元素的内容可以编�
 
 ### Element.attributes
 
-`Element.attributes`属性返回一个类似数组的对象，成员是当前元素节点的所有属性节点，详见《Attr 对象》一章。
+`Element.attributes`属性返回一个类似数组的对象，成员是当前元素节点的所有属性节点，详见《属性的操作》一章。
 
 ```javascript
 var p = document.querySelector('p');
@@ -493,75 +493,16 @@ el.nextElementSibling
 
 ### 属性相关方法
 
-以下方法用来操作当前节点的属性。
+元素节点提供六个方法，用来操作属性。
 
-**（1）Element.getAttribute()**
+- `getAttribute()`：读取某个属性的值
+- `getAttributeNames()`：返回当前元素的所有属性名
+- `setAttribute()`：写入属性值
+- `hasAttribute()`：某个属性是否存在
+- `hasAttributes()`：当前元素是否有属性
+- `removeAttribute()`：删除属性
 
-`Element.getAttribute`方法接受一个字符串作为参数，返回同名属性的值。如果没有该属性，则返回`null`。
-
-```javascript
-var mydiv = document.getElementById('mydiv');
-var id = mydiv.getAttribute('id');
-```
-
-上面代码读取`mydiv`的`id`的值。
-
-**（2）Element.getAttributeNames()**
-
-`Element.getAttributeNames()`返回一个数组，成员是当前元素的所有属性的名字。如果当前元素没有任何属性，则返回一个空数组。使用`Element.attributes`属性，也可以拿到同样的结果，唯一的区别是它返回的是类似数组的对象。
-
-```javascript
-var mydiv = document.getElementById('mydiv');
-
-mydiv.getAttributeNames().forEach(function (key) {
-  var value = mydiv.getAttribute(key);
-  console.log(key, value);
-})
-```
-
-上面代码用于遍历某个节点的所有属性。
-
-**（3）Element.setAttribute()**
-
-`Element.setAttribute`方法用于为当前节点设置属性。如果属性已经存在，将更新属性值，否则将添加该属性。该方法没有返回值。
-
-```javascript
-// HTML 代码为
-// <button>Hello World</button>
-var b = document.querySelector('button');
-b.setAttribute('name', 'myButton');
-b.setAttribute('disabled', true);
-```
-
-上面代码中，`button`元素的`name`属性被设成`myButton`，`disabled`属性被设成`true`。
-
-这里有两个地方需要注意，首先，属性值总是字符串，其他类型的值会自动转成字符串，比如布尔值`true`就会变成字符串`true`；其次，上例的`disable`属性是一个布尔属性，对于`<button>`元素来说，这个属性不需要属性值，只要设置了就总是会生效，因此`setAttribute`方法里面可以将`disabled`属性设成任意值。
-
-**（4）Element.hasAttribute()**
-
-`Element.hasAttribute`方法返回一个布尔值，表示当前元素节点是否有指定的属性。
-
-```javascript
-var foo = document.getElementById('foo');
-foo.hasAttribute('bar') // false
-```
-
-**（5）Element.hasAttributes()**
-
-`Element.hasAttributes`方法返回一个布尔值，表示当前元素是否有属性，如果没有任何属性，就返回`false`，否则返回`true`。
-
-```javascript
-var foo = document.getElementById('foo');
-foo.hasAttributes() // true
-```
-
-**（6）Element.removeAttribute()**
-
-`Element.removeAttribute`方法移除指定属性。该方法没有返回值。
-
-```javascript
-document.getElementById('div1').removeAttribute('id')
-```
+这些方法的介绍请看《属性的操作》一章。
 
 ### Element.querySelector()
 
