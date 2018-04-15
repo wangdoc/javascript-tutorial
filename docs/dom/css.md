@@ -1,6 +1,6 @@
 # CSS 操作
 
-CSS 与 JavaScript 是两个有着明确分工的领域，前者负责页面的视觉效果，后者负责与用户的行为互动。但是，它们毕竟同属网页开发的前端，因此不可避免有着交叉和互相配合。本节介绍如果通过 JavaScript 操作 CSS。
+CSS 与 JavaScript 是两个有着明确分工的领域，前者负责页面的视觉效果，后者负责与用户的行为互动。但是，它们毕竟同属网页开发的前端，因此不可避免有着交叉和互相配合。本节介绍如何通过 JavaScript 操作 CSS。
 
 ## HTML 元素的 style 属性
 
@@ -560,7 +560,9 @@ crl.length // 2
 
 ## CSSRule 接口
 
-一条 CSS 规则包括两个部分：CSS选择器和样式声明。下面就是一条典型的 CSS 规则。
+### 概述
+
+一条 CSS 规则包括两个部分：CSS 选择器和样式声明。下面就是一条典型的 CSS 规则。
 
 ```css
 .myClass {
@@ -585,7 +587,7 @@ var rule = ruleList[0];
 rule instanceof CSSRule // true
 ```
 
-CSSRule 实例有以下属性。
+### CSSRule 实例的属性
 
 **（1）CSSRule.cssText**
 
