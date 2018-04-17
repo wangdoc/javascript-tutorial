@@ -54,7 +54,9 @@
 - dom/text.md: Text 节点和 DocumentFragment 节点
 - dom/css.md: CSS 操作
 - dom/mutationobserver.md: Mutation Observer API
-- dom/globaleventhandlers.md: GlobalEventHandlers 接
+- events/: 事件
+- events/eventtarget.md: EventTarget 接口
+- events/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
 - bom/same-origin.md: 同源限制
