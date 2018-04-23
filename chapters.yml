@@ -57,6 +57,7 @@
 - events/: 事件
 - events/eventtarget.md: EventTarget 接口
 - events/model.md: 事件模型
+- events/Event.md: Event 对象
 - events/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
