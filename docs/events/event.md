@@ -190,6 +190,20 @@ evt.isTrusted // false
 
 上面代码中，`evt`对象是脚本产生的，所以`isTrusted`属性返回`false`。
 
+### Event.detail
+
+`Event.detail`属性只有浏览器的 UI （用户界面）事件才具有。该属性返回一个数值，表示事件的某种信息。具体含义与事件类型相关。比如，对于`click`和`dbclick`事件，`Event.detail`是鼠标按下的次数（`1`表示单击，`2`表示双击，`3`表示三击）；对于鼠标滚轮事件，`Event.detail`是滚轮正向滚动的距离，负值就是负向滚动的距离，返回值总是3的倍数。
+
+```javascript
+// HTML 代码如下
+// <p>Hello</p>
+function giveDetails(e) {
+  console.log(e.detail);
+}
+
+document.selectQuery('p') = giveDetails;
+```
+
 ## 实例方法
 
 ### Event.preventDefault()
