@@ -1,4 +1,5 @@
-# MouseEvent 接口
+# MouseEvent 接口，WheelEvent 接口
+
 ## MouseEvent 接口概述
 
 `MouseEvent`接口代表了鼠标相关的事件，单击（click）、双击（dblclick）、松开鼠标键（mouseup）、按下鼠标键（mousedown）等动作，所产生的事件对象都是`MouseEvent`实例。此外，滚轮事件和拖拉事件也是`MouseEvent`实例。
@@ -263,4 +264,34 @@ document.addEventListener('click', function (e) {
 ```
 
 上面的代码可以了解用户是否按下了大写键。
+
+## WheelEvent 接口
+
+### 概述
+
+WheelEvent 接口继承了 MouseEvent 实例，代表鼠标滚轮事件的实例对象。目前，鼠标滚轮相关的事件只有一个`wheel`事件，用户滚动鼠标的滚轮，就生成这个事件的实例。
+
+浏览器原生提供`WheelEvent()`构造函数，用来生成`WheelEvent`实例。
+
+```javascript
+var wheelEvent = new WheelEvent(type, options);
+```
+
+`WheelEvent()`构造函数可以接受两个参数，第一个是字符串，表示事件类型，对于滚轮事件来说，这个值目前只能是`wheel`。第二个参数是事件的配置对象。该对象的属性除了`Event`、`UIEvent`的配置属性以外，还可以接受以下几个属性，所有属性都是可选的。
+
+- `deltaX`：数值，表示滚轮的水平滚动量，默认值是 0.0。
+- `deltaY`：数值，表示滚轮的垂直滚动量，默认值是 0.0。
+- `deltaZ`：数值，表示滚轮的 Z 轴滚动量，默认值是 0.0。
+- `deltaMode`：数值，表示相关的滚动事件的单位，适用于上面三个属性。`0`表示滚动单位为像素，`1`表示单位为行，`2`表示单位为页，默认为`0`。
+
+### 实例属性
+
+`WheelEvent`事件实例除了具有`Event`和`MouseEvent`的实例属性和实例方法，还有一些自己的实例属性，但是没有自己的实例方法。
+
+下面的属性都是只读属性。
+
+- `WheelEvent.deltaX`：数值，表示滚轮的水平滚动量。
+- `WheelEvent.deltaY`：数值，表示滚轮的垂直滚动量。
+- `WheelEvent.deltaZ`：数值，表示滚轮的 Z 轴滚动量。
+- `WheelEvent.deltaMode`：数值，表示上面三个属性的单位，`0`是像素，`1`是行，`2`是页。
 
