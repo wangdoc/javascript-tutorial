@@ -59,6 +59,7 @@
 - events/model.md: 事件模型
 - events/event.md: Event 对象
 - events/mouseevent.md: MouseEvent 接口，WheelEvent 接口
+- events/touchevent.md: TouchEvent 接口
 - events/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
