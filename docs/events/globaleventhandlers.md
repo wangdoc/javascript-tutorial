@@ -186,12 +186,29 @@ element.ondragEnd = function (ev) {
 }
 ```
 
-## 触摸相关事件
+## 触摸事件的相关属性
+
+触摸事件的相关属性有四个。
 
 - GlobalEventHandlers.ontouchcancel
 - GlobalEventHandlers.ontouchend
 - GlobalEventHandlers.ontouchmove
 - GlobalEventHandlers.ontouchstart
+
+下面是一个例子。
+
+```javascript
+/* HTML 代码如下
+  <div id="target1"> 触摸这里 </div>
+*/
+
+function startTouch(event) {
+  // ...
+}
+
+var el=document.getElementById('target1');
+el.ontouchstart = startTouch;
+```
 
 ## 特定元素的属性
 
