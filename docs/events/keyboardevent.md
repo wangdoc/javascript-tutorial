@@ -1,4 +1,4 @@
-# KeyboardEvent 接口
+# KeyboardEvent 接口，InputType 接口
 
 ## KeyboardEvent 概述
 
@@ -108,4 +108,58 @@ if (
 ```
 
 上面代码表示，只要`Control`、`Alt`、`Meta`里面，同时按下任意两个或两个以上的键就返回。
+
+## InputEvent 接口概述
+
+`<input>`或`<textarea>`元素的值发生变化时，会发生`input`事件。这个事件对象就是`InputEvent`接口的实例。
+
+这个事件跟`change`事件很想像，不同之处在于`input`事件在元素的值发生变化后立即发生，而`change`在元素失去焦点时发生，而内容此时可能已经变化多次。另一个区别是`change`事件也适用于`<select>`元素，而`input`事件只发生在可以键盘输入的表单元素。
+
+`InputEvent`接口继承了`Event`接口，还定义了一些自己的实例属性和实例方法。
+
+浏览器原生提供`InputEvent()`构造函数，用来生成实例对象。
+
+```javascript
+new InputEvent(type, options)
+```
+
+`InputEvent`构造函数可以接受两个参数。第一个参数是字符串，表示事件名称，该参数是必需的。第二个参数是一个配置对象，用来设置事件实例的属性，该参数是可选的。配置对象的字段除了`Event`构造函数的配置属性，还可以设置下面的字段，这些字段都是可选的。
+
+- `inputType`：字符串，表示发生变更的类型（详见下文）。
+- `data`：字符串，表示插入的字符串。如果没有插入的字符串（比如删除操作），则返回`null`或空字符串。
+- `dataTransfer`：返回一个 DataTransfer 对象实例，该属性通常只在输入框接受富文本输入时有效。
+
+`InputEvent`的实例属性主要就是上面三个属性，这三个实例属性都是只读的。
+
+**（1）InputEvent.data**
+
+`InputEvent.data`属性返回一个字符串，表示变动的内容。
+
+```javascript
+// HTML 代码如下
+// <input type="text" id="myInput">
+var input = document.getElementById('myInput');
+input.addEventListener('input', myFunction, false);
+
+function myFunction(e) {
+  console.log(e.data);
+}
+```
+
+上面代码中，如果手动在输入框里面输入`abc`，控制台会先输出`a`，再在下一行输出`b`，再在下一行输出`c`。然后选中`abc`，一次性将它们删除，控制台会输出`null`或一个空字符串。
+
+**（2）InputEvent.inputType**
+
+`InputEvent.inputType`属性返回一个字符串，表示字符串发生变更的类型。
+
+对于常见情况，Chrome 浏览器的返回值如下。完整列表可以参考[文档](https://w3c.github.io/input-events/index.html#dom-inputevent-inputtype)。
+
+- 手动插入文本：`insertText`
+- 粘贴插入文本：`insertFromPaste`
+- 向后删除：`deleteContentBackward`
+- 向前删除：`deleteContentBackward`
+
+**（3）InputEvent.dataTransfer**
+
+`InputEvent.dataTransfer`属性返回一个 DataTransfer 实例。该属性只在文本框接受粘贴内容（insertFromPaste）或拖拽内容（`insertFromDrop`）时才有效。
 
