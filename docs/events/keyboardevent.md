@@ -109,7 +109,7 @@ if (
 
 上面代码表示，只要`Control`、`Alt`、`Meta`里面，同时按下任意两个或两个以上的键就返回。
 
-## InputEvent 接口概述
+## InputEvent 接口
 
 `<input>`或`<textarea>`元素的值发生变化时，会发生`input`事件。这个事件对象就是`InputEvent`接口的实例。
 

@@ -61,6 +61,7 @@
 - events/mouseevent.md: MouseEvent 接口，WheelEvent 接口
 - events/touchevent.md: Touch 接口，TouchList 接口，TouchEvent 接口
 - events/keyboardevent.md: KeyboardEvent 接口，InputEvent 接口，CustomEvent 接口
+- events/drag.md: 触摸操作
 - events/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
