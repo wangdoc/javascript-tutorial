@@ -60,8 +60,9 @@
 - events/event.md: Event 对象
 - events/mouse.md: 鼠标事件
 - events/keyboardevent.md: KeyboardEvent 接口，InputEvent 接口，CustomEvent 接口
-- events/touch.md: 触摸操作
-- events/drag.md: 拖拉操作
+- events/progress.md: 进度事件
+- events/touch.md: 触摸事件
+- events/drag.md: 拖拉事件
 - events/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
