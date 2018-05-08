@@ -58,7 +58,7 @@
 - events/eventtarget.md: EventTarget 接口
 - events/model.md: 事件模型
 - events/event.md: Event 对象
-- events/mouseevent.md: MouseEvent 接口，WheelEvent 接口
+- events/mouse.md: 鼠标事件
 - events/keyboardevent.md: KeyboardEvent 接口，InputEvent 接口，CustomEvent 接口
 - events/touch.md: 触摸操作
 - events/drag.md: 拖拉操作

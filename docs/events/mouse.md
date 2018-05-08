@@ -1,4 +1,94 @@
-# MouseEvent 接口，WheelEvent 接口
+# 鼠标事件
+
+## 鼠标事件的种类
+
+鼠标事件指与鼠标相关的事件，继承了`MouseEvent`接口。具体的事件主要有以下一些。
+
+- `click`：按下鼠标（通常是按下主按钮）时触发。
+- `dblclick`：在同一个元素上双击鼠标时触发。
+- `mousedown`：按下鼠标键时触发。
+- `mouseup`：释放按下的鼠标键时触发。
+- `mousemove`：当鼠标在一个节点内部移动时触发。当鼠标持续移动时，该事件会连续触发。为了避免性能问题，建议对该事件的监听函数做一些限定，比如限定一段时间内只能运行一次。
+- `mouseenter`：鼠标进入一个节点时触发，进入子节点不会触发这个事件（详见后文）。
+- `mouseover`：鼠标进入一个节点时触发，进入子节点会再一次触发这个事件（详见后文）。
+- `mouseout`：鼠标离开一个节点时触发，离开父节点也会触发这个事件（详见后文）。
+- `mouseleave`：鼠标离开一个节点时触发，离开父节点不会触发这个事件（详见后文）。
+- `contextmenu`：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文菜单键”时触发。
+- `wheel`：滚动鼠标的滚轮时触发，该事件继承的是`WheelEvent`接口。
+
+`click`事件指的是，用户在同一个位置先完成`mousedown`动作，再完成`mouseup`动作。因此，触发顺序是，`mousedown`首先触发，`mouseup`接着触发，`click`最后触发。
+
+`dblclick`事件则会在`mousedown`、`mouseup`、`click`之后触发。
+
+`mouseover`事件和`mouseenter`事件，都是鼠标进入一个节点时触发。两者的区别是，`mouseenter`事件只触发一次，而只要鼠标在节点内部移动，`mouseover`事件会在子节点上触发多次。
+
+```javascript
+/* HTML 代码如下
+ <ul>
+   <li>item 1</li>
+   <li>item 2</li>
+  <li>item 3</li>
+ </ul>
+*/
+
+var ul = document.querySelector('ul');
+
+// 进入 ul 节点以后，mouseenter 事件只会触发一次
+// 以后只要鼠标在节点内移动，都不会再触发这个事件
+// event.target 是 ul 节点
+ul.addEventListener('mouseenter', function (event) {
+  event.target.style.color = 'purple';
+  setTimeout(function () {
+    event.target.style.color = '';
+  }, 500);
+}, false);
+
+// 进入 ul 节点以后，只要在子节点上移动，mouseover 事件会触发多次
+// event.target 是 li 节点
+ul.addEventListener('mouseover', function (event) {
+  event.target.style.color = 'orange';
+  setTimeout(function () {
+    event.target.style.color = '';
+  }, 500);
+}, false);
+```
+
+上面代码中，在父节点内部进入子节点，不会触发`mouseenter`事件，但是会触发`mouseover`事件。
+
+`mouseout`事件和`mouseleave`事件，都是鼠标离开一个节点时触发。两者的区别是，在父元素内部离开一个子元素时，`mouseleave`事件不会触发，而`mouseout`事件会触发。
+
+```javascript
+/* HTML 代码如下
+ <ul>
+   <li>item 1</li>
+   <li>item 2</li>
+  <li>item 3</li>
+ </ul>
+*/
+
+var ul = document.querySelector('ul');
+
+// 先进入 ul 节点，然后在节点内部移动，不会触发 mouseleave 事件
+// 只有离开 ul 节点时，触发一次 mouseleave
+// event.target 是 ul 节点
+ul.addEventListener('mouseleave', function (event) {
+  event.target.style.color = 'purple';
+  setTimeout(function () {
+    event.target.style.color = '';
+  }, 500);
+}, false);
+
+// 先进入 ul 节点，然后在节点内部移动，mouseout 事件会触发多次
+// event.target 是 li 节点
+ul.addEventListener('mouseout', function (event) {
+  event.target.style.color = 'orange';
+  setTimeout(function () {
+    event.target.style.color = '';
+  }, 500);
+}, false);
+```
+
+上面代码中，在父节点内部离开子节点，不会触发`mouseleave`事件，但是会触发`mouseout`事件。
 
 ## MouseEvent 接口概述
 
