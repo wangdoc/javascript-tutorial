@@ -59,8 +59,9 @@
 - events/model.md: 事件模型
 - events/event.md: Event 对象
 - events/mouse.md: 鼠标事件
-- events/keyboardevent.md: KeyboardEvent 接口，InputEvent 接口，CustomEvent 接口
+- events/keyboard.md: 键盘事件
 - events/progress.md: 进度事件
+- events/form.md: 表单事件
 - events/touch.md: 触摸事件
 - events/drag.md: 拖拉事件
 - events/globaleventhandlers.md: GlobalEventHandlers 接口

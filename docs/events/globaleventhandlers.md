@@ -217,3 +217,36 @@ el.ontouchstart = startTouch;
 用户点击`<dialog>`的取消按钮或按下`esc`键时，会触发`cancel`事件，导致执行`oncancel`属性。用户关闭`<dialog>`窗口，会触发`onclose`事件，导致执行`onclose`属性。
 
 这两个属性在 DOM 中只对`<dialog>`元素有意义。
+
+## 拖拉事件的属性
+
+- ondrag：`drag`事件的监听函数
+- ondragend：`dragend`事件的监听函数
+- ondragenter：`dragenter`事件的监听函数
+- ondragexit：`dragexit`事件的监听函数
+- ondragleave：`dragleave`事件的监听函数
+- ondragover：`dragover`事件的监听函数
+- ondragstart：`dragstart`事件的监听函数
+- ondrop：`drop`事件的监听函数
+
+下面是一个例子。
+
+```html
+<div>
+  <p
+    id="source"
+    ondrag="drag_handler(event);"
+    ondragstart="dragstart_handler(event);"
+    draggable="true"
+  >
+    拖动该元素
+  </p>
+</div>
+<div
+  id="target"
+  ondrop="drop_handler(event);"
+  ondragover="dragover_handler(event);"
+>
+  目标区域
+</div>
+```
