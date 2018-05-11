@@ -69,7 +69,8 @@
 - bom/cookie.md: Cookie
 - bom/same-origin.md: 同源限制
 - bom/location.md: Location 对象，URL 对象，URLSearchParams 对象
-- elements/: 网页元素接口
+- elements/: 附录：网页元素接口
 - elements/a.md: <a>
 - elements/image.md: <img>
+- elements/input.md: <input>
 - elements/button.md: <button>
