@@ -72,5 +72,6 @@
 - elements/: 附录：网页元素接口
 - elements/a.md: <a>
 - elements/image.md: <img>
+- elements/form.md: <form>
 - elements/input.md: <input>
 - elements/button.md: <button>

@@ -102,6 +102,16 @@ var selectForm = document.forms[0];
 
 上面代码获取文档第一个表单。
 
+除了使用位置序号，`id`属性和`name`属性也可以用来引用表单。
+
+```javascript
+/* HTML 代码如下
+  <form name="foo" id="bar"></form>
+*/
+document.forms[0] === document.forms.foo // true
+document.forms.bar === document.forms.foo // true
+```
+
 **（3）document.images**
 
 `document.images`属性返回页面所有`<img>`图片节点。
