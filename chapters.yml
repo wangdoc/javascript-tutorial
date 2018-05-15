@@ -64,6 +64,7 @@
 - events/form.md: 表单事件
 - events/touch.md: 触摸事件
 - events/drag.md: 拖拉事件
+- events/common.md: 其他常见事件
 - events/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/cookie.md: Cookie
