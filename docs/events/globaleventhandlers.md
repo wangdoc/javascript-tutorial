@@ -1,8 +1,20 @@
 # GlobalEventHandlers 接口
 
-`GlobalEventHandlers`接口主要用于为各种事件指定回调函数。
+指定事件的回调函数，推荐使用的方法是元素的`addEventListener`方法。
 
-`HTMLElement`、`Document`和`Window`这三种接口继承了这个接口，也就是说，各种 HTML 元素、`document`对象、`window`对象上面都可以使用`GlobalEventHandlers`接口提供的属性。
+```javascript
+div.addEventListener('click', clickHandler, false);
+```
+
+除了之外，还有一种方法可以直接指定事件的回调函数。
+
+```javascript
+div.onclick = clickHandler;
+```
+
+这个接口是由`GlobalEventHandlers`接口提供的。它的优点是使用比较方便，缺点是只能为每个事件指定一个回调函数，并且无法指定事件触发的阶段（捕获阶段还是冒泡阶段）。
+
+`HTMLElement`、`Document`和`Window`都继承了这个接口，也就是说，各种 HTML 元素、`document`对象、`window`对象上面都可以使用`GlobalEventHandlers`接口提供的属性。下面就列出这个接口提供的主要的事件属性。
 
 ## GlobalEventHandlers.onabort
 
@@ -72,28 +84,6 @@ element.onblur = function () {
 
 注意，如果不是可以接受用户输入的元素，要触发`onfocus`，该元素必须有`tabindex`属性。
 
-## GlobalEventHandlers.onclick，GlobalEventHandlers.ondblclick
-
-用户点击元素时，会触发该元素的`onclick`属性。
-
-```javascript
-element.onclick = function (event) {
-  console.log('moot!');
-};
-```
-
-`onclick`属性的处理函数的参数是一个 MouseEvent 对象，会包含当前鼠标位置等信息。函数内部的`this`，指向当前元素。
-
-该属性有两点需要注意。一是，它的触发时间在`mousedown`和`mouseup`事件的后面；二是，`keydown`事件最好与`click`事件部署同样的逻辑，以适应用户不使用鼠标或触摸屏、只使用键盘的情况。
-
-用户双击元素时，会触发`dblclick`事件，导致执行`ondblclick()`。
-
-```javascript
-element.ondblclick = function () {
-  console.log('双击事件发生');
-};
-```
-
 ## GlobalEventHandlers.onscroll
 
 页面或元素滚动时，会触发`scroll`事件，导致执行`onscroll()`。
@@ -110,143 +100,67 @@ document.oncontextmenu = function () {
 
 上面代码中，`oncontextmenu`属性执行后返回`false`，右键菜单就不会出现。
 
-元素的右键菜单显示时，会触发该元素的`onshow`事件。
+元素的右键菜单显示时，会触发该元素的`onshow`监听函数。
 
-## 鼠标相关属性
+## 其他的事件属性
 
-- GlobalEventHandlers.onmousedown
-- GlobalEventHandlers.onmouseenter
-- GlobalEventHandlers.onmouseleave
-- GlobalEventHandlers.onmousemove
-- GlobalEventHandlers.onmouseout
-- GlobalEventHandlers.onmouseover
-- GlobalEventHandlers.onmouseup
-- GlobalEventHandlers.onwheel
+鼠标的事件属性。
 
-## 键盘相关属性
+- onclick
+- ondblclick
+- onmousedown
+- onmouseenter
+- onmouseleave
+- onmousemove
+- onmouseout
+- onmouseover
+- onmouseup
+- onwheel
 
-- GlobalEventHandlers.onkeydown
-- GlobalEventHandlers.onkeypress
-- GlobalEventHandlers.onkeyup
+键盘的事件属性。
 
-## 表单相关属性
+- onkeydown
+- onkeypress
+- onkeyup
 
-### GlobalEventHandlers.oninput，GlobalEventHandlers.onchange
+焦点的事件属性。
 
-`<input>`、`<select>`、`<textarea>`元素的值发生任何一点变更时，都会同步触发`input`事件，导致执行`oninput()`。当用户的输入告一段落后，输入框失去焦点之后，才会触发`change`事件，导致执行`onchange()`，也就是说不是每一次输入，都会触发`change`事件。
+- onblur
+- onfocus
 
-另外，打开`contenteditable`属性的元素（变成可编辑模式）的内容发生变化时，也会触发`input`事件。
+表单的事件属性。
 
-`oninput`和`onchange`的参数就是事件对象，可以从`event.target.value`上拿到用户输入的值。
+- oninput
+- onchange
+- onsubmit
+- onreset
+- oninvalid
+- onselect
 
-### GlobalEventHandlers.oninvalid，GlobalEventHandlers.onreset
+触摸的事件属性。
 
-一个表单元素的值不符合规定条件时，就会触发`invalid`事件，导致`oninvalid()`执行。
+- ontouchcancel
+- ontouchend
+- ontouchmove
+- ontouchstart
 
-用户重置表单时，会触发`reset`事件，导致执行`onreset()`。
+拖动的事件属性分成两类：一类与被拖动元素相关，另一类与接收被拖动元素的容器元素相关。
 
-### GlobalEventHandlers.onselect
+被拖动元素的事件属性。
 
-表单的`<input>`文本输入框和`<textarea>`里面的文本被选中，会触发`select`事件，导致执行`onselect()`。
+- ondragstart：拖动开始
+- ondrag：拖动过程中，每隔几百毫秒触发一次
+- ondragend：拖动结束
 
-### GlobalEventHandlers.onsubmit
+接收被拖动元素的容器元素的事件属性。
 
-用户提交表单时，会触发表单元素的`submit`事件，导致执行`onsubmit()`。
+- ondragenter：被拖动元素进入容器元素。
+- ondragleave：被拖动元素离开容器元素。
+- ondragover：被拖动元素在容器元素上方，每隔几百毫秒触发一次。
+- ondrop：松开鼠标后，被拖动元素放入容器元素。
 
-## 拖动相关属性
+`<dialog>`对话框元素的事件属性。
 
-拖动相关属性分成两类：一类与被拖动元素相关，另一类接收被拖动元素的容器元素相关。
+- oncancel
+- onclose
 
-被拖动元素的相关属性。
-
-- GlobalEventHandlers.ondragstart：拖动开始
-- GlobalEventHandlers.ondrag：拖动过程中，每隔几百毫秒触发一次
-- GlobalEventHandlers.ondragend：拖动结束
-
-接收被拖动元素的容器元素的相关属性。
-
-- GlobalEventHandlers.ondragenter：被拖动元素进入容器元素。
-- GlobalEventHandlers.ondragleave：被拖动元素离开容器元素。
-- GlobalEventHandlers.ondragover：被拖动元素在容器元素上方，每隔几百毫秒触发一次。
-- GlobalEventHandlers.ondrop：松开鼠标后，被拖动元素放入容器元素。
-
-以上属性的函数参数都是事件对象。
-
-```javascript
-element.ondragstart = function (ev) {
-  console.log('dragStart');
-}
-
-element.ondrag = function (ev) {
-  console.log('Drag');
-}
-
-element.ondragEnd = function (ev) {
-  console.log('dragEnd');
-}
-```
-
-## 触摸事件的相关属性
-
-触摸事件的相关属性有四个。
-
-- GlobalEventHandlers.ontouchcancel
-- GlobalEventHandlers.ontouchend
-- GlobalEventHandlers.ontouchmove
-- GlobalEventHandlers.ontouchstart
-
-下面是一个例子。
-
-```javascript
-/* HTML 代码如下
-  <div id="target1"> 触摸这里 </div>
-*/
-
-function startTouch(event) {
-  // ...
-}
-
-var el=document.getElementById('target1');
-el.ontouchstart = startTouch;
-```
-
-## 特定元素的属性
-
-### GlobalEventHandlers.oncancel，GlobalEventHandlers.onclose
-
-用户点击`<dialog>`的取消按钮或按下`esc`键时，会触发`cancel`事件，导致执行`oncancel`属性。用户关闭`<dialog>`窗口，会触发`onclose`事件，导致执行`onclose`属性。
-
-这两个属性在 DOM 中只对`<dialog>`元素有意义。
-
-## 拖拉事件的属性
-
-- ondrag：`drag`事件的监听函数
-- ondragend：`dragend`事件的监听函数
-- ondragenter：`dragenter`事件的监听函数
-- ondragexit：`dragexit`事件的监听函数
-- ondragleave：`dragleave`事件的监听函数
-- ondragover：`dragover`事件的监听函数
-- ondragstart：`dragstart`事件的监听函数
-- ondrop：`drop`事件的监听函数
-
-下面是一个例子。
-
-```html
-<div>
-  <p
-    id="source"
-    ondrag="drag_handler(event);"
-    ondragstart="dragstart_handler(event);"
-    draggable="true"
-  >
-    拖动该元素
-  </p>
-</div>
-<div
-  id="target"
-  ondrop="drop_handler(event);"
-  ondragover="dragover_handler(event);"
->
-  目标区域
-</div>
-```
