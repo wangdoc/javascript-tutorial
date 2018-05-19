@@ -428,7 +428,7 @@ params.toString() // "foo=3"
 ```javascript
 var params = new URLSearchParams('?foo=1');
 params.get('foo') // "1"
-params.get('bar') // bar
+params.get('bar') // null
 ```
 
 两个地方需要注意。第一，它返回的是字符串，如果原始值是数值，需要转一下类型；第二，如果指定的键名不存在，返回值是`null`。
