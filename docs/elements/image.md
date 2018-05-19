@@ -12,7 +12,7 @@ img instanceof Image // true
 img instanceof HTMLImageElement // true
 ```
 
-`Image`构造函数可以接受两个整数作为参数，分别表示`<img>`元素的宽度和长度。
+`Image`构造函数可以接受两个整数作为参数，分别表示`<img>`元素的宽度和高度。
 
 ```javascript
 // 语法
