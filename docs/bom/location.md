@@ -277,9 +277,11 @@ function handleFiles(files) {
 
 ## URLSearchParams 对象
 
-`URLSearchParams`对象是浏览器的原生对象，用来构造、解析和处理 URL 的查询字符串。
+### 概述
 
-它本身也是一个构造函数，可以生成实例。参数可以为查询字符串，起首的问号`?`有没有都行，也可以为对应查询字符串的数组或对象。
+`URLSearchParams`对象是浏览器的原生对象，用来构造、解析和处理 URL 的查询字符串（即 URL 问号后面的部分）。
+
+它本身也是一个构造函数，可以生成实例。参数可以为查询字符串，起首的问号`?`有没有都行，也可以是对应查询字符串的数组或对象。
 
 ```javascript
 // 方法一：传入字符串
@@ -315,19 +317,28 @@ fetch('https://example.com/api', {
 
 上面代码中，`fetch`命令向服务器发送命令时，可以直接使用`URLSearchParams`实例。
 
-URL 实例的`searchParams`属性就是一个`URLSearchParams`实例，只不过这个实例是只读的。
+`URLSearchParams`可以与`URL`接口结合使用。
 
 ```javascript
-var url = new URL('http://example.com/?foo=1');
-url.searchParams.get('foo') // "1"
+var url = new URL(window.location);
+var foo = url.searchParams.get('foo') || 'somedefault';
 ```
 
-上面代码中，URL 实例的`searchParams`属性可以使用`URLSearchParams`的`get`方法。
+上面代码中，URL 实例的`searchParams`属性就是一个`URLSearchParams`实例，所以可以使用`URLSearchParams`接口的`get`方法。
+
+DOM 的`a`元素节点的`searchParams`属性，就是一个`URLSearchParams`实例。
+
+```javascript
+var a = document.createElement('a');
+a.href = 'https://example.com?filter=api';
+a.searchParams.get('filter') // "api"
+```
 
 `URLSearchParams`实例有遍历器接口，可以用`for...of`循环遍历（详见《ES6 标准入门》的《Iterator》一章）。
 
 ```javascript
 var params = new URLSearchParams({'foo': 1 , 'bar': 2});
+
 for (var p of params) {
   console.log(p[0] + ': ' + p[1]);
 }
@@ -337,7 +348,7 @@ for (var p of params) {
 
 `URLSearchParams`没有实例属性，只有实例方法。
 
-## URLSearchParams.toString()
+### URLSearchParams.toString()
 
 `toString`方法返回实例的字符串形式。
 
@@ -419,6 +430,17 @@ params.toString() // "foo=2&bar=3"
 var params = new URLSearchParams('?foo=1&foo=2');
 params.set('foo', 3);
 params.toString() // "foo=3"
+```
+
+下面是一个替换当前 URL 的例子。
+
+```javascript
+// URL: https://example.com?version=1.0
+var params = new URLSearchParams(location.search.slice(1));
+params.set('version', 2.0);
+
+window.history.replaceState({}, '', location.pathname + `?` + params);
+// URL: https://example.com?version=2.0
 ```
 
 ### URLSearchParams.get()，URLSearchParams.getAll()
