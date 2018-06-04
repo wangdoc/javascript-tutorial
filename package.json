@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/wangdoc/javascript-tutorial",
   "dependencies": {
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^1.2.0",
     "husky": "^0.14.3",
     "loppo": "^0.6.14",
     "loppo-theme-wangdoc": "^0.3.8"
