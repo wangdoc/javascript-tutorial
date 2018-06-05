@@ -68,6 +68,7 @@
 - events/globaleventhandlers.md: GlobalEventHandlers 接口
 - bom/: 浏览器模型
 - bom/engine.md: 浏览器模型概述
+- bom/window.md: window 对象
 - bom/navigator.md: Navigator 对象，Screen 对象
 - bom/cookie.md: Cookie
 - bom/same-origin.md: 同源限制
