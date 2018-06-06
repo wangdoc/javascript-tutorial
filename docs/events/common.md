@@ -27,11 +27,13 @@ window.addEventListener('beforeunload', function(e) {
 });
 ```
 
-注意，许多手机浏览器默认忽略这个事件，桌面浏览器也有方法忽略这个事件。所以，它可能根本不会生效，不能依赖它来阻止用户关闭窗口。
+注意，许多手机浏览器默认忽略这个事件，桌面浏览器也有办法忽略这个事件。所以，它可能根本不会生效，不能依赖它来阻止用户关闭窗口。
+
+另外，一旦使用了`beforeunload`事件，浏览器就不会缓存当前网页。因为执行了这个事件以后，缓存页面就没意义了。
 
 ### unload 事件
 
-`unload`事件在窗口关闭或者`document`对象将要卸载时触发。它的触发顺序排在`beforeunload`、`pagehide`事件后面。`unload`事件只在页面没有被浏览器缓存时才会触发，换言之，如果通过按下“前进/后退”导致页面卸载，并不会触发`unload`事件。
+`unload`事件在窗口关闭或者`document`对象将要卸载时触发。它的触发顺序排在`beforeunload`、`pagehide`事件后面。
 
 `unload`事件发生时，文档处于一个特殊状态。所有资源依然存在，但是对用户来说都不可见，UI 互动全部无效。这个事件是无法取消的，即使在监听函数里面抛出错误，也不能停止文档的卸载。
 
@@ -40,6 +42,8 @@ window.addEventListener('unload', function(event) {
   console.log('文档将要卸载');
 });
 ```
+
+跟`beforeunload`事件一样，一旦使用了`unload`事件，浏览器就不会缓存当前网页，理由同上。
 
 ### load 事件，error 事件
 
