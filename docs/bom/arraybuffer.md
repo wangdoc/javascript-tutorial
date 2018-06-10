@@ -6,7 +6,7 @@ ArrayBuffer 对象表示一段二进制数据，用来模拟内存里面的数�
 
 这个对象是 ES6 才写入标准的，普通的网页编程用不到它，为了教程体系的完整，下面只提供一个简略的介绍，详细介绍请看《ES6 标准入门》里面的章节。
 
-浏览器原生提供`ArrayBuffer`构造函数，用来生成实例。它接受一个整数作为参数，表示这段二进制数据占用多少个字节。
+浏览器原生提供`ArrayBuffer()`构造函数，用来生成实例。它接受一个整数作为参数，表示这段二进制数据占用多少个字节。
 
 ```javascript
 var buffer = new ArrayBuffer(8);
@@ -35,13 +35,13 @@ var buf2 = buf1.slice(0);
 
 Blob 对象表示一个二进制文件的数据内容，比如一个图片文件的内容就可以通过 Blob 对象读写。它通常用来读写文件。
 
-浏览器原生提供`Blob`构造函数，用来生成实例对象。
+浏览器原生提供`Blob()`构造函数，用来生成实例对象。
 
 ```javascript
-new Blob( array[, options])
+new Blob(array [, options])
 ```
 
-`Blob`构造函数接受两个参数。第一个参数是数组，成员就是新生成的`Blob`实例对象的内容；第二个参数是可选的，是一个配置对象，目前只有一个属性`type`，它的值是一个字符串，表示数据的 MIME 类型，默认是空字符串。
+`Blob`构造函数接受两个参数。第一个参数是数组，成员是字符串或二进制对象，表示新生成的`Blob`实例对象的内容；第二个参数是可选的，是一个配置对象，目前只有一个属性`type`，它的值是一个字符串，表示数据的 MIME 类型，默认是空字符串。
 
 ```javascript
 var htmlFragment = ['<a id="a"><b id="b">hey!</b></a>'];
@@ -50,10 +50,11 @@ var myBlob = new Blob(htmlFragment, {type : 'text/html'});
 
 上面代码中，实例对象`myBlob`包含的是字符串。生成实例的时候，数据类型指定为`text/html`。
 
-下面是另一个例子，Blob 实例保存 JSON 数据。
+下面是另一个例子，Blob 保存 JSON 数据。
 
 ```javascript
-var blob = new Blob([{"hello": "world"}], {type : 'application/json'});
+var obj = { hello: 'world' };
+var blob = new Blob([ JSON.stringify(obj) ], {type : 'application/json'});
 ```
 
 `Blob`具有两个实例属性`size`和`type`，分别返回数据的大小和类型。
