@@ -201,7 +201,7 @@ function giveDetails(e) {
   console.log(e.detail);
 }
 
-document.selectQuery('p') = giveDetails;
+document.querySelector('p').onclick = giveDetails;
 ```
 
 ## 实例方法
