@@ -108,6 +108,101 @@ function validate(obj, lowval, hival){
 
 总结一下，JavaScript 语言之中，一切皆对象，运行环境也是对象，所以函数都是在某个对象之中运行，`this`就是函数运行时所在的对象（环境）。这本来并不会让用户糊涂，但是 JavaScript 支持运行环境动态切换，也就是说，`this`的指向是动态的，没有办法事先确定到底指向哪个对象，这才是最让初学者感到困惑的地方。
 
+## 实质
+
+JavaScript 语言之所以有 this 的设计，跟内存里面的数据结构有关系。
+
+```javascript
+var obj = { foo:  5 };
+```
+
+上面的代码将一个对象赋值给变量`obj`。JavaScript 引擎会先在内存里面，生成一个对象`{ foo: 5 }`，然后把这个对象的内存地址赋值给变量`obj`。也就是说，变量`obj`是一个地址（reference）。后面如果要读取`obj.foo`，引擎先从`obj`拿到内存地址，然后再从该地址读出原始的对象，返回它的`foo`属性。
+
+原始的对象以字典结构保存，每一个属性名都对应一个属性描述对象。举例来说，上面例子的`foo`属性，实际上是以下面的形式保存的。
+
+```javascript
+{
+  foo: {
+    [[value]]: 5
+    [[writable]]: true
+    [[enumerable]]: true
+    [[configurable]]: true
+  }
+}
+```
+
+注意，`foo`属性的值保存在属性描述对象的`value`属性里面。
+
+这样的结构是很清晰的，问题在于属性的值可能是一个函数。
+
+```javascript
+var obj = { foo: function () {} };
+```
+
+这时，引擎会将函数单独保存在内存中，然后再将函数的地址赋值给`foo`属性的`value`属性。
+
+```javascript
+{
+  foo: {
+    [[value]]: 函数的地址
+    ...
+  }
+}
+```
+
+由于函数是一个单独的值，所以它可以在不同的环境（上下文）执行。
+
+```javascript
+var f = function () {};
+var obj = { f: f };
+
+// 单独执行
+f()
+
+// obj 环境执行
+obj.f()
+```
+
+JavaScript 允许在函数体内部，引用当前环境的其他变量。
+
+```javascript
+var f = function () {
+  console.log(x);
+};
+```
+
+上面代码中，函数体里面使用了变量`x`。该变量由运行环境提供。
+
+现在问题就来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在函数体内部获得当前的运行环境（context）。所以，`this`就出现了，它的设计目的就是在函数体内部，指代函数当前的运行环境。
+
+```javascript
+var f = function () {
+  console.log(this.x);
+}
+```
+
+上面代码中，函数体里面的`this.x`就是指当前运行环境的`x`。
+
+```javascript
+var f = function () {
+  console.log(this.x);
+}
+
+var x = 1;
+var obj = {
+  f: f,
+  x: 2,
+};
+
+// 单独执行
+f() // 1
+
+// obj 环境执行
+obj.f() // 2
+```
+
+上面代码中，函数`f`在全局环境执行，`this.x`指向全局环境的`this`；在`obj`环境执行，`this.x`指向`obj.x`。
+
 ## 使用场合
 
 `this`主要有以下几个使用场合。
