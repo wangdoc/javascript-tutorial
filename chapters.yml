@@ -71,6 +71,7 @@
 - bom/window.md: window 对象
 - bom/navigator.md: Navigator 对象，Screen 对象
 - bom/cookie.md: Cookie
+- bom/xmlhttprequest.md: XMLHttpRequest 对象
 - bom/same-origin.md: 同源限制
 - bom/cors.md: CORS 通信
 - bom/storage.md: Storage 接口
