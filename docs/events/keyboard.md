@@ -52,14 +52,14 @@ new KeyboardEvent(type, options)
 下面是一个示例。
 
 ```javascript
-function showChar(e){
+function showChar(e) {
   console.log('ALT: ' + e.altKey);
   console.log('CTRL: ' + e.ctrlKey);
   console.log('Meta: ' + e.metaKey);
   console.log('Meta: ' + e.shiftKey);
 }
 
-document.body.addEventListener('click', showChar, false);
+document.body.addEventListener('keydown', showChar, false);
 ```
 
 ### KeyboardEvent.code
