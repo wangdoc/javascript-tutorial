@@ -44,7 +44,92 @@ user_name=张三&user_passwd=123&submit_button=提交
 
 注意，实际提交的时候，只要键值不是 URL 的合法字符（比如汉字“张三”和“确定”），浏览器会自动对其进行编码。
 
-## 表单验证
+## 表单的内置验证
+
+### 自动校验
+
+表单提交的时候，浏览器允许开发者指定一些条件，它会自动验证各个表单控件的值是否符合条件。
+
+```html
+<!-- 必填 -->
+<input required>
+
+<!-- 必须符合正则表达式 -->
+<input pattern="banana|cherry">
+
+<!-- 字符串长度必须为6个字符 -->
+<input minlength="6" maxlength="6">
+
+<!-- 数值必须在1到10之间 -->
+<input type="number" min="1" max="10">
+
+<!-- 必须填入 Email 地址 -->
+<input type="email">
+
+<!-- 必须填入 URL -->
+<input type="URL">
+```
+
+如果一个控件通过验证，它就会匹配`:valid`的 CSS 伪类，浏览器会继续进行表单提交的流程。如果没有通过验证，该控件就会匹配`:invalid`的 CSS 伪类，浏览器会终止表单提交，并显示一个错误信息。
+
+### checkValidity()
+
+除了提交表单的时候，浏览器自动校验表单，还可以手动触发表单的校验。表单元素和表单控件都有`checkValidity()`方法，用于手动触发校验。
+
+```javascript
+// 触发整个表单的校验
+form.checkValidity()
+
+// 触发单个表单控件的校验
+formControl.checkValidity()
+```
+
+`checkValidity()`方法返回一个布尔值，`true`表示通过校验，`false`表示没有通过校验。因此，提交表单可以封装为下面的函数。
+
+```javascript
+function submitForm(action) {
+  var form = document.getElementById('form');
+  form.action = action;
+  if (form.checkValidity()) {
+    form.submit();
+  }
+}
+```
+
+### validity 属性
+
+表单元素和控件元素都有一个`validity`属性，返回一个`ValidityState`对象，包含当前校验状态的信息。
+
+该对象有以下属性，全部为只读属性。
+
+- `ValidityState.badInput`：布尔值，表示浏览器是否不能将用户的输入转换成正确的类型，比如用户在数值框里面输入字符串。 
+- `ValidityState.customError`：布尔值，表示是否已经调用`setCustomValidity()`方法，将校验信息设置为一个非空字符串。
+- `ValidityState.patternMismatch`：布尔值，表示用户输入的值是否不满足模式的要求。
+- `ValidityState.rangeOverflow`：布尔值，表示用户输入的值是否大于最大范围。
+- `ValidityState.rangeUnderflow`：布尔值，表示用户输入的值是否小于最小范围。
+- `ValidityState.stepMismatch`：布尔值，表示用户输入的值不符合步长的设置（即不能被步长值整除）。
+- `ValidityState.tooLong`：布尔值，表示用户输入的字数超出了最长字数。
+- `ValidityState.tooShort`：布尔值，表示用户输入的字符少于最短字数。
+- `ValidityState.typeMismatch`：布尔值，表示用户填入的值不符合类型要求（主要是类型为 Email 或 URL 的情况）。 
+- `ValidityState.valid`：布尔值，表示用户是否满足所有校验条件。
+- `ValidityState.valueMissing`：布尔值，表示用户没有填入必填的值。
+
+### 表单的 novalidate 属性
+
+表单元素的`novalidate`属性，可以关闭浏览器的自动校验。
+
+```html
+<form novalidate>
+</form>
+```
+
+如果表单元素没有设置`novalidate`属性，那么提交按钮（`<button>`或`<input>`元素）的`formnovalidate`属性也有同样的作用。
+
+```html
+<form>
+  <input type="submit" value="submit" formnovalidate>
+</form>
+```
 
 ## 文件上传
 
