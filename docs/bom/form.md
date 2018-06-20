@@ -96,9 +96,71 @@ function submitForm(action) {
 }
 ```
 
+### willValidate 属性
+
+控件元素的`willValidate`属性是一个布尔值，表示该控件是否会在提交时进行校验。
+
+```javascript
+// HTML 代码如下
+// <form novalidate>
+//   <input id="name" name="name" required />
+// </form>
+
+var input = document.querySelector('#name');
+input.willValidate // true
+```
+
+### validationMessage 属性
+
+控件元素的`validationMessage`属性返回一个字符串，表示控件不满足校验条件时，浏览器显示的提示文本。以下两种情况，该属性返回空字符串。
+
+- 该控件不会在提交时自动校验
+- 该控件满足校验条件
+
+```javascript
+// HTML 代码如下
+// <form><input type="text" required></form>
+document.querySelector('form input').validationMessage
+// "请填写此字段。"
+```
+
+下面是另一个例子。
+
+```javascript
+var myInput = document.getElementById('myinput');
+if (!myInput.checkValidity()) {
+  document.getElementById('prompt').innerHTML = myInput.validationMessage;
+} 
+```
+
+### setCustomValidity()
+
+控件元素的`setCustomValidity()`方法用来定制校验失败时的报错信息。它接受一个字符串作为参数，该字符串就是定制的报错信息。如果参数为空字符串，则上次设置的报错信息被清除。
+
+如果调用这个方法，并且参数不为空字符串，浏览器就会认为控件没有通过校验，就会立刻显示该方法设置的报错信息。
+
+```javascript
+// HTML 代码如下
+// <input type="file" id="fs">
+
+document.getElementById('fs').onchange = checkFileSize;
+
+function checkFileSize() {
+  var fs = document.getElementById('fs');
+  var files = fs.files;
+  if (files.length > 0) {
+     if (files[0].size > 75 * 1024) {
+       fs.setCustomValidity('文件不能大于75KB');
+       return;
+     }
+  }
+  fs.setCustomValidity('');
+}
+```
+
 ### validity 属性
 
-表单元素和控件元素都有一个`validity`属性，返回一个`ValidityState`对象，包含当前校验状态的信息。
+控件元素的属性`validity`属性返回一个`ValidityState`对象，包含当前校验状态的信息。
 
 该对象有以下属性，全部为只读属性。
 
@@ -114,9 +176,30 @@ function submitForm(action) {
 - `ValidityState.valid`：布尔值，表示用户是否满足所有校验条件。
 - `ValidityState.valueMissing`：布尔值，表示用户没有填入必填的值。
 
-### 表单的 novalidate 属性
+下面是一个例子。
 
-表单元素的`novalidate`属性，可以关闭浏览器的自动校验。
+```javascript
+var input = document.getElementById('myinput');
+if (input.validity.valid) {
+  console.log('通过校验');
+} else {
+  console.log('校验失败');
+}
+```
+
+下面是另外一个例子。
+
+```javascript
+var txt = '';
+if (document.getElementById('myInput').validity.rangeOverflow) {
+  txt = '数值超过上限';
+}
+document.getElementById('prompt').innerHTML = txt;
+```
+
+### 表单的 HTML 属性 novalidate
+
+表单元素的 HTML 属性`novalidate`，可以关闭浏览器的自动校验。
 
 ```html
 <form novalidate>
@@ -130,6 +213,119 @@ function submitForm(action) {
   <input type="submit" value="submit" formnovalidate>
 </form>
 ```
+
+## enctype 属性 
+
+表单能够用四种编码，向服务器发送数据。编码格式由表单的`enctype`属性决定。
+
+假定表单有两个字段，分别是`foo`和`baz`，其中`foo`字段的值等于`bar`，`baz`字段的值s是一个分为两行的字符串。
+
+```
+The first line.
+The second line.
+```
+
+下面四种格式，都可以将这个表单发送到服务器。
+
+**（1）GET 方法**
+
+如果表单使用`GET`方法发送数据，`enctype`属性无效。
+
+```html
+<form
+  action="register.php"
+  method="get"
+  onsubmit="AJAXSubmit(this); return false;"
+>
+</form>
+```
+
+数据将以 URL 的查询字符串发出。
+
+```http
+?foo=bar&baz=The%20first%20line.%0AThe%20second%20line.
+```
+
+**（2）application/x-www-form-urlencoded**
+
+如果表单用`POST`方法发送数据，并省略`enctype`属性，那么数据以`application/x-www-form-urlencoded`格式发送（因为这是默认值）。
+
+```html
+<form
+  action="register.php"
+  method="post"
+  onsubmit="AJAXSubmit(this); return false;"
+>
+</form>
+```
+
+发送的 HTTP 请求如下。
+
+```http
+Content-Type: application/x-www-form-urlencoded
+
+foo=bar&baz=The+first+line.%0D%0AThe+second+line.%0D%0A
+```
+
+上面代码中，数据体里面的`%0D%0A`代表换行符（`\r\n`）。
+
+**（3）text/plain**
+
+如果表单使用`POST`方法发送数据，`enctype`属性为`text/plain`，那么数据将以纯文本格式发送。
+
+```html
+<form
+  action="register.php"
+  method="post"
+  enctype="text/plain"
+  onsubmit="AJAXSubmit(this); return false;"
+>
+</form>
+```
+
+发送的 HTTP 请求如下。
+
+```http
+Content-Type: text/plain
+
+foo=bar
+baz=The first line.
+The second line.
+```
+
+**（4）multipart/form-data**
+
+如果表单使用`POST`方法，`enctype`属性为`multipart/form-data`，那么数据将以混合的格式发送。
+
+```html
+<form
+  action="register.php"
+  method="post"
+  enctype="multipart/form-data"
+  onsubmit="AJAXSubmit(this); return false;"
+>
+</form>
+```
+
+发送的 HTTP 请求如下。
+
+```http
+Content-Type: multipart/form-data; boundary=---------------------------314911788813839
+
+-----------------------------314911788813839
+Content-Disposition: form-data; name="foo"
+
+bar
+-----------------------------314911788813839
+Content-Disposition: form-data; name="baz"
+
+The first line.
+The second line.
+
+-----------------------------314911788813839--
+```
+
+这种格式也是文件上传的格式。
 
 ## 文件上传
 
@@ -145,11 +341,14 @@ function submitForm(action) {
 <form method="post" enctype="multipart/form-data">
   <div>
     <label for="file">选择一个文件</label>
-    <input type="file" id="file" name="myFile">
+    <input type="file" id="file" name="myFile" multiple>
   </div>
   <div>
     <input type="submit" id="submit" name="submit_button" value="上传" />
   </div>
 </form>
 ```
+
+上面的 HTML 代码中，file 控件的`multiple`属性，指定可以一次选择多个文件；如果没有这个属性，则一次只能选择一个文件。
+
 
