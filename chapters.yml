@@ -79,6 +79,7 @@
 - bom/location.md: Location 对象，URL 对象，URLSearchParams 对象
 - bom/arraybuffer.md: ArrayBuffer 对象，Blob 对象
 - bom/file.md: File 对象，FileList 对象，FileReader 对象
+- bom/form.md: 表单，FormData 对象
 - elements/: 附录：网页元素接口
 - elements/a.md: <a>
 - elements/image.md: <img>

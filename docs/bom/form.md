@@ -1,6 +1,6 @@
-# 表单
+# 表单，FormData 对象
 
-## 概述
+## 表单概述
 
 表单（`<form>`）用来收集用户提交的数据，发送到服务器。比如，用户提交用户名和密码，让服务器验证，就要通过表单。表单提供多种控件，让开发者使用，具体的控件种类和用法请参考 HTML 语言的教程。本章主要介绍 JavaScript 与表单的交互。
 
@@ -43,6 +43,148 @@ user_name=张三&user_passwd=123&submit_button=提交
 ```
 
 注意，实际提交的时候，只要键值不是 URL 的合法字符（比如汉字“张三”和“确定”），浏览器会自动对其进行编码。
+
+点击`submit`控件，就可以提交表单。
+
+```html
+<form>
+  <input type="submit" value="提交">
+</form>
+```
+
+上面表单就包含一个`submit`控件，点击这个控件，浏览器就会把表单数据向服务器提交。
+
+注意，表单里面的`<button>`元素如果没有用`type`属性指定类型，那么默认就是`submit`控件。
+
+```html
+<form>
+  <button>提交</button>
+</form>
+```
+
+上面表单的`<button>`元素，点击以后也会提交表单。
+
+除了点击`submit`控件提交表单，还可以用表单元素的`submit()`方法，通过脚本提交表单。
+
+```javascript
+formElement.submit();
+```
+
+表单元素的`reset()`方法可以重置所有控件的值（重置为默认值）。
+
+```javascript
+formElement.reset()
+```
+
+## FormData 对象
+
+### 概述
+
+表单数据以键值对的形式向服务器发送，这个过程是浏览器自动完成的。但是有时候，我们希望通过脚本完成过程，构造和编辑表单键值对，然后通过`XMLHttpRequest.send()`方法发送。浏览器原生提供了 FormData 对象来完成这项工作。
+
+FormData 首先是一个构造函数，用来生成实例。
+
+```javascript
+var formdata = new FormData(form);
+```
+
+`FormData()`构造函数的参数是一个表单元素，这个参数是可选的。如果省略参数，就表示一个空的表单，否则就会处理表单元素里面的键值对。
+
+下面是一个表单。
+
+```html
+<form id="myForm" name="myForm">
+  <div>
+    <label for="username">用户名：</label>
+    <input type="text" id="username" name="username">
+  </div>
+  <div>
+    <label for="useracc">账号：</label>
+    <input type="text" id="useracc" name="useracc">
+  </div>
+  <div>
+    <label for="userfile">上传文件：</label>
+    <input type="file" id="userfile" name="userfile">
+  </div>
+<input type="submit" value="Submit!">
+</form>
+```
+
+我们用 FormData 对象处理上面这个表单。
+
+```javascript
+var myForm = document.getElementById('myForm');
+var formData = new FormData(myForm);
+
+// 获取某个控件的值
+formData.get('username') // ""
+
+// 设置某个控件的值
+formData.set('username', '张三');
+
+formData.get('username') // "张三"
+```
+
+### 实例方法
+
+FormData 提供以下实例方法。
+
+- `FormData.get(key)`：获取指定键名对应的键值，参数为键名。如果有多个同名的键值对，则返回第一个键值对的键值。
+- `FormData.getAll(key)`：返回一个数组，表示指定键名对应的所有键值。如果有多个同名的键值对，数组会包含所有的键值。
+- `FormData.set(key, value)`：设置指定键名的键值，参数为键名。如果键名不存在，会添加这个键值对，否则会更新指定键名的键值。如果第二个参数是文件，还可以使用第三个参数，表示文件名。
+- `FormData.delete(key)`：删除一个键值对，参数为键名。
+- `FormData.append(key, value)`：添加一个键值对。如果键名重复，则会生成两个相同键名的键值对。如果第二个参数是文件，还可以使用第三个参数，表示文件名。
+- `FormData.has(key)`：返回一个布尔值，表示是否具有该键名的键值对。
+- `FormData.keys()`：返回一个遍历器对象，用于`for...of`循环遍历所有的键名。
+- `FormData.values()`：返回一个遍历器对象，用于`for...of`循环遍历所有的键值。
+- `FormData.entries()`：返回一个遍历器对象，用于`for...of`循环遍历所有的键值对。如果直接用`for...of`循环遍历 FormData 实例，默认就会调用这个方法。
+
+下面是`get()`、`getAll()`、`set()`、`append()`方法的例子。
+
+```javascript
+var formData = new FormData();
+
+formData.set('username', '张三');
+formData.append('username', '李四');
+formData.get('username') // "张三"
+formData.getAll('username') // ["张三", "李四"]
+
+formData.append('userpic[]', myFileInput.files[0], 'user1.jpg');
+formData.append('userpic[]', myFileInput.files[1], 'user2.jpg');
+```
+
+下面是遍历器的例子。
+
+```javascript
+var formData = new FormData();
+formData.append('key1', 'value1');
+formData.append('key2', 'value2');
+
+for (var key of formData.keys()) {
+  console.log(key);
+}
+// "key1"
+// "key2"
+
+for (var value of formData.values()) {
+  console.log(value);
+}
+// "value1"
+// "value2"
+
+for (var pair of formData.entries()) {
+  console.log(pair[0] + ': ' + pair[1]); 
+}
+// key1: value1
+// key2: value2
+
+// 等同于遍历 formData.entries()
+for (var pair of formData) {
+  console.log(pair[0] + ': ' + pair[1]);
+}
+// key1: value1
+// key2: value2
+```
 
 ## 表单的内置验证
 
@@ -197,13 +339,19 @@ if (document.getElementById('myInput').validity.rangeOverflow) {
 document.getElementById('prompt').innerHTML = txt;
 ```
 
-### 表单的 HTML 属性 novalidate
+### 表单的 novalidate 属性
 
 表单元素的 HTML 属性`novalidate`，可以关闭浏览器的自动校验。
 
 ```html
 <form novalidate>
 </form>
+```
+
+这个属性也可以在脚本里设置。
+
+```javascript
+form.noValidate = true;
 ```
 
 如果表单元素没有设置`novalidate`属性，那么提交按钮（`<button>`或`<input>`元素）的`formnovalidate`属性也有同样的作用。
@@ -351,4 +499,52 @@ The second line.
 
 上面的 HTML 代码中，file 控件的`multiple`属性，指定可以一次选择多个文件；如果没有这个属性，则一次只能选择一个文件。
 
+```javascript
+var fileSelect = document.getElementById('file');
+var files = fileSelect.files;
+```
+
+然后，新建一个 FormData 实例对象，模拟发送到服务器的表单数据，把选中的文件添加到这个对象上面。
+
+```javascript
+var formData = new FormData();
+
+for (var i = 0; i < files.length; i++) {
+  var file = files[i];
+
+  // 只上传图片文件
+  if (!file.type.match('image.*')) {
+    continue;
+  }
+
+  formData.append('photos[]', file, file.name);
+}
+```
+
+最后，使用 Ajax 向服务器上传文件。
+
+```javascript
+var xhr = new XMLHttpRequest();
+
+xhr.open('POST', 'handler.php', true);
+
+xhr.onload = function () {
+  if (xhr.status !== 200) {
+    console.log('An error occurred!');
+  }
+};
+
+xhr.send(formData);
+```
+
+除了发送 FormData 实例，也可以直接 AJAX 发送文件。
+
+```javascript
+var file = document.getElementById('test-input').files[0];
+var xhr = new XMLHttpRequest();
+
+xhr.open('POST', 'myserver/uploads');
+xhr.setRequestHeader('Content-Type', file.type);
+xhr.send(file);
+```
 
