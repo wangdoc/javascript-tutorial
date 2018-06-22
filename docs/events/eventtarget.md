@@ -59,6 +59,14 @@ buttonElement.addEventListener('click', {
 > - `once`：布尔值，表示监听函数是否只触发一次，然后就自动移除。
 > - `passive`：布尔值，表示监听函数不会调用事件的`preventDefault`方法。如果监听函数调用了，浏览器将忽略这个要求，并在监控台输出一行警告。
 
+如果希望事件监听函数只执行一次，可以打开属性配置对象的`once`属性。
+
+```javascript
+element.addEventListener('click', function (event) {
+  // 只执行一次的代码
+}, {once: true});
+```
+
 `addEventListener`方法可以为针对当前对象的同一个事件，添加多个不同的监听函数。这些函数按照添加顺序触发，即先添加先触发。如果为同一个事件多次添加同一个监听函数，该函数只会执行一次，多余的添加将自动被去除（不必使用`removeEventListener`方法手动去除）。
 
 ```javascript
