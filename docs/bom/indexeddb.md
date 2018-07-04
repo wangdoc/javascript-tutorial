@@ -30,6 +30,9 @@ IndexedDB 是一个比较复杂的 API，涉及不少概念。它把不同的实
 - 对象仓库：IDBObjectStore 对象
 - 索引： IDBIndex 对象
 - 事务： IDBTransaction 对象
+- 操作请求：IDBRequest 对象
+- 指针： IDBCursor 对象
+- 主键集合：IDBKeyRange 对象
 
 下面是一些主要的概念。
 
@@ -65,7 +68,7 @@ IndexedDB 数据库有版本的概念。同一个时刻，只能有一个版本�
 
 ## 操作流程
 
-IndexedDB 数据库的各种操作，一般是按照下面的流程进行的。
+IndexedDB 数据库的各种操作，一般是按照下面的流程进行的。这个部分只给出简单的代码示例，用于快速上手，详细的各个对象的 API 放在后文介绍。
 
 ### 打开数据库
 
