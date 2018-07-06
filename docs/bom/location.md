@@ -306,6 +306,12 @@ function handleFiles(files) {
 
 上面代码中，`URL.createObjectURL`方法用来为上传的文件生成一个 URL 字符串，作为`<img>`元素的图片来源。
 
+该方法生成的 URL 就像下面的样子。
+
+```javascript
+blob:http://localhost/c745ef73-ece9-46da-8f66-ebes574789b1
+```
+
 注意，每次使用`URL.createObjectURL`方法，都会在内存里面生成一个 URL 实例。如果不再需要该方法生成的 URL 字符串，为了节省内存，可以使用`URL.revokeObjectURL()`方法释放这个实例。
 
 **（2）URL.revokeObjectURL()**
