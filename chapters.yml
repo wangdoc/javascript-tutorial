@@ -81,6 +81,7 @@
 - bom/file.md: File 对象，FileList 对象，FileReader 对象
 - bom/form.md: 表单，FormData 对象
 - bom/indexeddb.md: IndexedDB API
+- bom/webworker.md: Web Worker
 - elements/: 附录：网页元素接口
 - elements/a.md: <a>
 - elements/image.md: <img>

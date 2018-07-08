@@ -92,7 +92,7 @@ request.onerror = function (event) {
 };
 ```
 
-**（2）`success` 事件**
+**（2）success 事件**
 
 `success`事件表示成功打开数据库。
 
