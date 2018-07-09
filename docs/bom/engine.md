@@ -24,7 +24,7 @@ JavaScript 是浏览器的内置脚本语言。也就是说，浏览器内置了
 </script>
 ```
 
-`<script>`标签有一个`type`属性，用来指定脚本类型。对JavaScript脚本来说，`type`属性可以设为两种值。
+`<script>`标签有一个`type`属性，用来指定脚本类型。对 JavaScript 脚本来说，`type`属性可以设为两种值。
 
 - `text/javascript`：这是默认值，也是历史上一贯设定的值。如果你省略`type`属性，默认就是这个值。对于老式浏览器，设为这个值比较好。
 - `application/javascript`：对于较新的浏览器，建议设为这个值。
