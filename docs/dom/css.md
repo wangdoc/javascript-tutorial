@@ -19,6 +19,13 @@ div.setAttribute(
 <div style="background-color:red; border:1px solid black;" />
 ```
 
+`style`不仅可以使用字符串读写，它本身还是一个对象，部署了 CSSStyleDeclaration 接口（详见下面的介绍），可以直接读写个别属性。
+
+```javascript
+e.style.fontSize = '18px';
+e.style.color = 'black';
+```
+
 ## CSSStyleDeclaration 接口
 
 ### 简介
