@@ -316,7 +316,7 @@ var interval = setInterval(function() {
 
 ### document.designMode
 
-`document.designMode`属性控制当前文档是否可编辑，通常用在所见即所得编辑器。该属性只有两个值`on`和`off`，默认值为`off`。
+`document.designMode`属性控制当前文档是否可编辑。该属性只有两个值`on`和`off`，默认值为`off`。一旦设为`on`，用户就可以编辑整个文档的内容。
 
 下面代码打开`iframe`元素内部文档的`designMode`属性，就能将其变为一个所见即所得的编辑器。
 
@@ -868,6 +868,54 @@ while(treeWalker.nextNode()) {
 ```
 
 上面代码遍历`<body>`节点下属的所有元素节点，将它们插入`nodeList`数组。
+
+### document.execCommand()，document.queryCommandSupported()，document.queryCommandEnabled()
+
+如果`document.designMode`属性设为`on`，那么整个文档用户可编辑；如果元素的`contenteditable`属性设为`true`，那么该元素可编辑。这两种情况下，可以使用`document.execCommand()`方法，改变内容的样式，比如`document.execCommand('bold')`会使得字体加粗。
+
+```javascript
+document.execCommand(command, showDefaultUI, input)
+```
+
+该方法接受三个参数。
+
+- `command`：字符串，表示所要实施的样式。
+- `showDefaultUI`：布尔值，表示是否要使用默认的用户界面，建议总是设为`false`。
+- `input`：字符串，表示该样式的辅助内容，比如生成超级链接时，这个参数就是所要链接的网址。如果第二个参数设为`true`，那么浏览器会弹出提示框，要求用户在提示框输入该参数。但是，不是所有浏览器都支持这样做，为了兼容性，还是需要自己部署获取这个参数的方式。
+
+```javascript
+var url = window.prompt('请输入网址');
+
+if (url) {
+  document.execCommand('createlink', false, url);
+}
+```
+
+上面代码中，先提示用户输入所要链接的网址，然后手动生成超级链接。注意，第二个参数是`false`，表示此时不需要自动弹出提示框。
+
+`document.execCommand()`的返回值是一个布尔值。如果为`false`，表示这个方法无法生效。
+
+这个方法大部分情况下，只对选中的内容生效。如果有多个内容可编辑区域，那么只对当前焦点所在的元素生效。
+
+`document.execCommand()`方法可以执行的样式改变有很多种，下面是其中的一些：bold、insertLineBreak、selectAll、createLink、insertOrderedList、subscript、delete、insertUnorderedList、superscript、formatBlock、insertParagraph、undo、forwardDelete、insertText、unlink、insertImage、italic、unselect、insertHTML、redo。这些值都可以用作第一个参数，它们的含义不难从字面上看出来。
+
+`document.queryCommandEnabled()`方法返回一个布尔值，表示浏览器是否允许使用这个方法。
+
+```javascript
+if (document.queryCommandEnabled('SelectAll')) {
+  // ...
+}
+```
+
+`document.queryCommandSupported()`方法返回一个布尔值，表示当前是否可用某种样式改变。比如，加粗只有存在文本选中时才可用，如果没有选中文本，就不可用。
+
+```javascript
+if (document.queryCommandSupported('SelectAll')) {
+  // ...
+}
+```
+
+`document.queryCommandEnabled()`方法返回一个布尔值，
 
 ### document.getSelection()
 
