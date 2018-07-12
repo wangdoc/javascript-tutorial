@@ -272,7 +272,7 @@ pollingWorker.postMessage('init');
 
 ## 实例： Worker 新建 Worker
 
-Worker 线程内部还能再新建 Worker 线程。下面的例子是将一个计算密集的任务，分配到10个 Worker。
+Worker 线程内部还能再新建 Worker 线程（目前只有 Firefox 浏览器支持）。下面的例子是将一个计算密集的任务，分配到10个 Worker。
 
 主线程代码如下。
 
