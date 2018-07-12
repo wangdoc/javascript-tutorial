@@ -5,7 +5,7 @@
 元素节点的`nodeType`属性都是`1`。
 
 ```javascript
-var p = document.querySelector('p');
+var p = document.querySelector('#p');
 p.nodeName // "P"
 p.nodeType // 1
 ```
