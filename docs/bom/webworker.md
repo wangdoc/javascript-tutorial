@@ -238,7 +238,7 @@ worker.onmessage = function (e) {
 
 ```javascript
 function createWorker(f) {
-  var blob = new Blob([f.toString()]);
+  var blob = new Blob(['(' + f.toString() + ')()']);
   var url = window.URL.createObjectURL(blob);
   var worker = new Worker(url);
   return worker;
