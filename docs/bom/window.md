@@ -151,7 +151,7 @@ if (window.parent !== window.top) {
 
 注意，这两个属性的返回值不是整数，而是双精度浮点数。如果页面没有滚动，它们的值就是`0`。
 
-举例来说，如果用户向下拉动了垂直滚动条75像素，那么`window.pageYOffset`就是75左右。用户水平向右拉动水平滚动条200像素，`window.pageXOffset`就是200左右。
+举例来说，如果用户向下拉动了垂直滚动条75像素，那么`window.scrollY`就是75左右。用户水平向右拉动水平滚动条200像素，`window.scrollX`就是200左右。
 
 ```javascript
 if (window.scrollY < 75) {
@@ -171,7 +171,7 @@ if (window.scrollY < 75) {
 
 - `window.locationbar`：地址栏对象
 - `window.menubar`：菜单栏对象
-- `window.scrollbar`：窗口的滚动条对象
+- `window.scrollbars`：窗口的滚动条对象
 - `window.toolbar`：工具栏对象
 - `window.statusbar`：状态栏对象
 - `window.personalbar`：用户安装的个人工具栏对象
@@ -181,7 +181,7 @@ if (window.scrollY < 75) {
 ```javascript
 window.locationbar.visible
 window.menubar.visible
-window.scrollbar.visible
+window.scrollbars.visible
 window.toolbar.visible
 window.statusbar.visible
 window.personalbar.visible
