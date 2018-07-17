@@ -2,7 +2,7 @@
 
 节点都是单个对象，有时需要一种数据结构，能够容纳多个节点。DOM 提供两种节点集合，用于容纳多个节点：`NodeList`和`HTMLCollection`。
 
-这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是`NodeList`实例或`HTMLCollection`实例。
+这两种集合都属于接口规范。许多 DOM 属性和方法，返回的结果是`NodeList`实例或`HTMLCollection`实例。主要区别是，`NodeList`可以包含各种类型的节点，`HTMLCollection`只能包含 HTML 元素节点。
 
 ## NodeList 接口
 
@@ -11,7 +11,7 @@
 `NodeList`实例是一个类似数组的对象，它的成员是节点对象。通过以下方法可以得到`NodeList`实例。
 
 - `Node.childNodes`
-- `document.querySelectorAll()`、`document.getElementsByTagName()`等节点搜索方法
+- `document.querySelectorAll()`等节点搜索方法
 
 ```javascript
 document.body.childNodes instanceof NodeList // true
