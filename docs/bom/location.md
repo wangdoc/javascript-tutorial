@@ -173,7 +173,7 @@ decodeURIComponent('%E6%98%A5%E8%8A%82')
 
 `URL`对象是浏览器的原生对象，可以用来构造、解析和编码 URL。一般情况下，通过`window.URL`可以拿到这个对象。
 
-`<a>`元素和`<area>`元素都部署了这个接口。这就是说，它们的 DOM 节点对象可以 URL 的实例属性和方法。
+`<a>`元素和`<area>`元素都部署了这个接口。这就是说，它们的 DOM 节点对象可以使用 URL 的实例属性和方法。
 
 ```javascript
 var a = document.createElement('a');
