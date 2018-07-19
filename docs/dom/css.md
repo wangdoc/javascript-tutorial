@@ -389,6 +389,8 @@ var myStyleSheet = document.getElementById('myStyle').sheet;
 myStyleSheet instanceof StyleSheet // true
 ```
 
+`CSSStyleSheet`接口代表一个单一的 CSS 样式表，它从父代`StyleSheet`继承属性和方法
+
 ### 实例属性
 
 `StyleSheet`实例有以下属性。
@@ -457,9 +459,9 @@ if (stylesheet.parentStyleSheet) {
 document.styleSheets[0].ownerNode // [object HTMLLinkElement]
 ```
 
-**（8）StyleSheet.cssRules**
+**（8）CSSStyleSheet.cssRules**
 
-`StyleSheet.cssRules`属性指向一个类似数组的对象（`CSSRuleList`实例），里面每一个成员就是当前样式表的一条 CSS 规则。使用该规则的`cssText`属性，可以得到 CSS 规则对应的字符串。
+`CSSStyleSheet.cssRules`属性指向一个类似数组的对象（`CSSRuleList`实例），里面每一个成员就是当前样式表的一条 CSS 规则。使用该规则的`cssText`属性，可以得到 CSS 规则对应的字符串。
 
 ```javascript
 var sheet = document.querySelector('#styleElement').sheet;
@@ -474,11 +476,11 @@ sheet.cssRules[1].cssText
 每条 CSS 规则还有一个`style`属性，指向一个对象，用来读写具体的 CSS 命令。
 
 ```javascript
-styleSheet.cssRules[0].style.color = 'red';
-styleSheet.cssRules[1].style.color = 'purple';
+cssStyleSheet.cssRules[0].style.color = 'red';
+cssStyleSheet.cssRules[1].style.color = 'purple';
 ```
 
-**（9）StyleSheet.ownerRule**
+**（9）CSSStyleSheet.ownerRule**
 
 有些样式表是通过`@import`规则输入的，它的`ownerRule`属性会返回一个`CSSRule`实例，代表那行`@import`规则。如果当前样式表不是通过`@import`引入的，`ownerRule`属性返回`null`。
 
