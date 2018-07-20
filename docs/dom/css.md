@@ -389,7 +389,7 @@ var myStyleSheet = document.getElementById('myStyle').sheet;
 myStyleSheet instanceof StyleSheet // true
 ```
 
-`CSSStyleSheet`接口代表一个单一的 CSS 样式表，它从父代`StyleSheet`继承属性和方法
+严格地说，`StyleSheet`接口不仅包括网页样式表，还包括 XML 文档的样式表。所以，它有一个子类`CSSStyleSheet`表示网页的 CSS 样式表。我们在网页里面拿到的样式表实例，实际上是`CSSStyleSheet`的实例。这个子接口继承了`StyleSheet`的所有属性和方法，并且定义了几个自己的属性，下面把这两个接口放在一起介绍。
 
 ### 实例属性
 
