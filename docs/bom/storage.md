@@ -113,10 +113,9 @@ window.addEventListener('storage', onStorageChange);
 
 - `StorageEvent.key`：字符串，表示发生变动的键名。如果 storage 事件是由`clear()`方法引起，该属性返回`null`。
 - `StorageEvent.newValue`：字符串，表示新的键值。如果 storage 事件是由`clear()`方法或删除该键值对引发的，该属性返回`null`。
-- `Storage.oldValue`：字符串，表示旧的键值。如果该键值对是新增的，该属性返回`null`。
-- `Storage.storageArea`：对象，返回键值对所在的整个对象。也说是说，可以从这个属性上面拿到当前域名储存的所有键值对。
-- `Storage.url`：字符串，表示原始触发 storage 事件的那个网页的网址。
-
+- `StorageEvent.oldValue`：字符串，表示旧的键值。如果该键值对是新增的，该属性返回`null`。
+- `StorageEvent.storageArea`：对象，返回键值对所在的整个对象。也说是说，可以从这个属性上面拿到当前域名储存的所有键值对。
+- `StorageEvent.url`：字符串，表示原始触发 storage 事件的那个网页的网址。
 
 下面是`StorageEvent.key`属性的例子。
 
