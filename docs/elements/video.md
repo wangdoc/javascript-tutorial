@@ -49,3 +49,21 @@
 - HTMLMediaElement.loop：布尔值，表示媒体文件是否会循环播放，对应 HTML 属性`loop`。
 - HTMLMediaElement.muted：布尔值，表示音量是否关闭。
 - HTMLMediaElement.networkState：当前网络状态，共有四个可能的值。0表示没有数据；1表示媒体元素处在激活状态，但是还没开始下载；2表示下载中；3表示没有找到媒体文件。
+- HTMLMediaElement.paused：布尔值，表示媒体文件是否处在暂停状态。该属性只读。
+- HTMLMediaElement.playbackRate：浮点数，表示媒体文件的播放速度，1.0是正常速度。如果是负数，表示向后播放。
+- HTMLMediaElement.played：返回一个 TimeRanges 对象，表示播放的媒体内容。该属性只读。
+- HTMLMediaElement.preload：字符串，表示应该预加载哪些内容，可能的值为`none`、`metadata`和`auto`。
+- HTMLMediaElement.readyState：整数，表示媒体文件的准备状态，可能的值为0（没有任何数据）、1（已获取元数据）、2（可播放当前帧，但不足以播放多个帧）、3（可以播放多帧，至少为两帧）、4（可以流畅播放）。该属性只读。
+- HTMLMediaElement.seekable：返回一个 TimeRanges 对象，表示一个用户可以搜索的媒体内容范围。该属性只读。
+- HTMLMediaElement.seeking：布尔值，表示媒体文件是否正在寻找新位置。该属性只读。
+- HTMLMediaElement.src：布尔值，表示媒体文件的 URL，对应 HTML 属性`src`。
+- HTMLMediaElement.srcObject：返回`src`属性对应的媒体文件资源，可能是`MediaStream`、`MediaSource`、`Blob`或`File`对象。直接指定这个属性，就可以播放媒体文件。
+- HTMLMediaElement.textTracks：返回一个类似数组的对象，包含所有文本轨道。该属性只读。
+- HTMLMediaElement.videoTracks：返回一个类似数组的对象，包含多有视频轨道。该属性只读。
+- HTMLMediaElement.volume：浮点数，表示音量。0.0 表示静音，1.0 表示最大音量。
+
+`HTMLMediaElement`接口有如下方法。
+
+- HTMLMediaElement.addTextTrack()：添加文本轨道（比如字幕）到媒体文件。
+- HTMLMediaElement.captureStream()：返回一个 MediaStream 对象，用来捕获当前媒体文件的流内容。
+- HTMLMediaElement.canPlayType()：接受一个 MIME 字符串作为参数，用来判断这种类型的媒体文件是否可以播放。该反复返回一个字符串，有三种可能的值，`probably`表示似乎可播放，`maybe`表示无法在不播放的情况下判断是否可播放，空字符串表示无法播放。
