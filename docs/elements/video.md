@@ -66,4 +66,39 @@
 
 - HTMLMediaElement.addTextTrack()：添加文本轨道（比如字幕）到媒体文件。
 - HTMLMediaElement.captureStream()：返回一个 MediaStream 对象，用来捕获当前媒体文件的流内容。
-- HTMLMediaElement.canPlayType()：接受一个 MIME 字符串作为参数，用来判断这种类型的媒体文件是否可以播放。该反复返回一个字符串，有三种可能的值，`probably`表示似乎可播放，`maybe`表示无法在不播放的情况下判断是否可播放，空字符串表示无法播放。
+- HTMLMediaElement.canPlayType()：该方法接受一个 MIME 字符串作为参数，用来判断这种类型的媒体文件是否可以播放。该反复返回一个字符串，有三种可能的值，`probably`表示似乎可播放，`maybe`表示无法在不播放的情况下判断是否可播放，空字符串表示无法播放。
+- HTMLMediaElement.fastSeek()：该方法接受一个浮点数作为参数，表示指定的时间（单位秒）。该方法将媒体文件移动到指定时间。
+- HTMLMediaElement.load()：重新加载媒体文件。
+- HTMLMediaElement.pause()：暂停播放。该方法没有返回值。
+- HTMLMediaElement.play()：开始播放。该方法返回一个 Promise 对象。
+
+下面是`play()`方法的一个例子。
+
+```javascript
+var myVideo = document.getElementById('myVideoElement');
+
+myVideo
+.play()
+.then(() => {
+  console.log('playing');
+})
+.catch((error) => {
+  console.log(error);
+});
+```
+
+## HTMLVideoElement 接口
+
+`HTMLVideoElement`接口代表了`<video>`元素。这个接口继承了`HTMLMediaElement`接口，并且有一些自己的属性和方法。
+
+HTMLVideoElement 接口的属性。
+
+- HTMLVideoElement.height：字符串，表示视频播放区域的高度（单位像素），对应 HTML 属性`height`。
+- HTMLVideoElement.width：字符串，表示视频播放区域的宽度（单位像素），对应 HTML 属性`width`。
+- HTMLVideoElement.videoHeight：该属性只读，返回一个整数，表示视频文件自身的高度（单位像素）。
+- HTMLVideoElement.videoWidth：该属性只读，返回一个整数，表示视频文件自身的宽度（单位像素）。
+- HTMLVideoElement.poster：字符串，表示一个图像文件的 URL，用来在无法获取视频文件时替代显示，对应 HTML 属性`poster`。
+
+HTMLVideoElement 接口的方法。
+
+- HTMLVideoElement.getVideoPlaybackQuality()：返回一个对象，包含了当前视频回访的一些数据。
