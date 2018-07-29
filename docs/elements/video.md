@@ -102,3 +102,23 @@ HTMLVideoElement 接口的属性。
 HTMLVideoElement 接口的方法。
 
 - HTMLVideoElement.getVideoPlaybackQuality()：返回一个对象，包含了当前视频回访的一些数据。
+
+## HTMLAudioElement 接口
+
+`HTMLAudioElement`接口代表了`<audio>`元素。
+
+该接口继承了`HTMLMediaElement`，但是没有定义自己的属性和方法。浏览器原生提供一个`Audio()`构造函数，返回的就是`HTMLAudioElement`实例。
+
+```javascript
+var song = new Audio([URLString]);
+```
+
+`Audio()`构造函数接受一个字符串作为参数，表示媒体文件的 URL。如果省略这个参数，可以稍后通过`src`属性指定。
+
+生成`HTMLAudioElement`实例以后，不用插入 DOM，可以直接用`play()`方法在背景播放。
+
+```javascript
+var flush = new Audio('flush.wav');
+flush.play();
+```
+
