@@ -7,7 +7,7 @@ module.exports = {
         description: "阮一峰的JavaScript教程",
         version: "v0.0.1",
         dir: "",
-        outDir: "",
+        outDir: "../docs/javascript",
         staticDir: ""
     }, 
     theme: {
