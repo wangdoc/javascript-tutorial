@@ -2,6 +2,10 @@
 
 [http://teadocs.cn/docs/javascript](http://teadocs.cn/docs/javascript)
 
+# Teadocs构建工具
+
+[https://github.com/teadocs/teadocs](https://github.com/teadocs/teadocs)
+
 # 阮一峰的前言
 
 本教程全面介绍 JavaScript 核心语法，从最简单的开始讲起，循序渐进、由浅入深，力求清晰易懂。所有章节都带有大量的代码实例，便于理解和模仿，可以用到实际项目中，即学即用。

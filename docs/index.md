@@ -6,6 +6,10 @@
 
 本文档只是将其制作成了 [Teadocs](https://github.com/teadocs/teadocs) 的版本。
 
+# 文档源
+
+[https://github.com/teadocs/javascript-tutorial](https://github.com/teadocs/javascript-tutorial)
+
 # 本文档构建说明
 
 请访问 [Teadocs](https://github.com/teadocs/teadocs) 的github地址以查找更多帮助。
