@@ -2,8 +2,9 @@
 
 [http://teadocs.cn/docs/javascript](http://teadocs.cn/docs/javascript)
 
-# Teadocs构建工具
+# 文档构建
 
+本文档是由Teadocs构建工具构建：
 [https://github.com/teadocs/teadocs](https://github.com/teadocs/teadocs)
 
 # 阮一峰的前言
