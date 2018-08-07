@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>其他常见事件 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象" class="">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象" class="">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象" class="">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象" class="">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象" class="">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象" class="">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象" class="">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象" class="">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象" class="">JSON 对象</a></li></ul></li><li><a title="面向对象编程" class="">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令" class="">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字" class="">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承" class="">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作" class="">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述" class="">概述</a></li><li><a href="/async/timer.html" title="定时器" class="">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象" class="">Promise 对象</a></li></ul></li><li><a title="DOM" class="">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述" class="">概述</a></li><li><a href="/dom/node.html" title="Node 接口" class="">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口" class="">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口" class="">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点" class="">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点" class="">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作" class="">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点" class="">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API" class="">Mutation Observer API</a></li></ul></li><li><a title="事件" class="active">事件<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/events/eventtarget.html" title="EventTarget 接口" class="">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型" class="">事件模型</a></li><li><a href="/events/event.html" title="Event 对象" class="">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件" class="">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件" class="">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件" class="">进度事件</a></li><li><a href="/events/form.html" title="表单事件" class="">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件" class="">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件" class="">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件" class="active">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>其他常见事件</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#其他常见事件" class="header-anchor">#</a> <span>其他常见事件</span></h1><h2><a href="#资源事件" class="header-anchor">#</a> <span>资源事件</span></h2><h3><a href="#beforeunload-事件" class="header-anchor">#</a> <span>beforeunload 事件</span></h3><p><code>beforeunload</code>事件在窗口、文档、各种资源将要卸载前触发。它可以用来防止用户不小心卸载资源。</p><p>如果该事件对象的<code>returnValue</code>属性是一个非空字符串，那么浏览器就会弹出一个对话框，询问用户是否要卸载该资源。但是，用户指定的字符串可能无法显示，浏览器会展示预定义的字符串。如果用户点击“取消”按钮，资源就不会卸载。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;beforeunload&#039;, function(event) {
+  event.returnValue = &#039;你确定离开吗？&#039;;
+});</code></pre><p>上面代码中，用户如果关闭窗口，浏览器会弹出一个窗口，要求用户确认。</p><p>浏览器对这个事件的行为很不一致，有的浏览器调用<code>event.preventDefault()</code>，也会弹出对话框。IE 浏览器需要显式返回一个非空的字符串，才会弹出对话框。而且，大多数浏览器在对话框中不显示指定文本，只显示默认文本。因此，可以采用下面的写法，取得最大的兼容性。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;beforeunload&#039;, function(e) {
+  var confirmationMessage = &#039;确认关闭窗口？&#039;;
+
+  e.returnValue = confirmationMessage;
+  return confirmationMessage;
+});</code></pre><p>注意，许多手机浏览器默认忽略这个事件，桌面浏览器也有办法忽略这个事件。所以，它可能根本不会生效，不能依赖它来阻止用户关闭窗口。</p><p>另外，一旦使用了<code>beforeunload</code>事件，浏览器就不会缓存当前网页。因为执行了这个事件以后，缓存页面就没意义了。</p><h3><a href="#unload-事件" class="header-anchor">#</a> <span>unload 事件</span></h3><p><code>unload</code>事件在窗口关闭或者<code>document</code>对象将要卸载时触发。它的触发顺序排在<code>beforeunload</code>、<code>pagehide</code>事件后面。</p><p><code>unload</code>事件发生时，文档处于一个特殊状态。所有资源依然存在，但是对用户来说都不可见，UI 互动全部无效。这个事件是无法取消的，即使在监听函数里面抛出错误，也不能停止文档的卸载。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;unload&#039;, function(event) {
+  console.log(&#039;文档将要卸载&#039;);
+});</code></pre><p>跟<code>beforeunload</code>事件一样，一旦使用了<code>unload</code>事件，浏览器就不会缓存当前网页，理由同上。</p><h3><a href="#load-事件，error-事件" class="header-anchor">#</a> <span>load 事件，error 事件</span></h3><p><code>load</code>事件在页面或某个资源加载成功时触发。注意，页面或资源从浏览器缓存加载，并不会触发<code>load</code>事件。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;load&#039;, function(event) {
+  console.log(&#039;所有资源都加载完成&#039;);
+});</code></pre><p><code>error</code>事件是在页面或资源加载失败时触发。<code>abort</code>事件在用户取消加载时触发。</p><p>这三个事件实际上属于进度事件，不仅发生在<code>document</code>对象，还发生在各种外部资源上面。浏览网页就是一个加载各种资源的过程，图像（image）、样式表（style sheet）、脚本（script）、视频（video）、音频（audio）、Ajax请求（XMLHttpRequest）等等。这些资源和<code>document</code>对象、<code>window</code>对象、XMLHttpRequestUpload 对象，都会触发<code>load</code>事件和<code>error</code>事件。</p><h2><a href="#session-历史事件" class="header-anchor">#</a> <span>session 历史事件</span></h2><h3><a href="#pageshow-事件，pagehide-事件" class="header-anchor">#</a> <span>pageshow 事件，pagehide 事件</span></h3><p>默认情况下，浏览器会在当前会话（session）缓存页面，当用户点击“前进/后退”按钮时，浏览器就会从缓存中加载页面。</p><p>pageshow 事件在页面加载时触发，包括第一次加载和从缓存加载两种情况。如果要指定页面每次加载（不管是不是从浏览器缓存）时都运行的代码，可以放在这个事件的监听函数。</p><p>第一次加载时，它的触发顺序排在<code>load</code>事件后面。从缓存加载时，<code>load</code>事件不会触发，因为网页在缓存中的样子通常是<code>load</code>事件的监听函数运行后的样子，所以不必重复执行。同理，如果是从缓存中加载页面，网页内初始化的 JavaScript 脚本（比如 DOMContentLoaded 事件的监听函数）也不会执行。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;pageshow&#039;, function(event) {
+  console.log(&#039;pageshow: &#039;, event);
+});</code></pre><p>pageshow 事件有一个<code>persisted</code>属性，返回一个布尔值。页面第一次加载时，这个属性是<code>false</code>；当页面从缓存加载时，这个属性是<code>true</code>。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;pageshow&#039;, function(event){
+  if (event.persisted) {
+    // ...
+  }
+});</code></pre><p><code>pagehide</code>事件与<code>pageshow</code>事件类似，当用户通过“前进/后退”按钮，离开当前页面时触发。它与 unload 事件的区别在于，如果在 window 对象上定义<code>unload</code>事件的监听函数之后，页面不会保存在缓存中，而使用<code>pagehide</code>事件，页面会保存在缓存中。</p><p><code>pagehide</code>事件实例也有一个<code>persisted</code>属性，将这个属性设为<code>true</code>，就表示页面要保存在缓存中；设为<code>false</code>，表示网页不保存在缓存中，这时如果设置了unload 事件的监听函数，该函数将在 pagehide 事件后立即运行。</p><p>如果页面包含<code>&lt;frame&gt;</code>或<code>&lt;iframe&gt;</code>元素，则<code>&lt;frame&gt;</code>页面的<code>pageshow</code>事件和<code>pagehide</code>事件，都会在主页面之前触发。</p><h3><a href="#popstate-事件" class="header-anchor">#</a> <span>popstate 事件</span></h3><p><code>popstate</code>事件在浏览器的<code>history</code>对象的当前记录发生显式切换时触发。注意，调用<code>history.pushState()</code>或<code>history.replaceState()</code>，并不会触发<code>popstate</code>事件。该事件只在用户在<code>history</code>记录之间显式切换时触发，比如鼠标点击“后退/前进”按钮，或者在脚本中调用<code>history.back()</code>、<code>history.forward()</code>、<code>history.go()</code>时触发。</p><p>该事件对象有一个<code>state</code>属性，保存<code>history.pushState</code>方法和<code>history.replaceState</code>方法为当前记录添加的<code>state</code>对象。</p><pre class="prettyprint language-javascript"><code>window.onpopstate = function (event) {
+  console.log(&#039;state: &#039; + event.state);
+};
+history.pushState({page: 1}, &#039;title 1&#039;, &#039;?page=1&#039;);
+history.pushState({page: 2}, &#039;title 2&#039;, &#039;?page=2&#039;);
+history.replaceState({page: 3}, &#039;title 3&#039;, &#039;?page=3&#039;);
+history.back(); // state: {&quot;page&quot;:1}
+history.back(); // state: null
+history.go(2);  // state: {&quot;page&quot;:3}</code></pre><p>上面代码中，<code>pushState</code>方法向<code>history</code>添加了两条记录，然后<code>replaceState</code>方法替换掉当前记录。因此，连续两次<code>back</code>方法，会让当前条目退回到原始网址，它没有附带<code>state</code>对象，所以事件的<code>state</code>属性为<code>null</code>，然后前进两条记录，又回到<code>replaceState</code>方法添加的记录。</p><p>浏览器对于页面首次加载，是否触发<code>popstate</code>事件，处理不一样，Firefox 不触发该事件。</p><h3><a href="#hashchange-事件" class="header-anchor">#</a> <span>hashchange 事件</span></h3><p><code>hashchange</code>事件在 URL 的 hash 部分（即<code>#</code>号后面的部分，包括<code>#</code>号）发生变化时触发。该事件一般在<code>window</code>对象上监听。</p><p><code>hashchange</code>的事件实例具有两个特有属性：<code>oldURL</code>属性和<code>newURL</code>属性，分别表示变化前后的完整 URL。</p><pre class="prettyprint language-javascript"><code>// URL 是 http://www.example.com/
+window.addEventListener(&#039;hashchange&#039;, myFunction);
+
+function myFunction(e) {
+  console.log(e.oldURL);
+  console.log(e.newURL);
+}
+
+location.hash = &#039;part2&#039;;
+// http://www.example.com/
+// http://www.example.com/#part2</code></pre><h2><a href="#网页状态事件" class="header-anchor">#</a> <span>网页状态事件</span></h2><h3><a href="#DOMContentLoaded-事件" class="header-anchor">#</a> <span>DOMContentLoaded 事件</span></h3><p>网页下载并解析完成以后，浏览器就会在<code>document</code>对象上触发 DOMContentLoaded 事件。这时，仅仅完成了网页的解析（整张页面的 DOM 生成了），所有外部资源（样式表、脚本、iframe 等等）可能还没有下载结束。也就是说，这个事件比<code>load</code>事件，发生时间早得多。</p><pre class="prettyprint language-javascript"><code>document.addEventListener(&#039;DOMContentLoaded&#039;, function (event) {
+  console.log(&#039;DOM生成&#039;);
+});</code></pre><p>注意，网页的 JavaScript 脚本是同步执行的，脚本一旦发生堵塞，将推迟触发<code>DOMContentLoaded</code>事件。</p><pre class="prettyprint language-javascript"><code>document.addEventListener(&#039;DOMContentLoaded&#039;, function (event) {
+  console.log(&#039;DOM 生成&#039;);
+});
+
+// 这段代码会推迟触发 DOMContentLoaded 事件
+for(var i = 0; i &lt; 1000000000; i++) {
+  // ...
+}</code></pre><h3><a href="#readystatechange-事件" class="header-anchor">#</a> <span>readystatechange 事件</span></h3><p><code>readystatechange</code>事件当 Document 对象和 XMLHttpRequest 对象的<code>readyState</code>属性发生变化时触发。<code>document.readyState</code>有三个可能的值：<code>loading</code>（网页正在加载）、<code>interactive</code>（网页已经解析完成，但是外部资源仍然处在加载状态）和<code>complete</code>（网页和所有外部资源已经结束加载，<code>load</code>事件即将触发）。</p><pre class="prettyprint language-javascript"><code>document.onreadystatechange = function () {
+  if (document.readyState === &#039;interactive&#039;) {
+    // ...
+  }
+}</code></pre><p>这个事件可以看作<code>DOMContentLoaded</code>事件的另一种实现方法。</p><h2><a href="#窗口事件" class="header-anchor">#</a> <span>窗口事件</span></h2><h3><a href="#scroll-事件" class="header-anchor">#</a> <span>scroll 事件</span></h3><p><code>scroll</code>事件在文档或文档元素滚动时触发，主要出现在用户拖动滚动条。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;scroll&#039;, callback);</code></pre><p>该事件会连续地大量触发，所以它的监听函数之中不应该有非常耗费计算的操作。推荐的做法是使用<code>requestAnimationFrame</code>或<code>setTimeout</code>控制该事件的触发频率，然后可以结合<code>customEvent</code>抛出一个新事件。</p><pre class="prettyprint language-javascript"><code>(function () {
+  var throttle = function (type, name, obj) {
+    var obj = obj || window;
+    var running = false;
+    var func = function () {
+      if (running) { return; }
+      running = true;
+      requestAnimationFrame(function() {
+        obj.dispatchEvent(new CustomEvent(name));
+        running = false;
+      });
+    };
+    obj.addEventListener(type, func);
+  };
+
+  // 将 scroll 事件重定义为 optimizedScroll 事件
+  throttle(&#039;scroll&#039;, &#039;optimizedScroll&#039;);
+})();
+
+window.addEventListener(&#039;optimizedScroll&#039;, function() {
+  console.log(&#039;Resource conscious scroll callback!&#039;);
+});</code></pre><p>上面代码中，<code>throttle</code>函数用于控制事件触发频率，<code>requestAnimationFrame</code>方法保证每次页面重绘（每秒60次），只会触发一次<code>scroll</code>事件的监听函数。也就是说，上面方法将<code>scroll</code>事件的触发频率，限制在每秒60次。具体来说，就是<code>scroll</code>事件只要频率低于每秒60次，就会触发<code>optimizedScroll</code>事件，从而执行<code>optimizedScroll</code>事件的监听函数。</p><p>改用<code>setTimeout</code>方法，可以放置更大的时间间隔。</p><pre class="prettyprint language-javascript"><code>(function() {
+  window.addEventListener(&#039;scroll&#039;, scrollThrottler, false);
+
+  var scrollTimeout;
+  function scrollThrottler() {
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(function () {
+        scrollTimeout = null;
+        actualScrollHandler();
+      }, 66);
+    }
+  }
+
+  function actualScrollHandler() {
+    // ...
+  }
+}());</code></pre><p>上面代码中，每次<code>scroll</code>事件都会执行<code>scrollThrottler</code>函数。该函数里面有一个定时器<code>setTimeout</code>，每66毫秒触发一次（每秒15次）真正执行的任务<code>actualScrollHandler</code>。</p><p>下面是一个更一般的<code>throttle</code>函数的写法。</p><pre class="prettyprint language-javascript"><code>function throttle(fn, wait) {
+  var time = Date.now();
+  return function() {
+    if ((time + wait - Date.now()) &lt; 0) {
+      fn();
+      time = Date.now();
+    }
+  }
+}
+
+window.addEventListener(&#039;scroll&#039;, throttle(callback, 1000));</code></pre><p>上面的代码将<code>scroll</code>事件的触发频率，限制在一秒一次。</p><p><code>lodash</code>函数库提供了现成的<code>throttle</code>函数，可以直接使用。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;scroll&#039;, _.throttle(callback, 1000));</code></pre><h3><a href="#resize-事件" class="header-anchor">#</a> <span>resize 事件</span></h3><p><code>resize</code>事件在改变浏览器窗口大小时触发，主要发生在<code>window</code>对象上面。</p><pre class="prettyprint language-javascript"><code>var resizeMethod = function () {
+  if (document.body.clientWidth &lt; 768) {
+    console.log(&#039;移动设备的视口&#039;);
+  }
+};
+
+window.addEventListener(&#039;resize&#039;, resizeMethod, true);</code></pre><p>该事件也会连续地大量触发，所以最好像上面的<code>scroll</code>事件一样，通过<code>throttle</code>函数控制事件触发频率。</p><h3><a href="#fullscreenchange-事件，fullscreenerror-事件" class="header-anchor">#</a> <span>fullscreenchange 事件，fullscreenerror 事件</span></h3><p><code>fullscreenchange</code>事件在进入或推出全屏状态时触发，该事件发生在<code>document</code>对象上面。</p><pre class="prettyprint language-javascript"><code>document.addEventListener(&#039;fullscreenchange&#039;, function (event) {
+  console.log(document.fullscreenElement);
+});</code></pre><p><code>fullscreenerror</code>事件在浏览器无法切换到全屏状态时触发。</p><h2><a href="#剪贴板事件" class="header-anchor">#</a> <span>剪贴板事件</span></h2><p>以下三个事件属于剪贴板操作的相关事件。</p><ul><li><code>cut</code>：将选中的内容从文档中移除，加入剪贴板时触发。</li><li><code>copy</code>：进行复制动作时触发。</li><li><code>paste</code>：剪贴板内容粘贴到文档后触发。</li></ul><p>这三个事件都是<code>ClipboardEvent</code>接口的实例。<code>ClipboardEvent</code>有一个实例属性<code>clipboardData</code>，是一个 DataTransfer 对象，存放剪贴的数据。具体的 API 接口和操作方法，请参见《触摸事件》的 DataTransfer 对象部分。</p><pre class="prettyprint language-javascript"><code>document.addEventListener(&#039;copy&#039;, function (e) {
+  e.clipboardData.setData(&#039;text/plain&#039;, &#039;Hello, world!&#039;);
+  e.clipboardData.setData(&#039;text/html&#039;, &#039;&lt;b&gt;Hello, world!&lt;/b&gt;&#039;);
+  e.preventDefault();
+});</code></pre><p>上面的代码使得复制进入剪贴板的，都是开发者指定的数据，而不是用户想要拷贝的数据。</p><h2><a href="#焦点事件" class="header-anchor">#</a> <span>焦点事件</span></h2><p>焦点事件发生在元素节点和<code>document</code>对象上面，与获得或失去焦点相关。它主要包括以下四个事件。</p><ul><li><code>focus</code>：元素节点获得焦点后触发，该事件不会冒泡。</li><li><code>blur</code>：元素节点失去焦点后触发，该事件不会冒泡。</li><li><code>focusin</code>：元素节点将要获得焦点时触发，发生在<code>focus</code>事件之前。该事件会冒泡。</li><li><code>focusout</code>：元素节点将要失去焦点时触发，发生在<code>blur</code>事件之前。该事件会冒泡。</li></ul><p>这四个事件都继承了<code>FocusEvent</code>接口。<code>FocusEvent</code>实例具有以下属性。</p><ul><li><code>FocusEvent.target</code>：事件的目标节点。</li><li><code>FocusEvent.relatedTarget</code>：对于<code>focusin</code>事件，返回失去焦点的节点；对于<code>focusout</code>事件，返回将要接受焦点的节点；对于<code>focus</code>和<code>blur</code>事件，返回<code>null</code>。</li></ul><p>由于<code>focus</code>和<code>blur</code>事件不会冒泡，只能在捕获阶段触发，所以<code>addEventListener</code>方法的第三个参数需要设为<code>true</code>。</p><pre class="prettyprint language-javascript"><code>form.addEventListener(&#039;focus&#039;, function (event) {
+  event.target.style.background = &#039;pink&#039;;
+}, true);
+
+form.addEventListener(&#039;blur&#039;, function (event) {
+  event.target.style.background = &#039;&#039;;
+}, true);</code></pre><p>上面代码针对表单的文本输入框，接受焦点时设置背景色，失去焦点时去除背景色。</p><h2><a href="#CustomEvent-接口" class="header-anchor">#</a> <span>CustomEvent 接口</span></h2><p>CustomEvent 接口用于生成自定义的事件实例。那些浏览器预定义的事件，虽然可以手动生成，但是往往不能在事件上绑定数据。如果需要在触发事件的同时，传入指定的数据，就可以使用 CustomEvent 接口生成的自定义事件对象。</p><p>浏览器原生提供<code>CustomEvent()</code>构造函数，用来生成 CustomEvent 事件实例。</p><pre class="prettyprint language-javascript"><code>new CustomEvent(type, options)</code></pre><p><code>CustomEvent()</code>构造函数接受两个参数。第一个参数是字符串，表示事件的名字，这是必须的。第二个参数是事件的配置对象，这个参数是可选的。<code>CustomEvent</code>的配置对象除了接受 Event 事件的配置属性，只有一个自己的属性。</p><ul><li><code>detail</code>：表示事件的附带数据，默认为<code>null</code>。</li></ul><p>下面是一个例子。</p><pre class="prettyprint language-javascript"><code>var event = new CustomEvent(&#039;build&#039;, { &#039;detail&#039;: &#039;hello&#039; });
+
+function eventHandler(e) {
+  console.log(e.detail);
+}
+
+document.body.addEventListener(&#039;build&#039;, function (e) {
+  console.log(e.detail);
+});
+
+document.body.dispatchEvent(event);</code></pre><p>上面代码中，我们手动定义了<code>build</code>事件。该事件触发后，会被监听到，从而输出该事件实例的<code>detail</code>属性（即字符串<code>hello</code>）。</p><p>下面是另一个例子。</p><pre class="prettyprint language-javascript"><code>var myEvent = new CustomEvent(&#039;myevent&#039;, {
+  detail: {
+    foo: &#039;bar&#039;
+  },
+  bubbles: true,
+  cancelable: false
+});
+
+el.addEventListener(&#039;myevent&#039;, function (event) {
+  console.log(&#039;Hello &#039; + event.detail.foo);
+});
+
+el.dispatchEvent(myEvent);</code></pre><p>上面代码也说明，CustomEvent 的事件实例，除了具有 Event 接口的实例属性，还具有<code>detail</code>属性。</p></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

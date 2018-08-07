@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>Promise 对象 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象" class="">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象" class="">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象" class="">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象" class="">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象" class="">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象" class="">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象" class="">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象" class="">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象" class="">JSON 对象</a></li></ul></li><li><a title="面向对象编程" class="">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令" class="">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字" class="">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承" class="">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作" class="active">异步操作<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/async/general.html" title="概述" class="">概述</a></li><li><a href="/async/timer.html" title="定时器" class="">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象" class="active">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>Promise 对象</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#Promise-对象" class="header-anchor">#</a> <span>Promise 对象</span></h1><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><p>Promise 对象是 JavaScript 的异步操作解决方案，为异步操作提供统一接口。它起到代理作用（proxy），充当异步操作与回调函数之间的中介，使得异步操作具备同步操作的接口。Promise 可以让异步操作写起来，就像在写同步操作的流程，而不必一层层地嵌套回调函数。</p><p>注意，本章只是 Promise 对象的简单介绍。为了避免与后续教程的重复，更完整的介绍请看<a href="http://es6.ruanyifeng.com/">《ES6 标准入门》</a>的<a href="http://es6.ruanyifeng.com/#docs/promise">《Promise 对象》</a>一章。</p><p>首先，Promise 是一个对象，也是一个构造函数。</p><pre class="prettyprint language-javascript"><code>function f1(resolve, reject) {
+  // 异步代码...
+}
+
+var p1 = new Promise(f1);</code></pre><p>上面代码中，<code>Promise</code>构造函数接受一个回调函数<code>f1</code>作为参数，<code>f1</code>里面是异步操作的代码。然后，返回的<code>p1</code>就是一个 Promise 实例。</p><p>Promise 的设计思想是，所有异步任务都返回一个 Promise 实例。Promise 实例有一个<code>then</code>方法，用来指定下一步的回调函数。</p><pre class="prettyprint language-javascript"><code>var p1 = new Promise(f1);
+p1.then(f2);</code></pre><p>上面代码中，<code>f1</code>的异步操作执行完成，就会执行<code>f2</code>。</p><p>传统的写法可能需要把<code>f2</code>作为回调函数传入<code>f1</code>，比如写成<code>f1(f2)</code>，异步操作完成后，在<code>f1</code>内部调用<code>f2</code>。Promise 使得<code>f1</code>和<code>f2</code>变成了链式写法。不仅改善了可读性，而且对于多层嵌套的回调函数尤其方便。</p><pre class="prettyprint language-javascript"><code>// 传统写法
+step1(function (value1) {
+  step2(value1, function(value2) {
+    step3(value2, function(value3) {
+      step4(value3, function(value4) {
+        // ...
+      });
+    });
+  });
+});
+
+// Promise 的写法
+(new Promise(step1))
+  .then(step2)
+  .then(step3)
+  .then(step4);</code></pre><p>从上面代码可以看到，采用 Promises 以后，程序流程变得非常清楚，十分易读。注意，为了便于理解，上面代码的<code>Promise</code>实例的生成格式，做了简化，真正的语法请参照下文。</p><p>总的来说，传统的回调函数写法使得代码混成一团，变得横向发展而不是向下发展。Promise 就是解决这个问题，使得异步流程可以写成同步流程。</p><p>Promise 原本只是社区提出的一个构想，一些函数库率先实现了这个功能。ECMAScript 6 将其写入语言标准，目前 JavaScript 原生支持 Promise 对象。</p><h2><a href="#Promise-对象的状态" class="header-anchor">#</a> <span>Promise 对象的状态</span></h2><p>Promise 对象通过自身的状态，来控制异步操作。Promise 实例具有三种状态。</p><ul><li>异步操作未完成（pending）</li><li>异步操作成功（fulfilled）</li><li>异步操作失败（rejected）</li></ul><p>上面三种状态里面，<code>fulfilled</code>和<code>rejected</code>合在一起称为<code>resolved</code>（已定型）。</p><p>这三种的状态的变化途径只有两种。</p><ul><li>从“未完成”到“成功”</li><li>从“未完成”到“失败”</li></ul><p>一旦状态发生变化，就凝固了，不会再有新的状态变化。这也是 Promise 这个名字的由来，它的英语意思是“承诺”，一旦承诺成效，就不得再改变了。这也意味着，Promise 实例的状态变化只可能发生一次。</p><p>因此，Promise 的最终结果只有两种。</p><ul><li>异步操作成功，Promise 实例传回一个值（value），状态变为<code>fulfilled</code>。</li><li>异步操作失败，Promise 实例抛出一个错误（error），状态变为<code>rejected</code>。</li></ul><h2><a href="#Promise-构造函数" class="header-anchor">#</a> <span>Promise 构造函数</span></h2><p>JavaScript 提供原生的<code>Promise</code>构造函数，用来生成 Promise 实例。</p><pre class="prettyprint language-javascript"><code>var promise = new Promise(function (resolve, reject) {
+  // ...
+
+  if (/* 异步操作成功 */){
+    resolve(value);
+  } else { /* 异步操作失败 */
+    reject(new Error());
+  }
+});</code></pre><p>上面代码中，<code>Promise</code>构造函数接受一个函数作为参数，该函数的两个参数分别是<code>resolve</code>和<code>reject</code>。它们是两个函数，由 JavaScript 引擎提供，不用自己实现。</p><p><code>resolve</code>函数的作用是，将<code>Promise</code>实例的状态从“未完成”变为“成功”（即从<code>pending</code>变为<code>fulfilled</code>），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去。<code>reject</code>函数的作用是，将<code>Promise</code>实例的状态从“未完成”变为“失败”（即从<code>pending</code>变为<code>rejected</code>），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。</p><p>下面是一个例子。</p><pre class="prettyprint language-javascript"><code>function timeout(ms) {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(resolve, ms, &#039;done&#039;);
+  });
+}
+
+timeout(100)</code></pre><p>上面代码中，<code>timeout(100)</code>返回一个 Promise 实例。100毫秒以后，该实例的状态会变为<code>fulfilled</code>。</p><h2><a href="#Promise.prototype.then()" class="header-anchor">#</a> <span>Promise.prototype.then()</span></h2><p>Promise 实例的<code>then</code>方法，用来添加回调函数。</p><p><code>then</code>方法可以接受两个回调函数，第一个是异步操作成功时（变为<code>fulfilled</code>状态）时的回调函数，第二个是异步操作失败（变为<code>rejected</code>）时的回调函数（该参数可以省略）。一旦状态改变，就调用相应的回调函数。</p><pre class="prettyprint language-javascript"><code>var p1 = new Promise(function (resolve, reject) {
+  resolve(&#039;成功&#039;);
+});
+p1.then(console.log, console.error);
+// &quot;成功&quot;
+
+var p2 = new Promise(function (resolve, reject) {
+  reject(new Error(&#039;失败&#039;));
+});
+p2.then(console.log, console.error);
+// Error: 失败</code></pre><p>上面代码中，<code>p1</code>和<code>p2</code>都是Promise 实例，它们的<code>then</code>方法绑定两个回调函数：成功时的回调函数<code>console.log</code>，失败时的回调函数<code>console.error</code>（可以省略）。<code>p1</code>的状态变为成功，<code>p2</code>的状态变为失败，对应的回调函数会收到异步操作传回的值，然后在控制台输出。</p><p><code>then</code>方法可以链式使用。</p><pre class="prettyprint language-javascript"><code>p1
+  .then(step1)
+  .then(step2)
+  .then(step3)
+  .then(
+    console.log,
+    console.error
+  );</code></pre><p>上面代码中，<code>p1</code>后面有四个<code>then</code>，意味依次有四个回调函数。只要前一步的状态变为<code>fulfilled</code>，就会依次执行紧跟在后面的回调函数。</p><p>最后一个<code>then</code>方法，回调函数是<code>console.log</code>和<code>console.error</code>，用法上有一点重要的区别。<code>console.log</code>只显示<code>step3</code>的返回值，而<code>console.error</code>可以显示<code>p1</code>、<code>step1</code>、<code>step2</code>、<code>step3</code>之中任意一个发生的错误。举例来说，如果<code>step1</code>的状态变为<code>rejected</code>，那么<code>step2</code>和<code>step3</code>都不会执行了（因为它们是<code>resolved</code>的回调函数）。Promise 开始寻找，接下来第一个为<code>rejected</code>的回调函数，在上面代码中是<code>console.error</code>。这就是说，Promise 对象的报错具有传递性。</p><h2><a href="#then()-用法辨析" class="header-anchor">#</a> <span>then() 用法辨析</span></h2><p>Promise 的用法，简单说就是一句话：使用<code>then</code>方法添加回调函数。但是，不同的写法有一些细微的差别，请看下面四种写法，它们的差别在哪里？</p><pre class="prettyprint language-javascript"><code>// 写法一
+f1().then(function () {
+  return f2();
+});
+
+// 写法二
+f1().then(function () {
+  f2();
+});
+
+// 写法三
+f1().then(f2());
+
+// 写法四
+f1().then(f2);</code></pre><p>为了便于讲解，下面这四种写法都再用<code>then</code>方法接一个回调函数<code>f3</code>。写法一的<code>f3</code>回调函数的参数，是<code>f2</code>函数的运行结果。</p><pre class="prettyprint language-javascript"><code>f1().then(function () {
+  return f2();
+}).then(f3);</code></pre><p>写法二的<code>f3</code>回调函数的参数是<code>undefined</code>。</p><pre class="prettyprint language-javascript"><code>f1().then(function () {
+  f2();
+  return;
+}).then(f3);</code></pre><p>写法三的<code>f3</code>回调函数的参数，是<code>f2</code>函数返回的函数的运行结果。</p><pre class="prettyprint language-javascript"><code>f1().then(f2())
+  .then(f3);</code></pre><p>写法四与写法一只有一个差别，那就是<code>f2</code>会接收到<code>f1()</code>返回的结果。</p><pre class="prettyprint language-javascript"><code>f1().then(f2)
+  .then(f3);</code></pre><h2><a href="#实例：图片加载" class="header-anchor">#</a> <span>实例：图片加载</span></h2><p>下面是使用 Promise 完成图片的加载。</p><pre class="prettyprint language-javascript"><code>var preloadImage = function (path) {
+  return new Promise(function (resolve, reject) {
+    var image = new Image();
+    image.onload  = resolve;
+    image.onerror = reject;
+    image.src = path;
+  });
+};</code></pre><p>上面的<code>preloadImage</code>函数用法如下。</p><pre class="prettyprint language-javascript"><code>preloadImage(&#039;https://example.com/my.jpg&#039;)
+  .then(function (e) { document.body.append(e.target) })
+  .then(function () { console.log(&#039;加载成功&#039;) })</code></pre><h2><a href="#小结" class="header-anchor">#</a> <span>小结</span></h2><p>Promise 的优点在于，让回调函数变成了规范的链式写法，程序流程可以看得很清楚。它有一整套接口，可以实现许多强大的功能，比如同时执行多个异步操作，等到它们的状态都改变以后，再执行一个回调函数；再比如，为多个回调函数中抛出的错误，统一指定处理方法等等。</p><p>而且，Promise 还有一个传统写法没有的好处：它的状态一旦改变，无论何时查询，都能得到这个状态。这意味着，无论何时为 Promise 实例添加回调函数，该函数都能正确执行。所以，你不用担心是否错过了某个事件或信号。如果是传统写法，通过监听事件来执行回调函数，一旦错过了事件，再添加回调函数是不会执行的。</p><p>Promise 的缺点是，编写的难度比传统写法高，而且阅读代码也不是一眼可以看懂。你只会看到一堆<code>then</code>，必须自己在<code>then</code>的回调函数里面理清逻辑。</p><h2><a href="#微任务" class="header-anchor">#</a> <span>微任务</span></h2><p>Promise 的回调函数属于异步任务，会在同步任务之后执行。</p><pre class="prettyprint language-javascript"><code>new Promise(function (resolve, reject) {
+  resolve(1);
+}).then(console.log);
+
+console.log(2);
+// 2
+// 1</code></pre><p>上面代码会先输出2，再输出1。因为<code>console.log(2)</code>是同步任务，而<code>then</code>的回调函数属于异步任务，一定晚于同步任务执行。</p><p>但是，Promise 的回调函数不是正常的异步任务，而是微任务（microtask）。它们的区别在于，正常任务追加到下一轮事件循环，微任务追加到本轮事件循环。这意味着，微任务的执行时间一定早于正常任务。</p><pre class="prettyprint language-javascript"><code>setTimeout(function() {
+  console.log(1);
+}, 0);
+
+new Promise(function (resolve, reject) {
+  resolve(2);
+}).then(console.log);
+
+console.log(3);
+// 3
+// 2
+// 1</code></pre><p>上面代码的输出结果是<code>321</code>。这说明<code>then</code>的回调函数的执行时间，早于<code>setTimeout(fn, 0)</code>。因为<code>then</code>是本轮事件循环执行，<code>setTimeout(fn, 0)</code>在下一轮事件循环开始时执行。</p><h2><a href="#参考链接" class="header-anchor">#</a> <span>参考链接</span></h2><ul><li>Sebastian Porto, <a href="http://sporto.github.com/blog/2012/12/09/callbacks-listeners-promises/">Asynchronous JS: Callbacks, Listeners, Control Flow Libs and Promises</a></li><li>Rhys Brett-Bowen, <a href="http://modernjavascript.blogspot.com/2013/08/promisesa-understanding-by-doing.html">Promises/A+ - understanding the spec through implementation</a></li><li>Matt Podwysocki, Amanda Silver, <a href="http://blogs.msdn.com/b/ie/archive/2011/09/11/asynchronous-programming-in-javascript-with-promises.aspx">Asynchronous Programming in JavaScript with “Promises”</a></li><li>Marc Harter, <a href="https://gist.github.com//wavded/5692344">Promise A+ Implementation</a></li><li>Bryan Klimt, <a href="http://blog.parse.com/2013/01/29/whats-so-great-about-javascript-promises/">What’s so great about JavaScript Promises?</a></li><li>Jake Archibald, <a href="http://www.html5rocks.com/en/tutorials/es6/promises/">JavaScript Promises There and back again</a></li><li>Mikito Takada, <a href="http://book.mixu.net/node/ch7.html">7. Control flow, Mixu&#39;s Node book</a></li></ul></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

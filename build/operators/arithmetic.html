@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>算术运算符 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="active">运算符<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/operators/arithmetic.html" title="算术运算符" class="active">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台">console 对象与控制台</a></li></ul></li><li><a title="标准库">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象">JSON 对象</a></li></ul></li><li><a title="面向对象编程">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>算术运算符</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#算术运算符" class="header-anchor">#</a> <span>算术运算符</span></h1><p>运算符是处理数据的基本方法，用来从现有的值得到新的值。JavaScript 提供了多种运算符，覆盖了所有主要的运算。</p><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><p>JavaScript 共提供10个算术运算符，用来完成基本的算术运算。</p><ul><li><strong>加法运算符</strong>：<code>x + y</code></li><li><strong>减法运算符</strong>： <code>x - y</code></li><li><strong>乘法运算符</strong>： <code>x * y</code></li><li><strong>除法运算符</strong>：<code>x / y</code></li><li><strong>指数运算符</strong>：<code>x ** y</code></li><li><strong>余数运算符</strong>：<code>x % y</code></li><li><strong>自增运算符</strong>：<code>++x</code> 或者 <code>x++</code></li><li><strong>自减运算符</strong>：<code>--x</code> 或者 <code>x--</code></li><li><strong>数值运算符</strong>： <code>+x</code></li><li><strong>负数值运算符</strong>：<code>-x</code></li></ul><p>减法、乘法、除法运算法比较单纯，就是执行相应的数学运算。下面介绍其他几个算术运算符，重点是加法运算符。</p><h2><a href="#加法运算符" class="header-anchor">#</a> <span>加法运算符</span></h2><h3><a href="#基本规则" class="header-anchor">#</a> <span>基本规则</span></h3><p>加法运算符（<code>+</code>）是最常见的运算符，用来求两个数值的和。</p><pre class="prettyprint language-javascript"><code>1 + 1 // 2</code></pre><p>JavaScript 允许非数值的相加。</p><pre class="prettyprint language-javascript"><code>true + true // 2
+1 + true // 2</code></pre><p>上面代码中，第一行是两个布尔值相加，第二行是数值与布尔值相加。这两种情况，布尔值都会自动转成数值，然后再相加。</p><p>比较特殊的是，如果是两个字符串相加，这时加法运算符会变成连接运算符，返回一个新的字符串，将两个原字符串连接在一起。</p><pre class="prettyprint language-javascript"><code>&#039;a&#039; + &#039;bc&#039; // &quot;abc&quot;</code></pre><p>如果一个运算子是字符串，另一个运算子是非字符串，这时非字符串会转成字符串，再连接在一起。</p><pre class="prettyprint language-javascript"><code>1 + &#039;a&#039; // &quot;1a&quot;
+false + &#039;a&#039; // &quot;falsea&quot;</code></pre><p>加法运算符是在运行时决定，到底是执行相加，还是执行连接。也就是说，运算子的不同，导致了不同的语法行为，这种现象称为“重载”（overload）。由于加法运算符存在重载，可能执行两种运算，使用的时候必须很小心。</p><pre class="prettyprint language-javascript"><code>&#039;3&#039; + 4 + 5 // &quot;345&quot;
+3 + 4 + &#039;5&#039; // &quot;75&quot;</code></pre><p>上面代码中，由于从左到右的运算次序，字符串的位置不同会导致不同的结果。</p><p>除了加法运算符，其他算术运算符（比如减法、除法和乘法）都不会发生重载。它们的规则是：所有运算子一律转为数值，再进行相应的数学运算。</p><pre class="prettyprint language-javascript"><code>1 - &#039;2&#039; // -1
+1 * &#039;2&#039; // 2
+1 / &#039;2&#039; // 0.5</code></pre><p>上面代码中，减法、除法和乘法运算符，都是将字符串自动转为数值，然后再运算。</p><h3><a href="#对象的相加" class="header-anchor">#</a> <span>对象的相加</span></h3><p>如果运算子是对象，必须先转成原始类型的值，然后再相加。</p><pre class="prettyprint language-javascript"><code>var obj = { p: 1 };
+obj + 2 // &quot;[object Object]2&quot;</code></pre><p>上面代码中，对象<code>obj</code>转成原始类型的值是<code>[object Object]</code>，再加<code>2</code>就得到了上面的结果。</p><p>对象转成原始类型的值，规则如下。</p><p>首先，自动调用对象的<code>valueOf</code>方法。</p><pre class="prettyprint language-javascript"><code>var obj = { p: 1 };
+obj.valueOf() // { p: 1 }</code></pre><p>一般来说，对象的<code>valueOf</code>方法总是返回对象自身，这时再自动调用对象的<code>toString</code>方法，将其转为字符串。</p><pre class="prettyprint language-javascript"><code>var obj = { p: 1 };
+obj.valueOf().toString() // &quot;[object Object]&quot;</code></pre><p>对象的<code>toString</code>方法默认返回<code>[object Object]</code>，所以就得到了最前面那个例子的结果。</p><p>知道了这个规则以后，就可以自己定义<code>valueOf</code>方法或<code>toString</code>方法，得到想要的结果。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  valueOf: function () {
+    return 1;
+  }
+};
+
+obj + 2 // 3</code></pre><p>上面代码中，我们定义<code>obj</code>对象的<code>valueOf</code>方法返回<code>1</code>，于是<code>obj + 2</code>就得到了<code>3</code>。这个例子中，由于<code>valueOf</code>方法直接返回一个原始类型的值，所以不再调用<code>toString</code>方法。</p><p>下面是自定义<code>toString</code>方法的例子。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  toString: function () {
+    return &#039;hello&#039;;
+  }
+};
+
+obj + 2 // &quot;hello2&quot;</code></pre><p>上面代码中，对象<code>obj</code>的<code>toString</code>方法返回字符串<code>hello</code>。前面说过，只要有一个运算子是字符串，加法运算符就变成连接运算符，返回连接后的字符串。</p><p>这里有一个特例，如果运算子是一个<code>Date</code>对象的实例，那么会优先执行<code>toString</code>方法。</p><pre class="prettyprint language-javascript"><code>var obj = new Date();
+obj.valueOf = function () { return 1 };
+obj.toString = function () { return &#039;hello&#039; };
+
+obj + 2 // &quot;hello2&quot;</code></pre><p>上面代码中，对象<code>obj</code>是一个<code>Date</code>对象的实例，并且自定义了<code>valueOf</code>方法和<code>toString</code>方法，结果<code>toString</code>方法优先执行。</p><h2><a href="#余数运算符" class="header-anchor">#</a> <span>余数运算符</span></h2><p>余数运算符（<code>%</code>）返回前一个运算子被后一个运算子除，所得的余数。</p><pre class="prettyprint language-javascript"><code>12 % 5 // 2</code></pre><p>需要注意的是，运算结果的正负号由第一个运算子的正负号决定。</p><pre class="prettyprint language-javascript"><code>-1 % 2 // -1
+1 % -2 // 1</code></pre><p>所以，为了得到负数的正确余数值，可以先使用绝对值函数。</p><pre class="prettyprint language-javascript"><code>// 错误的写法
+function isOdd(n) {
+  return n % 2 === 1;
+}
+isOdd(-5) // false
+isOdd(-4) // false
+
+// 正确的写法
+function isOdd(n) {
+  return Math.abs(n % 2) === 1;
+}
+isOdd(-5) // true
+isOdd(-4) // false</code></pre><p>余数运算符还可以用于浮点数的运算。但是，由于浮点数不是精确的值，无法得到完全准确的结果。</p><pre class="prettyprint language-javascript"><code>6.5 % 2.1
+// 0.19999999999999973</code></pre><h2><a href="#自增和自减运算符" class="header-anchor">#</a> <span>自增和自减运算符</span></h2><p>自增和自减运算符，是一元运算符，只需要一个运算子。它们的作用是将运算子首先转为数值，然后加上1或者减去1。它们会修改原始变量。</p><pre class="prettyprint language-javascript"><code>var x = 1;
+++x // 2
+x // 2
+
+--x // 1
+x // 1</code></pre><p>上面代码的变量<code>x</code>自增后，返回<code>2</code>，再进行自减，返回<code>1</code>。这两种情况都会使得，原始变量<code>x</code>的值发生改变。</p><p>运算之后，变量的值发生变化，这种效应叫做运算的副作用（side effect）。自增和自减运算符是仅有的两个具有副作用的运算符，其他运算符都不会改变变量的值。</p><p>自增和自减运算符有一个需要注意的地方，就是放在变量之后，会先返回变量操作前的值，再进行自增/自减操作；放在变量之前，会先进行自增/自减操作，再返回变量操作后的值。</p><pre class="prettyprint language-javascript"><code>var x = 1;
+var y = 1;
+
+x++ // 1
+++y // 2</code></pre><p>上面代码中，<code>x</code>是先返回当前值，然后自增，所以得到<code>1</code>；<code>y</code>是先自增，然后返回新的值，所以得到<code>2</code>。</p><h2><a href="#数值运算符，负数值运算符" class="header-anchor">#</a> <span>数值运算符，负数值运算符</span></h2><p>数值运算符（<code>+</code>）同样使用加号，但它是一元运算符（只需要一个操作数），而加法运算符是二元运算符（需要两个操作数）。</p><p>数值运算符的作用在于可以将任何值转为数值（与<code>Number</code>函数的作用相同）。</p><pre class="prettyprint language-javascript"><code>+true // 1
++[] // 0
++{} // NaN</code></pre><p>上面代码表示，非数值经过数值运算符以后，都变成了数值（最后一行<code>NaN</code>也是数值）。具体的类型转换规则，参见《数据类型转换》一章。</p><p>负数值运算符（<code>-</code>），也同样具有将一个值转为数值的功能，只不过得到的值正负相反。连用两个负数值运算符，等同于数值运算符。</p><pre class="prettyprint language-javascript"><code>var x = 1;
+-x // -1
+-(-x) // 1</code></pre><p>上面代码最后一行的圆括号不可少，否则会变成自减运算符。</p><p>数值运算符号和负数值运算符，都会返回一个新的值，而不会改变原始变量的值。</p><h2><a href="#指数运算符" class="header-anchor">#</a> <span>指数运算符</span></h2><p>指数运算符（<code>**</code>）完成指数运算，前一个运算子是底数，后一个运算子是指数。</p><pre class="prettyprint language-javascript"><code>2 ** 4 // 16</code></pre><h2><a href="#赋值运算符" class="header-anchor">#</a> <span>赋值运算符</span></h2><p>赋值运算符（Assignment Operators）用于给变量赋值。</p><p>最常见的赋值运算符，当然就是等号（<code>=</code>）。</p><pre class="prettyprint language-javascript"><code>// 将 1 赋值给变量 x
+var x = 1;
+
+// 将变量 y 的值赋值给变量 x
+var x = y;</code></pre><p>赋值运算符还可以与其他运算符结合，形成变体。下面是与算术运算符的结合。</p><pre class="prettyprint language-javascript"><code>// 等同于 x = x + y
+x += y
+
+// 等同于 x = x - y
+x -= y
+
+// 等同于 x = x * y
+x *= y
+
+// 等同于 x = x / y
+x /= y
+
+// 等同于 x = x % y
+x %= y
+
+// 等同于 x = x ** y
+x **= y</code></pre><p>下面是与位运算符的结合（关于位运算符，请见后文的介绍）。</p><pre class="prettyprint language-javascript"><code>// 等同于 x = x &gt;&gt; y
+x &gt;&gt;= y
+
+// 等同于 x = x &lt;&lt; y
+x &lt;&lt;= y
+
+// 等同于 x = x &gt;&gt;&gt; y
+x &gt;&gt;&gt;= y
+
+// 等同于 x = x &amp; y
+x &amp;= y
+
+// 等同于 x = x | y
+x |= y
+
+// 等同于 x = x ^ y
+x ^= y</code></pre><p>这些复合的赋值运算符，都是先进行指定运算，然后将得到值返回给左边的变量。</p></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>this 关键字 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象" class="">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象" class="">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象" class="">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象" class="">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象" class="">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象" class="">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象" class="">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象" class="">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象" class="">JSON 对象</a></li></ul></li><li><a title="面向对象编程" class="active">面向对象编程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/oop/new.html" title="实例对象与 new 命令" class="">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字" class="active">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>this 关键字</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#this-关键字" class="header-anchor">#</a> <span>this 关键字</span></h1><h2><a href="#涵义" class="header-anchor">#</a> <span>涵义</span></h2><p><code>this</code>关键字是一个非常重要的语法点。毫不夸张地说，不理解它的含义，大部分开发任务都无法完成。</p><p>前一章已经提到，<code>this</code>可以用在构造函数之中，表示实例对象。除此之外，<code>this</code>还可以用在别的场合。但不管是什么场合，<code>this</code>都有一个共同点：它总是返回一个对象。</p><p>简单说，<code>this</code>就是属性或方法“当前”所在的对象。</p><pre class="prettyprint language-javascript"><code>this.property</code></pre><p>上面代码中，<code>this</code>就代表<code>property</code>属性当前所在的对象。</p><p>下面是一个实际的例子。</p><pre class="prettyprint language-javascript"><code>var person = {
+  name: &#039;张三&#039;,
+  describe: function () {
+    return &#039;姓名：&#039;+ this.name;
+  }
+};
+
+person.describe()
+// &quot;姓名：张三&quot;</code></pre><p>上面代码中，<code>this.name</code>表示<code>name</code>属性所在的那个对象。由于<code>this.name</code>是在<code>describe</code>方法中调用，而<code>describe</code>方法所在的当前对象是<code>person</code>，因此<code>this</code>指向<code>person</code>，<code>this.name</code>就是<code>person.name</code>。</p><p>由于对象的属性可以赋给另一个对象，所以属性所在的当前对象是可变的，即<code>this</code>的指向是可变的。</p><pre class="prettyprint language-javascript"><code>var A = {
+  name: &#039;张三&#039;,
+  describe: function () {
+    return &#039;姓名：&#039;+ this.name;
+  }
+};
+
+var B = {
+  name: &#039;李四&#039;
+};
+
+B.describe = A.describe;
+B.describe()
+// &quot;姓名：李四&quot;</code></pre><p>上面代码中，<code>A.describe</code>属性被赋给<code>B</code>，于是<code>B.describe</code>就表示<code>describe</code>方法所在的当前对象是<code>B</code>，所以<code>this.name</code>就指向<code>B.name</code>。</p><p>稍稍重构这个例子，<code>this</code>的动态指向就能看得更清楚。</p><pre class="prettyprint language-javascript"><code>function f() {
+  return &#039;姓名：&#039;+ this.name;
+}
+
+var A = {
+  name: &#039;张三&#039;,
+  describe: f
+};
+
+var B = {
+  name: &#039;李四&#039;,
+  describe: f
+};
+
+A.describe() // &quot;姓名：张三&quot;
+B.describe() // &quot;姓名：李四&quot;</code></pre><p>上面代码中，函数<code>f</code>内部使用了<code>this</code>关键字，随着<code>f</code>所在的对象不同，<code>this</code>的指向也不同。</p><p>只要函数被赋给另一个变量，<code>this</code>的指向就会变。</p><pre class="prettyprint language-javascript"><code>var A = {
+  name: &#039;张三&#039;,
+  describe: function () {
+    return &#039;姓名：&#039;+ this.name;
+  }
+};
+
+var name = &#039;李四&#039;;
+var f = A.describe;
+f() // &quot;姓名：李四&quot;</code></pre><p>上面代码中，<code>A.describe</code>被赋值给变量<code>f</code>，内部的<code>this</code>就会指向<code>f</code>运行时所在的对象（本例是顶层对象）。</p><p>再看一个网页编程的例子。</p><pre class="prettyprint language-html"><code>&lt;input type=&quot;text&quot; name=&quot;age&quot; size=3 onChange=&quot;validate(this, 18, 99);&quot;&gt;
+
+&lt;script&gt;
+function validate(obj, lowval, hival){
+  if ((obj.value &lt; lowval) || (obj.value &gt; hival))
+    console.log(&#039;Invalid Value!&#039;);
+}
+&lt;/script&gt;</code></pre><p>上面代码是一个文本输入框，每当用户输入一个值，就会调用<code>onChange</code>回调函数，验证这个值是否在指定范围。浏览器会向回调函数传入当前对象，因此<code>this</code>就代表传入当前对象（即文本框），然后就可以从<code>this.value</code>上面读到用户的输入值。</p><p>总结一下，JavaScript 语言之中，一切皆对象，运行环境也是对象，所以函数都是在某个对象之中运行，<code>this</code>就是函数运行时所在的对象（环境）。这本来并不会让用户糊涂，但是 JavaScript 支持运行环境动态切换，也就是说，<code>this</code>的指向是动态的，没有办法事先确定到底指向哪个对象，这才是最让初学者感到困惑的地方。</p><h2><a href="#实质" class="header-anchor">#</a> <span>实质</span></h2><p>JavaScript 语言之所以有 this 的设计，跟内存里面的数据结构有关系。</p><pre class="prettyprint language-javascript"><code>var obj = { foo:  5 };</code></pre><p>上面的代码将一个对象赋值给变量<code>obj</code>。JavaScript 引擎会先在内存里面，生成一个对象<code>{ foo: 5 }</code>，然后把这个对象的内存地址赋值给变量<code>obj</code>。也就是说，变量<code>obj</code>是一个地址（reference）。后面如果要读取<code>obj.foo</code>，引擎先从<code>obj</code>拿到内存地址，然后再从该地址读出原始的对象，返回它的<code>foo</code>属性。</p><p>原始的对象以字典结构保存，每一个属性名都对应一个属性描述对象。举例来说，上面例子的<code>foo</code>属性，实际上是以下面的形式保存的。</p><pre class="prettyprint language-javascript"><code>{
+  foo: {
+    [[value]]: 5
+    [[writable]]: true
+    [[enumerable]]: true
+    [[configurable]]: true
+  }
+}</code></pre><p>注意，<code>foo</code>属性的值保存在属性描述对象的<code>value</code>属性里面。</p><p>这样的结构是很清晰的，问题在于属性的值可能是一个函数。</p><pre class="prettyprint language-javascript"><code>var obj = { foo: function () {} };</code></pre><p>这时，引擎会将函数单独保存在内存中，然后再将函数的地址赋值给<code>foo</code>属性的<code>value</code>属性。</p><pre class="prettyprint language-javascript"><code>{
+  foo: {
+    [[value]]: 函数的地址
+    ...
+  }
+}</code></pre><p>由于函数是一个单独的值，所以它可以在不同的环境（上下文）执行。</p><pre class="prettyprint language-javascript"><code>var f = function () {};
+var obj = { f: f };
+
+// 单独执行
+f()
+
+// obj 环境执行
+obj.f()</code></pre><p>JavaScript 允许在函数体内部，引用当前环境的其他变量。</p><pre class="prettyprint language-javascript"><code>var f = function () {
+  console.log(x);
+};</code></pre><p>上面代码中，函数体里面使用了变量<code>x</code>。该变量由运行环境提供。</p><p>现在问题就来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在函数体内部获得当前的运行环境（context）。所以，<code>this</code>就出现了，它的设计目的就是在函数体内部，指代函数当前的运行环境。</p><pre class="prettyprint language-javascript"><code>var f = function () {
+  console.log(this.x);
+}</code></pre><p>上面代码中，函数体里面的<code>this.x</code>就是指当前运行环境的<code>x</code>。</p><pre class="prettyprint language-javascript"><code>var f = function () {
+  console.log(this.x);
+}
+
+var x = 1;
+var obj = {
+  f: f,
+  x: 2,
+};
+
+// 单独执行
+f() // 1
+
+// obj 环境执行
+obj.f() // 2</code></pre><p>上面代码中，函数<code>f</code>在全局环境执行，<code>this.x</code>指向全局环境的<code>x</code>；在<code>obj</code>环境执行，<code>this.x</code>指向<code>obj.x</code>。</p><h2><a href="#使用场合" class="header-anchor">#</a> <span>使用场合</span></h2><p><code>this</code>主要有以下几个使用场合。</p><p><strong>（1）全局环境</strong></p><p>全局环境使用<code>this</code>，它指的就是顶层对象<code>window</code>。</p><pre class="prettyprint language-javascript"><code>this === window // true
+
+function f() {
+  console.log(this === window);
+}
+f() // true</code></pre><p>上面代码说明，不管是不是在函数内部，只要是在全局环境下运行，<code>this</code>就是指顶层对象<code>window</code>。</p><p><strong>（2）构造函数</strong></p><p>构造函数中的<code>this</code>，指的是实例对象。</p><pre class="prettyprint language-javascript"><code>var Obj = function (p) {
+  this.p = p;
+};</code></pre><p>上面代码定义了一个构造函数<code>Obj</code>。由于<code>this</code>指向实例对象，所以在构造函数内部定义<code>this.p</code>，就相当于定义实例对象有一个<code>p</code>属性。</p><pre class="prettyprint language-javascript"><code>var o = new Obj(&#039;Hello World!&#039;);
+o.p // &quot;Hello World!&quot;</code></pre><p><strong>（3）对象的方法</strong></p><p>如果对象的方法里面包含<code>this</code>，<code>this</code>的指向就是方法运行时所在的对象。该方法赋值给另一个对象，就会改变<code>this</code>的指向。</p><p>但是，这条规则很不容易把握。请看下面的代码。</p><pre class="prettyprint language-javascript"><code>var obj ={
+  foo: function () {
+    console.log(this);
+  }
+};
+
+obj.foo() // obj</code></pre><p>上面代码中，<code>obj.foo</code>方法执行时，它内部的<code>this</code>指向<code>obj</code>。</p><p>但是，下面这几种用法，都会改变<code>this</code>的指向。</p><pre class="prettyprint language-javascript"><code>// 情况一
+(obj.foo = obj.foo)() // window
+// 情况二
+(false || obj.foo)() // window
+// 情况三
+(1, obj.foo)() // window</code></pre><p>上面代码中，<code>obj.foo</code>就是一个值。这个值真正调用的时候，运行环境已经不是<code>obj</code>了，而是全局环境，所以<code>this</code>不再指向<code>obj</code>。</p><p>可以这样理解，JavaScript 引擎内部，<code>obj</code>和<code>obj.foo</code>储存在两个内存地址，称为地址一和地址二。<code>obj.foo()</code>这样调用时，是从地址一调用地址二，因此地址二的运行环境是地址一，<code>this</code>指向<code>obj</code>。但是，上面三种情况，都是直接取出地址二进行调用，这样的话，运行环境就是全局环境，因此<code>this</code>指向全局环境。上面三种情况等同于下面的代码。</p><pre class="prettyprint language-javascript"><code>// 情况一
+(obj.foo = function () {
+  console.log(this);
+})()
+// 等同于
+(function () {
+  console.log(this);
+})()
+
+// 情况二
+(false || function () {
+  console.log(this);
+})()
+
+// 情况三
+(1, function () {
+  console.log(this);
+})()</code></pre><p>如果<code>this</code>所在的方法不在对象的第一层，这时<code>this</code>只是指向当前一层的对象，而不会继承更上面的层。</p><pre class="prettyprint language-javascript"><code>var a = {
+  p: &#039;Hello&#039;,
+  b: {
+    m: function() {
+      console.log(this.p);
+    }
+  }
+};
+
+a.b.m() // undefined</code></pre><p>上面代码中，<code>a.b.m</code>方法在<code>a</code>对象的第二层，该方法内部的<code>this</code>不是指向<code>a</code>，而是指向<code>a.b</code>，因为实际执行的是下面的代码。</p><pre class="prettyprint language-javascript"><code>var b = {
+  m: function() {
+   console.log(this.p);
+  }
+};
+
+var a = {
+  p: &#039;Hello&#039;,
+  b: b
+};
+
+(a.b).m() // 等同于 b.m()</code></pre><p>如果要达到预期效果，只有写成下面这样。</p><pre class="prettyprint language-javascript"><code>var a = {
+  b: {
+    m: function() {
+      console.log(this.p);
+    },
+    p: &#039;Hello&#039;
+  }
+};</code></pre><p>如果这时将嵌套对象内部的方法赋值给一个变量，<code>this</code>依然会指向全局对象。</p><pre class="prettyprint language-javascript"><code>var a = {
+  b: {
+    m: function() {
+      console.log(this.p);
+    },
+    p: &#039;Hello&#039;
+  }
+};
+
+var hello = a.b.m;
+hello() // undefined</code></pre><p>上面代码中，<code>m</code>是多层对象内部的一个方法。为求简便，将其赋值给<code>hello</code>变量，结果调用时，<code>this</code>指向了顶层对象。为了避免这个问题，可以只将<code>m</code>所在的对象赋值给<code>hello</code>，这样调用时，<code>this</code>的指向就不会变。</p><pre class="prettyprint language-javascript"><code>var hello = a.b;
+hello.m() // Hello</code></pre><h2><a href="#使用注意点" class="header-anchor">#</a> <span>使用注意点</span></h2><h3><a href="#避免多层-this" class="header-anchor">#</a> <span>避免多层 this</span></h3><p>由于<code>this</code>的指向是不确定的，所以切勿在函数中包含多层的<code>this</code>。</p><pre class="prettyprint language-javascript"><code>var o = {
+  f1: function () {
+    console.log(this);
+    var f2 = function () {
+      console.log(this);
+    }();
+  }
+}
+
+o.f1()
+// Object
+// Window</code></pre><p>上面代码包含两层<code>this</code>，结果运行后，第一层指向对象<code>o</code>，第二层指向全局对象，因为实际执行的是下面的代码。</p><pre class="prettyprint language-javascript"><code>var temp = function () {
+  console.log(this);
+};
+
+var o = {
+  f1: function () {
+    console.log(this);
+    var f2 = temp();
+  }
+}</code></pre><p>一个解决方法是在第二层改用一个指向外层<code>this</code>的变量。</p><pre class="prettyprint language-javascript"><code>var o = {
+  f1: function() {
+    console.log(this);
+    var that = this;
+    var f2 = function() {
+      console.log(that);
+    }();
+  }
+}
+
+o.f1()
+// Object
+// Object</code></pre><p>上面代码定义了变量<code>that</code>，固定指向外层的<code>this</code>，然后在内层使用<code>that</code>，就不会发生<code>this</code>指向的改变。</p><p>事实上，使用一个变量固定<code>this</code>的值，然后内层函数调用这个变量，是非常常见的做法，请务必掌握。</p><p>JavaScript 提供了严格模式，也可以硬性避免这种问题。严格模式下，如果函数内部的<code>this</code>指向顶层对象，就会报错。</p><pre class="prettyprint language-javascript"><code>var counter = {
+  count: 0
+};
+counter.inc = function () {
+  &#039;use strict&#039;;
+  this.count++
+};
+var f = counter.inc;
+f()
+// TypeError: Cannot read property &#039;count&#039; of undefined</code></pre><p>上面代码中，<code>inc</code>方法通过<code>&#39;use strict&#39;</code>声明采用严格模式，这时内部的<code>this</code>一旦指向顶层对象，就会报错。</p><h3><a href="#避免数组处理方法中的-this" class="header-anchor">#</a> <span>避免数组处理方法中的 this</span></h3><p>数组的<code>map</code>和<code>foreach</code>方法，允许提供一个函数作为参数。这个函数内部不应该使用<code>this</code>。</p><pre class="prettyprint language-javascript"><code>var o = {
+  v: &#039;hello&#039;,
+  p: [ &#039;a1&#039;, &#039;a2&#039; ],
+  f: function f() {
+    this.p.forEach(function (item) {
+      console.log(this.v + &#039; &#039; + item);
+    });
+  }
+}
+
+o.f()
+// undefined a1
+// undefined a2</code></pre><p>上面代码中，<code>foreach</code>方法的回调函数中的<code>this</code>，其实是指向<code>window</code>对象，因此取不到<code>o.v</code>的值。原因跟上一段的多层<code>this</code>是一样的，就是内层的<code>this</code>不指向外部，而指向顶层对象。</p><p>解决这个问题的一种方法，就是前面提到的，使用中间变量固定<code>this</code>。</p><pre class="prettyprint language-javascript"><code>var o = {
+  v: &#039;hello&#039;,
+  p: [ &#039;a1&#039;, &#039;a2&#039; ],
+  f: function f() {
+    var that = this;
+    this.p.forEach(function (item) {
+      console.log(that.v+&#039; &#039;+item);
+    });
+  }
+}
+
+o.f()
+// hello a1
+// hello a2</code></pre><p>另一种方法是将<code>this</code>当作<code>foreach</code>方法的第二个参数，固定它的运行环境。</p><pre class="prettyprint language-javascript"><code>var o = {
+  v: &#039;hello&#039;,
+  p: [ &#039;a1&#039;, &#039;a2&#039; ],
+  f: function f() {
+    this.p.forEach(function (item) {
+      console.log(this.v + &#039; &#039; + item);
+    }, this);
+  }
+}
+
+o.f()
+// hello a1
+// hello a2</code></pre><h3><a href="#避免回调函数中的-this" class="header-anchor">#</a> <span>避免回调函数中的 this</span></h3><p>回调函数中的<code>this</code>往往会改变指向，最好避免使用。</p><pre class="prettyprint language-javascript"><code>var o = new Object();
+o.f = function () {
+  console.log(this === o);
+}
+
+// jQuery 的写法
+$(&#039;#button&#039;).on(&#039;click&#039;, o.f);</code></pre><p>上面代码中，点击按钮以后，控制台会显示<code>false</code>。原因是此时<code>this</code>不再指向<code>o</code>对象，而是指向按钮的 DOM 对象，因为<code>f</code>方法是在按钮对象的环境中被调用的。这种细微的差别，很容易在编程中忽视，导致难以察觉的错误。</p><p>为了解决这个问题，可以采用下面的一些方法对<code>this</code>进行绑定，也就是使得<code>this</code>固定指向某个对象，减少不确定性。</p><h2><a href="#绑定-this-的方法" class="header-anchor">#</a> <span>绑定 this 的方法</span></h2><p><code>this</code>的动态切换，固然为 JavaScript 创造了巨大的灵活性，但也使得编程变得困难和模糊。有时，需要把<code>this</code>固定下来，避免出现意想不到的情况。JavaScript 提供了<code>call</code>、<code>apply</code>、<code>bind</code>这三个方法，来切换/固定<code>this</code>的指向。</p><h3><a href="#Function.prototype.call()" class="header-anchor">#</a> <span>Function.prototype.call()</span></h3><p>函数实例的<code>call</code>方法，可以指定函数内部<code>this</code>的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+
+var f = function () {
+  return this;
+};
+
+f() === window // true
+f.call(obj) === obj // true</code></pre><p>上面代码中，全局环境运行函数<code>f</code>时，<code>this</code>指向全局环境（浏览器为<code>window</code>对象）；<code>call</code>方法可以改变<code>this</code>的指向，指定<code>this</code>指向对象<code>obj</code>，然后在对象<code>obj</code>的作用域中运行函数<code>f</code>。</p><p><code>call</code>方法的参数，应该是一个对象。如果参数为空、<code>null</code>和<code>undefined</code>，则默认传入全局对象。</p><pre class="prettyprint language-javascript"><code>var n = 123;
+var obj = { n: 456 };
+
+function a() {
+  console.log(this.n);
+}
+
+a.call() // 123
+a.call(null) // 123
+a.call(undefined) // 123
+a.call(window) // 123
+a.call(obj) // 456</code></pre><p>上面代码中，<code>a</code>函数中的<code>this</code>关键字，如果指向全局对象，返回结果为<code>123</code>。如果使用<code>call</code>方法将<code>this</code>关键字指向<code>obj</code>对象，返回结果为<code>456</code>。可以看到，如果<code>call</code>方法没有参数，或者参数为<code>null</code>或<code>undefined</code>，则等同于指向全局对象。</p><p>如果<code>call</code>方法的参数是一个原始值，那么这个原始值会自动转成对应的包装对象，然后传入<code>call</code>方法。</p><pre class="prettyprint language-javascript"><code>var f = function () {
+  return this;
+};
+
+f.call(5)
+// Number {[[PrimitiveValue]]: 5}</code></pre><p>上面代码中，<code>call</code>的参数为<code>5</code>，不是对象，会被自动转成包装对象（<code>Number</code>的实例），绑定<code>f</code>内部的<code>this</code>。</p><p><code>call</code>方法还可以接受多个参数。</p><pre class="prettyprint language-javascript"><code>func.call(thisValue, arg1, arg2, ...)</code></pre><p><code>call</code>的第一个参数就是<code>this</code>所要指向的那个对象，后面的参数则是函数调用时所需的参数。</p><pre class="prettyprint language-javascript"><code>function add(a, b) {
+  return a + b;
+}
+
+add.call(this, 1, 2) // 3</code></pre><p>上面代码中，<code>call</code>方法指定函数<code>add</code>内部的<code>this</code>绑定当前环境（对象），并且参数为<code>1</code>和<code>2</code>，因此函数<code>add</code>运行后得到<code>3</code>。</p><p><code>call</code>方法的一个应用是调用对象的原生方法。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+obj.hasOwnProperty(&#039;toString&#039;) // false
+
+// 覆盖掉继承的 hasOwnProperty 方法
+obj.hasOwnProperty = function () {
+  return true;
+};
+obj.hasOwnProperty(&#039;toString&#039;) // true
+
+Object.prototype.hasOwnProperty.call(obj, &#039;toString&#039;) // false</code></pre><p>上面代码中，<code>hasOwnProperty</code>是<code>obj</code>对象继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。<code>call</code>方法可以解决这个问题，它将<code>hasOwnProperty</code>方法的原始定义放到<code>obj</code>对象上执行，这样无论<code>obj</code>上有没有同名方法，都不会影响结果。</p><h3><a href="#Function.prototype.apply()" class="header-anchor">#</a> <span>Function.prototype.apply()</span></h3><p><code>apply</code>方法的作用与<code>call</code>方法类似，也是改变<code>this</code>指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数，使用格式如下。</p><pre class="prettyprint language-javascript"><code>func.apply(thisValue, [arg1, arg2, ...])</code></pre><p><code>apply</code>方法的第一个参数也是<code>this</code>所要指向的那个对象，如果设为<code>null</code>或<code>undefined</code>，则等同于指定全局对象。第二个参数则是一个数组，该数组的所有成员依次作为参数，传入原函数。原函数的参数，在<code>call</code>方法中必须一个个添加，但是在<code>apply</code>方法中，必须以数组形式添加。</p><pre class="prettyprint language-javascript"><code>function f(x, y){
+  console.log(x + y);
+}
+
+f.call(null, 1, 1) // 2
+f.apply(null, [1, 1]) // 2</code></pre><p>上面代码中，<code>f</code>函数本来接受两个参数，使用<code>apply</code>方法以后，就变成可以接受一个数组作为参数。</p><p>利用这一点，可以做一些有趣的应用。</p><p><strong>（1）找出数组最大元素</strong></p><p>JavaScript 不提供找出数组最大元素的函数。结合使用<code>apply</code>方法和<code>Math.max</code>方法，就可以返回数组的最大元素。</p><pre class="prettyprint language-javascript"><code>var a = [10, 2, 4, 15, 9];
+Math.max.apply(null, a) // 15</code></pre><p><strong>（2）将数组的空元素变为<code>undefined</code></strong></p><p>通过<code>apply</code>方法，利用<code>Array</code>构造函数将数组的空元素变成<code>undefined</code>。</p><pre class="prettyprint language-javascript"><code>Array.apply(null, [&#039;a&#039;, ,&#039;b&#039;])
+// [ &#039;a&#039;, undefined, &#039;b&#039; ]</code></pre><p>空元素与<code>undefined</code>的差别在于，数组的<code>forEach</code>方法会跳过空元素，但是不会跳过<code>undefined</code>。因此，遍历内部元素的时候，会得到不同的结果。</p><pre class="prettyprint language-javascript"><code>var a = [&#039;a&#039;, , &#039;b&#039;];
+
+function print(i) {
+  console.log(i);
+}
+
+a.forEach(print)
+// a
+// b
+
+Array.apply(null, a).forEach(print)
+// a
+// undefined
+// b</code></pre><p><strong>（3）转换类似数组的对象</strong></p><p>另外，利用数组对象的<code>slice</code>方法，可以将一个类似数组的对象（比如<code>arguments</code>对象）转为真正的数组。</p><pre class="prettyprint language-javascript"><code>Array.prototype.slice.apply({0: 1, length: 1}) // [1]
+Array.prototype.slice.apply({0: 1}) // []
+Array.prototype.slice.apply({0: 1, length: 2}) // [1, undefined]
+Array.prototype.slice.apply({length: 1}) // [undefined]</code></pre><p>上面代码的<code>apply</code>方法的参数都是对象，但是返回结果都是数组，这就起到了将对象转成数组的目的。从上面代码可以看到，这个方法起作用的前提是，被处理的对象必须有<code>length</code>属性，以及相对应的数字键。</p><p><strong>（4）绑定回调函数的对象</strong></p><p>前面的按钮点击事件的例子，可以改写如下。</p><pre class="prettyprint language-javascript"><code>var o = new Object();
+
+o.f = function () {
+  console.log(this === o);
+}
+
+var f = function (){
+  o.f.apply(o);
+  // 或者 o.f.call(o);
+};
+
+// jQuery 的写法
+$(&#039;#button&#039;).on(&#039;click&#039;, f);</code></pre><p>上面代码中，点击按钮以后，控制台将会显示<code>true</code>。由于<code>apply</code>方法（或者<code>call</code>方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。更简洁的写法是采用下面介绍的<code>bind</code>方法。</p><h3><a href="#Function.prototype.bind()" class="header-anchor">#</a> <span>Function.prototype.bind()</span></h3><p><code>bind</code>方法用于将函数体内的<code>this</code>绑定到某个对象，然后返回一个新函数。</p><pre class="prettyprint language-javascript"><code>var d = new Date();
+d.getTime() // 1481869925657
+
+var print = d.getTime;
+print() // Uncaught TypeError: this is not a Date object.</code></pre><p>上面代码中，我们将<code>d.getTime</code>方法赋给变量<code>print</code>，然后调用<code>print</code>就报错了。这是因为<code>getTime</code>方法内部的<code>this</code>，绑定<code>Date</code>对象的实例，赋给变量<code>print</code>以后，内部的<code>this</code>已经不指向<code>Date</code>对象的实例了。</p><p><code>bind</code>方法可以解决这个问题。</p><pre class="prettyprint language-javascript"><code>var print = d.getTime.bind(d);
+print() // 1481869925657</code></pre><p>上面代码中，<code>bind</code>方法将<code>getTime</code>方法内部的<code>this</code>绑定到<code>d</code>对象，这时就可以安全地将这个方法赋值给其他变量了。</p><p><code>bind</code>方法的参数就是所要绑定<code>this</code>的对象，下面是一个更清晰的例子。</p><pre class="prettyprint language-javascript"><code>var counter = {
+  count: 0,
+  inc: function () {
+    this.count++;
+  }
+};
+
+var func = counter.inc.bind(counter);
+func();
+counter.count // 1</code></pre><p>上面代码中，<code>counter.inc</code>方法被赋值给变量<code>func</code>。这时必须用<code>bind</code>方法将<code>inc</code>内部的<code>this</code>，绑定到<code>counter</code>，否则就会出错。</p><p><code>this</code>绑定到其他对象也是可以的。</p><pre class="prettyprint language-javascript"><code>var counter = {
+  count: 0,
+  inc: function () {
+    this.count++;
+  }
+};
+
+var obj = {
+  count: 100
+};
+var func = counter.inc.bind(obj);
+func();
+obj.count // 101</code></pre><p>上面代码中，<code>bind</code>方法将<code>inc</code>方法内部的<code>this</code>，绑定到<code>obj</code>对象。结果调用<code>func</code>函数以后，递增的就是<code>obj</code>内部的<code>count</code>属性。</p><p><code>bind</code>还可以接受更多的参数，将这些参数绑定原函数的参数。</p><pre class="prettyprint language-javascript"><code>var add = function (x, y) {
+  return x * this.m + y * this.n;
+}
+
+var obj = {
+  m: 2,
+  n: 2
+};
+
+var newAdd = add.bind(obj, 5);
+newAdd(5) // 20</code></pre><p>上面代码中，<code>bind</code>方法除了绑定<code>this</code>对象，还将<code>add</code>函数的第一个参数<code>x</code>绑定成<code>5</code>，然后返回一个新函数<code>newAdd</code>，这个函数只要再接受一个参数<code>y</code>就能运行了。</p><p>如果<code>bind</code>方法的第一个参数是<code>null</code>或<code>undefined</code>，等于将<code>this</code>绑定到全局对象，函数运行时<code>this</code>指向顶层对象（浏览器为<code>window</code>）。</p><pre class="prettyprint language-javascript"><code>function add(x, y) {
+  return x + y;
+}
+
+var plus5 = add.bind(null, 5);
+plus5(10) // 15</code></pre><p>上面代码中，函数<code>add</code>内部并没有<code>this</code>，使用<code>bind</code>方法的主要目的是绑定参数<code>x</code>，以后每次运行新函数<code>plus5</code>，就只需要提供另一个参数<code>y</code>就够了。而且因为<code>add</code>内部没有<code>this</code>，所以<code>bind</code>的第一个参数是<code>null</code>，不过这里如果是其他对象，也没有影响。</p><p><code>bind</code>方法有一些使用注意点。</p><p><strong>（1）每一次返回一个新函数</strong></p><p><code>bind</code>方法每运行一次，就返回一个新函数，这会产生一些问题。比如，监听事件的时候，不能写成下面这样。</p><pre class="prettyprint language-javascript"><code>element.addEventListener(&#039;click&#039;, o.m.bind(o));</code></pre><p>上面代码中，<code>click</code>事件绑定<code>bind</code>方法生成的一个匿名函数。这样会导致无法取消绑定，所以，下面的代码是无效的。</p><pre class="prettyprint language-javascript"><code>element.removeEventListener(&#039;click&#039;, o.m.bind(o));</code></pre><p>正确的方法是写成下面这样：</p><pre class="prettyprint language-javascript"><code>var listener = o.m.bind(o);
+element.addEventListener(&#039;click&#039;, listener);
+//  ...
+element.removeEventListener(&#039;click&#039;, listener);</code></pre><p><strong>（2）结合回调函数使用</strong></p><p>回调函数是 JavaScript 最常用的模式之一，但是一个常见的错误是，将包含<code>this</code>的方法直接当作回调函数。解决方法就是使用<code>bind</code>方法，将<code>counter.inc</code>绑定<code>counter</code>。</p><pre class="prettyprint language-javascript"><code>var counter = {
+  count: 0,
+  inc: function () {
+    &#039;use strict&#039;;
+    this.count++;
+  }
+};
+
+function callIt(callback) {
+  callback();
+}
+
+callIt(counter.inc.bind(counter));
+counter.count // 1</code></pre><p>上面代码中，<code>callIt</code>方法会调用回调函数。这时如果直接把<code>counter.inc</code>传入，调用时<code>counter.inc</code>内部的<code>this</code>就会指向全局对象。使用<code>bind</code>方法将<code>counter.inc</code>绑定<code>counter</code>以后，就不会有这个问题，<code>this</code>总是指向<code>counter</code>。</p><p>还有一种情况比较隐蔽，就是某些数组方法可以接受一个函数当作参数。这些函数内部的<code>this</code>指向，很可能也会出错。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  name: &#039;张三&#039;,
+  times: [1, 2, 3],
+  print: function () {
+    this.times.forEach(function (n) {
+      console.log(this.name);
+    });
+  }
+};
+
+obj.print()
+// 没有任何输出</code></pre><p>上面代码中，<code>obj.print</code>内部<code>this.times</code>的<code>this</code>是指向<code>obj</code>的，这个没有问题。但是，<code>forEach</code>方法的回调函数内部的<code>this.name</code>却是指向全局对象，导致没有办法取到值。稍微改动一下，就可以看得更清楚。</p><pre class="prettyprint language-javascript"><code>obj.print = function () {
+  this.times.forEach(function (n) {
+    console.log(this === window);
+  });
+};
+
+obj.print()
+// true
+// true
+// true</code></pre><p>解决这个问题，也是通过<code>bind</code>方法绑定<code>this</code>。</p><pre class="prettyprint language-javascript"><code>obj.print = function () {
+  this.times.forEach(function (n) {
+    console.log(this.name);
+  }.bind(this));
+};
+
+obj.print()
+// 张三
+// 张三
+// 张三</code></pre><p><strong>（3）结合<code>call</code>方法使用</strong></p><p>利用<code>bind</code>方法，可以改写一些 JavaScript 原生方法的使用形式，以数组的<code>slice</code>方法为例。</p><pre class="prettyprint language-javascript"><code>[1, 2, 3].slice(0, 1) // [1]
+// 等同于
+Array.prototype.slice.call([1, 2, 3], 0, 1) // [1]</code></pre><p>上面的代码中，数组的<code>slice</code>方法从<code>[1, 2, 3]</code>里面，按照指定位置和长度切分出另一个数组。这样做的本质是在<code>[1, 2, 3]</code>上面调用<code>Array.prototype.slice</code>方法，因此可以用<code>call</code>方法表达这个过程，得到同样的结果。</p><p><code>call</code>方法实质上是调用<code>Function.prototype.call</code>方法，因此上面的表达式可以用<code>bind</code>方法改写。</p><pre class="prettyprint language-javascript"><code>var slice = Function.prototype.call.bind(Array.prototype.slice);
+slice([1, 2, 3], 0, 1) // [1]</code></pre><p>上面代码的含义就是，将<code>Array.prototype.slice</code>变成<code>Function.prototype.call</code>方法所在的对象，调用时就变成了<code>Array.prototype.slice.call</code>。类似的写法还可以用于其他数组方法。</p><pre class="prettyprint language-javascript"><code>var push = Function.prototype.call.bind(Array.prototype.push);
+var pop = Function.prototype.call.bind(Array.prototype.pop);
+
+var a = [1 ,2 ,3];
+push(a, 4)
+a // [1, 2, 3, 4]
+
+pop(a)
+a // [1, 2, 3]</code></pre><p>如果再进一步，将<code>Function.prototype.call</code>方法绑定到<code>Function.prototype.bind</code>对象，就意味着<code>bind</code>的调用形式也可以被改写。</p><pre class="prettyprint language-javascript"><code>function f() {
+  console.log(this.v);
+}
+
+var o = { v: 123 };
+var bind = Function.prototype.call.bind(Function.prototype.bind);
+bind(f, o)() // 123</code></pre><p>上面代码的含义就是，将<code>Function.prototype.bind</code>方法绑定在<code>Function.prototype.call</code>上面，所以<code>bind</code>方法就可以直接使用，不需要在函数实例上使用。</p><h2><a href="#参考链接" class="header-anchor">#</a> <span>参考链接</span></h2><ul><li>Jonathan Creamer, <a href="http://tech.pro/tutorial/1192/avoiding-the-this-problem-in-javascript">Avoiding the &quot;this&quot; problem in JavaScript</a></li><li>Erik Kronberg, <a href="https://variadic.me/posts/2013-10-22-bind-call-and-apply-in-javascript.html">Bind, Call and Apply in JavaScript</a></li><li>Axel Rauschmayer, <a href="http://www.2ality.com/2014/05/this.html">JavaScript’s this: how it works, where it can trip you up</a></li></ul></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

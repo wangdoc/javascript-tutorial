@@ -1,4 +1,4 @@
-# <button> 元素
+# button 元素
 
 `<button>`元素继承了`HTMLButtonElement`接口。它有以下的实例属性。
 

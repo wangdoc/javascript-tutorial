@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>Object对象 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="active">标准库<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/stdlib/object.html" title="Object对象" class="active">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象">JSON 对象</a></li></ul></li><li><a title="面向对象编程">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>Object对象</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#Object-对象" class="header-anchor">#</a> <span>Object 对象</span></h1><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><p>JavaScript 原生提供<code>Object</code>对象（注意起首的<code>O</code>是大写），本章介绍该对象原生的各种方法。</p><p>JavaScript 的所有其他对象都继承自<code>Object</code>对象，即那些对象都是<code>Object</code>的实例。</p><p><code>Object</code>对象的原生方法分成两类：<code>Object</code>本身的方法与<code>Object</code>的实例方法。</p><p><strong>（1）<code>Object</code>对象本身的方法</strong></p><p>所谓”本身的方法“就是直接定义在<code>Object</code>对象的方法。</p><pre class="prettyprint language-javascript"><code>Object.print = function (o) { console.log(o) };</code></pre><p>上面代码中，<code>print</code>方法就是直接定义在<code>Object</code>对象上。</p><p><strong>（2）<code>Object</code>的实例方法</strong></p><p>所谓实例方法就是定义在<code>Object</code>原型对象<code>Object.prototype</code>上的方法。它可以被<code>Object</code>实例直接使用。</p><pre class="prettyprint language-javascript"><code>Object.prototype.print = function () {
+  console.log(this);
+};
+
+var obj = new Object();
+obj.print() // Object</code></pre><p>上面代码中，<code>Object.prototype</code>定义了一个<code>print</code>方法，然后生成一个<code>Object</code>的实例<code>obj</code>。<code>obj</code>直接继承了<code>Object.prototype</code>的属性和方法，可以直接使用<code>obj.print</code>调用<code>print</code>方法。也就是说，<code>obj</code>对象的<code>print</code>方法实质上就是调用<code>Object.prototype.print</code>方法。</p><p>关于原型对象<code>object.prototype</code>的详细解释，参见《面向对象编程》章节。这里只要知道，凡是定义在<code>Object.prototype</code>对象上面的属性和方法，将被所有实例对象共享就可以了。</p><p>以下先介绍<code>Object</code>作为函数的用法，然后再介绍<code>Object</code>对象的原生方法，分成对象自身的方法（又称为”静态方法“）和实例方法两部分。</p><h2><a href="#Object()" class="header-anchor">#</a> <span>Object()</span></h2><p><code>Object</code>本身是一个函数，可以当作工具方法使用，将任意值转为对象。这个方法常用于保证某个值一定是对象。</p><p>如果参数为空（或者为<code>undefined</code>和<code>null</code>），<code>Object()</code>返回一个空对象。</p><pre class="prettyprint language-javascript"><code>var obj = Object();
+// 等同于
+var obj = Object(undefined);
+var obj = Object(null);
+
+obj instanceof Object // true</code></pre><p>上面代码的含义，是将<code>undefined</code>和<code>null</code>转为对象，结果得到了一个空对象<code>obj</code>。</p><p><code>instanceof</code>运算符用来验证，一个对象是否为指定的构造函数的实例。<code>obj instanceof Object</code>返回<code>true</code>，就表示<code>obj</code>对象是<code>Object</code>的实例。</p><p>如果参数是原始类型的值，<code>Object</code>方法将其转为对应的包装对象的实例（参见《原始类型的包装对象》一章）。</p><pre class="prettyprint language-javascript"><code>var obj = Object(1);
+obj instanceof Object // true
+obj instanceof Number // true
+
+var obj = Object(&#039;foo&#039;);
+obj instanceof Object // true
+obj instanceof String // true
+
+var obj = Object(true);
+obj instanceof Object // true
+obj instanceof Boolean // true</code></pre><p>上面代码中，<code>Object</code>函数的参数是各种原始类型的值，转换成对象就是原始类型值对应的包装对象。</p><p>如果<code>Object</code>方法的参数是一个对象，它总是返回该对象，即不用转换。</p><pre class="prettyprint language-javascript"><code>var arr = [];
+var obj = Object(arr); // 返回原数组
+obj === arr // true
+
+var value = {};
+var obj = Object(value) // 返回原对象
+obj === value // true
+
+var fn = function () {};
+var obj = Object(fn); // 返回原函数
+obj === fn // true</code></pre><p>利用这一点，可以写一个判断变量是否为对象的函数。</p><pre class="prettyprint language-javascript"><code>function isObject(value) {
+  return value === Object(value);
+}
+
+isObject([]) // true
+isObject(true) // false</code></pre><h2><a href="#Object-构造函数" class="header-anchor">#</a> <span>Object 构造函数</span></h2><p><code>Object</code>不仅可以当作工具函数使用，还可以当作构造函数使用，即前面可以使用<code>new</code>命令。</p><p><code>Object</code>构造函数的首要用途，是直接通过它来生成新对象。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();</code></pre><blockquote><p>注意，通过<code>var obj = new Object()</code>的写法生成新对象，与字面量的写法<code>var obj = {}</code>是等价的。或者说，后者只是前者的一种简便写法。</p></blockquote><p><code>Object</code>构造函数的用法与工具方法很相似，几乎一模一样。使用时，可以接受一个参数，如果该参数是一个对象，则直接返回这个对象；如果是一个原始类型的值，则返回该值对应的包装对象（详见《包装对象》一章）。</p><pre class="prettyprint language-javascript"><code>var o1 = {a: 1};
+var o2 = new Object(o1);
+o1 === o2 // true
+
+var obj = new Object(123);
+obj instanceof Number // true</code></pre><p>虽然用法相似，但是<code>Object(value)</code>与<code>new Object(value)</code>两者的语义是不同的，<code>Object(value)</code>表示将<code>value</code>转成一个对象，<code>new Object(value)</code>则表示新生成一个对象，它的值是<code>value</code>。</p><h2><a href="#Object-的静态方法" class="header-anchor">#</a> <span>Object 的静态方法</span></h2><p>所谓“静态方法”，是指部署在<code>Object</code>对象自身的方法。</p><h3><a href="#Object.keys()，Object.getOwnPropertyNames()" class="header-anchor">#</a> <span>Object.keys()，Object.getOwnPropertyNames()</span></h3><p><code>Object.keys</code>方法和<code>Object.getOwnPropertyNames</code>方法都用来遍历对象的属性。</p><p><code>Object.keys</code>方法的参数是一个对象，返回一个数组。该数组的成员都是该对象自身的（而不是继承的）所有属性名。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p1: 123,
+  p2: 456
+};
+
+Object.keys(obj) // [&quot;p1&quot;, &quot;p2&quot;]</code></pre><p><code>Object.getOwnPropertyNames</code>方法与<code>Object.keys</code>类似，也是接受一个对象作为参数，返回一个数组，包含了该对象自身的所有属性名。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p1: 123,
+  p2: 456
+};
+
+Object.getOwnPropertyNames(obj) // [&quot;p1&quot;, &quot;p2&quot;]</code></pre><p>对于一般的对象来说，<code>Object.keys()</code>和<code>Object.getOwnPropertyNames()</code>返回的结果是一样的。只有涉及不可枚举属性时，才会有不一样的结果。<code>Object.keys</code>方法只返回可枚举的属性（详见《对象属性的描述对象》一章），<code>Object.getOwnPropertyNames</code>方法还返回不可枚举的属性名。</p><pre class="prettyprint language-javascript"><code>var a = [&#039;Hello&#039;, &#039;World&#039;];
+
+Object.keys(a) // [&quot;0&quot;, &quot;1&quot;]
+Object.getOwnPropertyNames(a) // [&quot;0&quot;, &quot;1&quot;, &quot;length&quot;]</code></pre><p>上面代码中，数组的<code>length</code>属性是不可枚举的属性，所以只出现在<code>Object.getOwnPropertyNames</code>方法的返回结果中。</p><p>由于 JavaScript 没有提供计算对象属性个数的方法，所以可以用这两个方法代替。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p1: 123,
+  p2: 456
+};
+
+Object.keys(obj).length // 2
+Object.getOwnPropertyNames(obj).length // 2</code></pre><p>一般情况下，几乎总是使用<code>Object.keys</code>方法，遍历数组的属性。</p><h3><a href="#其他方法" class="header-anchor">#</a> <span>其他方法</span></h3><p>除了上面提到的两个方法，<code>Object</code>还有不少其他静态方法，将在后文逐一详细介绍。</p><p><strong>（1）对象属性模型的相关方法</strong></p><ul><li><code>Object.getOwnPropertyDescriptor()</code>：获取某个属性的描述对象。</li><li><code>Object.defineProperty()</code>：通过描述对象，定义某个属性。</li><li><code>Object.defineProperties()</code>：通过描述对象，定义多个属性。</li></ul><p><strong>（2）控制对象状态的方法</strong></p><ul><li><code>Object.preventExtensions()</code>：防止对象扩展。</li><li><code>Object.isExtensible()</code>：判断对象是否可扩展。</li><li><code>Object.seal()</code>：禁止对象配置。</li><li><code>Object.isSealed()</code>：判断一个对象是否可配置。</li><li><code>Object.freeze()</code>：冻结一个对象。</li><li><code>Object.isFrozen()</code>：判断一个对象是否被冻结。</li></ul><p><strong>（3）原型链相关方法</strong></p><ul><li><code>Object.create()</code>：该方法可以指定原型对象和属性，返回一个新的对象。</li><li><code>Object.getPrototypeOf()</code>：获取对象的<code>Prototype</code>对象。</li></ul><h2><a href="#Object-的实例方法" class="header-anchor">#</a> <span>Object 的实例方法</span></h2><p>除了静态方法，还有不少方法定义在<code>Object.prototype</code>对象。它们称为实例方法，所有<code>Object</code>的实例对象都继承了这些方法。</p><p><code>Object</code>实例对象的方法，主要有以下六个。</p><ul><li><code>Object.prototype.valueOf()</code>：返回当前对象对应的值。</li><li><code>Object.prototype.toString()</code>：返回当前对象对应的字符串形式。</li><li><code>Object.prototype.toLocaleString()</code>：返回当前对象对应的本地字符串形式。</li><li><code>Object.prototype.hasOwnProperty()</code>：判断某个属性是否为当前对象自身的属性，还是继承自原型对象的属性。</li><li><code>Object.prototype.isPrototypeOf()</code>：判断当前对象是否为另一个对象的原型。</li><li><code>Object.prototype.propertyIsEnumerable()</code>：判断某个属性是否可枚举。</li></ul><p>本节介绍前四个方法，另外两个方法将在后文相关章节介绍。</p><h3><a href="#Object.prototype.valueOf()" class="header-anchor">#</a> <span>Object.prototype.valueOf()</span></h3><p><code>valueOf</code>方法的作用是返回一个对象的“值”，默认情况下返回对象本身。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+obj.valueOf() === obj // true</code></pre><p>上面代码比较<code>obj.valueOf()</code>与<code>obj</code>本身，两者是一样的。</p><p><code>valueOf</code>方法的主要用途是，JavaScript 自动类型转换时会默认调用这个方法（详见《数据类型转换》一章）。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+1 + obj // &quot;1[object Object]&quot;</code></pre><p>上面代码将对象<code>obj</code>与数字<code>1</code>相加，这时 JavaScript 就会默认调用<code>valueOf()</code>方法，求出<code>obj</code>的值再与<code>1</code>相加。所以，如果自定义<code>valueOf</code>方法，就可以得到想要的结果。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+obj.valueOf = function () {
+  return 2;
+};
+
+1 + obj // 3</code></pre><p>上面代码自定义了<code>obj</code>对象的<code>valueOf</code>方法，于是<code>1 + obj</code>就得到了<code>3</code>。这种方法就相当于用自定义的<code>obj.valueOf</code>，覆盖<code>Object.prototype.valueOf</code>。</p><h3><a href="#Object.prototype.toString()" class="header-anchor">#</a> <span>Object.prototype.toString()</span></h3><p><code>toString</code>方法的作用是返回一个对象的字符串形式，默认情况下返回类型字符串。</p><pre class="prettyprint language-javascript"><code>var o1 = new Object();
+o1.toString() // &quot;[object Object]&quot;
+
+var o2 = {a:1};
+o2.toString() // &quot;[object Object]&quot;</code></pre><p>上面代码表示，对于一个对象调用<code>toString</code>方法，会返回字符串<code>[object Object]</code>，该字符串说明对象的类型。</p><p>字符串<code>[object Object]</code>本身没有太大的用处，但是通过自定义<code>toString</code>方法，可以让对象在自动类型转换时，得到想要的字符串形式。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+
+obj.toString = function () {
+  return &#039;hello&#039;;
+};
+
+obj + &#039; &#039; + &#039;world&#039; // &quot;hello world&quot;</code></pre><p>上面代码表示，当对象用于字符串加法时，会自动调用<code>toString</code>方法。由于自定义了<code>toString</code>方法，所以返回字符串<code>hello world</code>。</p><p>数组、字符串、函数、Date 对象都分别部署了自定义的<code>toString</code>方法，覆盖了<code>Object.prototype.toString</code>方法。</p><pre class="prettyprint language-javascript"><code>[1, 2, 3].toString() // &quot;1,2,3&quot;
+
+&#039;123&#039;.toString() // &quot;123&quot;
+
+(function () {
+  return 123;
+}).toString()
+// &quot;function () {
+//   return 123;
+// }&quot;
+
+(new Date()).toString()
+// &quot;Tue May 10 2016 09:11:31 GMT+0800 (CST)&quot;</code></pre><p>上面代码中，数组、字符串、函数、Date 对象调用<code>toString</code>方法，并不会返回<code>[object Object]</code>，因为它们都自定义了<code>toString</code>方法，覆盖原始方法。</p><h3><a href="#toString()-的应用：判断数据类型" class="header-anchor">#</a> <span>toString() 的应用：判断数据类型</span></h3><p><code>Object.prototype.toString</code>方法返回对象的类型字符串，因此可以用来判断一个值的类型。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+obj.toString() // &quot;[object Object]&quot;</code></pre><p>上面代码调用空对象的<code>toString</code>方法，结果返回一个字符串<code>object Object</code>，其中第二个<code>Object</code>表示该值的构造函数。这是一个十分有用的判断数据类型的方法。</p><p>由于实例对象可能会自定义<code>toString</code>方法，覆盖掉<code>Object.prototype.toString</code>方法，所以为了得到类型字符串，最好直接使用<code>Object.prototype.toString</code>方法。通过函数的<code>call</code>方法，可以在任意值上调用这个方法，帮助我们判断这个值的类型。</p><pre class="prettyprint language-javascript"><code>Object.prototype.toString.call(value)</code></pre><p>上面代码表示对<code>value</code>这个值调用<code>Object.prototype.toString</code>方法。</p><p>不同数据类型的<code>Object.prototype.toString</code>方法返回值如下。</p><ul><li>数值：返回<code>[object Number]</code>。</li><li>字符串：返回<code>[object String]</code>。</li><li>布尔值：返回<code>[object Boolean]</code>。</li><li>undefined：返回<code>[object Undefined]</code>。</li><li>null：返回<code>[object Null]</code>。</li><li>数组：返回<code>[object Array]</code>。</li><li>arguments 对象：返回<code>[object Arguments]</code>。</li><li>函数：返回<code>[object Function]</code>。</li><li>Error 对象：返回<code>[object Error]</code>。</li><li>Date 对象：返回<code>[object Date]</code>。</li><li>RegExp 对象：返回<code>[object RegExp]</code>。</li><li>其他对象：返回<code>[object Object]</code>。</li></ul><p>这就是说，<code>Object.prototype.toString</code>可以看出一个值到底是什么类型。</p><pre class="prettyprint language-javascript"><code>Object.prototype.toString.call(2) // &quot;[object Number]&quot;
+Object.prototype.toString.call(&#039;&#039;) // &quot;[object String]&quot;
+Object.prototype.toString.call(true) // &quot;[object Boolean]&quot;
+Object.prototype.toString.call(undefined) // &quot;[object Undefined]&quot;
+Object.prototype.toString.call(null) // &quot;[object Null]&quot;
+Object.prototype.toString.call(Math) // &quot;[object Math]&quot;
+Object.prototype.toString.call({}) // &quot;[object Object]&quot;
+Object.prototype.toString.call([]) // &quot;[object Array]&quot;</code></pre><p>利用这个特性，可以写出一个比<code>typeof</code>运算符更准确的类型判断函数。</p><pre class="prettyprint language-javascript"><code>var type = function (o){
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+
+type({}); // &quot;object&quot;
+type([]); // &quot;array&quot;
+type(5); // &quot;number&quot;
+type(null); // &quot;null&quot;
+type(); // &quot;undefined&quot;
+type(/abcd/); // &quot;regex&quot;
+type(new Date()); // &quot;date&quot;</code></pre><p>在上面这个<code>type</code>函数的基础上，还可以加上专门判断某种类型数据的方法。</p><pre class="prettyprint language-javascript"><code>var type = function (o){
+  var s = Object.prototype.toString.call(o);
+  return s.match(/\[object (.*?)\]/)[1].toLowerCase();
+};
+
+[&#039;Null&#039;,
+ &#039;Undefined&#039;,
+ &#039;Object&#039;,
+ &#039;Array&#039;,
+ &#039;String&#039;,
+ &#039;Number&#039;,
+ &#039;Boolean&#039;,
+ &#039;Function&#039;,
+ &#039;RegExp&#039;
+].forEach(function (t) {
+  type[&#039;is&#039; + t] = function (o) {
+    return type(o) === t.toLowerCase();
+  };
+});
+
+type.isObject({}) // true
+type.isNumber(NaN) // true
+type.isRegExp(/abc/) // true</code></pre><h3><a href="#Object.prototype.toLocaleString()" class="header-anchor">#</a> <span>Object.prototype.toLocaleString()</span></h3><p><code>Object.prototype.toLocaleString</code>方法与<code>toString</code>的返回结果相同，也是返回一个值的字符串形式。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+obj.toString(obj) // &quot;[object Object]&quot;
+obj.toLocaleString(obj) // &quot;[object Object]&quot;</code></pre><p>这个方法的主要作用是留出一个接口，让各种不同的对象实现自己版本的<code>toLocaleString</code>，用来返回针对某些地域的特定的值。目前，主要有三个对象自定义了<code>toLocaleString</code>方法。</p><ul><li>Array.prototype.toLocaleString()</li><li>Number.prototype.toLocaleString()</li><li>Date.prototype.toLocaleString()</li></ul><p>举例来说，日期的实例对象的<code>toString</code>和<code>toLocaleString</code>返回值就不一样，而且<code>toLocaleString</code>的返回值跟用户设定的所在地域相关。</p><pre class="prettyprint language-javascript"><code>var date = new Date();
+date.toString() // &quot;Tue Jan 01 2018 12:01:33 GMT+0800 (CST)&quot;
+date.toLocaleString() // &quot;1/01/2018, 12:01:33 PM&quot;</code></pre><h3><a href="#Object.prototype.hasOwnProperty()" class="header-anchor">#</a> <span>Object.prototype.hasOwnProperty()</span></h3><p><code>Object.prototype.hasOwnProperty</code>方法接受一个字符串作为参数，返回一个布尔值，表示该实例对象自身是否具有该属性。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: 123
+};
+
+obj.hasOwnProperty(&#039;p&#039;) // true
+obj.hasOwnProperty(&#039;toString&#039;) // false</code></pre><p>上面代码中，对象<code>obj</code>自身具有<code>p</code>属性，所以返回<code>true</code>。<code>toString</code>属性是继承的，所以返回<code>false</code>。</p><h2><a href="#参考链接" class="header-anchor">#</a> <span>参考链接</span></h2><ul><li>Axel Rauschmayer, <a href="http://www.2ality.com/2013/08/protecting-objects.html">Protecting objects in JavaScript</a></li><li>kangax, <a href="http://perfectionkills.com/understanding-delete/">Understanding delete</a></li><li>Jon Bretman, <a href="http://techblog.badoo.com/blog/2013/11/01/type-checking-in-javascript/">Type Checking in JavaScript</a></li><li>Cody Lindley, <a href="http://tech.pro/tutorial/1671/thinking-about-ecmascript-5-parts">Thinking About ECMAScript 5 Parts</a></li><li>Bjorn Tipling, <a href="http://bjorn.tipling.com/advanced-objects-in-javascript">Advanced objects in JavaScript</a></li><li>Javier Márquez, <a href="http://arqex.com/967/javascript-properties-enumerable-writable-configurable">Javascript properties are enumerable, writable and configurable</a></li><li>Sella Rafaeli, <a href="http://www.sellarafaeli.com/blog/native_javascript_data_binding">Native JavaScript Data-Binding</a>: 使用存取函数实现model与view的双向绑定</li><li>Lea Verou, <a href="http://lea.verou.me/2015/08/copying-properties-the-robust-way/">Copying object properties, the robust way</a></li></ul></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

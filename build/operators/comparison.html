@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>比较运算符 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="active">运算符<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="active">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台">console 对象与控制台</a></li></ul></li><li><a title="标准库">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象">JSON 对象</a></li></ul></li><li><a title="面向对象编程">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>比较运算符</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#比较运算符" class="header-anchor">#</a> <span>比较运算符</span></h1><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><p>比较运算符用于比较两个值的大小，然后返回一个布尔值，表示是否满足指定的条件。</p><pre class="prettyprint language-javascript"><code>2 &gt; 1 // true</code></pre><p>上面代码比较<code>2</code>是否大于<code>1</code>，返回<code>true</code>。</p><blockquote><p>注意，比较运算符可以比较各种类型的值，不仅仅是数值。</p></blockquote><p>JavaScript 一共提供了8个比较运算符。</p><ul><li><code>&gt;</code> 大于运算符</li><li><code>&lt;</code> 小于运算符</li><li><code>&lt;=</code> 小于或等于运算符</li><li><code>&gt;=</code> 大于或等于运算符</li><li><code>==</code> 相等运算符</li><li><code>===</code> 严格相等运算符</li><li><code>!=</code> 不相等运算符</li><li><code>!==</code> 严格不相等运算符</li></ul><p>这八个比较运算符分成两类：相等比较和非相等比较。两者的规则是不一样的，对于非相等的比较，算法是先看两个运算子是否都是字符串，如果是的，就按照字典顺序比较（实际上是比较 Unicode 码点）；否则，将两个运算子都转成数值，再比较数值的大小。</p><h2><a href="#非相等运算符：字符串的比较" class="header-anchor">#</a> <span>非相等运算符：字符串的比较</span></h2><p>字符串按照字典顺序进行比较。</p><pre class="prettyprint language-javascript"><code>&#039;cat&#039; &gt; &#039;dog&#039; // false
+&#039;cat&#039; &gt; &#039;catalog&#039; // false</code></pre><p>JavaScript 引擎内部首先比较首字符的 Unicode 码点。如果相等，再比较第二个字符的 Unicode 码点，以此类推。</p><pre class="prettyprint language-javascript"><code>&#039;cat&#039; &gt; &#039;Cat&#039; // true&#039;</code></pre><p>上面代码中，小写的<code>c</code>的 Unicode 码点（<code>99</code>）大于大写的<code>C</code>的 Unicode 码点（<code>67</code>），所以返回<code>true</code>。</p><p>由于所有字符都有 Unicode 码点，因此汉字也可以比较。</p><pre class="prettyprint language-javascript"><code>&#039;大&#039; &gt; &#039;小&#039; // false</code></pre><p>上面代码中，“大”的 Unicode 码点是22823，“小”是23567，因此返回<code>false</code>。</p><h2><a href="#非相等运算符：非字符串的比较" class="header-anchor">#</a> <span>非相等运算符：非字符串的比较</span></h2><p>如果两个运算子都不是字符串，分成以下三种情况。</p><p><strong>（1）原始类型值</strong></p><p>如果两个运算子都是原始类型的值，则是先转成数值再比较。</p><pre class="prettyprint language-javascript"><code>5 &gt; &#039;4&#039; // true
+// 等同于 5 &gt; Number(&#039;4&#039;)
+// 即 5 &gt; 4
+
+true &gt; false // true
+// 等同于 Number(true) &gt; Number(false)
+// 即 1 &gt; 0
+
+2 &gt; true // true
+// 等同于 2 &gt; Number(true)
+// 即 2 &gt; 1</code></pre><p>上面代码中，字符串和布尔值都会先转成数值，再进行比较。</p><p>任何值（包括<code>NaN</code>本身）与<code>NaN</code>比较，返回的都是<code>false</code>。</p><pre class="prettyprint language-javascript"><code>1 &gt; NaN // false
+1 &lt;= NaN // false
+&#039;1&#039; &gt; NaN // false
+&#039;1&#039; &lt;= NaN // false
+NaN &gt; NaN // false
+NaN &lt;= NaN // false</code></pre><p><strong>（2）对象</strong></p><p>如果运算子是对象，会转为原始类型的值，再进行比较。</p><p>对象转换成原始类型的值，算法是先调用<code>valueOf</code>方法；如果返回的还是对象，再接着调用<code>toString</code>方法，详细解释参见《数据类型的转换》一章。</p><pre class="prettyprint language-javascript"><code>var x = [2];
+x &gt; &#039;11&#039; // true
+// 等同于 [2].valueOf().toString() &gt; &#039;11&#039;
+// 即 &#039;2&#039; &gt; &#039;11&#039;
+
+x.valueOf = function () { return &#039;1&#039; };
+x &gt; &#039;11&#039; // false
+// 等同于 [2].valueOf() &gt; &#039;11&#039;
+// 即 &#039;1&#039; &gt; &#039;11&#039;</code></pre><p>两个对象之间的比较也是如此。</p><pre class="prettyprint language-javascript"><code>[2] &gt; [1] // true
+// 等同于 [2].valueOf().toString() &gt; [1].valueOf().toString()
+// 即 &#039;2&#039; &gt; &#039;1&#039;
+
+[2] &gt; [11] // true
+// 等同于 [2].valueOf().toString() &gt; [11].valueOf().toString()
+// 即 &#039;2&#039; &gt; &#039;11&#039;
+
+{ x: 2 } &gt;= { x: 1 } // true
+// 等同于 { x: 2 }.valueOf().toString() &gt;= { x: 1 }.valueOf().toString()
+// 即 &#039;[object Object]&#039; &gt;= &#039;[object Object]&#039;</code></pre><h2><a href="#严格相等运算符" class="header-anchor">#</a> <span>严格相等运算符</span></h2><p>JavaScript 提供两种相等运算符：<code>==</code>和<code>===</code>。</p><p>简单说，它们的区别是相等运算符（<code>==</code>）比较两个值是否相等，严格相等运算符（<code>===</code>）比较它们是否为“同一个值”。如果两个值不是同一类型，严格相等运算符（<code>===</code>）直接返回<code>false</code>，而相等运算符（<code>==</code>）会将它们转换成同一个类型，再用严格相等运算符进行比较。</p><p>本节介绍严格相等运算符的算法。</p><p><strong>（1）不同类型的值</strong></p><p>如果两个值的类型不同，直接返回<code>false</code>。</p><pre class="prettyprint language-javascript"><code>1 === &quot;1&quot; // false
+true === &quot;true&quot; // false</code></pre><p>上面代码比较数值的<code>1</code>与字符串的“1”、布尔值的<code>true</code>与字符串<code>&quot;true&quot;</code>，因为类型不同，结果都是<code>false</code>。</p><p><strong>（2）同一类的原始类型值</strong></p><p>同一类型的原始类型的值（数值、字符串、布尔值）比较时，值相同就返回<code>true</code>，值不同就返回<code>false</code>。</p><pre class="prettyprint language-javascript"><code>1 === 0x1 // true</code></pre><p>上面代码比较十进制的<code>1</code>与十六进制的<code>1</code>，因为类型和值都相同，返回<code>true</code>。</p><p>需要注意的是，<code>NaN</code>与任何值都不相等（包括自身）。另外，正<code>0</code>等于负<code>0</code>。</p><pre class="prettyprint language-javascript"><code>NaN === NaN  // false
++0 === -0 // true</code></pre><p><strong>（3）复合类型值</strong></p><p>两个复合类型（对象、数组、函数）的数据比较时，不是比较它们的值是否相等，而是比较它们是否指向同一个地址。</p><pre class="prettyprint language-javascript"><code>{} === {} // false
+[] === [] // false
+(function () {} === function () {}) // false</code></pre><p>上面代码分别比较两个空对象、两个空数组、两个空函数，结果都是不相等。原因是对于复合类型的值，严格相等运算比较的是，它们是否引用同一个内存地址，而运算符两边的空对象、空数组、空函数的值，都存放在不同的内存地址，结果当然是<code>false</code>。</p><p>如果两个变量引用同一个对象，则它们相等。</p><pre class="prettyprint language-javascript"><code>var v1 = {};
+var v2 = v1;
+v1 === v2 // true</code></pre><p>注意，对于两个对象的比较，严格相等运算符比较的是地址，而大于或小于运算符比较的是值。</p><pre class="prettyprint language-javascript"><code>var obj1 = {};
+var obj2 = {};
+
+obj1 &gt; obj2 // false
+obj1 &lt; obj2 // false
+obj1 === obj2 // false</code></pre><p>上面的三个比较，前两个比较的是值，最后一个比较的是地址，所以都返回<code>false</code>。</p><p><strong>（4）undefined 和 null</strong></p><p><code>undefined</code>和<code>null</code>与自身严格相等。</p><pre class="prettyprint language-javascript"><code>undefined === undefined // true
+null === null // true</code></pre><p>由于变量声明后默认值是<code>undefined</code>，因此两个只声明未赋值的变量是相等的。</p><pre class="prettyprint language-javascript"><code>var v1;
+var v2;
+v1 === v2 // true</code></pre><h2><a href="#严格不相等运算符" class="header-anchor">#</a> <span>严格不相等运算符</span></h2><p>严格相等运算符有一个对应的“严格不相等运算符”（<code>!==</code>），它的算法就是先求严格相等运算符的结果，然后返回相反值。</p><pre class="prettyprint language-javascript"><code>1 !== &#039;1&#039; // true
+// 等同于
+!(1 === &#039;1&#039;)</code></pre><p>上面代码中，感叹号<code>!</code>是求出后面表达式的相反值。</p><h2><a href="#相等运算符" class="header-anchor">#</a> <span>相等运算符</span></h2><p>相等运算符用来比较相同类型的数据时，与严格相等运算符完全一样。</p><pre class="prettyprint language-javascript"><code>1 == 1.0
+// 等同于
+1 === 1.0</code></pre><p>比较不同类型的数据时，相等运算符会先将数据进行类型转换，然后再用严格相等运算符比较。类型转换规则如下。</p><p><strong>（1）原始类型值</strong></p><p>原始类型的值会转换成数值再进行比较。</p><pre class="prettyprint language-javascript"><code>1 == true // true
+// 等同于 1 === Number(true)
+
+0 == false // true
+// 等同于 0 === Number(false)
+
+2 == true // false
+// 等同于 2 === Number(true)
+
+2 == false // false
+// 等同于 2 === Number(false)
+
+&#039;true&#039; == true // false
+// 等同于 Number(&#039;true&#039;) === Number(true)
+// 等同于 NaN === 1
+
+&#039;&#039; == 0 // true
+// 等同于 Number(&#039;&#039;) === 0
+// 等同于 0 === 0
+
+&#039;&#039; == false  // true
+// 等同于 Number(&#039;&#039;) === Number(false)
+// 等同于 0 === 0
+
+&#039;1&#039; == true  // true
+// 等同于 Number(&#039;1&#039;) === Number(true)
+// 等同于 1 === 1
+
+&#039;\n  123  \t&#039; == 123 // true
+// 因为字符串转为数字时，省略前置和后置的空格</code></pre><p>上面代码将字符串和布尔值都转为数值，然后再进行比较。具体的字符串与布尔值的类型转换规则，参见《数据类型转换》一章。</p><p><strong>（2）对象与原始类型值比较</strong></p><p>对象（这里指广义的对象，包括数组和函数）与原始类型的值比较时，对象转换成原始类型的值，再进行比较。</p><pre class="prettyprint language-javascript"><code>[1] == 1 // true
+// 等同于 Number([1]) == 1
+
+[1] == &#039;1&#039; // true
+// 等同于 Number([1]) == Number(&#039;1&#039;)
+
+[1] == true // true
+// 等同于 Number([1]) == Number(true)</code></pre><p>上面代码中，数组<code>[1]</code>与数值进行比较，会先转成数值，再进行比较；与字符串进行比较，会先转成数值，再与字符串进行比较，然后字符串也会转成数值；与布尔值进行比较，两个运算子都会先转成数值，然后再进行比较。</p><p><strong>（3）undefined 和 null</strong></p><p><code>undefined</code>和<code>null</code>与其他类型的值比较时，结果都为<code>false</code>，它们互相比较时结果为<code>true</code>。</p><pre class="prettyprint language-javascript"><code>false == null // false
+false == undefined // false
+
+0 == null // false
+0 == undefined // false
+
+undefined == null // true</code></pre><p><strong>（4）相等运算符的缺点</strong></p><p>相等运算符隐藏的类型转换，会带来一些违反直觉的结果。</p><pre class="prettyprint language-javascript"><code>0 == &#039;&#039;             // true
+0 == &#039;0&#039;            // true
+
+2 == true           // false
+2 == false          // false
+
+false == &#039;false&#039;    // false
+false == &#039;0&#039;        // true
+
+false == undefined  // false
+false == null       // false
+null == undefined   // true
+
+&#039; \t\r\n &#039; == 0     // true</code></pre><p>上面这些表达式都不同于直觉，很容易出错。因此建议不要使用相等运算符（<code>==</code>），最好只使用严格相等运算符（<code>===</code>）。</p><h2><a href="#不相等运算符" class="header-anchor">#</a> <span>不相等运算符</span></h2><p>相等运算符有一个对应的“不相等运算符”（<code>!=</code>），它的算法就是先求相等运算符的结果，然后返回相反值。</p><pre class="prettyprint language-javascript"><code>1 != &#039;1&#039; // false
+
+// 等同于
+!(1 == &#039;1&#039;)</code></pre></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

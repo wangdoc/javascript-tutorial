@@ -1,0 +1,116 @@
+@media screen and (max-width: 414px) {
+  .main {
+    height: auto;
+  }
+  .main .tea-menu {
+    position: fixed;
+    display: none;
+    z-index: 999;
+    padding-top: 70px;
+  }
+  .main .tea-content {
+    width: 100%;
+    overflow: hidden;
+  }
+  .main .tea-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  .main .tea-nav h3 {
+    font-size: 18px !important;
+  }
+  .tea-container {
+    height: auto;
+    padding: 5px 0;
+    margin-top: 55px;
+  }
+  #menu-mask {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 998;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .mask .search-popup {
+    width: 100%;
+		height:100%;
+		border-radius: 0;
+  }
+  .mask .search-popup .search-popup-body {
+    max-height: 94%;
+  }
+  .mask .search-popup .search-popup-body .search-result {
+    padding: 0px 10px;
+  }
+	.markdown-body{
+		padding:15px 10px ;
+  }
+  .loading-warp { 
+    display: none;
+  }
+}
+
+@media (min-width:415px) and (max-width: 1024px) {
+	.main {
+    height: auto;
+  }
+  .main .tea-menu {
+    position: fixed;
+    display: none;
+    z-index: 999;
+    padding-top: 70px;
+  }
+  .main .tea-content {
+    width: 100%;
+    overflow: hidden;
+  }
+  .main .tea-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  .main .tea-nav h3 {
+    font-size: 18px !important;
+  }
+  .tea-container {
+    /* height: auto; */
+    padding: 10px 0;
+    box-sizing: border-box;
+    margin-top: 55px;
+  }
+  #menu-mask {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 998;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .mask .search-popup {
+    width: 100%;
+		height:100%;
+		border-radius: 0;
+  }
+  .mask .search-popup .search-popup-body {
+    max-height: 94%;
+  }
+  .mask .search-popup .search-popup-body .search-result {
+    padding: 0px 10px;
+  }
+	.markdown-body{
+		padding:15px 10px ;
+  }
+  .loading-warp { 
+    display: none;
+  }
+}

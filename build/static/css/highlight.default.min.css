@@ -1,0 +1,58 @@
+/*!
+ * Agate by Taufik Nurrohman <https://github.com/tovic>
+ * ----------------------------------------------------
+ *
+ * #ade5fc
+ * #a2fca2
+ * #c6b4f0
+ * #d36363
+ * #fcc28c
+ * #fc9b9b
+ * #ffa
+ * #fff
+ * #333
+ * #62c8f3
+ * #888
+ *
+ */
+pre * {
+    font-size: 12px !important;
+    font-family: Monaco, 'MonacoRegular', 'Courier New', monospace !important;
+}
+pre {
+    position: relative;
+    background-color: #fbfbfb !important;
+    padding: 16px !important;
+    box-shadow: 0 0px 8px rgba(102,119,136,.03), 0 1px 2px rgba(102,119,136,.3);
+}
+pre code {
+    padding: 0px;
+    display: block;
+    overflow-y: auto;
+    font-weight: 300;
+    font-family: Menlo, monospace;
+    font-size: 0.8em;
+    box-shadow: none;
+}
+pre ul.pre-numbering {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-width: 30px;
+    padding: 17px 2px 12px 0;
+    border-right: 1px solid #dedede !important;
+    border-radius: 3px 0 0 3px;
+    text-align: right;
+    font-size: 12px;
+    list-style: none;
+    margin: 0px;
+    background-color: #eee !important;
+}
+pre ul li {
+    line-height: 1.8;
+    color:  #aaa !important;
+}
+
+.hljs{display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa}.hljs-comment,.hljs-quote{color:#a0a1a7;font-style:italic}.hljs-doctag,.hljs-keyword,.hljs-formula{color:#a626a4}.hljs-section,.hljs-name,.hljs-selector-tag,.hljs-deletion,.hljs-subst{color:#e45649}.hljs-literal{color:#0184bb}.hljs-string,.hljs-regexp,.hljs-addition,.hljs-attribute,.hljs-meta-string{color:#50a14f}.hljs-built_in,.hljs-class .hljs-title{color:#c18401}.hljs-attr,.hljs-variable,.hljs-template-variable,.hljs-type,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-number{color:#986801}.hljs-symbol,.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-title{color:#4078f2}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:bold}.hljs-link{text-decoration:underline}

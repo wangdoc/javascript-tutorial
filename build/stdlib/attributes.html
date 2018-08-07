@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>属性描述对象 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="active">标准库<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="active">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象">JSON 对象</a></li></ul></li><li><a title="面向对象编程">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>属性描述对象</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#属性描述对象" class="header-anchor">#</a> <span>属性描述对象</span></h1><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><p>JavaScript 提供了一个内部数据结构，用来描述对象的属性，控制它的行为，比如该属性是否可写、可遍历等等。这个内部数据结构称为“属性描述对象”（attributes object）。每个属性都有自己对应的属性描述对象，保存该属性的一些元信息。</p><p>下面是属性描述对象的一个例子。</p><pre class="prettyprint language-javascript"><code>{
+  value: 123,
+  writable: false,
+  enumerable: true,
+  configurable: false,
+  get: undefined,
+  set: undefined
+}</code></pre><p>属性描述对象提供6个元属性。</p><p>（1）<code>value</code></p><p><code>value</code>是该属性的属性值，默认为<code>undefined</code>。</p><p>（2）<code>writable</code></p><p><code>writable</code>是一个布尔值，表示属性值（value）是否可改变（即是否可写），默认为<code>true</code>。</p><p>（3）<code>enumerable</code></p><p><code>enumerable</code>是一个布尔值，表示该属性是否可遍历，默认为<code>true</code>。如果设为<code>false</code>，会使得某些操作（比如<code>for...in</code>循环、<code>Object.keys()</code>）跳过该属性。</p><p>（4）<code>configurable</code></p><p><code>configurable</code>是一个布尔值，表示可配置性，默认为<code>true</code>。如果设为<code>false</code>，将阻止某些操作改写该属性，比如无法删除该属性，也不得改变该属性的属性描述对象（<code>value</code>属性除外）。也就是说，<code>configurable</code>属性控制了属性描述对象的可写性。</p><p>（5）<code>get</code></p><p><code>get</code>是一个函数，表示该属性的取值函数（getter），默认为<code>undefined</code>。</p><p>（6）<code>set</code></p><p><code>set</code>是一个函数，表示该属性的存值函数（setter），默认为<code>undefined</code>。</p><h2><a href="#Object.getOwnPropertyDescriptor()" class="header-anchor">#</a> <span>Object.getOwnPropertyDescriptor()</span></h2><p><code>Object.getOwnPropertyDescriptor</code>方法可以获取属性描述对象。它的第一个参数是一个对象，第二个参数是一个字符串，对应该对象的某个属性名。</p><pre class="prettyprint language-javascript"><code>var obj = { p: &#039;a&#039; };
+
+Object.getOwnPropertyDescriptor(obj, &#039;p&#039;)
+// Object { value: &quot;a&quot;,
+//   writable: true,
+//   enumerable: true,
+//   configurable: true
+// }</code></pre><p>上面代码中，<code>Object.getOwnPropertyDescriptor</code>方法获取<code>obj.p</code>的属性描述对象。</p><p>注意，<code>Object.getOwnPropertyDescriptor</code>方法只能用于对象自身的属性，不能用于继承的属性。</p><pre class="prettyprint language-javascript"><code>var obj = { p: &#039;a&#039; };
+
+Object.getOwnPropertyDescriptor(obj, &#039;toString&#039;)
+// undefined</code></pre><p>上面代码中，<code>toString</code>是<code>Obj</code>对象继承的属性，<code>Object.getOwnPropertyDescriptor</code>无法获取。</p><h2><a href="#Object.getOwnPropertyNames()" class="header-anchor">#</a> <span>Object.getOwnPropertyNames()</span></h2><p><code>Object.getOwnPropertyNames</code>方法返回一个数组，成员是参数对象自身的全部属性的属性名，不管该属性是否可遍历。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperties({}, {
+  p1: { value: 1, enumerable: true },
+  p2: { value: 2, enumerable: false }
+});
+
+Object.getOwnPropertyNames(obj)
+// [&quot;p1&quot;, &quot;p2&quot;]</code></pre><p>上面代码中，<code>obj.p1</code>是可遍历的，<code>obj.p2</code>是不可遍历的。<code>Object.getOwnPropertyNames</code>会将它们都返回。</p><p>这跟<code>Object.keys</code>的行为不同，<code>Object.keys</code>只返回对象自身的可遍历属性的全部属性名。</p><pre class="prettyprint language-javascript"><code>Object.keys([]) // []
+Object.getOwnPropertyNames([]) // [ &#039;length&#039; ]
+
+Object.keys(Object.prototype) // []
+Object.getOwnPropertyNames(Object.prototype)
+// [&#039;hasOwnProperty&#039;,
+//  &#039;valueOf&#039;,
+//  &#039;constructor&#039;,
+//  &#039;toLocaleString&#039;,
+//  &#039;isPrototypeOf&#039;,
+//  &#039;propertyIsEnumerable&#039;,
+//  &#039;toString&#039;]</code></pre><p>上面代码中，数组自身的<code>length</code>属性是不可遍历的，<code>Object.keys</code>不会返回该属性。第二个例子的<code>Object.prototype</code>也是一个对象，所有实例对象都会继承它，它自身的属性都是不可遍历的。</p><h2><a href="#Object.defineProperty()，Object.defineProperties()" class="header-anchor">#</a> <span>Object.defineProperty()，Object.defineProperties()</span></h2><p><code>Object.defineProperty</code>方法允许通过属性描述对象，定义或修改一个属性，然后返回修改后的对象，它的用法如下。</p><pre class="prettyprint language-javascript"><code>Object.defineProperty(object, propertyName, attributesObject)</code></pre><p><code>Object.defineProperty</code>方法接受三个参数，依次如下。</p><ul><li>属性所在的对象</li><li>属性名（它应该是一个字符串）</li><li>属性描述对象</li></ul><p>举例来说，定义<code>obj.p</code>可以写成下面这样。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperty({}, &#039;p&#039;, {
+  value: 123,
+  writable: false,
+  enumerable: true,
+  configurable: false
+});
+
+obj.p // 123
+
+obj.p = 246;
+obj.p // 123</code></pre><p>上面代码中，<code>Object.defineProperty</code>方法定义了<code>obj.p</code>属性。由于属性描述对象的<code>writable</code>属性为<code>false</code>，所以<code>obj.p</code>属性不可写。注意，这里的<code>Object.defineProperty</code>方法的第一个参数是<code>{}</code>（一个新建的空对象），<code>p</code>属性直接定义在这个空对象上面，然后返回这个对象，这是<code>Object.defineProperty</code>的常见写法。</p><p>如果属性已经存在，<code>Object.defineProperty</code>方法相当于更新该属性的属性描述对象。</p><p>如果一次性定义或修改多个属性，可以使用<code>Object.defineProperties</code>方法。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperties({}, {
+  p1: { value: 123, enumerable: true },
+  p2: { value: &#039;abc&#039;, enumerable: true },
+  p3: { get: function () { return this.p1 + this.p2 },
+    enumerable:true,
+    configurable:true
+  }
+});
+
+obj.p1 // 123
+obj.p2 // &quot;abc&quot;
+obj.p3 // &quot;123abc&quot;</code></pre><p>上面代码中，<code>Object.defineProperties</code>同时定义了<code>obj</code>对象的三个属性。其中，<code>p3</code>属性定义了取值函数<code>get</code>，即每次读取该属性，都会调用这个取值函数。</p><p>注意，一旦定义了取值函数<code>get</code>（或存值函数<code>set</code>），就不能将<code>writable</code>属性设为<code>true</code>，或者同时定义<code>value</code>属性，否则会报错。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+
+Object.defineProperty(obj, &#039;p&#039;, {
+  value: 123,
+  get: function() { return 456; }
+});
+// TypeError: Invalid property.
+// A property cannot both have accessors and be writable or have a value
+
+Object.defineProperty(obj, &#039;p&#039;, {
+  writable: true,
+  get: function() { return 456; }
+});
+// TypeError: Invalid property descriptor.
+// Cannot both specify accessors and a value or writable attribute</code></pre><p>上面代码中，同时定义了<code>get</code>属性和<code>value</code>属性，以及将<code>writable</code>属性设为<code>true</code>，就会报错。</p><p><code>Object.defineProperty()</code>和<code>Object.defineProperties()</code>的第三个参数，是一个属性对象。它的<code>writable</code>、<code>configurable</code>、<code>enumerable</code>这三个属性的默认值都为<code>false</code>。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+Object.defineProperty(obj, &#039;foo&#039;, {});
+Object.getOwnPropertyDescriptor(obj, &#039;foo&#039;)
+// {
+//   value: undefined,
+//   writable: false,
+//   enumerable: false,
+//   configurable: false
+// }</code></pre><p>上面代码中，定义<code>obj.p</code>时用了一个空的属性描述对象，就可以看到各个元属性的默认值。</p><h2><a href="#Object.prototype.propertyIsEnumerable()" class="header-anchor">#</a> <span>Object.prototype.propertyIsEnumerable()</span></h2><p>实例对象的<code>propertyIsEnumerable</code>方法返回一个布尔值，用来判断某个属性是否可遍历。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+obj.p = 123;
+
+obj.propertyIsEnumerable(&#039;p&#039;) // true
+obj.propertyIsEnumerable(&#039;toString&#039;) // false</code></pre><p>上面代码中，<code>obj.p</code>是可遍历的，而继承自原型对象的<code>obj.toString</code>属性是不可遍历的。</p><h2><a href="#元属性" class="header-anchor">#</a> <span>元属性</span></h2><p>属性描述对象的各个属性称为“元属性”，因为它们可以看作是控制属性的属性。</p><h3><a href="#value" class="header-anchor">#</a> <span>value</span></h3><p><code>value</code>属性是目标属性的值。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+obj.p = 123;
+
+Object.getOwnPropertyDescriptor(obj, &#039;p&#039;).value
+// 123
+
+Object.defineProperty(obj, &#039;p&#039;, { value: 246 });
+obj.p // 246</code></pre><p>上面代码是通过<code>value</code>属性，读取或改写<code>obj.p</code>的例子。</p><h3><a href="#writable" class="header-anchor">#</a> <span>writable</span></h3><p><code>writable</code>属性是一个布尔值，决定了目标属性的值（value）是否可以被改变。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+
+Object.defineProperty(obj, &#039;a&#039;, {
+  value: 37,
+  writable: false
+});
+
+obj.a // 37
+obj.a = 25;
+obj.a // 37</code></pre><p>上面代码中，<code>obj.a</code>的<code>writable</code>属性是<code>false</code>。然后，改变<code>obj.a</code>的值，不会有任何效果。</p><p>注意，正常模式下，对<code>writable</code>为<code>false</code>的属性赋值不会报错，只会默默失败。但是，严格模式下会报错，即使对<code>a</code>属性重新赋予一个同样的值。</p><pre class="prettyprint language-javascript"><code>&#039;use strict&#039;;
+var obj = {};
+
+Object.defineProperty(obj, &#039;a&#039;, {
+  value: 37,
+  writable: false
+});
+
+obj.a = 37;
+// Uncaught TypeError: Cannot assign to read only property &#039;a&#039; of object</code></pre><p>上面代码是严格模式，对<code>obj.a</code>任何赋值行为都会报错。</p><p>如果原型对象的某个属性的<code>writable</code>为<code>false</code>，那么子对象将无法自定义这个属性。</p><pre class="prettyprint language-javascript"><code>var proto = Object.defineProperty({}, &#039;foo&#039;, {
+  value: &#039;a&#039;,
+  writable: false
+});
+
+var obj = Object.create(proto);
+
+obj.foo = &#039;b&#039;;
+obj.foo // &#039;a&#039;</code></pre><p>上面代码中，<code>proto</code>是原型对象，它的<code>foo</code>属性不可写。<code>obj</code>对象继承<code>proto</code>，也不可以再自定义这个属性了。如果是严格模式，这样做还会抛出一个错误。</p><p>但是，有一个规避方法，就是通过覆盖属性描述对象，绕过这个限制。原因是这种情况下，原型链会被完全忽视。</p><pre class="prettyprint language-javascript"><code>var proto = Object.defineProperty({}, &#039;foo&#039;, {
+  value: &#039;a&#039;,
+  writable: false
+});
+
+var obj = Object.create(proto);
+Object.defineProperty(obj, &#039;foo&#039;, {
+  value: &#039;b&#039;
+});
+
+obj.foo // &quot;b&quot;</code></pre><h3><a href="#enumerable" class="header-anchor">#</a> <span>enumerable</span></h3><p><code>enumerable</code>（可遍历性）返回一个布尔值，表示目标属性是否可遍历。</p><p>JavaScript 的早期版本，<code>for...in</code>循环是基于<code>in</code>运算符的。我们知道，<code>in</code>运算符不管某个属性是对象自身的还是继承的，都会返回<code>true</code>。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+&#039;toString&#039; in obj // true</code></pre><p>上面代码中，<code>toString</code>不是<code>obj</code>对象自身的属性，但是<code>in</code>运算符也返回<code>true</code>，这导致了<code>toString</code>属性也会被<code>for...in</code>循环遍历。</p><p>这显然不太合理，后来就引入了“可遍历性”这个概念。只有可遍历的属性，才会被<code>for...in</code>循环遍历，同时还规定<code>toString</code>这一类实例对象继承的原生属性，都是不可遍历的，这样就保证了<code>for...in</code>循环的可用性。</p><p>具体来说，如果一个属性的<code>enumerable</code>为<code>false</code>，下面三个操作不会取到该属性。</p><ul><li><code>for..in</code>循环</li><li><code>Object.keys</code>方法</li><li><code>JSON.stringify</code>方法</li></ul><p>因此，<code>enumerable</code>可以用来设置“秘密”属性。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+
+Object.defineProperty(obj, &#039;x&#039;, {
+  value: 123,
+  enumerable: false
+});
+
+obj.x // 123
+
+for (var key in obj) {
+  console.log(key);
+}
+// undefined
+
+Object.keys(obj)  // []
+JSON.stringify(obj) // &quot;{}&quot;</code></pre><p>上面代码中，<code>obj.x</code>属性的<code>enumerable</code>为<code>false</code>，所以一般的遍历操作都无法获取该属性，使得它有点像“秘密”属性，但不是真正的私有属性，还是可以直接获取它的值。</p><p>注意，<code>for...in</code>循环包括继承的属性，<code>Object.keys</code>方法不包括继承的属性。如果需要获取对象自身的所有属性，不管是否可遍历，可以使用<code>Object.getOwnPropertyNames</code>方法。</p><p>另外，<code>JSON.stringify</code>方法会排除<code>enumerable</code>为<code>false</code>的属性，有时可以利用这一点。如果对象的 JSON 格式输出要排除某些属性，就可以把这些属性的<code>enumerable</code>设为<code>false</code>。</p><h3><a href="#configurable" class="header-anchor">#</a> <span>configurable</span></h3><p><code>configurable</code>(可配置性）返回一个布尔值，决定了是否可以修改属性描述对象。也就是说，<code>configurable</code>为<code>false</code>时，<code>value</code>、<code>writable</code>、<code>enumerable</code>和<code>configurable</code>都不能被修改了。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperty({}, &#039;p&#039;, {
+  value: 1,
+  writable: false,
+  enumerable: false,
+  configurable: false
+});
+
+Object.defineProperty(obj, &#039;p&#039;, {value: 2})
+// TypeError: Cannot redefine property: p
+
+Object.defineProperty(obj, &#039;p&#039;, {writable: true})
+// TypeError: Cannot redefine property: p
+
+Object.defineProperty(obj, &#039;p&#039;, {enumerable: true})
+// TypeError: Cannot redefine property: p
+
+Object.defineProperty(obj, &#039;p&#039;, {configurable: true})
+// TypeError: Cannot redefine property: p</code></pre><p>上面代码中，<code>obj.p</code>的<code>configurable</code>为<code>false</code>。然后，改动<code>value</code>、<code>writable</code>、<code>enumerable</code>、<code>configurable</code>，结果都报错。</p><p>注意，<code>writable</code>只有在<code>false</code>改为<code>true</code>会报错，<code>true</code>改为<code>false</code>是允许的。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperty({}, &#039;p&#039;, {
+  writable: true,
+  configurable: false
+});
+
+Object.defineProperty(obj, &#039;p&#039;, {writable: false})
+// 修改成功</code></pre><p>至于<code>value</code>，只要<code>writable</code>和<code>configurable</code>有一个为<code>true</code>，就允许改动。</p><pre class="prettyprint language-javascript"><code>var o1 = Object.defineProperty({}, &#039;p&#039;, {
+  value: 1,
+  writable: true,
+  configurable: false
+});
+
+Object.defineProperty(o1, &#039;p&#039;, {value: 2})
+// 修改成功
+
+var o2 = Object.defineProperty({}, &#039;p&#039;, {
+  value: 1,
+  writable: false,
+  configurable: true
+});
+
+Object.defineProperty(o2, &#039;p&#039;, {value: 2})
+// 修改成功</code></pre><p>另外，<code>configurable</code>为<code>false</code>时，直接目标属性赋值，不报错，但不会成功。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperty({}, &#039;p&#039;, {
+  value: 1,
+  configurable: false
+});
+
+obj.p = 2;
+obj.p // 1</code></pre><p>上面代码中，<code>obj.p</code>的<code>configurable</code>为<code>false</code>，对<code>obj.p</code>赋值是不会生效的。如果是严格模式，还会报错。</p><p>可配置性决定了目标属性是否可以被删除（delete）。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperties({}, {
+  p1: { value: 1, configurable: true },
+  p2: { value: 2, configurable: false }
+});
+
+delete obj.p1 // true
+delete obj.p2 // false
+
+obj.p1 // undefined
+obj.p2 // 2</code></pre><p>上面代码中，<code>obj.p1</code>的<code>configurable</code>是<code>true</code>，所以可以被删除，<code>obj.p2</code>就无法删除。</p><h2><a href="#存取器" class="header-anchor">#</a> <span>存取器</span></h2><p>除了直接定义以外，属性还可以用存取器（accessor）定义。其中，存值函数称为<code>setter</code>，使用属性描述对象的<code>set</code>属性；取值函数称为<code>getter</code>，使用属性描述对象的<code>get</code>属性。</p><p>一旦对目标属性定义了存取器，那么存取的时候，都将执行对应的函数。利用这个功能，可以实现许多高级特性，比如某个属性禁止赋值。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperty({}, &#039;p&#039;, {
+  get: function () {
+    return &#039;getter&#039;;
+  },
+  set: function (value) {
+    console.log(&#039;setter: &#039; + value);
+  }
+});
+
+obj.p // &quot;getter&quot;
+obj.p = 123 // &quot;setter: 123&quot;</code></pre><p>上面代码中，<code>obj.p</code>定义了<code>get</code>和<code>set</code>属性。<code>obj.p</code>取值时，就会调用<code>get</code>；赋值时，就会调用<code>set</code>。</p><p>JavaScript 还提供了存取器的另一种写法。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  get p() {
+    return &#039;getter&#039;;
+  },
+  set p(value) {
+    console.log(&#039;setter: &#039; + value);
+  }
+};</code></pre><p>上面的写法与定义属性描述对象是等价的，而且使用更广泛。</p><p>注意，取值函数<code>get</code>不能接受参数，存值函数<code>set</code>只能接受一个参数（即属性的值）。</p><p>存取器往往用于，属性的值依赖对象内部数据的场合。</p><pre class="prettyprint language-javascript"><code>var obj ={
+  $n : 5,
+  get next() { return this.$n++ },
+  set next(n) {
+    if (n &gt;= this.$n) this.$n = n;
+    else throw new Error(&#039;新的值必须大于当前值&#039;);
+  }
+};
+
+obj.next // 5
+
+obj.next = 10;
+obj.next // 10
+
+obj.next = 5;
+// Uncaught Error: 新的值必须大于当前值</code></pre><p>上面代码中，<code>next</code>属性的存值函数和取值函数，都依赖于内部属性<code>$n</code>。</p><h2><a href="#对象的拷贝" class="header-anchor">#</a> <span>对象的拷贝</span></h2><p>有时，我们需要将一个对象的所有属性，拷贝到另一个对象，可以用下面的方法实现。</p><pre class="prettyprint language-javascript"><code>var extend = function (to, from) {
+  for (var property in from) {
+    to[property] = from[property];
+  }
+
+  return to;
+}
+
+extend({}, {
+  a: 1
+})
+// {a: 1}</code></pre><p>上面这个方法的问题在于，如果遇到存取器定义的属性，会只拷贝值。</p><pre class="prettyprint language-javascript"><code>extend({}, {
+  get a() { return 1 }
+})
+// {a: 1}</code></pre><p>为了解决这个问题，我们可以通过<code>Object.defineProperty</code>方法来拷贝属性。</p><pre class="prettyprint language-javascript"><code>var extend = function (to, from) {
+  for (var property in from) {
+    if (!from.hasOwnProperty(property)) continue;
+    Object.defineProperty(
+      to,
+      property,
+      Object.getOwnPropertyDescriptor(from, property)
+    );
+  }
+
+  return to;
+}
+
+extend({}, { get a(){ return 1 } })
+// { get a(){ return 1 } })</code></pre><p>上面代码中，<code>hasOwnProperty</code>那一行用来过滤掉继承的属性，否则会报错，因为<code>Object.getOwnPropertyDescriptor</code>读不到继承属性的属性描述对象。</p><h2><a href="#控制对象状态" class="header-anchor">#</a> <span>控制对象状态</span></h2><p>有时需要冻结对象的读写状态，防止对象被改变。JavaScript 提供了三种冻结方法，最弱的一种是<code>Object.preventExtensions</code>，其次是<code>Object.seal</code>，最强的是<code>Object.freeze</code>。</p><h3><a href="#Object.preventExtensions()" class="header-anchor">#</a> <span>Object.preventExtensions()</span></h3><p><code>Object.preventExtensions</code>方法可以使得一个对象无法再添加新的属性。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+Object.preventExtensions(obj);
+
+Object.defineProperty(obj, &#039;p&#039;, {
+  value: &#039;hello&#039;
+});
+// TypeError: Cannot define property:p, object is not extensible.
+
+obj.p = 1;
+obj.p // undefined</code></pre><p>上面代码中，<code>obj</code>对象经过<code>Object.preventExtensions</code>以后，就无法添加新属性了。</p><h3><a href="#Object.isExtensible()" class="header-anchor">#</a> <span>Object.isExtensible()</span></h3><p><code>Object.isExtensible</code>方法用于检查一个对象是否使用了<code>Object.preventExtensions</code>方法。也就是说，检查是否可以为一个对象添加属性。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+
+Object.isExtensible(obj) // true
+Object.preventExtensions(obj);
+Object.isExtensible(obj) // false</code></pre><p>上面代码中，对<code>obj</code>对象使用<code>Object.preventExtensions</code>方法以后，再使用<code>Object.isExtensible</code>方法，返回<code>false</code>，表示已经不能添加新属性了。</p><h3><a href="#Object.seal()" class="header-anchor">#</a> <span>Object.seal()</span></h3><p><code>Object.seal</code>方法使得一个对象既无法添加新属性，也无法删除旧属性。</p><pre class="prettyprint language-javascript"><code>var obj = { p: &#039;hello&#039; };
+Object.seal(obj);
+
+delete obj.p;
+obj.p // &quot;hello&quot;
+
+obj.x = &#039;world&#039;;
+obj.x // undefined</code></pre><p>上面代码中，<code>obj</code>对象执行<code>Object.seal</code>方法以后，就无法添加新属性和删除旧属性了。</p><p><code>Object.seal</code>实质是把属性描述对象的<code>configurable</code>属性设为<code>false</code>，因此属性描述对象不再能改变了。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: &#039;a&#039;
+};
+
+// seal方法之前
+Object.getOwnPropertyDescriptor(obj, &#039;p&#039;)
+// Object {
+//   value: &quot;a&quot;,
+//   writable: true,
+//   enumerable: true,
+//   configurable: true
+// }
+
+Object.seal(obj);
+
+// seal方法之后
+Object.getOwnPropertyDescriptor(obj, &#039;p&#039;)
+// Object {
+//   value: &quot;a&quot;,
+//   writable: true,
+//   enumerable: true,
+//   configurable: false
+// }
+
+Object.defineProperty(o, &#039;p&#039;, {
+  enumerable: false
+})
+// TypeError: Cannot redefine property: p</code></pre><p>上面代码中，使用<code>Object.seal</code>方法之后，属性描述对象的<code>configurable</code>属性就变成了<code>false</code>，然后改变<code>enumerable</code>属性就会报错。</p><p><code>Object.seal</code>只是禁止新增或删除属性，并不影响修改某个属性的值。</p><pre class="prettyprint language-javascript"><code>var obj = { p: &#039;a&#039; };
+Object.seal(obj);
+obj.p = &#039;b&#039;;
+obj.p // &#039;b&#039;</code></pre><p>上面代码中，<code>Object.seal</code>方法对<code>p</code>属性的<code>value</code>无效，是因为此时<code>p</code>属性的可写性由<code>writable</code>决定。</p><h3><a href="#Object.isSealed()" class="header-anchor">#</a> <span>Object.isSealed()</span></h3><p><code>Object.isSealed</code>方法用于检查一个对象是否使用了<code>Object.seal</code>方法。</p><pre class="prettyprint language-javascript"><code>var obj = { p: &#039;a&#039; };
+
+Object.seal(obj);
+Object.isSealed(obj) // true</code></pre><p>这时，<code>Object.isExtensible</code>方法也返回<code>false</code>。</p><pre class="prettyprint language-javascript"><code>var obj = { p: &#039;a&#039; };
+
+Object.seal(obj);
+Object.isExtensible(obj) // false</code></pre><h3><a href="#Object.freeze()" class="header-anchor">#</a> <span>Object.freeze()</span></h3><p><code>Object.freeze</code>方法可以使得一个对象无法添加新属性、无法删除旧属性、也无法改变属性的值，使得这个对象实际上变成了常量。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: &#039;hello&#039;
+};
+
+Object.freeze(obj);
+
+obj.p = &#039;world&#039;;
+obj.p // &quot;hello&quot;
+
+obj.t = &#039;hello&#039;;
+obj.t // undefined
+
+delete obj.p // false
+obj.p // &quot;hello&quot;</code></pre><p>上面代码中，对<code>obj</code>对象进行<code>Object.freeze()</code>以后，修改属性、新增属性、删除属性都无效了。这些操作并不报错，只是默默地失败。如果在严格模式下，则会报错。</p><h3><a href="#Object.isFrozen()" class="header-anchor">#</a> <span>Object.isFrozen()</span></h3><p><code>Object.isFrozen</code>方法用于检查一个对象是否使用了<code>Object.freeze</code>方法。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: &#039;hello&#039;
+};
+
+Object.freeze(obj);
+Object.isFrozen(obj) // true</code></pre><p>使用<code>Object.freeze</code>方法以后，<code>Object.isSealed</code>将会返回<code>true</code>，<code>Object.isExtensible</code>返回<code>false</code>。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: &#039;hello&#039;
+};
+
+Object.freeze(obj);
+
+Object.isSealed(obj) // true
+Object.isExtensible(obj) // false</code></pre><p><code>Object.isFrozen</code>的一个用途是，确认某个对象没有被冻结后，再对它的属性赋值。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: &#039;hello&#039;
+};
+
+Object.freeze(obj);
+
+if (!Object.isFrozen(obj)) {
+  obj.p = &#039;world&#039;;
+}</code></pre><p>上面代码中，确认<code>obj</code>没有被冻结后，再对它的属性赋值，就不会报错了。</p><h3><a href="#局限性" class="header-anchor">#</a> <span>局限性</span></h3><p>上面的三个方法锁定对象的可写性有一个漏洞：可以通过改变原型对象，来为对象增加属性。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+Object.preventExtensions(obj);
+
+var proto = Object.getPrototypeOf(obj);
+proto.t = &#039;hello&#039;;
+obj.t
+// hello</code></pre><p>上面代码中，对象<code>obj</code>本身不能新增属性，但是可以在它的原型对象上新增属性，就依然能够在<code>obj</code>上读到。</p><p>一种解决方案是，把<code>obj</code>的原型也冻结住。</p><pre class="prettyprint language-javascript"><code>var obj = new Object();
+Object.preventExtensions(obj);
+
+var proto = Object.getPrototypeOf(obj);
+Object.preventExtensions(proto);
+
+proto.t = &#039;hello&#039;;
+obj.t // undefined</code></pre><p>另外一个局限是，如果属性值是对象，上面这些方法只能冻结属性指向的对象，而不能冻结对象本身的内容。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  foo: 1,
+  bar: [&#039;a&#039;, &#039;b&#039;]
+};
+Object.freeze(obj);
+
+obj.bar.push(&#039;c&#039;);
+obj.bar // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</code></pre><p>上面代码中，<code>obj.bar</code>属性指向一个数组，<code>obj</code>对象被冻结以后，这个指向无法改变，即无法指向其他值，但是所指向的数组是可以改变的。</p></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

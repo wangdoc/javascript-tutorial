@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>IndexedDB API - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象" class="">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象" class="">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象" class="">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象" class="">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象" class="">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象" class="">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象" class="">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象" class="">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象" class="">JSON 对象</a></li></ul></li><li><a title="面向对象编程" class="">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令" class="">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字" class="">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承" class="">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作" class="">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述" class="">概述</a></li><li><a href="/async/timer.html" title="定时器" class="">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象" class="">Promise 对象</a></li></ul></li><li><a title="DOM" class="">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述" class="">概述</a></li><li><a href="/dom/node.html" title="Node 接口" class="">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口" class="">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口" class="">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点" class="">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点" class="">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作" class="">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点" class="">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API" class="">Mutation Observer API</a></li></ul></li><li><a title="事件" class="">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口" class="">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型" class="">事件模型</a></li><li><a href="/events/event.html" title="Event 对象" class="">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件" class="">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件" class="">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件" class="">进度事件</a></li><li><a href="/events/form.html" title="表单事件" class="">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件" class="">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件" class="">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件" class="">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件" class="">拖拉事件</a></li></ul></li><li><a title="浏览器模型" class="active">浏览器模型<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/bom/engine.html" title="浏览器环境概述" class="">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象" class="">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象" class="">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie" class="">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象" class="">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制" class="">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信" class="">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口" class="">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象" class="">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象" class="">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象" class="">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象" class="">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象" class="">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API" class="active">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>IndexedDB API</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#IndexedDB-API" class="header-anchor">#</a> <span>IndexedDB API</span></h1><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><p>随着浏览器的功能不断增强，越来越多的网站开始考虑，将大量数据储存在客户端，这样可以减少从服务器获取数据，直接从本地获取数据。</p><p>现有的浏览器数据储存方案，都不适合储存大量数据：Cookie 的大小不超过4KB，且每次请求都会发送回服务器；LocalStorage 在 2.5MB 到 10MB 之间（各家浏览器不同），而且不提供搜索功能，不能建立自定义的索引。所以，需要一种新的解决方案，这就是 IndexedDB 诞生的背景。</p><p>通俗地说，IndexedDB 就是浏览器提供的本地数据库，它可以被网页脚本创建和操作。IndexedDB 允许储存大量数据，提供查找接口，还能建立索引。这些都是 LocalStorage 所不具备的。就数据库类型而言，IndexedDB 不属于关系型数据库（不支持 SQL 查询语句），更接近 NoSQL 数据库。</p><p>IndexedDB 具有以下特点。</p><p><strong>（1）键值对储存。</strong> IndexedDB 内部采用对象仓库（object store）存放数据。所有类型的数据都可以直接存入，包括 JavaScript 对象。对象仓库中，数据以“键值对”的形式保存，每一个数据记录都有对应的主键，主键是独一无二的，不能有重复，否则会抛出一个错误。</p><p><strong>（2）异步。</strong> IndexedDB 操作时不会锁死浏览器，用户依然可以进行其他操作，这与 LocalStorage 形成对比，后者的操作是同步的。异步设计是为了防止大量数据的读写，拖慢网页的表现。</p><p><strong>（3）支持事务。</strong> IndexedDB 支持事务（transaction），这意味着一系列操作步骤之中，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态，不存在只改写一部分数据的情况。</p><p><strong>（4）同源限制</strong> IndexedDB 受到同源限制，每一个数据库对应创建它的域名。网页只能访问自身域名下的数据库，而不能访问跨域的数据库。</p><p><strong>（5）储存空间大</strong> IndexedDB 的储存空间比 LocalStorage 大得多，一般来说不少于 250MB，甚至没有上限。</p><p><strong>（6）支持二进制储存。</strong> IndexedDB 不仅可以储存字符串，还可以储存二进制数据（ArrayBuffer 对象和 Blob 对象）。</p><h2><a href="#基本概念" class="header-anchor">#</a> <span>基本概念</span></h2><p>IndexedDB 是一个比较复杂的 API，涉及不少概念。它把不同的实体，抽象成一个个对象接口。学习这个 API，就是学习它的各种对象接口。</p><ul><li>数据库：IDBDatabase 对象</li><li>对象仓库：IDBObjectStore 对象</li><li>索引： IDBIndex 对象</li><li>事务： IDBTransaction 对象</li><li>操作请求：IDBRequest 对象</li><li>指针： IDBCursor 对象</li><li>主键集合：IDBKeyRange 对象</li></ul><p>下面是一些主要的概念。</p><p><strong>（1）数据库</strong></p><p>数据库是一系列相关数据的容器。每个域名（严格的说，是协议 + 域名 + 端口）都可以新建任意多个数据库。</p><p>IndexedDB 数据库有版本的概念。同一个时刻，只能有一个版本的数据库存在。如果要修改数据库结构（新增或删除表、索引或者主键），只能通过升级数据库版本完成。</p><p><strong>（2）对象仓库</strong></p><p>每个数据库包含若干个对象仓库（object store）。它类似于关系型数据库的表格。</p><p><strong>（3）数据记录</strong></p><p>对象仓库保存的是数据记录。每条记录类似于关系型数据库的行，但是只有主键和数据体两部分。主键用来建立默认的索引，必须是不同的，否则会报错。主键可以是数据记录里面的一个属性，也可以指定为一个递增的整数编号。</p><pre class="prettyprint language-javascript"><code>{ id: 1, text: &#039;foo&#039; }</code></pre><p>上面的对象中，<code>id</code>属性可以当作主键。</p><p>数据体可以是任意数据类型，不限于对象。</p><p><strong>（4）索引</strong></p><p>为了加速数据的检索，可以在对象仓库里面，为不同的属性建立索引。</p><p><strong>（5）事务</strong></p><p>数据记录的读写和删改，都要通过事务完成。事务对象提供<code>error</code>、<code>abort</code>和<code>complete</code>三个事件，用来监听操作结果。</p><h2><a href="#操作流程" class="header-anchor">#</a> <span>操作流程</span></h2><p>IndexedDB 数据库的各种操作，一般是按照下面的流程进行的。这个部分只给出简单的代码示例，用于快速上手，详细的各个对象的 API 放在后文介绍。</p><h3><a href="#打开数据库" class="header-anchor">#</a> <span>打开数据库</span></h3><p>使用 IndexedDB 的第一步是打开数据库，使用<code>indexedDB.open()</code>方法。</p><pre class="prettyprint language-javascript"><code>var request = window.indexedDB.open(databaseName, version);</code></pre><p>这个方法接受两个参数，第一个参数是字符串，表示数据库的名字。如果指定的数据库不存在，就会新建数据库。第二个参数是整数，表示数据库的版本。如果省略，打开已有数据库时，默认为当前版本；新建数据库时，默认为<code>1</code>。</p><p><code>indexedDB.open()</code>方法返回一个 IDBRequest 对象。这个对象通过三种事件<code>error</code>、<code>success</code>、<code>upgradeneeded</code>，处理打开数据库的操作结果。</p><p><strong>（1）error 事件</strong></p><p><code>error</code>事件表示打开数据库失败。</p><pre class="prettyprint language-javascript"><code>request.onerror = function (event) {
+  console.log(&#039;数据库打开报错&#039;);
+};</code></pre><p><strong>（2）success 事件</strong></p><p><code>success</code>事件表示成功打开数据库。</p><pre class="prettyprint language-javascript"><code>var db;
+
+request.onsuccess = function (event) {
+  db = request.result;
+  console.log(&#039;数据库打开成功&#039;);
+};</code></pre><p>这时，通过<code>request</code>对象的<code>result</code>属性拿到数据库对象。</p><p><strong>（3）upgradeneeded 事件</strong></p><p>如果指定的版本号，大于数据库的实际版本号，就会发生数据库升级事件<code>upgradeneeded</code>。</p><pre class="prettyprint language-javascript"><code>var db;
+
+request.onupgradeneeded = function (event) {
+  db = event.target.result;
+}</code></pre><p>这时通过事件对象的<code>target.result</code>属性，拿到数据库实例。</p><h3><a href="#新建数据库" class="header-anchor">#</a> <span>新建数据库</span></h3><p>新建数据库与打开数据库是同一个操作。如果指定的数据库不存在，就会新建。不同之处在于，后续的操作主要在<code>upgradeneeded</code>事件的监听函数里面完成，因为这时版本从无到有，所以会触发这个事件。</p><p>通常，新建数据库以后，第一件事是新建对象仓库（即新建表）。</p><pre class="prettyprint language-javascript"><code>request.onupgradeneeded = function(event) {
+  db = event.target.result;
+  var objectStore = db.createObjectStore(&#039;person&#039;, { keyPath: &#039;id&#039; });
+}</code></pre><p>上面代码中，数据库新建成功以后，新增一张叫做<code>person</code>的表格，主键是<code>id</code>。</p><p>更好的写法是先判断一下，这张表格是否存在，如果不存在再新建。</p><pre class="prettyprint language-javascript"><code>request.onupgradeneeded = function (event) {
+  db = event.target.result;
+  var objectStore;
+  if (!db.objectStoreNames.contains(&#039;person&#039;)) {
+    objectStore = db.createObjectStore(&#039;person&#039;, { keyPath: &#039;id&#039; });
+  }
+}</code></pre><p>主键（key）是默认建立索引的属性。比如，数据记录是<code>{ id: 1, name: &#39;张三&#39; }</code>，那么<code>id</code>属性可以作为主键。主键也可以指定为下一层对象的属性，比如<code>{ foo: { bar: &#39;baz&#39; } }</code>的<code>foo.bar</code>也可以指定为主键。</p><p>如果数据记录里面没有合适作为主键的属性，那么可以让 IndexedDB 自动生成主键。</p><pre class="prettyprint language-javascript"><code>var objectStore = db.createObjectStore(
+  &#039;person&#039;,
+  { autoIncrement: true }
+);</code></pre><p>上面代码中，指定主键为一个递增的整数。</p><p>新建对象仓库以后，下一步可以新建索引。</p><pre class="prettyprint language-javascript"><code>request.onupgradeneeded = function(event) {
+  db = event.target.result;
+  var objectStore = db.createObjectStore(&#039;person&#039;, { keyPath: &#039;id&#039; });
+  objectStore.createIndex(&#039;name&#039;, &#039;name&#039;, { unique: false });
+  objectStore.createIndex(&#039;email&#039;, &#039;email&#039;, { unique: true });
+}</code></pre><p>上面代码中，<code>IDBObject.createIndex()</code>的三个参数分别为索引名称、索引所在的属性、配置对象（说明该属性是否包含重复的值）。</p><h3><a href="#新增数据" class="header-anchor">#</a> <span>新增数据</span></h3><p>新增数据指的是向对象仓库写入数据记录。这需要通过事务完成。</p><pre class="prettyprint language-javascript"><code>function add() {
+  var request = db.transaction([&#039;person&#039;], &#039;readwrite&#039;)
+    .objectStore(&#039;person&#039;)
+    .add({ id: 1, name: &#039;张三&#039;, age: 24, email: &#039;zhangsan@example.com&#039; });
+
+  request.onsuccess = function (event) {
+    console.log(&#039;数据写入成功&#039;);
+  };
+
+  request.onerror = function (event) {
+    console.log(&#039;数据写入失败&#039;);
+  }
+}
+
+add();</code></pre><p>上面代码中，写入数据需要新建一个事务。新建时必须指定表格名称和操作模式（“只读”或“读写”）。新建事务以后，通过<code>IDBTransaction.objectStore(name)</code>方法，拿到 IDBObjectStore 对象，再通过表格对象的<code>add()</code>方法，向表格写入一条记录。</p><p>写入操作是一个异步操作，通过监听连接对象的<code>success</code>事件和<code>error</code>事件，了解是否写入成功。</p><h3><a href="#读取数据" class="header-anchor">#</a> <span>读取数据</span></h3><p>读取数据也是通过事务完成。</p><pre class="prettyprint language-javascript"><code>function read() {
+   var transaction = db.transaction([&#039;person&#039;]);
+   var objectStore = transaction.objectStore(&#039;person&#039;);
+   var request = objectStore.get(1);
+
+   request.onerror = function(event) {
+     console.log(&#039;事务失败&#039;);
+   };
+
+   request.onsuccess = function( event) {
+      if (request.result) {
+        console.log(&#039;Name: &#039; + request.result.name);
+        console.log(&#039;Age: &#039; + request.result.age);
+        console.log(&#039;Email: &#039; + request.result.email);
+      } else {
+        console.log(&#039;未获得数据记录&#039;);
+      }
+   };
+}
+
+read();</code></pre><p>上面代码中，<code>objectStore.get()</code>方法用于读取数据，参数是主键的值。</p><h3><a href="#遍历数据" class="header-anchor">#</a> <span>遍历数据</span></h3><p>遍历数据表格的所有记录，要使用指针对象 IDBCursor。</p><pre class="prettyprint language-javascript"><code>function readAll() {
+  var objectStore = db.transaction(&#039;person&#039;).objectStore(&#039;person&#039;);
+
+   objectStore.openCursor().onsuccess = function (event) {
+     var cursor = event.target.result;
+
+     if (cursor) {
+       console.log(&#039;Id: &#039; + cursor.key);
+       console.log(&#039;Name: &#039; + cursor.value.name);
+       console.log(&#039;Age: &#039; + cursor.value.age);
+       console.log(&#039;Email: &#039; + cursor.value.email);
+       cursor.continue();
+    } else {
+      console.log(&#039;没有更多数据了！&#039;);
+    }
+  };
+}
+
+readAll();</code></pre><p>上面代码中，新建指针对象的<code>openCursor()</code>方法是一个异步操作，所以要监听<code>success</code>事件。</p><h3><a href="#更新数据" class="header-anchor">#</a> <span>更新数据</span></h3><p>更新数据要使用<code>IDBObject.put()</code>方法。</p><pre class="prettyprint language-javascript"><code>function update() {
+  var request = db.transaction([&#039;person&#039;], &#039;readwrite&#039;)
+    .objectStore(&#039;person&#039;)
+    .put({ id: 1, name: &#039;李四&#039;, age: 35, email: &#039;lisi@example.com&#039; });
+
+  request.onsuccess = function (event) {
+    console.log(&#039;数据更新成功&#039;);
+  };
+
+  request.onerror = function (event) {
+    console.log(&#039;数据更新失败&#039;);
+  }
+}
+
+update();</code></pre><p>上面代码中，<code>put()</code>方法自动更新了主键为<code>1</code>的记录。</p><h3><a href="#删除数据" class="header-anchor">#</a> <span>删除数据</span></h3><p><code>IDBObjectStore.delete()</code>方法用于删除记录。</p><pre class="prettyprint language-javascript"><code>function remove() {
+  var request = db.transaction([&#039;person&#039;], &#039;readwrite&#039;)
+    .objectStore(&#039;person&#039;)
+    .delete(1);
+
+  request.onsuccess = function (event) {
+    console.log(&#039;数据删除成功&#039;);
+  };
+}
+
+remove();</code></pre><h3><a href="#使用索引" class="header-anchor">#</a> <span>使用索引</span></h3><p>索引的意义在于，可以让你搜索任意字段，也就是说从任意字段拿到数据记录。如果不建立索引，默认只能搜索主键（即从主键取值）。</p><p>假定新建表格的时候，对<code>name</code>字段建立了索引。</p><pre class="prettyprint language-javascript"><code>objectStore.createIndex(&#039;name&#039;, &#039;name&#039;, { unique: false });</code></pre><p>现在，就可以从<code>name</code>找到对应的数据记录了。</p><pre class="prettyprint language-javascript"><code>var transaction = db.transaction([&#039;person&#039;], &#039;readonly&#039;);
+var store = transaction.objectStore(&#039;person&#039;);
+var index = store.index(&#039;name&#039;);
+var request = index.get(&#039;李四&#039;);
+
+request.onsuccess = function (e) {
+  var result = e.target.result;
+  if (result) {
+    // ...
+  } else {
+    // ...
+  }
+}</code></pre><h2><a href="#indexedDB-对象" class="header-anchor">#</a> <span>indexedDB 对象</span></h2><p>浏览器原生提供<code>indexedDB</code>对象，作为开发者的操作接口。</p><h3><a href="#indexedDB.open()" class="header-anchor">#</a> <span>indexedDB.open()</span></h3><p><code>indexedDB.open()</code>方法用于打开数据库。这是一个异步操作，但是会立刻返回一个 IDBOpenDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>var openRequest = window.indexedDB.open(&#039;test&#039;, 1);</code></pre><p>上面代码表示，打开一个名为<code>test</code>、版本为<code>1</code>的数据库。如果该数据库不存在，则会新建该数据库。</p><p><code>open()</code>方法的第一个参数是数据库名称，格式为字符串，不可省略；第二个参数是数据库版本，是一个大于<code>0</code>的正整数（<code>0</code>将报错），如果该参数大于当前版本，会触发数据库升级。第二个参数可省略，如果数据库已存在，将打开当前版本的数据库；如果数据库不存在，将创建该版本的数据库，默认版本为<code>1</code>。</p><p>打开数据库是异步操作，通过各种事件通知客户端。下面是有可能触发的4种事件。</p><ul><li><strong>success</strong>：打开成功。</li><li><strong>error</strong>：打开失败。</li><li><strong>upgradeneeded</strong>：第一次打开该数据库，或者数据库版本发生变化。</li><li><strong>blocked</strong>：上一次的数据库连接还未关闭。</li></ul><p>第一次打开数据库时，会先触发<code>upgradeneeded</code>事件，然后触发<code>success</code>事件。</p><p>根据不同的需要，对上面4种事件监听函数。</p><pre class="prettyprint language-javascript"><code>var openRequest = indexedDB.open(&#039;test&#039;, 1);
+var db;
+
+openRequest.onupgradeneeded = function (e) {
+  console.log(&#039;Upgrading...&#039;);
+}
+
+openRequest.onsuccess = function (e) {
+  console.log(&#039;Success!&#039;);
+  db = openRequest.result;
+}
+
+openRequest.onerror = function (e) {
+  console.log(&#039;Error&#039;);
+  console.log(e);
+}</code></pre><p>上面代码有两个地方需要注意。首先，<code>open()</code>方法返回的是一个对象（IDBOpenDBRequest），监听函数就定义在这个对象上面。其次，<code>success</code>事件发生后，从<code>openRequest.result</code>属性可以拿到已经打开的<code>IndexedDB</code>数据库对象。</p><h3><a href="#indexedDB.deleteDatabase()" class="header-anchor">#</a> <span>indexedDB.deleteDatabase()</span></h3><p><code>indexedDB.deleteDatabase()</code>方法用于删除一个数据库，参数为数据库的名字。它会立刻返回一个<code>IDBOpenDBRequest</code>对象，然后对数据库执行异步删除。删除操作的结果会通过事件通知，<code>IDBOpenDBRequest</code>对象可以监听以下事件。</p><ul><li><code>success</code>：删除成功</li><li><code>error</code>：删除报错</li></ul><pre class="prettyprint language-javascript"><code>var DBDeleteRequest = window.indexedDB.deleteDatabase(&#039;demo&#039;);
+
+DBDeleteRequest.onerror = function (event) {
+  console.log(&#039;Error&#039;);
+};
+
+DBDeleteRequest.onsuccess = function (event) {
+  console.log(&#039;success&#039;);
+};</code></pre><p>调用<code>deleteDatabase()</code>方法以后，当前数据库的其他已经打开的连接都会接收到<code>versionchange</code>事件。</p><p>注意，删除不存在的数据库并不会报错。</p><h3><a href="#indexedDB.cmp()" class="header-anchor">#</a> <span>indexedDB.cmp()</span></h3><p><code>indexedDB.cmp()</code>方法比较两个值是否为 indexedDB 的相同的主键。它返回一个整数，表示比较的结果：<code>0</code>表示相同，<code>1</code>表示第一个主键大于第二个主键，<code>-1</code>表示第一个主键小于第二个主键。</p><pre class="prettyprint language-javascript"><code>window.indexedDB.cmp(1, 2) // -1</code></pre><p>注意，这个方法不能用来比较任意的 JavaScript 值。如果参数是布尔值或对象，它会报错。</p><pre class="prettyprint language-javascript"><code>window.indexedDB.cmp(1, true) // 报错
+window.indexedDB.cmp({}, {}) // 报错</code></pre><h2><a href="#IDBRequest-对象" class="header-anchor">#</a> <span>IDBRequest 对象</span></h2><p>IDBRequest 对象表示打开的数据库连接，<code>indexedDB.open()</code>方法和<code>indexedDB.deleteDatabase()</code>方法会返回这个对象。数据库的操作都是通过这个对象完成的。</p><p>这个对象的所有操作都是异步操作，要通过<code>readyState</code>属性判断是否完成，如果为<code>pending</code>就表示操作正在进行，如果为<code>done</code>就表示操作完成，可能成功也可能失败。</p><p>操作完成以后，触发<code>success</code>事件或<code>error</code>事件，这时可以通过<code>result</code>属性和<code>error</code>属性拿到操作结果。如果在<code>pending</code>阶段，就去读取这两个属性，是会报错的。</p><p>IDBRequest 对象有以下属性。</p><ul><li><code>IDBRequest.readyState</code>：等于<code>pending</code>表示操作正在进行，等于<code>done</code>表示操作正在完成。</li><li><code>IDBRequest.result</code>：返回请求的结果。如果请求失败、结果不可用，读取该属性会报错。</li><li><code>IDBRequest.error</code>：请求失败时，返回错误对象。</li><li><code>IDBRequest.source</code>：返回请求的来源（比如索引对象或 ObjectStore）。</li><li><code>IDBRequest.transaction</code>：返回当前请求正在进行的事务，如果不包含事务，返回<code>null</code>。</li><li><code>IDBRequest.onsuccess</code>：指定<code>success</code>事件的监听函数。</li><li><code>IDBRequest.onerror</code>：指定<code>error</code>事件的监听函数。</li></ul><p>IDBOpenDBRequest 对象继承了 IDBRequest 对象，提供了两个额外的事件监听属性。</p><ul><li><code>IDBOpenDBRequest.onblocked</code>：指定<code>blocked</code>事件（<code>upgradeneeded</code>事件触发时，数据库仍然在使用）的监听函数。</li><li><code>IDBOpenDBRequest.onupgradeneeded</code>：<code>upgradeneeded</code>事件的监听函数。</li></ul><h2><a href="#IDBDatabase-对象" class="header-anchor">#</a> <span>IDBDatabase 对象</span></h2><p>打开数据成功以后，可以从<code>IDBOpenDBRequest</code>对象的<code>result</code>属性上面，拿到一个<code>IDBDatabase</code>对象，它表示连接的数据库。后面对数据库的操作，都通过这个对象完成。</p><pre class="prettyprint language-javascript"><code>var db;
+var DBOpenRequest = window.indexedDB.open(&#039;demo&#039;, 1);
+
+DBOpenRequest.onerror = function (event) {
+  console.log(&#039;Error&#039;);
+};
+
+DBOpenRequest.onsuccess = function(event) {
+  db = DBOpenRequest.result;
+  // ...
+};</code></pre><h3><a href="#属性" class="header-anchor">#</a> <span>属性</span></h3><p>IDBDatabase 对象有以下属性。</p><ul><li><code>IDBDatabase.name</code>：字符串，数据库名称。</li><li><code>IDBDatabase.version</code>：整数，数据库版本。数据库第一次创建时，该属性为空字符串。</li><li><code>IDBDatabase.objectStoreNames</code>：DOMStringList 对象（字符串的集合），包含当前数据的所有 object store 的名字。</li><li><code>IDBDatabase.onabort</code>：指定 abort 事件（事务中止）的监听函数。</li><li><code>IDBDatabase.onclose</code>：指定 close 事件（数据库意外关闭）的监听函数。</li><li><code>IDBDatabase.onerror</code>：指定 error 事件（访问数据库失败）的监听函数。</li><li><code>IDBDatabase.onversionchange</code>：数据库版本变化时触发（发生<code>upgradeneeded</code>事件，或调用<code>indexedDB.deleteDatabase()</code>）。</li></ul><p>下面是<code>objectStoreNames</code>属性的例子。该属性返回一个DOMStringList 对象，包含了当前数据库所有对象仓库的名称（即表名），可以使用 DOMStringList 对象的<code>contains</code>方法，检查数据库是否包含某个对象仓库。</p><pre class="prettyprint language-javascript"><code>if (!db.objectStoreNames.contains(&#039;firstOS&#039;)) {
+  db.createObjectStore(&#039;firstOS&#039;);
+}</code></pre><p>上面代码先判断某个对象仓库是否存在，如果不存在就创建该对象仓库。</p><h3><a href="#方法" class="header-anchor">#</a> <span>方法</span></h3><p>IDBDatabase 对象有以下方法。</p><ul><li><code>IDBDatabase.close()</code>：关闭数据库连接，实际会等所有事务完成后再关闭。</li><li><code>IDBDatabase.createObjectStore()</code>：创建存放数据的对象仓库，类似于传统关系型数据库的表格，返回一个 IDBObjectStore 对象。该方法只能在<code>versionchange</code>事件监听函数中调用。</li><li><code>IDBDatabase.deleteObjectStore()</code>：删除指定的对象仓库。该方法只能在<code>versionchange</code>事件监听函数中调用。</li><li><code>IDBDatabase.transaction()</code>：返回一个 IDBTransaction 事务对象。</li></ul><p>下面是<code>createObjectStore()</code>方法的例子。</p><pre class="prettyprint language-javascript"><code>var request = window.indexedDB.open(&#039;demo&#039;, 2);
+
+request.onupgradeneeded = function (event) {
+  var db = event.target.result;
+
+  db.onerror = function(event) {
+    console.log(&#039;error&#039;);
+  };
+
+  var objectStore = db.createObjectStore(&#039;items&#039;);
+
+  // ...
+};</code></pre><p>上面代码创建了一个名为<code>items</code>的对象仓库，如果该对象仓库已经存在，就会抛出一个错误。为了避免出错，需要用到下文的<code>objectStoreNames</code>属性，检查已有哪些对象仓库。</p><p><code>createObjectStore()</code>方法还可以接受第二个对象参数，用来设置对象仓库的属性。</p><pre class="prettyprint language-javascript"><code>db.createObjectStore(&#039;test&#039;, { keyPath: &#039;email&#039; });
+db.createObjectStore(&#039;test2&#039;, { autoIncrement: true });</code></pre><p>上面代码中，<code>keyPath</code>属性表示主键（由于主键的值不能重复，所以上例存入之前，必须保证数据的<code>email</code>属性值都是不一样的），默认值为<code>null</code>；<code>autoIncrement</code>属性表示，是否使用自动递增的整数作为主键（第一个数据记录为1，第二个数据记录为2，以此类推），默认为<code>false</code>。一般来说，<code>keyPath</code>和<code>autoIncrement</code>属性只要使用一个就够了，如果两个同时使用，表示主键为递增的整数，且对象不得缺少<code>keyPath</code>指定的属性。</p><p>下面是<code>deleteObjectStore()</code>方法的例子。</p><pre class="prettyprint language-javascript"><code>var dbName = &#039;sampleDB&#039;;
+var dbVersion = 2;
+var request = indexedDB.open(dbName, dbVersion);
+
+request.onupgradeneeded = function(e) {
+  var db = request.result;
+  if (e.oldVersion &lt; 1) {
+    db.createObjectStore(&#039;store1&#039;);
+  }
+
+  if (e.oldVersion &lt; 2) {
+    db.deleteObjectStore(&#039;store1&#039;);
+    db.createObjectStore(&#039;store2&#039;);
+  }
+
+  // ...
+};</code></pre><p>下面是<code>transaction()</code>方法的例子，该方法用于创建一个数据库事务，返回一个 IDBTransaction 对象。向数据库添加数据之前，必须先创建数据库事务。</p><pre class="prettyprint language-javascript"><code>var t = db.transaction([&#039;items&#039;], &#039;readwrite&#039;);</code></pre><p><code>transaction()</code>方法接受两个参数：第一个参数是一个数组，里面是所涉及的对象仓库，通常是只有一个；第二个参数是一个表示操作类型的字符串。目前，操作类型只有两种：<code>readonly</code>（只读）和<code>readwrite</code>（读写）。添加数据使用<code>readwrite</code>，读取数据使用<code>readonly</code>。第二个参数是可选的，省略时默认为<code>readonly</code>模式。</p><h2><a href="#IDBObjectStore-对象" class="header-anchor">#</a> <span>IDBObjectStore 对象</span></h2><p>IDBObjectStore 对象对应一个对象仓库（object store）。<code>IDBDatabase.createObjectStore()</code>方法返回的就是一个 IDBObjectStore 对象。</p><p>IDBDatabase 对象的<code>transaction()</code>返回一个事务对象，该对象的<code>objectStore()</code>方法返回 IDBObjectStore 对象，因此可以采用下面的链式写法。</p><pre class="prettyprint language-javascript"><code>db.transaction([&#039;test&#039;], &#039;readonly&#039;)
+  .objectStore(&#039;test&#039;)
+  .get(X)
+  .onsuccess = function (e) {}</code></pre><h3><a href="#属性" class="header-anchor">#</a> <span>属性</span></h3><p>IDBObjectStore 对象有以下属性。</p><ul><li><code>IDBObjectStore.indexNames</code>：返回一个类似数组的对象（DOMStringList），包含了当前对象仓库的所有索引。</li><li><code>IDBObjectStore.keyPath</code>：返回当前对象仓库的主键。</li><li><code>IDBObjectStore.name</code>：返回当前对象仓库的名称。</li><li><code>IDBObjectStore.transaction</code>：返回当前对象仓库所属的事务对象。</li><li><code>IDBObjectStore.autoIncrement</code>：布尔值，表示主键是否会自动递增。</li></ul><h3><a href="#方法" class="header-anchor">#</a> <span>方法</span></h3><p>IDBObjectStore 对象有以下方法。</p><p><strong>（1）IDBObjectStore.add()</strong></p><p><code>IDBObjectStore.add()</code>用于向对象仓库添加数据，返回一个 IDBRequest 对象。该方法只用于添加数据，如果主键相同会报错，因此更新数据必须使用<code>put()</code>方法。</p><pre class="prettyprint language-javascript"><code>objectStore.add(value, key)</code></pre><p>该方法接受两个参数，第一个参数是键值，第二个参数是主键，该参数可选，如果省略默认为<code>null</code>。</p><p>创建事务以后，就可以获取对象仓库，然后使用<code>add()</code>方法往里面添加数据了。</p><pre class="prettyprint language-javascript"><code>var db;
+var DBOpenRequest = window.indexedDB.open(&#039;demo&#039;, 1);
+
+DBOpenRequest.onsuccess = function (event) {
+  db = DBOpenRequest.result;
+  var transaction = db.transaction([&#039;items&#039;], &#039;readwrite&#039;);
+
+  transaction.oncomplete = function (event) {
+    console.log(&#039;transaction success&#039;);
+  };
+
+  transaction.onerror = function (event) {
+    console.log(&#039;tansaction error: &#039; + transaction.error);
+  };
+
+  var objectStore = transaction.objectStore(&#039;items&#039;);
+  var objectStoreRequest = objectStore.add({ foo: 1 });
+
+  objectStoreRequest.onsuccess = function (event) {
+    console.log(&#039;add data success&#039;);
+  };
+
+};</code></pre><p><strong>（2）IDBObjectStore.put()</strong></p><p><code>IDBObjectStore.put()</code>方法用于更新某个主键对应的数据记录，如果对应的键值不存在，则插入一条新的记录。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>objectStore.put(item, key)</code></pre><p>该方法接受两个参数，第一个参数为新数据，第二个参数为主键，该参数可选，且只在自动递增时才有必要提供，因为那时主键不包含在数据值里面。</p><p><strong>（3）IDBObjectStore.clear()</strong></p><p><code>IDBObjectStore.clear()</code>删除当前对象仓库的所有记录。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>objectStore.clear()</code></pre><p>该方法不需要参数。</p><p><strong>（4）IDBObjectStore.delete()</strong></p><p><code>IDBObjectStore.delete()</code>方法用于删除指定主键的记录。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>objectStore.delete(Key)</code></pre><p>该方法的参数为主键的值。</p><p><strong>（5）IDBObjectStore.count()</strong></p><p><code>IDBObjectStore.count()</code>方法用于计算记录的数量。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>IDBObjectStore.count(key)</code></pre><p>不带参数时，该方法返回当前对象仓库的所有记录数量。如果主键或 IDBKeyRange 对象作为参数，则返回对应的记录数量。</p><p><strong>（6）IDBObjectStore.getKey()</strong></p><p><code>IDBObjectStore.getKey()</code>用于获取主键。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>objectStore.getKey(key)</code></pre><p>该方法的参数可以是主键值或 IDBKeyRange 对象。</p><p><strong>（7）IDBObjectStore.get()</strong></p><p><code>IDBObjectStore.get()</code>用于获取主键对应的数据记录。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>objectStore.get(key)</code></pre><p><strong>（8）IDBObjectStore.getAll()</strong></p><p><code>DBObjectStore.getAll()</code>用于获取对象仓库的记录。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>// 获取所有记录
+objectStore.getAll()
+
+// 获取所有符合指定主键或 IDBKeyRange 的记录
+objectStore.getAll(query)
+
+// 指定获取记录的数量
+objectStore.getAll(query, count)</code></pre><p><strong>（9）IDBObjectStore.getAllKeys()</strong></p><p><code>IDBObjectStore.getAllKeys()</code>用于获取所有符合条件的主键。该方法返回一个 IDBRequest 对象。</p><pre class="prettyprint language-javascript"><code>// 获取所有记录的主键
+objectStore.getAllKeys()
+
+// 获取所有符合条件的主键
+objectStore.getAllKeys(query)
+
+// 指定获取主键的数量
+objectStore.getAllKeys(query, count)</code></pre><p><strong>（10）IDBObjectStore.index()</strong></p><p><code>IDBObjectStore.index()</code>方法返回指定名称的索引对象 IDBIndex。</p><pre class="prettyprint language-javascript"><code>objectStore.index(name)</code></pre><p>有了索引以后，就可以针对索引所在的属性读取数据。</p><pre class="prettyprint language-javascript"><code>var t = db.transaction([&#039;people&#039;], &#039;readonly&#039;);
+var store = t.objectStore(&#039;people&#039;);
+var index = store.index(&#039;name&#039;);
+
+var request = index.get(&#039;foo&#039;);</code></pre><p>上面代码打开对象仓库以后，先用<code>index()</code>方法指定获取<code>name</code>属性的索引，然后用<code>get()</code>方法读取某个<code>name</code>属性(<code>foo</code>)对应的数据。如果<code>name</code>属性不是对应唯一值，这时<code>get()</code>方法有可能取回多个数据对象。另外，<code>get()</code>是异步方法，读取成功以后，只能在<code>success</code>事件的监听函数中处理数据。</p><p><strong>（11）IDBObjectStore.createIndex()</strong></p><p><code>IDBObjectStore.createIndex()</code>方法用于新建当前数据库的一个索引。该方法只能在<code>VersionChange</code>监听函数里面调用。</p><pre class="prettyprint language-javascript"><code>objectStore.createIndex(indexName, keyPath, objectParameters)</code></pre><p>该方法可以接受三个参数。</p><ul><li>indexName：索引名</li><li>keyPath：主键</li><li>objectParameters：配置对象（可选）</li></ul><p>第三个参数可以配置以下属性。</p><ul><li>unique：如果设为<code>true</code>，将不允许重复的值</li><li>multiEntry：如果设为<code>true</code>，对于有多个值的主键数组，每个值将在索引里面新建一个条目，否则主键数组对应一个条目。</li></ul><p>假定对象仓库中的数据记录都是如下的<code>person</code>类型。</p><pre class="prettyprint language-javascript"><code>var person = {
+  name: name,
+  email: email,
+  created: new Date()
+};</code></pre><p>可以指定这个对象的某个属性来建立索引。</p><pre class="prettyprint language-javascript"><code>var store = db.createObjectStore(&#039;people&#039;, { autoIncrement: true });
+
+store.createIndex(&#039;name&#039;, &#039;name&#039;, { unique: false });
+store.createIndex(&#039;email&#039;, &#039;email&#039;, { unique: true });</code></pre><p>上面代码告诉索引对象，<code>name</code>属性不是唯一值，<code>email</code>属性是唯一值。</p><p><strong>（12）IDBObjectStore.deleteIndex()</strong></p><p><code>IDBObjectStore.deleteIndex()</code>方法用于删除指定的索引。该方法只能在<code>VersionChange</code>监听函数里面调用。</p><pre class="prettyprint language-javascript"><code>objectStore.deleteIndex(indexName)</code></pre><p><strong>（13）IDBObjectStore.openCursor()</strong></p><p><code>IDBObjectStore.openCursor()</code>用于获取一个指针对象。</p><pre class="prettyprint language-javascript"><code>IDBObjectStore.openCursor()</code></pre><p>指针对象可以用来遍历数据。该对象也是异步的，有自己的<code>success</code>和<code>error</code>事件，可以对它们指定监听函数。</p><pre class="prettyprint language-javascript"><code>var t = db.transaction([&#039;test&#039;], &#039;readonly&#039;);
+var store = t.objectStore(&#039;test&#039;);
+
+var cursor = store.openCursor();
+
+cursor.onsuccess = function (event) {
+  var res = event.target.result;
+  if (res) {
+    console.log(&#039;Key&#039;, res.key);
+    console.dir(&#039;Data&#039;, res.value);
+    res.continue();
+  }
+}</code></pre><p>监听函数接受一个事件对象作为参数，该对象的<code>target.result</code>属性指向当前数据记录。该记录的<code>key</code>和<code>value</code>分别返回主键和键值（即实际存入的数据）。<code>continue()</code>方法将光标移到下一个数据对象，如果当前数据对象已经是最后一个数据了，则光标指向<code>null</code>。</p><p><code>openCursor()</code>方法的第一个参数是主键值，或者一个 IDBKeyRange 对象。如果指定该参数，将只处理包含指定主键的记录；如果省略，将处理所有的记录。该方法还可以接受第二个参数，表示遍历方向，默认值为<code>next</code>，其他可能的值为<code>prev</code>、<code>nextunique</code>和<code>prevunique</code>。后两个值表示如果遇到重复值，会自动跳过。</p><p><strong>（14）IDBObjectStore.openKeyCursor()</strong></p><p><code>IDBObjectStore.openKeyCursor()</code>用于获取一个主键指针对象。</p><pre class="prettyprint language-javascript"><code>IDBObjectStore.openKeyCursor()</code></pre><h2><a href="#IDBTransaction-对象" class="header-anchor">#</a> <span>IDBTransaction 对象</span></h2><p>IDBTransaction 对象用来异步操作数据库事务，所有的读写操作都要通过这个对象进行。</p><p><code>IDBDatabase.transaction()</code>方法返回的就是一个 IDBTransaction 对象。</p><pre class="prettyprint language-javascript"><code>var db;
+var DBOpenRequest = window.indexedDB.open(&#039;demo&#039;, 1);
+
+DBOpenRequest.onsuccess = function(event) {
+  db = DBOpenRequest.result;
+  var transaction = db.transaction([&#039;demo&#039;], &#039;readwrite&#039;);
+
+  transaction.oncomplete = function (event) {
+    console.log(&#039;transaction success&#039;);  
+  };
+
+  transaction.onerror = function (event) {
+    console.log(&#039;tansaction error: &#039; + transaction.error);
+  };
+
+  var objectStore = transaction.objectStore(&#039;demo&#039;);
+  var objectStoreRequest = objectStore.add({ foo: 1 });
+
+  objectStoreRequest.onsuccess = function (event) {
+    console.log(&#039;add data success&#039;);
+  };
+
+};</code></pre><p>事务的执行顺序是按照创建的顺序，而不是发出请求的顺序。</p><pre class="prettyprint language-javascript"><code>var trans1 = db.transaction(&#039;foo&#039;, &#039;readwrite&#039;);
+var trans2 = db.transaction(&#039;foo&#039;, &#039;readwrite&#039;);
+var objectStore2 = trans2.objectStore(&#039;foo&#039;)
+var objectStore1 = trans1.objectStore(&#039;foo&#039;)
+objectStore2.put(&#039;2&#039;, &#039;key&#039;);
+objectStore1.put(&#039;1&#039;, &#039;key&#039;);</code></pre><p>上面代码中，<code>key</code>对应的键值最终是<code>2</code>，而不是<code>1</code>。因为事务<code>trans1</code>先于<code>trans2</code>创建，所以首先执行。</p><p>注意，事务有可能失败，只有监听到事务的<code>complete</code>事件，才能保证事务操作成功。</p><p>IDBTransaction 对象有以下属性。</p><ul><li><code>IDBTransaction.db</code>：返回当前事务所在的数据库对象 IDBDatabase。</li><li><code>IDBTransaction.error</code>：返回当前事务的错误。如果事务没有结束，或者事务成功结束，或者被手动终止，该方法返回<code>null</code>。</li><li><code>IDBTransaction.mode</code>：返回当前事务的模式，默认是<code>readonly</code>（只读），另一个值是<code>readwrite</code>。</li><li><code>IDBTransaction.objectStoreNames</code>：返回一个类似数组的对象 DOMStringList，成员是当前事务涉及的对象仓库的名字。</li><li><code>IDBTransaction.onabort</code>：指定<code>abort</code>事件（事务中断）的监听函数。</li><li><code>IDBTransaction.oncomplete</code>：指定<code>complete</code>事件（事务成功）的监听函数。</li><li><code>IDBTransaction.onerror</code>：指定<code>error</code>事件（事务失败）的监听函数。</li></ul><p>IDBTransaction 对象有以下方法。</p><ul><li><code>IDBTransaction.abort()</code>：终止当前事务，回滚所有已经进行的变更。</li><li><code>IDBTransaction.objectStore(name)</code>：返回指定名称的对象仓库 IDBObjectStore。</li></ul><h2><a href="#IDBIndex-对象" class="header-anchor">#</a> <span>IDBIndex 对象</span></h2><p>IDBIndex 对象代表数据库的索引，通过这个对象可以获取数据库里面的记录。数据记录的主键默认就是带有索引，IDBIndex 对象主要用于通过除主键以外的其他键，建立索引获取对象。</p><p>IDBIndex 是持久性的键值对存储。只要插入、更新或删除数据记录，引用的对象库中的记录，索引就会自动更新。</p><p><code>IDBObjectStore.index()</code>方法可以获取 IDBIndex 对象。</p><pre class="prettyprint language-javascript"><code>var transaction = db.transaction([&#039;contactsList&#039;], &#039;readonly&#039;);
+var objectStore = transaction.objectStore(&#039;contactsList&#039;);
+var myIndex = objectStore.index(&#039;lName&#039;);
+
+myIndex.openCursor().onsuccess = function (event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    var tableRow = document.createElement(&#039;tr&#039;);
+    tableRow.innerHTML =   &#039;&lt;td&gt;&#039; + cursor.value.id + &#039;&lt;/td&gt;&#039;
+                         + &#039;&lt;td&gt;&#039; + cursor.value.lName + &#039;&lt;/td&gt;&#039;
+                         + &#039;&lt;td&gt;&#039; + cursor.value.fName + &#039;&lt;/td&gt;&#039;
+                         + &#039;&lt;td&gt;&#039; + cursor.value.jTitle + &#039;&lt;/td&gt;&#039;
+                         + &#039;&lt;td&gt;&#039; + cursor.value.company + &#039;&lt;/td&gt;&#039;
+                         + &#039;&lt;td&gt;&#039; + cursor.value.eMail + &#039;&lt;/td&gt;&#039;
+                         + &#039;&lt;td&gt;&#039; + cursor.value.phone + &#039;&lt;/td&gt;&#039;
+                         + &#039;&lt;td&gt;&#039; + cursor.value.age + &#039;&lt;/td&gt;&#039;;
+    tableEntry.appendChild(tableRow);
+
+    cursor.continue();
+  } else {
+    console.log(&#039;Entries all displayed.&#039;);
+  }
+};</code></pre><p>IDBIndex 对象有以下属性。</p><ul><li><code>IDBIndex.name</code>：字符串，索引的名称。</li><li><code>IDBIndex.objectStore</code>：索引所在的对象仓库。</li><li><code>IDBIndex.keyPath</code>：索引的主键。</li><li><code>IDBIndex.multiEntry</code>：布尔值，针对<code>keyPath</code>为数组的情况，如果设为<code>true</code>，创建数组时，每个数组成员都会有一个条目，否则每个数组都只有一个条目。</li><li><code>IDBIndex.unique</code>：布尔值，表示创建索引时是否允许相同的主键。</li></ul><p>IDBIndex 对象有以下方法，它们都是异步的，立即返回的都是一个 IDBRequest 对象。</p><ul><li><code>IDBIndex.count()</code>：用来获取记录的数量。它可以接受主键或 KeyRange 对象作为参数，这时只返回符合主键的记录数量，否则返回所有记录的数量。</li><li><code>IDBIndex.get(key)</code>：用来获取符合指定主键的数据记录。</li><li><code>IDBIndex.getKey(key)</code>：用来获取指定的主键。</li><li><code>IDBIndex.getAll()</code>：用来获取所有的数据记录。它可以接受两个参数，都是可选的，第一个参数用来指定主键，第二个参数用来指定返回记录的数量。如果省略这两个参数，则返回所有记录。由于获取成功时，浏览器必须生成所有对象，所以对性能有影响。如果数据集比较大，建议使用 IDBCursor 对象。</li><li><code>IDBIndex.getAllKeys()</code>：该方法与<code>IDBIndex.getAll()</code>方法相似，区别是获取所有主键。</li><li><code>IDBIndex.openCursor()</code>：用来获取一个 IDBCursor 对象，用来遍历索引里面的所有条目。</li><li><code>IDBIndex.openKeyCursor()</code>：该方法与<code>IDBIndex.openCursor()</code>方法相似，区别是遍历所有条目的主键。</li></ul><h2><a href="#IDBCursor-对象" class="header-anchor">#</a> <span>IDBCursor 对象</span></h2><p>IDBCursor 对象代表指针对象，用来遍历数据仓库（IDBObjectStroe）或索引（IDBIndex）的记录。</p><p>IDBCursor 对象一般通过<code>IDBObjectStore.openCursor()</code>方法获得。</p><pre class="prettyprint language-javascript"><code>var transaction = db.transaction([&#039;rushAlbumList&#039;], &#039;readonly&#039;);
+var objectStore = transaction.objectStore(&#039;rushAlbumList&#039;);
+
+objectStore.openCursor(null, &#039;next&#039;).onsuccess = function(event) {
+  var cursor = event.target.result;
+  if (cursor) {
+    var listItem = document.createElement(&#039;li&#039;);
+      listItem.innerHTML = cursor.value.albumTitle + &#039;, &#039; + cursor.value.year;
+      list.appendChild(listItem);
+
+      console.log(cursor.source);
+      cursor.continue();
+    } else {
+      console.log(&#039;Entries all displayed.&#039;);
+    }
+  };
+};</code></pre><p>IDBCursor 对象的属性。</p><ul><li><code>IDBCursor.source</code>：返回正在遍历的对象仓库或索引。</li><li><code>IDBCursor.direction</code>：字符串，表示指针遍历的方向。共有四个可能的值：next（从头开始向后遍历）、nextunique（从头开始向后遍历，重复的值只遍历一次）、prev（从尾部开始向前遍历）、prevunique（从尾部开始向前遍历，重复的值只遍历一次）。该属性通过<code>IDBObjectStore.openCursor()</code>方法的第二个参数指定，一旦指定就不能改变了。</li><li><code>IDBCursor.key</code>：返回当前记录的主键。</li><li><code>IDBCursor.value</code>：返回当前记录的数据值。</li><li>IDBCursor.primaryKey：返回当前记录的主键。对于数据仓库（objectStore）来说，这个属性等同于 IDBCursor.key；对于索引，IDBCursor.key 返回索引的位置值，该属性返回数据记录的主键。</li></ul><p>IDBCursor 对象有如下方法。</p><ul><li><code>IDBCursor.advance(n)</code>：指针向前移动 n 个位置。</li><li><code>IDBCursor.continue()</code>：指针向前移动一个位置。它可以接受一个主键作为参数，这时会跳转到这个主键。</li><li><code>IDBCursor.continuePrimaryKey()</code>：该方法需要两个参数，第一个是<code>key</code>，第二个是<code>primaryKey</code>，将指针移到符合这两个参数的位置。</li><li><code>IDBCursor.delete()</code>：用来删除当前位置的记录，返回一个 IDBRequest 对象。该方法不会改变指针的位置。</li><li><code>IDBCursor.update()</code>：用来更新当前位置的记录，返回一个 IDBRequest 对象。它的参数是要写入数据库的新的值。</li></ul><h2><a href="#IDBKeyRange-对象" class="header-anchor">#</a> <span>IDBKeyRange 对象</span></h2><p>IDBKeyRange 对象代表数据仓库（object store）里面的一组主键。根据这组主键，可以获取数据仓库或主键里面的一组记录。</p><p>IDBKeyRange 可以只包含一个值，也可以指定上限和下限。它有四个静态方法，用来指定主键的范围。</p><ul><li><code>IDBKeyRange.lowerBound()</code>：指定下限。</li><li><code>IDBKeyRange.upperBound()</code>：指定上限。</li><li><code>IDBKeyRange.bound()</code>：同时指定上下限。</li><li><code>IDBKeyRange.only()</code>：指定只包含一个值。</li></ul><p>下面是一些代码实例。</p><pre class="prettyprint language-javascript"><code>// All keys ≤ x
+var r1 = IDBKeyRange.upperBound(x);
+
+// All keys &lt; x
+var r2 = IDBKeyRange.upperBound(x, true);
+
+// All keys ≥ y
+var r3 = IDBKeyRange.lowerBound(y);
+
+// All keys &gt; y
+var r4 = IDBKeyRange.lowerBound(y, true);
+
+// All keys ≥ x &amp;&amp; ≤ y
+var r5 = IDBKeyRange.bound(x, y);
+
+// All keys &gt; x &amp;&amp;&lt; y
+var r6 = IDBKeyRange.bound(x, y, true, true);
+
+// All keys &gt; x &amp;&amp; ≤ y
+var r7 = IDBKeyRange.bound(x, y, true, false);
+
+// All keys ≥ x &amp;&amp;&lt; y
+var r8 = IDBKeyRange.bound(x, y, false, true);
+
+// The key = z    
+var r9 = IDBKeyRange.only(z);</code></pre><p><code>IDBKeyRange.lowerBound()</code>、<code>IDBKeyRange.upperBound()</code>、<code>IDBKeyRange.bound()</code>这三个方法默认包括端点值，可以传入一个布尔值，修改这个属性。</p><p>与之对应，IDBKeyRange 对象有四个只读属性。</p><ul><li><code>IDBKeyRange.lower</code>：返回下限</li><li><code>IDBKeyRange.lowerOpen</code>：布尔值，表示下限是否为开区间（即下限是否排除在范围之外）</li><li><code>IDBKeyRange.upper</code>：返回上限</li><li><code>IDBKeyRange.upperOpen</code>：布尔值，表示上限是否为开区间（即上限是否排除在范围之外）</li></ul><p>IDBKeyRange 实例对象生成以后，将它作为参数输入 IDBObjectStore 或 IDBIndex 对象的<code>openCursor()</code>方法，就可以在所设定的范围内读取数据。</p><pre class="prettyprint language-javascript"><code>var t = db.transaction([&#039;people&#039;], &#039;readonly&#039;);
+var store = t.objectStore(&#039;people&#039;);
+var index = store.index(&#039;name&#039;);
+
+var range = IDBKeyRange.bound(&#039;B&#039;, &#039;D&#039;);
+
+index.openCursor(range).onsuccess = function (e) {
+  var cursor = e.target.result;
+  if (cursor) {
+    console.log(cursor.key + &#039;:&#039;);
+
+    for (var field in cursor.value) {
+      console.log(cursor.value[field]);
+    }
+    cursor.continue();
+  }
+}</code></pre><p>IDBKeyRange 有一个实例方法<code>includes(key)</code>，返回一个布尔值，表示某个主键是否包含在当前这个主键组之内。</p><pre class="prettyprint language-javascript"><code>var keyRangeValue = IDBKeyRange.bound(&#039;A&#039;, &#039;K&#039;, false, false);
+
+keyRangeValue.includes(&#039;F&#039;) // true
+keyRangeValue.includes(&#039;W&#039;) // false</code></pre><h2><a href="#参考链接" class="header-anchor">#</a> <span>参考链接</span></h2><ul><li>Raymond Camden, <a href="http://net.tutsplus.com/tutorials/javascript-ajax/working-with-indexeddb/">Working With IndexedDB – Part 1</a></li><li>Raymond Camden, <a href="http://net.tutsplus.com/tutorials/javascript-ajax/working-with-indexeddb-part-2/">Working With IndexedDB – Part 2</a></li><li>Raymond Camden, <a href="https://code.tutsplus.com/tutorials/working-with-indexeddb-part-3--net-36220">Working With IndexedDB - Part 3</a></li><li>Tiffany Brown, <a href="http://dev.opera.com/articles/introduction-to-indexeddb/">An Introduction to IndexedDB</a></li><li>David Fahlander, <a href="https://hacks.mozilla.org/2014/06/breaking-the-borders-of-indexeddb/">Breaking the Borders of IndexedDB</a></li><li>TutorialsPoint, <a href="https://www.tutorialspoint.com/html5/html5_indexeddb.htm">HTML5 - IndexedDB</a></li></ul></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

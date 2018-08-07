@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>Web Worker - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象" class="">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象" class="">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象" class="">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象" class="">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象" class="">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象" class="">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象" class="">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象" class="">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象" class="">JSON 对象</a></li></ul></li><li><a title="面向对象编程" class="">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令" class="">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字" class="">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承" class="">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作" class="">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述" class="">概述</a></li><li><a href="/async/timer.html" title="定时器" class="">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象" class="">Promise 对象</a></li></ul></li><li><a title="DOM" class="">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述" class="">概述</a></li><li><a href="/dom/node.html" title="Node 接口" class="">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口" class="">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口" class="">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点" class="">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点" class="">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作" class="">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点" class="">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API" class="">Mutation Observer API</a></li></ul></li><li><a title="事件" class="">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口" class="">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型" class="">事件模型</a></li><li><a href="/events/event.html" title="Event 对象" class="">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件" class="">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件" class="">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件" class="">进度事件</a></li><li><a href="/events/form.html" title="表单事件" class="">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件" class="">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件" class="">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件" class="">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件" class="">拖拉事件</a></li></ul></li><li><a title="浏览器模型" class="active">浏览器模型<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/bom/engine.html" title="浏览器环境概述" class="">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象" class="">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象" class="">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie" class="">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象" class="">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制" class="">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信" class="">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口" class="">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象" class="">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象" class="">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象" class="">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象" class="">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象" class="">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API" class="">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker" class="active">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>Web Worker</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#Web-Worker" class="header-anchor">#</a> <span>Web Worker</span></h1><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><p>JavaScript 语言采用的是单线程模型，也就是说，所有任务只能在一个线程上完成，一次只能做一件事。前面的任务没做完，后面的任务只能等着。随着电脑计算能力的增强，尤其是多核 CPU 的出现，单线程带来很大的不便，无法充分发挥计算机的计算能力。</p><p>Web Worker 的作用，就是为 JavaScript 创造多线程环境，允许主线程创建 Worker 线程，将一些任务分配给后者运行。在主线程运行的同时，Worker 线程在后台运行，两者互不干扰。等到 Worker 线程完成计算任务，再把结果返回给主线程。这样的好处是，一些计算密集型或高延迟的任务，被 Worker 线程负担了，主线程（通常负责 UI 交互）就会很流畅，不会被阻塞或拖慢。</p><p>Worker 线程一旦新建成功，就会始终运行，不会被主线程上的活动（比如用户点击按钮、提交表单）打断。这样有利于随时响应主线程的通信。但是，这也造成了 Worker 比较耗费资源，不应该过度使用，而且一旦使用完毕，就应该关闭。</p><p>Web Worker 有以下几个使用注意点。</p><p>（1）<strong>同源限制</strong></p><p>分配给 Worker 线程运行的脚本文件，必须与主线程的脚本文件同源。</p><p>（2）<strong>DOM 限制</strong></p><p>Worker 线程所在的全局对象，与主线程不一样，无法读取主线程所在网页的 DOM 对象，也无法使用<code>document</code>、<code>window</code>、<code>parent</code>这些对象。但是，Worker 线程可以<code>navigator</code>对象和<code>location</code>对象。</p><p>（3）<strong>通信联系</strong></p><p>Worker 线程和主线程不在同一个上下文环境，它们不能直接通信，必须通过消息完成。</p><p>（4）<strong>脚本限制</strong></p><p>Worker 线程不能执行<code>alert()</code>方法和<code>confirm()</code>方法，但可以使用 XMLHttpRequest 对象发出 AJAX 请求。</p><p>（5）<strong>文件限制</strong></p><p>Worker 线程无法读取本地文件，即不能打开本机的文件系统（<code>file://</code>），它所加载的脚本，必须来自网络。</p><h2><a href="#基本用法" class="header-anchor">#</a> <span>基本用法</span></h2><h3><a href="#主线程" class="header-anchor">#</a> <span>主线程</span></h3><p>主线程采用<code>new</code>命令，调用<code>Worker()</code>构造函数，新建一个 Worker 线程。</p><pre class="prettyprint language-javascript"><code>var worker = new Worker(&#039;work.js&#039;);</code></pre><p><code>Worker()</code>构造函数的参数是一个脚本文件，该文件就是 Worker 线程所要执行的任务。由于 Worker 不能读取本地文件，所以这个脚本必须来自网络。如果下载没有成功（比如404错误），Worker 就会默默地失败。</p><p>然后，主线程调用<code>worker.postMessage()</code>方法，向 Worker 发消息。</p><pre class="prettyprint language-javascript"><code>worker.postMessage(&#039;Hello World&#039;);
+worker.postMessage({method: &#039;echo&#039;, args: [&#039;Work&#039;]});</code></pre><p><code>worker.postMessage()</code>方法的参数，就是主线程传给 Worker 的数据。它可以是各种数据类型，包括二进制数据。</p><p>接着，主线程通过<code>worker.onmessage</code>指定监听函数，接收子线程发回来的消息。</p><pre class="prettyprint language-javascript"><code>worker.onmessage = function (event) {
+  console.log(&#039;Received message &#039; + event.data);
+  doSomething();
+}
+
+function doSomething() {
+  // 执行任务
+  worker.postMessage(&#039;Work done!&#039;);
+}</code></pre><p>上面代码中，事件对象的<code>data</code>属性可以获取 Worker 发来的数据。</p><p>Worker 完成任务以后，主线程就可以把它关掉。</p><pre class="prettyprint language-javascript"><code>worker.terminate();</code></pre><h3><a href="#Worker-线程" class="header-anchor">#</a> <span>Worker 线程</span></h3><p>Worker 线程内部需要有一个监听函数，监听<code>message</code>事件。</p><pre class="prettyprint language-javascript"><code>self.addEventListener(&#039;message&#039;, function (e) {
+  self.postMessage(&#039;You said: &#039; + e.data);
+}, false);</code></pre><p>上面代码中，<code>self</code>代表子线程自身，即子线程的全局对象。因此，等同于下面两种写法。</p><pre class="prettyprint language-javascript"><code>// 写法一
+this.addEventListener(&#039;message&#039;, function (e) {
+  this.postMessage(&#039;You said: &#039; + e.data);
+}, false);
+
+// 写法二
+addEventListener(&#039;message&#039;, function (e) {
+  postMessage(&#039;You said: &#039; + e.data);
+}, false);</code></pre><p>除了使用<code>self.addEventListener()</code>指定监听函数，也可以使用<code>self.onmessage</code>指定。监听函数的参数是一个事件对象，它的<code>data</code>属性包含主线程发来的数据。<code>self.postMessage()</code>方法用来向主线程发送消息。</p><p>根据主线程发来的数据，Worker 线程可以调用不同的方法，下面是一个例子。</p><pre class="prettyprint language-javascript"><code>self.addEventListener(&#039;message&#039;, function (e) {
+  var data = e.data;
+  switch (data.cmd) {
+    case &#039;start&#039;:
+      self.postMessage(&#039;WORKER STARTED: &#039; + data.msg);
+      break;
+    case &#039;stop&#039;:
+      self.postMessage(&#039;WORKER STOPPED: &#039; + data.msg);
+      self.close(); // Terminates the worker.
+      break;
+    default:
+      self.postMessage(&#039;Unknown command: &#039; + data.msg);
+  };
+}, false);</code></pre><p>上面代码中，<code>self.close()</code>用于在 Worker 内部关闭自身。</p><h3><a href="#Worker-加载脚本" class="header-anchor">#</a> <span>Worker 加载脚本</span></h3><p>Worker 内部如果要加载其他脚本，有一个专门的方法<code>importScripts()</code>。</p><pre class="prettyprint language-javascript"><code>importScripts(&#039;script1.js&#039;);</code></pre><p>该方法可以同时加载多个脚本。</p><pre class="prettyprint language-javascript"><code>importScripts(&#039;script1.js&#039;, &#039;script2.js&#039;);</code></pre><h3><a href="#错误处理" class="header-anchor">#</a> <span>错误处理</span></h3><p>主线程可以监听 Worker 是否发生错误。如果发生错误，Worker 会触发主线程的<code>error</code>事件。</p><pre class="prettyprint language-javascript"><code>worker.onerror(function (event) {
+  console.log([
+    &#039;ERROR: Line &#039;, e.lineno, &#039; in &#039;, e.filename, &#039;: &#039;, e.message
+  ].join(&#039;&#039;));
+});
+
+// 或者
+worker.addEventListener(&#039;error&#039;, function (event) {
+  // ...
+});</code></pre><p>Worker 内部也可以监听<code>error</code>事件。</p><h3><a href="#关闭-Worker" class="header-anchor">#</a> <span>关闭 Worker</span></h3><p>使用完毕，为了节省系统资源，必须关闭 Worker。</p><pre class="prettyprint language-javascript"><code>// 主线程
+worker.terminate();
+
+// Worker 线程
+self.close();</code></pre><h2><a href="#数据通信" class="header-anchor">#</a> <span>数据通信</span></h2><p>前面说过，主线程与 Worker 之间的通信内容，可以是文本，也可以是对象。需要注意的是，这种通信是拷贝关系，即是传值而不是传址，Worker 对通信内容的修改，不会影响到主线程。事实上，浏览器内部的运行机制是，先将通信内容串行化，然后把串行化后的字符串发给 Worker，后者再将它还原。</p><p>主线程与 Worker 之间也可以交换二进制数据，比如 File、Blob、ArrayBuffer 等类型，也可以在线程之间发送。下面是一个例子。</p><pre class="prettyprint language-javascript"><code>// 主线程
+var uInt8Array = new Uint8Array(new ArrayBuffer(10));
+for (var i = 0; i &lt; uInt8Array.length; ++i) {
+  uInt8Array[i] = i * 2; // [0, 2, 4, 6, 8,...]
+}
+worker.postMessage(uInt8Array);
+
+// Worker 线程
+self.onmessage = function (e) {
+  var uInt8Array = e.data;
+  postMessage(&#039;Inside worker.js: uInt8Array.toString() = &#039; + uInt8Array.toString());
+  postMessage(&#039;Inside worker.js: uInt8Array.byteLength = &#039; + uInt8Array.byteLength);
+};</code></pre><p>但是，拷贝方式发送二进制数据，会造成性能问题。比如，主线程向 Worker 发送一个 500MB 文件，默认情况下浏览器会生成一个原文件的拷贝。为了解决这个问题，JavaScript 允许主线程把二进制数据直接转移给子线程，但是一旦转移，主线程就无法再使用这些二进制数据了，这是为了防止出现多个线程同时修改数据的麻烦局面。这种转移数据的方法，叫做<a href="http://www.w3.org/html/wg/drafts/html/master/infrastructure.html#transferable-objects">Transferable Objects</a>。这使得主线程可以快速把数据交给 Worker，对于影像处理、声音处理、3D 运算等就非常方便了，不会产生性能负担。</p><p>如果要直接转移数据的控制权，就要使用下面的写法。</p><pre class="prettyprint language-javascript"><code>// Transferable Objects 格式
+worker.postMessage(arrayBuffer, [arrayBuffer]);
+
+// 例子
+var ab = new ArrayBuffer(1);
+worker.postMessage(ab, [ab]);</code></pre><h2><a href="#同页面的-Web-Worker" class="header-anchor">#</a> <span>同页面的 Web Worker</span></h2><p>通常情况下，Worker 载入的是一个单独的 JavaScript 脚本文件，但是也可以载入与主线程在同一个网页的代码。</p><pre class="prettyprint language-html"><code>&lt;!DOCTYPE html&gt;
+  &lt;body&gt;
+    &lt;script id=&quot;worker&quot; type=&quot;app/worker&quot;&gt;
+      addEventListener(&#039;message&#039;, function () {
+        postMessage(&#039;some message&#039;);
+      }, false);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre><p>上面是一段嵌入网页的脚本，注意必须指定<code>&lt;script&gt;</code>标签的<code>type</code>属性是一个浏览器不认识的值，上例是<code>app/worker</code>。</p><p>然后，读取这一段嵌入页面的脚本，用 Worker 来处理。</p><pre class="prettyprint language-javascript"><code>var blob = new Blob([document.querySelector(&#039;#worker&#039;).textContent]);
+var url = window.URL.createObjectURL(blob);
+var worker = new Worker(url);
+
+worker.onmessage = function (e) {
+  // e.data === &#039;some message&#039;
+};</code></pre><p>上面代码中，先将嵌入网页的脚本代码，转成一个二进制对象，然后为这个二进制对象生成 URL，再让 Worker 加载这个 URL。这样就做到了，主线程和 Worker 的代码都在同一个网页上面。</p><h2><a href="#实例：Worker-线程完成轮询" class="header-anchor">#</a> <span>实例：Worker 线程完成轮询</span></h2><p>有时，浏览器需要轮询服务器状态，以便第一时间得知状态改变。这个工作可以放在 Worker 里面。</p><pre class="prettyprint language-javascript"><code>function createWorker(f) {
+  var blob = new Blob([&#039;(&#039; + f.toString() + &#039;)()&#039;]);
+  var url = window.URL.createObjectURL(blob);
+  var worker = new Worker(url);
+  return worker;
+}
+
+var pollingWorker = createWorker(function (e) {
+  var cache;
+
+  function compare(new, old) { ... };
+
+  setInterval(function () {
+    fetch(&#039;/my-api-endpoint&#039;).then(function (res) {
+      var data = res.json();
+
+      if (!compare(data, cache)) {
+        cache = data;
+        self.postMessage(data);
+      }
+    })
+  }, 1000)
+});
+
+pollingWorker.onmessage = function () {
+  // render data
+}
+
+pollingWorker.postMessage(&#039;init&#039;);</code></pre><p>上面代码中，Worker 每秒钟轮询一次数据，然后跟缓存做比较。如果不一致，就说明服务端有了新的变化，因此就要通知主线程。</p><h2><a href="#实例：-Worker-新建-Worker" class="header-anchor">#</a> <span>实例： Worker 新建 Worker</span></h2><p>Worker 线程内部还能再新建 Worker 线程（目前只有 Firefox 浏览器支持）。下面的例子是将一个计算密集的任务，分配到10个 Worker。</p><p>主线程代码如下。</p><pre class="prettyprint language-javascript"><code>var worker = new Worker(&#039;worker.js&#039;);
+worker.onmessage = function (event) {
+  document.getElementById(&#039;result&#039;).textContent = event.data;
+};</code></pre><p>Worker 线程代码如下。</p><pre class="prettyprint language-javascript"><code>// worker.js
+
+// settings
+var num_workers = 10;
+var items_per_worker = 1000000;
+
+// start the workers
+var result = 0;
+var pending_workers = num_workers;
+for (var i = 0; i &lt; num_workers; i += 1) {
+  var worker = new Worker(&#039;core.js&#039;);
+  worker.postMessage(i * items_per_worker);
+  worker.postMessage((i + 1) * items_per_worker);
+  worker.onmessage = storeResult;
+}
+
+// handle the results
+function storeResult(event) {
+  result += event.data;
+  pending_workers -= 1;
+  if (pending_workers &lt;= 0)
+    postMessage(result); // finished!
+}</code></pre><p>上面代码中，Worker 线程内部新建了10个 Worker 线程，并且依次向这10个 Worker 发送消息，告知了计算的起点和终点。计算任务脚本的代码如下。</p><pre class="prettyprint language-javascript"><code>// core.js
+var start;
+onmessage = getStart;
+function getStart(event) {
+  start = event.data;
+  onmessage = getEnd;
+}
+
+var end;
+function getEnd(event) {
+  end = event.data;
+  onmessage = null;
+  work();
+}
+
+function work() {
+  var result = 0;
+  for (var i = start; i &lt; end; i += 1) {
+    // perform some complex calculation here
+    result += 1;
+  }
+  postMessage(result);
+  close();
+}</code></pre><h2><a href="#API" class="header-anchor">#</a> <span>API</span></h2><h3><a href="#主线程" class="header-anchor">#</a> <span>主线程</span></h3><p>浏览器原生提供<code>Worker()</code>构造函数，用来供主线程生成 Worker 线程。</p><pre class="prettyprint language-javascript"><code>var myWorker = new Worker(jsUrl, options);</code></pre><p><code>Worker()</code>构造函数，可以接受两个参数。第一个参数是脚本的网址（必须遵守同源政策），该参数是必需的，且只能加载 JS 脚本，否则会报错。第二个参数是配置对象，该对象可选。它的一个作用就是指定 Worker 的名称，用来区分多个 Worker 线程。</p><pre class="prettyprint language-javascript"><code>// 主线程
+var myWorker = new Worker(&#039;worker.js&#039;, { name : &#039;myWorker&#039; });
+
+// Worker 线程
+self.name // myWorker</code></pre><p><code>Worker()</code>构造函数返回一个 Worker 线程对象，用来供主线程操作 Worker。Worker 线程对象的属性和方法如下。</p><ul><li>Worker.onerror：指定 error 事件的监听函数。</li><li>Worker.onmessage：指定 message 事件的监听函数，发送过来的数据在<code>Event.data</code>属性中。</li><li>Worker.onmessageerror：指定 messageerror 事件的监听函数。发送的数据无法序列化成字符串时，会触发这个事件。</li><li>Worker.postMessage()：向 Worker 线程发送消息。</li><li>Worker.terminate()：立即终止 Worker 线程。</li></ul><h3><a href="#Worker-线程" class="header-anchor">#</a> <span>Worker 线程</span></h3><p>Web Worker 有自己的全局对象，不是主线程的<code>window</code>，而是一个专门为 Worker 定制的全局对象。因此定义在<code>window</code>上面的对象和方法不是全部都可以使用。</p><p>Worker 线程有一些自己的全局属性和方法。</p><ul><li>self.name： Worker 的名字。该属性只读，由构造函数指定。</li><li>self.onmessage：指定<code>message</code>事件的监听函数。</li><li>self.onmessageerror：指定 messageerror 事件的监听函数。发送的数据无法序列化成字符串时，会触发这个事件。</li><li>self.close()：关闭 Worker 线程。</li><li>self.postMessage()：向产生这个 Worker 线程发送消息。</li><li>self.importScripts()：加载 JS 脚本。</li></ul><p>（完）</p></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

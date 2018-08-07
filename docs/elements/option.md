@@ -1,4 +1,4 @@
-# <option> 元素
+# option 元素
 
 `<option>`元素表示下拉框（`<select>`，`<optgroup>`或`<datalist>`）里面的一个选项。它是 HTMLOptionElement 接口的实例。
 

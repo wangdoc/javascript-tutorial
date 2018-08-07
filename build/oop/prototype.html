@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>对象的继承 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象" class="">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象" class="">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象" class="">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象" class="">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象" class="">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象" class="">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象" class="">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象" class="">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象" class="">JSON 对象</a></li></ul></li><li><a title="面向对象编程" class="active">面向对象编程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/oop/new.html" title="实例对象与 new 命令" class="">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字" class="">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承" class="active">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>对象的继承</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#对象的继承" class="header-anchor">#</a> <span>对象的继承</span></h1><p>面向对象编程很重要的一个方面，就是对象的继承。A 对象通过继承 B 对象，就能直接拥有 B 对象的所有属性和方法。这对于代码的复用是非常有用的。</p><p>大部分面向对象的编程语言，都是通过“类”（class）来实现对象的继承。JavaScript 语言的继承则是通过“原型对象”（prototype）。</p><h2><a href="#原型对象概述" class="header-anchor">#</a> <span>原型对象概述</span></h2><h3><a href="#构造函数的缺点" class="header-anchor">#</a> <span>构造函数的缺点</span></h3><p>JavaScript 通过构造函数生成新对象，因此构造函数可以视为对象的模板。实例对象的属性和方法，可以定义在构造函数内部。</p><pre class="prettyprint language-javascript"><code>function Cat (name, color) {
+  this.name = name;
+  this.color = color;
+}
+
+var cat1 = new Cat(&#039;大毛&#039;, &#039;白色&#039;);
+
+cat1.name // &#039;大毛&#039;
+cat1.color // &#039;白色&#039;</code></pre><p>上面代码中，<code>Cat</code>函数是一个构造函数，函数内部定义了<code>name</code>属性和<code>color</code>属性，所有实例对象（上例是<code>cat1</code>）都会生成这两个属性，即这两个属性会定义在实例对象上面。</p><p>通过构造函数为实例对象定义属性，虽然很方便，但是有一个缺点。同一个构造函数的多个实例之间，无法共享属性，从而造成对系统资源的浪费。</p><pre class="prettyprint language-javascript"><code>function Cat(name, color) {
+  this.name = name;
+  this.color = color;
+  this.meow = function () {
+    console.log(&#039;喵喵&#039;);
+  };
+}
+
+var cat1 = new Cat(&#039;大毛&#039;, &#039;白色&#039;);
+var cat2 = new Cat(&#039;二毛&#039;, &#039;黑色&#039;);
+
+cat1.meow === cat2.meow
+// false</code></pre><p>上面代码中，<code>cat1</code>和<code>cat2</code>是同一个构造函数的两个实例，它们都具有<code>meow</code>方法。由于<code>meow</code>方法是生成在每个实例对象上面，所以两个实例就生成了两次。也就是说，每新建一个实例，就会新建一个<code>meow</code>方法。这既没有必要，又浪费系统资源，因为所有<code>meow</code>方法都是同样的行为，完全应该共享。</p><p>这个问题的解决方法，就是 JavaScript 的原型对象（prototype）。</p><h3><a href="#prototype-属性的作用" class="header-anchor">#</a> <span>prototype 属性的作用</span></h3><p>JavaScript 继承机制的设计思想就是，原型对象的所有属性和方法，都能被实例对象共享。也就是说，如果属性和方法定义在原型上，那么所有实例对象就能共享，不仅节省了内存，还体现了实例对象之间的联系。</p><p>下面，先看怎么为对象指定原型。JavaScript 规定，每个函数都有一个<code>prototype</code>属性，指向一个对象。</p><pre class="prettyprint language-javascript"><code>function f() {}
+typeof f.prototype // &quot;object&quot;</code></pre><p>上面代码中，函数<code>f</code>默认具有<code>prototype</code>属性，指向一个对象。</p><p>对于普通函数来说，该属性基本无用。但是，对于构造函数来说，生成实例的时候，该属性会自动成为实例对象的原型。</p><pre class="prettyprint language-javascript"><code>function Animal(name) {
+  this.name = name;
+}
+Animal.prototype.color = &#039;white&#039;;
+
+var cat1 = new Animal(&#039;大毛&#039;);
+var cat2 = new Animal(&#039;二毛&#039;);
+
+cat1.color // &#039;white&#039;
+cat2.color // &#039;white&#039;</code></pre><p>上面代码中，构造函数<code>Animal</code>的<code>prototype</code>属性，就是实例对象<code>cat1</code>和<code>cat2</code>的原型对象。原型对象上添加一个<code>color</code>属性，结果，实例对象都共享了该属性。</p><p>原型对象的属性不是实例对象自身的属性。只要修改原型对象，变动就立刻会体现在<strong>所有</strong>实例对象上。</p><pre class="prettyprint language-javascript"><code>Animal.prototype.color = &#039;yellow&#039;;
+
+cat1.color // &quot;yellow&quot;
+cat2.color // &quot;yellow&quot;</code></pre><p>上面代码中，原型对象的<code>color</code>属性的值变为<code>yellow</code>，两个实例对象的<code>color</code>属性立刻跟着变了。这是因为实例对象其实没有<code>color</code>属性，都是读取原型对象的<code>color</code>属性。也就是说，当实例对象本身没有某个属性或方法的时候，它会到原型对象去寻找该属性或方法。这就是原型对象的特殊之处。</p><p>如果实例对象自身就有某个属性或方法，它就不会再去原型对象寻找这个属性或方法。</p><pre class="prettyprint language-javascript"><code>cat1.color = &#039;black&#039;;
+
+cat1.color // &#039;black&#039;
+cat2.color // &#039;yellow&#039;
+Animal.prototype.color // &#039;yellow&#039;;</code></pre><p>上面代码中，实例对象<code>cat1</code>的<code>color</code>属性改为<code>black</code>，就使得它不再去原型对象读取<code>color</code>属性，后者的值依然为<code>yellow</code>。</p><p>总结一下，原型对象的作用，就是定义所有实例对象共享的属性和方法。这也是它被称为原型对象的原因，而实例对象可以视作从原型对象衍生出来的子对象。</p><pre class="prettyprint language-javascript"><code>Animal.prototype.walk = function () {
+  console.log(this.name + &#039; is walking&#039;);
+};</code></pre><p>上面代码中，<code>Animal.prototype</code>对象上面定义了一个<code>walk</code>方法，这个方法将可以在所有<code>Animal</code>实例对象上面调用。</p><h3><a href="#原型链" class="header-anchor">#</a> <span>原型链</span></h3><p>JavaScript 规定，所有对象都有自己的原型对象（prototype）。一方面，任何一个对象，都可以充当其他对象的原型；另一方面，由于原型对象也是对象，所以它也有自己的原型。因此，就会形成一个“原型链”（prototype chain）：对象到原型，再到原型的原型……</p><p>如果一层层地上溯，所有对象的原型最终都可以上溯到<code>Object.prototype</code>，即<code>Object</code>构造函数的<code>prototype</code>属性。也就是说，所有对象都继承了<code>Object.prototype</code>的属性。这就是所有对象都有<code>valueOf</code>和<code>toString</code>方法的原因，因为这是从<code>Object.prototype</code>继承的。</p><p>那么，<code>Object.prototype</code>对象有没有它的原型呢？回答是<code>Object.prototype</code>的原型是<code>null</code>。<code>null</code>没有任何属性和方法，也没有自己的原型。因此，原型链的尽头就是<code>null</code>。</p><pre class="prettyprint language-javascript"><code>Object.getPrototypeOf(Object.prototype)
+// null</code></pre><p>上面代码表示，<code>Object.prototype</code>对象的原型是<code>null</code>，由于<code>null</code>没有任何属性，所以原型链到此为止。<code>Object.getPrototypeOf</code>方法返回参数对象的原型，具体介绍请看后文。</p><p>读取对象的某个属性时，JavaScript 引擎先寻找对象本身的属性，如果找不到，就到它的原型去找，如果还是找不到，就到原型的原型去找。如果直到最顶层的<code>Object.prototype</code>还是找不到，则返回<code>undefined</code>。如果对象自身和它的原型，都定义了一个同名属性，那么优先读取对象自身的属性，这叫做“覆盖”（overriding）。</p><p>注意，一级级向上，在整个原型链上寻找某个属性，对性能是有影响的。所寻找的属性在越上层的原型对象，对性能的影响越大。如果寻找某个不存在的属性，将会遍历整个原型链。</p><p>举例来说，如果让构造函数的<code>prototype</code>属性指向一个数组，就意味着实例对象可以调用数组方法。</p><pre class="prettyprint language-javascript"><code>var MyArray = function () {};
+
+MyArray.prototype = new Array();
+MyArray.prototype.constructor = MyArray;
+
+var mine = new MyArray();
+mine.push(1, 2, 3);
+mine.length // 3
+mine instanceof Array // true</code></pre><p>上面代码中，<code>mine</code>是构造函数<code>MyArray</code>的实例对象，由于<code>MyArray.prototype</code>指向一个数组实例，使得<code>mine</code>可以调用数组方法（这些方法定义在数组实例的<code>prototype</code>对象上面）。最后那行<code>instanceof</code>表达式，用来比较一个对象是否为某个构造函数的实例，结果就是证明<code>mine</code>为<code>Array</code>的实例，<code>instanceof</code>运算符的详细解释详见后文。</p><p>上面代码还出现了原型对象的<code>contructor</code>属性，这个属性的含义下一节就来解释。</p><h3><a href="#constructor-属性" class="header-anchor">#</a> <span>constructor 属性</span></h3><p><code>prototype</code>对象有一个<code>constructor</code>属性，默认指向<code>prototype</code>对象所在的构造函数。</p><pre class="prettyprint language-javascript"><code>function P() {}
+P.prototype.constructor === P // true</code></pre><p>由于<code>constructor</code>属性定义在<code>prototype</code>对象上面，意味着可以被所有实例对象继承。</p><pre class="prettyprint language-javascript"><code>function P() {}
+var p = new P();
+
+p.constructor === P // true
+p.constructor === P.prototype.constructor // true
+p.hasOwnProperty(&#039;constructor&#039;) // false</code></pre><p>上面代码中，<code>p</code>是构造函数<code>P</code>的实例对象，但是<code>p</code>自身没有<code>constructor</code>属性，该属性其实是读取原型链上面的<code>P.prototype.constructor</code>属性。</p><p><code>constructor</code>属性的作用是，可以得知某个实例对象，到底是哪一个构造函数产生的。</p><pre class="prettyprint language-javascript"><code>function F() {};
+var f = new F();
+
+f.constructor === F // true
+f.constructor === RegExp // false</code></pre><p>上面代码中，<code>constructor</code>属性确定了实例对象<code>f</code>的构造函数是<code>F</code>，而不是<code>RegExp</code>。</p><p>另一方面，有了<code>constructor</code>属性，就可以从一个实例对象新建另一个实例。</p><pre class="prettyprint language-javascript"><code>function Constr() {}
+var x = new Constr();
+
+var y = new x.constructor();
+y instanceof Constr // true</code></pre><p>上面代码中，<code>x</code>是构造函数<code>Constr</code>的实例，可以从<code>x.constructor</code>间接调用构造函数。这使得在实例方法中，调用自身的构造函数成为可能。</p><pre class="prettyprint language-javascript"><code>Constr.prototype.createCopy = function () {
+  return new this.constructor();
+};</code></pre><p>上面代码中，<code>createCopy</code>方法调用构造函数，新建另一个实例。</p><p><code>constructor</code>属性表示原型对象与构造函数之间的关联关系，如果修改了原型对象，一般会同时修改<code>constructor</code>属性，防止引用的时候出错。</p><pre class="prettyprint language-javascript"><code>function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.constructor === Person // true
+
+Person.prototype = {
+  method: function () {}
+};
+
+Person.prototype.constructor === Person // false
+Person.prototype.constructor === Object // true</code></pre><p>上面代码中，构造函数<code>Person</code>的原型对象改掉了，但是没有修改<code>constructor</code>属性，导致这个属性不再指向<code>Person</code>。由于<code>Person</code>的新原型是一个普通对象，而普通对象的<code>contructor</code>属性指向<code>Object</code>构造函数，导致<code>Person.prototype.constructor</code>变成了<code>Object</code>。</p><p>所以，修改原型对象时，一般要同时修改<code>constructor</code>属性的指向。</p><pre class="prettyprint language-javascript"><code>// 坏的写法
+C.prototype = {
+  method1: function (...) { ... },
+  // ...
+};
+
+// 好的写法
+C.prototype = {
+  constructor: C,
+  method1: function (...) { ... },
+  // ...
+};
+
+// 更好的写法
+C.prototype.method1 = function (...) { ... };</code></pre><p>上面代码中，要么将<code>constructor</code>属性重新指向原来的构造函数，要么只在原型对象上添加方法，这样可以保证<code>instanceof</code>运算符不会失真。</p><p>如果不能确定<code>constructor</code>属性是什么函数，还有一个办法：通过<code>name</code>属性，从实例得到构造函数的名称。</p><pre class="prettyprint language-javascript"><code>function Foo() {}
+var f = new Foo();
+f.constructor.name // &quot;Foo&quot;</code></pre><h2><a href="#instanceof-运算符" class="header-anchor">#</a> <span>instanceof 运算符</span></h2><p><code>instanceof</code>运算符返回一个布尔值，表示对象是否为某个构造函数的实例。</p><pre class="prettyprint language-javascript"><code>var v = new Vehicle();
+v instanceof Vehicle // true</code></pre><p>上面代码中，对象<code>v</code>是构造函数<code>Vehicle</code>的实例，所以返回<code>true</code>。</p><p><code>instanceof</code>运算符的左边是实例对象，右边是构造函数。它会检查右边构建函数的原型对象（prototype），是否在左边对象的原型链上。因此，下面两种写法是等价的。</p><pre class="prettyprint language-javascript"><code>v instanceof Vehicle
+// 等同于
+Vehicle.prototype.isPrototypeOf(v)</code></pre><p>上面代码中，<code>Object.prototype.isPrototypeOf</code>的详细解释见后文。</p><p>由于<code>instanceof</code>检查整个原型链，因此同一个实例对象，可能会对多个构造函数都返回<code>true</code>。</p><pre class="prettyprint language-javascript"><code>var d = new Date();
+d instanceof Date // true
+d instanceof Object // true</code></pre><p>上面代码中，<code>d</code>同时是<code>Date</code>和<code>Object</code>的实例，因此对这两个构造函数都返回<code>true</code>。</p><p><code>instanceof</code>的原理是检查右边构造函数的<code>prototype</code>属性，是否在左边对象的原型链上。有一种特殊情况，就是左边对象的原型链上，只有<code>null</code>对象。这时，<code>instanceof</code>判断会失真。</p><pre class="prettyprint language-javascript"><code>var obj = Object.create(null);
+typeof obj // &quot;object&quot;
+Object.create(null) instanceof Object // false</code></pre><p>上面代码中，<code>Object.create(null)</code>返回一个新对象<code>obj</code>，它的原型是<code>null</code>（<code>Object.create</code>的详细介绍见后文）。右边的构造函数<code>Object</code>的<code>prototype</code>属性，不在左边的原型链上，因此<code>instanceof</code>就认为<code>obj</code>不是<code>Object</code>的实例。但是，只要一个对象的原型不是<code>null</code>，<code>instanceof</code>运算符的判断就不会失真。</p><p><code>instanceof</code>运算符的一个用处，是判断值的类型。</p><pre class="prettyprint language-javascript"><code>var x = [1, 2, 3];
+var y = {};
+x instanceof Array // true
+y instanceof Object // true</code></pre><p>上面代码中，<code>instanceof</code>运算符判断，变量<code>x</code>是数组，变量<code>y</code>是对象。</p><p>注意，<code>instanceof</code>运算符只能用于对象，不适用原始类型的值。</p><pre class="prettyprint language-javascript"><code>var s = &#039;hello&#039;;
+s instanceof String // false</code></pre><p>上面代码中，字符串不是<code>String</code>对象的实例（因为字符串不是对象），所以返回<code>false</code>。</p><p>此外，对于<code>undefined</code>和<code>null</code>，<code>instanceOf</code>运算符总是返回<code>false</code>。</p><pre class="prettyprint language-javascript"><code>undefined instanceof Object // false
+null instanceof Object // false</code></pre><p>利用<code>instanceof</code>运算符，还可以巧妙地解决，调用构造函数时，忘了加<code>new</code>命令的问题。</p><pre class="prettyprint language-javascript"><code>function Fubar (foo, bar) {
+  if (this instanceof Fubar) {
+    this._foo = foo;
+    this._bar = bar;
+  } else {
+    return new Fubar(foo, bar);
+  }
+}</code></pre><p>上面代码使用<code>instanceof</code>运算符，在函数体内部判断<code>this</code>关键字是否为构造函数<code>Fubar</code>的实例。如果不是，就表明忘了加<code>new</code>命令。</p><h2><a href="#构造函数的继承" class="header-anchor">#</a> <span>构造函数的继承</span></h2><p>让一个构造函数继承另一个构造函数，是非常常见的需求。这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。</p><pre class="prettyprint language-javascript"><code>function Sub(value) {
+  Super.call(this);
+  this.prop = value;
+}</code></pre><p>上面代码中，<code>Sub</code>是子类的构造函数，<code>this</code>是子类的实例。在实例上调用父类的构造函数<code>Super</code>，就会让子类实例具有父类实例的属性。</p><p>第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。</p><pre class="prettyprint language-javascript"><code>Sub.prototype = Object.create(Super.prototype);
+Sub.prototype.constructor = Sub;
+Sub.prototype.method = &#039;...&#039;;</code></pre><p>上面代码中，<code>Sub.prototype</code>是子类的原型，要将它赋值为<code>Object.create(Super.prototype)</code>，而不是直接等于<code>Super.prototype</code>。否则后面两行对<code>Sub.prototype</code>的操作，会连父类的原型<code>Super.prototype</code>一起修改掉。</p><p>另外一种写法是<code>Sub.prototype</code>等于一个父类实例。</p><pre class="prettyprint language-javascript"><code>Sub.prototype = new Super();</code></pre><p>上面这种写法也有继承的效果，但是子类会具有父类实例的方法。有时，这可能不是我们需要的，所以不推荐使用这种写法。</p><p>举例来说，下面是一个<code>Shape</code>构造函数。</p><pre class="prettyprint language-javascript"><code>function Shape() {
+  this.x = 0;
+  this.y = 0;
+}
+
+Shape.prototype.move = function (x, y) {
+  this.x += x;
+  this.y += y;
+  console.info(&#039;Shape moved.&#039;);
+};</code></pre><p>我们需要让<code>Rectangle</code>构造函数继承<code>Shape</code>。</p><pre class="prettyprint language-javascript"><code>// 第一步，子类继承父类的实例
+function Rectangle() {
+  Shape.call(this); // 调用父类构造函数
+}
+// 另一种写法
+function Rectangle() {
+  this.base = Shape;
+  this.base();
+}
+
+// 第二步，子类继承父类的原型
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;</code></pre><p>采用这样的写法以后，<code>instanceof</code>运算符会对子类和父类的构造函数，都返回<code>true</code>。</p><pre class="prettyprint language-javascript"><code>var rect = new Rectangle();
+
+rect instanceof Rectangle  // true
+rect instanceof Shape  // true</code></pre><p>上面代码中，子类是整体继承父类。有时只需要单个方法的继承，这时可以采用下面的写法。</p><pre class="prettyprint language-javascript"><code>ClassB.prototype.print = function() {
+  ClassA.prototype.print.call(this);
+  // some code
+}</code></pre><p>上面代码中，子类<code>B</code>的<code>print</code>方法先调用父类<code>A</code>的<code>print</code>方法，再部署自己的代码。这就等于继承了父类<code>A</code>的<code>print</code>方法。</p><h2><a href="#多重继承" class="header-anchor">#</a> <span>多重继承</span></h2><p>JavaScript 不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能。</p><pre class="prettyprint language-javascript"><code>function M1() {
+  this.hello = &#039;hello&#039;;
+}
+
+function M2() {
+  this.world = &#039;world&#039;;
+}
+
+function S() {
+  M1.call(this);
+  M2.call(this);
+}
+
+// 继承 M1
+S.prototype = Object.create(M1.prototype);
+// 继承链上加入 M2
+Object.assign(S.prototype, M2.prototype);
+
+// 指定构造函数
+S.prototype.constructor = S;
+
+var s = new S();
+s.hello // &#039;hello：&#039;
+s.world // &#039;world&#039;</code></pre><p>上面代码中，子类<code>S</code>同时继承了父类<code>M1</code>和<code>M2</code>。这种模式又称为 Mixin（混入）。</p><h2><a href="#模块" class="header-anchor">#</a> <span>模块</span></h2><p>随着网站逐渐变成&quot;互联网应用程序&quot;，嵌入网页的 JavaScript 代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者必须使用软件工程的方法，管理网页的业务逻辑。</p><p>JavaScript 模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。</p><p>：&quot;污染&quot;了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。</p><p>为了解决上面的缺点，可以<br>但是，JavaScript 不是一种模块化编程语言，ES6 才开始支持“类”和“模块”。下面介绍传统的做法，如何利用对象实现模块的效果。</p><h3><a href="#基本的实现方法" class="header-anchor">#</a> <span>基本的实现方法</span></h3><p>模块是实现特定功能的一组属性和方法的封装。</p><p>简单的做法是把模块写成一个对象，所有的模块成员都放到这个对象里面。</p><pre class="prettyprint language-javascript"><code>var module1 = new Object({
+　_count : 0,
+　m1 : function (){
+　　//...
+　},
+　m2 : function (){
+  　//...
+　}
+});</code></pre><p>上面的函数<code>m1</code>和<code>m2</code>，都封装在<code>module1</code>对象里。使用的时候，就是调用这个对象的属性。</p><pre class="prettyprint language-javascript"><code>module1.m1();</code></pre><p>但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。</p><pre class="prettyprint language-javascript"><code>module1._count = 5;</code></pre><h3><a href="#封装私有变量：构造函数的写法" class="header-anchor">#</a> <span>封装私有变量：构造函数的写法</span></h3><p>我们可以利用构造函数，封装私有变量。</p><pre class="prettyprint language-javascript"><code>function StringBuilder() {
+  var buffer = [];
+
+  this.add = function (str) {
+     buffer.push(str);
+  };
+
+  this.toString = function () {
+    return buffer.join(&#039;&#039;);
+  };
+
+}</code></pre><p>上面代码中，<code>buffer</code>是模块的私有变量。一旦生成实例对象，外部是无法直接访问<code>buffer</code>的。但是，这种方法将私有变量封装在构造函数中，导致构造函数与实例对象是一体的，总是存在于内存之中，无法在使用完成后清除。这意味着，构造函数有双重作用，既用来塑造实例对象，又用来保存实例对象的数据，违背了构造函数与实例对象在数据上相分离的原则（即实例对象的数据，不应该保存在实例对象以外）。同时，非常耗费内存。</p><pre class="prettyprint language-javascript"><code>function StringBuilder() {
+  this._buffer = [];
+}
+
+StringBuilder.prototype = {
+  constructor: StringBuilder,
+  add: function (str) {
+    this._buffer.push(str);
+  },
+  toString: function () {
+    return this._buffer.join(&#039;&#039;);
+  }
+};</code></pre><p>这种方法将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写，不是很安全。</p><h3><a href="#封装私有变量：立即执行函数的写法" class="header-anchor">#</a> <span>封装私有变量：立即执行函数的写法</span></h3><p>另一种做法是使用“立即执行函数”（Immediately-Invoked Function Expression，IIFE），将相关的属性和方法封装在一个函数作用域里面，可以达到不暴露私有成员的目的。</p><pre class="prettyprint language-javascript"><code>var module1 = (function () {
+　var _count = 0;
+　var m1 = function () {
+　  //...
+　};
+　var m2 = function () {
+　　//...
+　};
+　return {
+　　m1 : m1,
+　　m2 : m2
+　};
+})();</code></pre><p>使用上面的写法，外部代码无法读取内部的<code>_count</code>变量。</p><pre class="prettyprint language-javascript"><code>console.info(module1._count); //undefined</code></pre><p>上面的<code>module1</code>就是 JavaScript 模块的基本写法。下面，再对这种写法进行加工。</p><h3><a href="#模块的放大模式" class="header-anchor">#</a> <span>模块的放大模式</span></h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用“放大模式”（augmentation）。</p><pre class="prettyprint language-javascript"><code>var module1 = (function (mod){
+　mod.m3 = function () {
+　　//...
+　};
+　return mod;
+})(module1);</code></pre><p>上面的代码为<code>module1</code>模块添加了一个新方法<code>m3()</code>，然后返回新的<code>module1</code>模块。</p><p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用&quot;宽放大模式&quot;（Loose augmentation）。</p><pre class="prettyprint language-javascript"><code>var module1 = (function (mod) {
+　//...
+　return mod;
+})(window.module1 || {});</code></pre><p>与&quot;放大模式&quot;相比，“宽放大模式”就是“立即执行函数”的参数可以是空对象。</p><h3><a href="#输入全局变量" class="header-anchor">#</a> <span>输入全局变量</span></h3><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。</p><p>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p><pre class="prettyprint language-javascript"><code>var module1 = (function ($, YAHOO) {
+　//...
+})(jQuery, YAHOO);</code></pre><p>上面的<code>module1</code>模块需要使用 jQuery 库和 YUI 库，就把这两个库（其实是两个模块）当作参数输入<code>module1</code>。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p><p>立即执行函数还可以起到命名空间的作用。</p><pre class="prettyprint language-javascript"><code>(function($, window, document) {
+
+  function go(num) {
+  }
+
+  function handleEvents() {
+  }
+
+  function initialize() {
+  }
+
+  function dieCarouselDie() {
+  }
+
+  //attach to the global scope
+  window.finalCarousel = {
+    init : initialize,
+    destroy : dieCouraselDie
+  }
+
+})( jQuery, window, document );</code></pre><p>上面代码中，<code>finalCarousel</code>对象输出到全局，对外暴露<code>init</code>和<code>destroy</code>接口，内部方法<code>go</code>、<code>handleEvents</code>、<code>initialize</code>、<code>dieCarouselDie</code>都是外部无法调用的。</p><h2><a href="#参考链接" class="header-anchor">#</a> <span>参考链接</span></h2><ul><li><a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc">JavaScript Modules: A Beginner’s Guide</a>, by Preethi Kasireddy</li></ul></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

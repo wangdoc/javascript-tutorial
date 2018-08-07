@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>XMLHttpRequest 对象 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="">数据类型<i class="fa fa-angle-down"></i></a><ul><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="">函数</a></li><li><a href="/types/array.html" title="数组" class="">数组</a></li></ul></li><li><a title="运算符" class="">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符" class="">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符" class="">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符" class="">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符" class="">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序" class="">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题" class="">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换" class="">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制" class="">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格" class="">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台" class="">console 对象与控制台</a></li></ul></li><li><a title="标准库" class="">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象" class="">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象" class="">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象" class="">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象" class="">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象" class="">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象" class="">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象" class="">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象" class="">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象" class="">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象" class="">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象" class="">JSON 对象</a></li></ul></li><li><a title="面向对象编程" class="">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令" class="">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字" class="">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承" class="">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法" class="">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作" class="">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述" class="">概述</a></li><li><a href="/async/timer.html" title="定时器" class="">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象" class="">Promise 对象</a></li></ul></li><li><a title="DOM" class="">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述" class="">概述</a></li><li><a href="/dom/node.html" title="Node 接口" class="">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口" class="">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口" class="">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点" class="">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点" class="">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作" class="">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点" class="">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API" class="">Mutation Observer API</a></li></ul></li><li><a title="事件" class="">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口" class="">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型" class="">事件模型</a></li><li><a href="/events/event.html" title="Event 对象" class="">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件" class="">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件" class="">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件" class="">进度事件</a></li><li><a href="/events/form.html" title="表单事件" class="">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件" class="">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件" class="">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件" class="">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件" class="">拖拉事件</a></li></ul></li><li><a title="浏览器模型" class="active">浏览器模型<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/bom/engine.html" title="浏览器环境概述" class="">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象" class="">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象" class="">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie" class="">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象" class="active">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>XMLHttpRequest 对象</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#XMLHttpRequest-对象" class="header-anchor">#</a> <span>XMLHttpRequest 对象</span></h1><h2><a href="#简介" class="header-anchor">#</a> <span>简介</span></h2><p>浏览器与服务器之间，采用 HTTP 协议通信。用户在浏览器地址栏键入一个网址，或者通过网页表单向服务器提交内容，这时浏览器就会向服务器发出 HTTP 请求。</p><p>1999年，微软公司发布 IE 浏览器5.0版，第一次引入新功能：允许 JavaScript 脚本向服务器发起 HTTP 请求。这个功能当时并没有引起注意，直到2004年 Gmail 发布和2005年 Google Map 发布，才引起广泛重视。2005年2月，AJAX 这个词第一次正式提出，它是 Asynchronous JavaScript and XML 的缩写，指的是通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页。后来，AJAX 这个词就成为 JavaScript 脚本发起 HTTP 通信的代名词，也就是说，只要用脚本发起通信，就可以叫做 AJAX 通信。W3C 也在2006年发布了它的国际标准。</p><p>具体来说，AJAX 包括以下几个步骤。</p><ol><li>创建 XMLHttpRequest 实例</li><li>发出 HTTP 请求</li><li>接收服务器传回的数据</li><li>更新网页数据</li></ol><p>概括起来，就是一句话，AJAX 通过原生的<code>XMLHttpRequest</code>对象发出 HTTP 请求，得到服务器返回的数据后，再进行处理。现在，服务器返回的都是 JSON 格式的数据，XML 格式已经过时了，但是 AJAX 这个名字已经成了一个通用名词，字面含义已经消失了。</p><p><code>XMLHttpRequest</code>对象是 AJAX 的主要接口，用于浏览器与服务器之间的通信。尽管名字里面有<code>XML</code>和<code>Http</code>，它实际上可以使用多种协议（比如<code>file</code>或<code>ftp</code>），发送任何格式的数据（包括字符串和二进制）。</p><p><code>XMLHttpRequest</code>本身是一个构造函数，可以使用<code>new</code>命令生成实例。它没有任何参数。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();</code></pre><p>一旦新建实例，就可以使用<code>open()</code>方法发出 HTTP 请求。</p><pre class="prettyprint language-javascript"><code>xhr.open(&#039;GET&#039;, &#039;http://www.example.com/page.php&#039;, true);</code></pre><p>上面代码向指定的服务器网址，发出 GET 请求。</p><p>然后，指定回调函数，监听通信状态（<code>readyState</code>属性）的变化。</p><pre class="prettyprint language-javascript"><code>ajax.onreadystatechange = handleStateChange;
+
+function handleStateChange() {
+  // ...
+}</code></pre><p>上面代码中，一旦<code>XMLHttpRequest</code>实例的状态发生变化，就会调用监听函数<code>handleStateChange</code></p><p>一旦拿到服务器返回的数据，AJAX 不会刷新整个网页，而是只更新网页里面的相关部分，从而不打断用户正在做的事情。</p><p>注意，AJAX 只能向同源网址（协议、域名、端口都相同）发出 HTTP 请求，如果发出跨域请求，就会报错（详见《同源政策》和《CORS 通信》两章）。</p><p>下面是<code>XMLHttpRequest</code>对象简单用法的完整例子。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function(){
+  // 通信成功时，状态值为4
+  if (xhr.readyState === 4){
+    if (xhr.status === 200){
+      console.log(xhr.responseText);
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+
+xhr.open(&#039;GET&#039;, &#039;/endpoint&#039;, true);
+xhr.send(null);</code></pre><h2><a href="#XMLHttpRequest-的实例属性" class="header-anchor">#</a> <span>XMLHttpRequest 的实例属性</span></h2><h3><a href="#XMLHttpRequest.readyState" class="header-anchor">#</a> <span>XMLHttpRequest.readyState</span></h3><p><code>XMLHttpRequest.readyState</code>返回一个整数，表示实例对象的当前状态。该属性只读。它可能返回以下值。</p><ul><li>0，表示 XMLHttpRequest 实例已经生成，但是实例的<code>open()</code>方法还没有被调用。</li><li>1，表示<code>open()</code>方法已经调用，但是实例的<code>send()</code>方法还没有调用，仍然可以使用实例的<code>setRequestHeader()</code>方法，设定 HTTP 请求的头信息。</li><li>2，表示实例的<code>send()</code>方法已经调用，并且服务器返回的头信息和状态码已经收到。</li><li>3，表示正在接收服务器传来的数据体（body 部分）。这时，如果实例的<code>responseType</code>属性等于<code>text</code>或者空字符串，<code>responseText</code>属性就会包含已经收到的部分信息。</li><li>4，表示服务器返回的数据已经完全接收，或者本次接收已经失败。</li></ul><p>通信过程中，每当实例对象发生状态变化，它的<code>readyState</code>属性的值就会改变。这个值每一次变化，都会触发<code>readyStateChange</code>事件。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+
+if (xhr.readyState === 4) {
+  // 请求结束，处理服务器返回的数据
+} else {
+  // 显示提示“加载中……”
+}</code></pre><p>上面代码中，<code>xhr.readyState</code>等于<code>4</code>时，表明脚本发出的 HTTP 请求已经成功。其他情况，都表示 HTTP 请求还在进行中。</p><h3><a href="#XMLHttpRequest.onreadystatechange" class="header-anchor">#</a> <span>XMLHttpRequest.onreadystatechange</span></h3><p><code>XMLHttpRequest.onreadystatechange</code>属性指向一个监听函数。<code>readystatechange</code>事件发生时（实例的<code>readyState</code>属性变化），就会执行这个属性。</p><p>另外，如果使用实例的<code>abort()</code>方法，终止 XMLHttpRequest 请求，也会造成<code>readyState</code>属性变化，导致调用<code>XMLHttpRequest.onreadystatechange</code>属性。</p><p>下面是一个例子。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open( &#039;GET&#039;, &#039;http://example.com&#039; , true );
+xhr.onreadystatechange = function () {
+  if (xhr.readyState !== 4 || xhr.status !== 200) {
+    return;
+  }
+  console.log(xhr.responseText);
+};
+xhr.send();</code></pre><h3><a href="#XMLHttpRequest.response" class="header-anchor">#</a> <span>XMLHttpRequest.response</span></h3><p><code>XMLHttpRequest.response</code>属性表示服务器返回的数据体（即 HTTP 回应的 body 部分）。它可能是任何数据类型，比如字符串、对象、二进制对象等等，具体的类型由<code>XMLHttpRequest.responseType</code>属性决定。该属性只读。</p><p>如果本次请求没有成功或者数据不完整，该属性等于<code>null</code>。但是，如果<code>responseType</code>属性等于<code>text</code>或空字符串，在请求没有结束之前（<code>readyState</code>等于3的阶段），<code>response</code>属性包含服务器已经返回的部分数据。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4) {
+    handler(xhr.response);
+  }
+}</code></pre><h3><a href="#XMLHttpRequest.responseType" class="header-anchor">#</a> <span>XMLHttpRequest.responseType</span></h3><p><code>XMLHttpRequest.responseType</code>属性是一个字符串，表示服务器返回数据的类型。这个属性是可写的，可以在调用<code>open()</code>方法之后、调用<code>send()</code>方法之前，设置这个属性的值，告诉服务器返回指定类型的数据。如果<code>responseType</code>设为空字符串，就等同于默认值<code>text</code>。</p><p><code>XMLHttpRequest.responseType</code>属性可以等于以下值。</p><ul><li>&quot;&quot;（空字符串）：等同于<code>text</code>，表示服务器返回文本数据。</li><li>&quot;arraybuffer&quot;：ArrayBuffer 对象，表示服务器返回二进制数组。</li><li>&quot;blob&quot;：Blob 对象，表示服务器返回二进制对象。</li><li>&quot;document&quot;：Document 对象，表示服务器返回一个文档对象。</li><li>&quot;json&quot;：JSON 对象。</li><li>&quot;text&quot;：字符串。</li></ul><p>上面几种类型之中，<code>text</code>类型适合大多数情况，而且直接处理文本也比较方便。<code>document</code>类型适合返回 HTML / XML 文档的情况，这意味着，对于那些打开 CORS 的网站，可以直接用 Ajax 抓取网页，然后不用解析 HTML 字符串，直接对抓取回来的数据进行 DOM 操作。<code>blob</code>类型适合读取二进制数据，比如图片文件。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;/path/to/image.png&#039;, true);
+xhr.responseType = &#039;blob&#039;;
+
+xhr.onload = function(e) {
+  if (this.status === 200) {
+    var blob = new Blob([xhr.response], {type: &#039;image/png&#039;});
+    // 或者
+    var blob = xhr.response;
+  }
+};
+
+xhr.send();</code></pre><p>如果将这个属性设为<code>ArrayBuffer</code>，就可以按照数组的方式处理二进制数据。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;/path/to/image.png&#039;, true);
+xhr.responseType = &#039;arraybuffer&#039;;
+
+xhr.onload = function(e) {
+  var uInt8Array = new Uint8Array(this.response);
+  for (var i = 0, len = binStr.length; i &lt; len; ++i) {
+    // var byte = uInt8Array[i];
+  }
+};
+
+xhr.send();</code></pre><p>如果将这个属性设为<code>json</code>，浏览器就会自动对返回数据调用<code>JSON.parse()</code>方法。也就是说，从<code>xhr.response</code>属性（注意，不是<code>xhr.responseText</code>属性）得到的不是文本，而是一个 JSON 对象。</p><h3><a href="#XMLHttpRequest.responseText" class="header-anchor">#</a> <span>XMLHttpRequest.responseText</span></h3><p><code>XMLHttpRequest.responseText</code>属性返回从服务器接收到的字符串，该属性为只读。只有 HTTP 请求完成接收以后，该属性才会包含完整的数据。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;/server&#039;, true);
+
+xhr.responseType = &#039;text&#039;;
+xhr.onload = function () {
+  if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+    console.log(xhr.responseText);
+  }
+};
+
+xhr.send(null);</code></pre><h3><a href="#XMLHttpRequest.responseXML" class="header-anchor">#</a> <span>XMLHttpRequest.responseXML</span></h3><p><code>XMLHttpRequest.responseXML</code>属性返回从服务器接收到的 HTML 或 XML 文档对象，该属性为只读。如果本次请求没有成功，或者收到的数据不能被解析为 XML 或 HTML，该属性等于<code>null</code>。</p><p>该属性生效的前提是 HTTP 回应的<code>Content-Type</code>头信息等于<code>text/xml</code>或<code>application/xml</code>。这要求在发送请求前，<code>XMLHttpRequest.responseType</code>属性要设为<code>document</code>。如果 HTTP 回应的<code>Content-Type</code>头信息不等于<code>text/xml</code>和<code>application/xml</code>，但是想从<code>responseXML</code>拿到数据（即把数据按照 DOM 格式解析），那么需要手动调用<code>XMLHttpRequest.overrideMimeType()</code>方法，强制进行 XML 解析。</p><p>该属性得到的数据，是直接解析后的文档 DOM 树。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;/server&#039;, true);
+
+xhr.responseType = &#039;document&#039;;
+xhr.overrideMimeType(&#039;text/xml&#039;);
+
+xhr.onload = function () {
+  if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+    console.log(xhr.responseXML);
+  }
+};
+
+xhr.send(null);</code></pre><h3><a href="#XMLHttpRequest.responseURL" class="header-anchor">#</a> <span>XMLHttpRequest.responseURL</span></h3><p><code>XMLHttpRequest.responseURL</code>属性是字符串，表示发送数据的服务器的网址。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;http://example.com/test&#039;, true);
+xhr.onload = function () {
+  // 返回 http://example.com/test
+  console.log(xhr.responseURL);
+};
+xhr.send(null);</code></pre><p>注意，这个属性的值与<code>open()</code>方法指定的请求网址不一定相同。如果服务器端发生跳转，这个属性返回最后实际返回数据的网址。另外，如果原始 URL 包括锚点（fragment），该属性会把锚点剥离。</p><h3><a href="#XMLHttpRequest.status，XMLHttpRequest.statusText" class="header-anchor">#</a> <span>XMLHttpRequest.status，XMLHttpRequest.statusText</span></h3><p><code>XMLHttpRequest.status</code>属性返回一个整数，表示服务器回应的 HTTP 状态码。一般来说，如果通信成功的话，这个状态码是200；如果服务器没有返回状态码，那么这个属性默认是200。请求发出之前，该属性为<code>0</code>。该属性只读。</p><ul><li>200, OK，访问正常</li><li>301, Moved Permanently，永久移动</li><li>302, Move temporarily，暂时移动</li><li>304, Not Modified，未修改</li><li>307, Temporary Redirect，暂时重定向</li><li>401, Unauthorized，未授权</li><li>403, Forbidden，禁止访问</li><li>404, Not Found，未发现指定网址</li><li>500, Internal Server Error，服务器发生错误</li></ul><p>基本上，只有2xx和304的状态码，表示服务器返回是正常状态。</p><pre class="prettyprint language-javascript"><code>if (xhr.readyState === 4) {
+  if ( (xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300)
+    || (xhr.status === 304) ) {
+    // 处理服务器的返回数据
+  } else {
+    // 出错
+  }
+}</code></pre><p><code>XMLHttpRequest.statusText</code>属性返回一个字符串，表示服务器发送的状态提示。不同于<code>status</code>属性，该属性包含整个状态信息，比如“OK”和“Not Found”。在请求发送之前（即调用<code>open()</code>方法之前），该属性的值是空字符串；如果服务器没有返回状态提示，该属性的值默认为&quot;“OK”。该属性为只读属性。</p><h3><a href="#XMLHttpRequest.timeout，XMLHttpRequestEventTarget.ontimeout" class="header-anchor">#</a> <span>XMLHttpRequest.timeout，XMLHttpRequestEventTarget.ontimeout</span></h3><p><code>XMLHttpRequest.timeout</code>属性返回一个整数，表示多少毫秒后，如果请求仍然没有得到结果，就会自动终止。如果该属性等于0，就表示没有时间限制。</p><p><code>XMLHttpRequestEventTarget.ontimeout</code>属性用于设置一个监听函数，如果发生 timeout 事件，就会执行这个监听函数。</p><p>下面是一个例子。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+var url = &#039;/server&#039;;
+
+xhr.ontimeout = function () {
+  console.error(&#039;The request for &#039; + url + &#039; timed out.&#039;);
+};
+
+xhr.onload = function() {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      // 处理服务器返回的数据
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+
+xhr.open(&#039;GET&#039;, url, true);
+// 指定 10 秒钟超时
+xhr.timeout = 10 * 1000;
+xhr.send(null);</code></pre><h3><a href="#事件监听属性" class="header-anchor">#</a> <span>事件监听属性</span></h3><p>XMLHttpRequest 对象可以对以下事件指定监听函数。</p><ul><li>XMLHttpRequest.onloadstart：loadstart 事件（HTTP 请求发出）的监听函数</li><li>XMLHttpRequest.onprogress：progress事件（正在发送和加载数据）的监听函数</li><li>XMLHttpRequest.onabort：abort 事件（请求中止，比如用户调用了<code>abort()</code>方法）的监听函数</li><li>XMLHttpRequest.onerror：error 事件（请求失败）的监听函数</li><li>XMLHttpRequest.onload：load 事件（请求成功完成）的监听函数</li><li>XMLHttpRequest.ontimeout：timeout 事件（用户指定的时限超过了，请求还未完成）的监听函数</li><li>XMLHttpRequest.onloadend：loadend 事件（请求完成，不管成功或失败）的监听函数</li></ul><p>下面是一个例子。</p><pre class="prettyprint language-javascript"><code>xhr.onload = function() {
+ var responseText = xhr.responseText;
+ console.log(responseText);
+ // process the response.
+};
+
+xhr.onabort = function () {
+  console.log(&#039;The request was aborted&#039;);
+};
+
+xhr.onprogress = function (event) {
+  console.log(event.loaded);
+  console.log(event.total);
+};
+
+xhr.onerror = function() {
+  console.log(&#039;There was an error!&#039;);
+};</code></pre><p><code>progress</code>事件的监听函数有一个事件对象参数，该对象有三个属性：<code>loaded</code>属性返回已经传输的数据量，<code>total</code>属性返回总的数据量，<code>lengthComputable</code>属性返回一个布尔值，表示加载的进度是否可以计算。所有这些监听函数里面，只有<code>progress</code>事件的监听函数有参数，其他函数都没有参数。</p><p>注意，如果发生网络错误（比如服务器无法连通），<code>onerror</code>事件无法获取报错信息。也就是说，可能没有错误对象，所以这样只能显示报错的提示。</p><h3><a href="#XMLHttpRequest.withCredentials" class="header-anchor">#</a> <span>XMLHttpRequest.withCredentials</span></h3><p><code>XMLHttpRequest.withCredentials</code>属性是一个布尔值，表示跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为<code>false</code>，即向<code>example.com</code>发出跨域请求时，不会发送<code>example.com</code>设置在本机上的 Cookie（如果有的话）。</p><p>如果需要跨域 AJAX 请求发送Cookie，需要<code>withCredentials</code>属性设为<code>true</code>。注意，同源的请求不需要设置这个属性。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;http://example.com/&#039;, true);
+xhr.withCredentials = true;
+xhr.send(null);</code></pre><p>为了让这个属性生效，服务器必须显式返回<code>Access-Control-Allow-Credentials</code>这个头信息。</p><pre class="prettyprint language-javascript"><code>Access-Control-Allow-Credentials: true</code></pre><p><code>withCredentials</code>属性打开的话，跨域请求不仅会发送 Cookie，还会设置远程主机指定的 Cookie。反之也成立，如果<code>withCredentials</code>属性没有打开，那么跨域的 AJAX 请求即使明确要求浏览器设置 Cookie，浏览器也会忽略。</p><p>注意，脚本总是遵守同源政策，无法从<code>document.cookie</code>或者 HTTP 回应的头信息之中，读取跨域的 Cookie，<code>withCredentials</code>属性不影响这一点。</p><h3><a href="#XMLHttpRequest.upload" class="header-anchor">#</a> <span>XMLHttpRequest.upload</span></h3><p>XMLHttpRequest 不仅可以发送请求，还可以发送文件，这就是 AJAX 文件上传。发送文件以后，通过<code>XMLHttpRequest.upload</code>属性可以得到一个对象，通过观察这个对象，可以得知上传的进展。主要方法就是监听这个对象的各种事件：loadstart、loadend、load、abort、error、progress、timeout。</p><p>假定网页上有一个<code>&lt;progress&gt;</code>元素。</p><pre class="prettyprint language-http"><code>&lt;progress min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot;&gt;0% complete&lt;/progress&gt;</code></pre><p>文件上传时，对<code>upload</code>属性指定<code>progress</code>事件的监听函数，即可获得上传的进度。</p><pre class="prettyprint language-javascript"><code>function upload(blobOrFile) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(&#039;POST&#039;, &#039;/server&#039;, true);
+  xhr.onload = function (e) {};
+
+  var progressBar = document.querySelector(&#039;progress&#039;);
+  xhr.upload.onprogress = function (e) {
+    if (e.lengthComputable) {
+      progressBar.value = (e.loaded / e.total) * 100;
+      // 兼容不支持 &lt;progress&gt; 元素的老式浏览器
+      progressBar.textContent = progressBar.value;
+    }
+  };
+
+  xhr.send(blobOrFile);
+}
+
+upload(new Blob([&#039;hello world&#039;], {type: &#039;text/plain&#039;}));</code></pre><h2><a href="#XMLHttpRequest-的实例方法" class="header-anchor">#</a> <span>XMLHttpRequest 的实例方法</span></h2><h3><a href="#XMLHttpRequest.open()" class="header-anchor">#</a> <span>XMLHttpRequest.open()</span></h3><p><code>XMLHttpRequest.open()</code>方法用于指定 HTTP 请求的参数，或者说初始化 XMLHttpRequest 实例对象。它一共可以接受五个参数。</p><pre class="prettyprint language-javascript"><code>void open(
+   string method,
+   string url,
+   optional boolean async,
+   optional string user,
+   optional string password
+);</code></pre><ul><li><code>method</code>：表示 HTTP 动词方法，比如<code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code>、<code>HEAD</code>等。</li><li><code>url</code>: 表示请求发送目标 URL。</li><li><code>async</code>: 布尔值，表示请求是否为异步，默认为<code>true</code>。如果设为<code>false</code>，则<code>send()</code>方法只有等到收到服务器返回了结果，才会进行下一步操作。该参数可选。由于同步 AJAX 请求会造成浏览器失去响应，许多浏览器已经禁止在主线程使用，只允许 Worker 里面使用。所以，这个参数轻易不应该设为<code>false</code>。</li><li><code>user</code>：表示用于认证的用户名，默认为空字符串。该参数可选。</li><li><code>password</code>：表示用于认证的密码，默认为空字符串。该参数可选。</li></ul><p>注意，如果对使用过<code>open()</code>方法的 AJAX 请求，再次使用这个方法，等同于调用<code>abort()</code>，即终止请求。</p><p>下面发送 POST 请求的例子。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;POST&#039;, encodeURI(&#039;someURL&#039;));</code></pre><h3><a href="#XMLHttpRequest.send()" class="header-anchor">#</a> <span>XMLHttpRequest.send()</span></h3><p><code>XMLHttpRequest.send()</code>方法用于实际发出 HTTP 请求。它的参数是可选的，如果不带参数，就表示 HTTP 请求只包含头信息，也就是只有一个 URL，典型例子就是 GET 请求；如果带有参数，就表示除了头信息，还带有包含具体数据的信息体，典型例子就是 POST 请求。</p><p>下面是 GET 请求的例子。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;,
+  &#039;http://www.example.com/?id=&#039; + encodeURIComponent(id),
+  true
+);
+xhr.send(null);
+
+// 等同于
+var data = &#039;id=&#039; + encodeURIComponent(id);
+xhr.open(&#039;GET&#039;, &#039;http://www.example.com&#039;, true);
+xhr.send(data);</code></pre><p>上面代码中，<code>GET</code>请求的参数，可以作为查询字符串附加在 URL 后面，也可以作为<code>send</code>方法的参数。</p><p>下面是发送 POST 请求的例子。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+var data = &#039;email=&#039;
+  + encodeURIComponent(email)
+  + &#039;&amp;password=&#039;
+  + encodeURIComponent(password);
+
+xhr.open(&#039;POST&#039;, &#039;http://www.example.com&#039;, true);
+xhr.setRequestHeader(&#039;Content-Type&#039;, &#039;application/x-www-form-urlencoded&#039;);
+xhr.send(data);</code></pre><p>注意，所有 XMLHttpRequest 的监听事件，都必须在<code>send()</code>方法调用之前设定。</p><p><code>send</code>方法的参数就是发送的数据。多种格式的数据，都可以作为它的参数。</p><pre class="prettyprint language-javascript"><code>void send();
+void send(ArrayBufferView data);
+void send(Blob data);
+void send(Document data);
+void send(String data);
+void send(FormData data);</code></pre><p>如果发送 DOM 对象，在发送之前，数据会先被串行化。发送二进制数据，最好使用<code>ArrayBufferView</code>或<code>Blob</code>对象，这使得通过 Ajax 上传文件成为可能。</p><p>下面是发送表单数据的例子。<code>FormData</code>对象可以用于构造表单数据。</p><pre class="prettyprint language-javascript"><code>var formData = new FormData();
+
+formData.append(&#039;username&#039;, &#039;张三&#039;);
+formData.append(&#039;email&#039;, &#039;zhangsan@example.com&#039;);
+formData.append(&#039;birthDate&#039;, 1940);
+
+var xhr = new XMLHttpRequest();
+xhr.open(&quot;POST&quot;, &quot;/register&quot;);
+xhr.send(formData);</code></pre><p>上面代码<code>FormData</code>对象构造了表单数据，然后使用<code>send()</code>方法发送。它的效果与发送下面的表单数据是一样的。</p><pre class="prettyprint language-html"><code>&lt;form id=&#039;registration&#039; name=&#039;registration&#039; action=&#039;/register&#039;&gt;
+  &lt;input type=&#039;text&#039; name=&#039;username&#039; value=&#039;张三&#039;&gt;
+  &lt;input type=&#039;email&#039; name=&#039;email&#039; value=&#039;zhangsan@example.com&#039;&gt;
+  &lt;input type=&#039;number&#039; name=&#039;birthDate&#039; value=&#039;1940&#039;&gt;
+  &lt;input type=&#039;submit&#039; onclick=&#039;return sendForm(this.form);&#039;&gt;
+&lt;/form&gt;</code></pre><p>下面的例子是使用<code>FormData</code>对象加工表单数据，然后再发送。</p><pre class="prettyprint language-javascript"><code>function sendForm(form) {
+  var formData = new FormData(form);
+  formData.append(&#039;csrf&#039;, &#039;e69a18d7db1286040586e6da1950128c&#039;);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open(&#039;POST&#039;, form.action, true);
+  xhr.onload = function() {
+    // ...
+  };
+  xhr.send(formData);
+
+  return false;
+}
+
+var form = document.querySelector(&#039;#registration&#039;);
+sendForm(form);</code></pre><h3><a href="#XMLHttpRequest.setRequestHeader()" class="header-anchor">#</a> <span>XMLHttpRequest.setRequestHeader()</span></h3><p><code>XMLHttpRequest.setRequestHeader()</code>方法用于设置浏览器发送的 HTTP 请求的头信息。该方法必须在<code>open()</code>之后、<code>send()</code>之前调用。如果该方法多次调用，设定同一个字段，则每一次调用的值会被合并成一个单一的值发送。</p><p>该方法接受两个参数。第一个参数是字符串，表示头信息的字段名，第二个参数是字段值。</p><pre class="prettyprint language-javascript"><code>xhr.setRequestHeader(&#039;Content-Type&#039;, &#039;application/json&#039;);
+xhr.setRequestHeader(&#039;Content-Length&#039;, JSON.stringify(data).length);
+xhr.send(JSON.stringify(data));</code></pre><p>上面代码首先设置头信息<code>Content-Type</code>，表示发送 JSON 格式的数据；然后设置<code>Content-Length</code>，表示数据长度；最后发送 JSON 数据。</p><h3><a href="#XMLHttpRequest.overrideMimeType()" class="header-anchor">#</a> <span>XMLHttpRequest.overrideMimeType()</span></h3><p><code>XMLHttpRequest.overrideMimeType()</code>方法用来指定 MIME 类型，覆盖服务器返回的真正的 MIME 类型，从而让浏览器进行不一样的处理。举例来说，服务器返回的数据类型是<code>text/xml</code>，由于种种原因浏览器解析不成功报错，这时就拿不到数据了。为了拿到原始数据，我们可以把 MIME 类型改成<code>text/plain</code>，这样浏览器就不会去自动解析，从而我们就可以拿到原始文本了。</p><pre class="prettyprint language-javascript"><code>xhr.overrideMimeType(&#039;text/plain&#039;)</code></pre><p>注意，该方法必须在<code>send()</code>方法之前调用。</p><p>修改服务器返回的数据类型，不是正常情况下应该采取的方法。如果希望服务器返回指定的数据类型，可以用<code>responseType</code>属性告诉服务器，就像下面的例子。只有在服务器无法返回某种数据类型时，才使用<code>overrideMimeType()</code>方法。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.onload = function(e) {
+  var arraybuffer = xhr.response;
+  // ...
+}
+xhr.open(&#039;GET&#039;, url);
+xhr.responseType = &#039;arraybuffer&#039;;
+xhr.send();</code></pre><h3><a href="#XMLHttpRequest.getResponseHeader()" class="header-anchor">#</a> <span>XMLHttpRequest.getResponseHeader()</span></h3><p><code>XMLHttpRequest.getResponseHeader()</code>方法返回 HTTP 头信息指定字段的值，如果还没有收到服务器回应或者指定字段不存在，返回<code>null</code>。该方法的参数不区分大小写。</p><pre class="prettyprint language-javascript"><code>function getHeaderTime() {
+  console.log(this.getResponseHeader(&quot;Last-Modified&quot;));
+}
+
+var xhr = new XMLHttpRequest();
+xhr.open(&#039;HEAD&#039;, &#039;yourpage.html&#039;);
+xhr.onload = getHeaderTime;
+xhr.send();</code></pre><p>如果有多个字段同名，它们的值会被连接为一个字符串，每个字段之间使用“逗号+空格”分隔。</p><h3><a href="#XMLHttpRequest.getAllResponseHeaders()" class="header-anchor">#</a> <span>XMLHttpRequest.getAllResponseHeaders()</span></h3><p><code>XMLHttpRequest.getAllResponseHeaders()</code>方法返回一个字符串，表示服务器发来的所有 HTTP 头信息。格式为字符串，每个头信息之间使用<code>CRLF</code>分隔（回车+换行），如果没有收到服务器回应，该属性为<code>null</code>。如果发生网络错误，该属性为空字符串。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;foo.txt&#039;, true);
+xhr.send();
+
+xhr.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    var headers = xhr.getAllResponseHeaders();
+  }
+}</code></pre><p>上面代码用于获取服务器返回的所有头信息。它可能是下面这样的字符串。</p><pre class="prettyprint language-http"><code>date: Fri, 08 Dec 2017 21:04:30 GMT\r\n
+content-encoding: gzip\r\n
+x-content-type-options: nosniff\r\n
+server: meinheld/0.6.1\r\n
+x-frame-options: DENY\r\n
+content-type: text/html; charset=utf-8\r\n
+connection: keep-alive\r\n
+strict-transport-security: max-age=63072000\r\n
+vary: Cookie, Accept-Encoding\r\n
+content-length: 6502\r\n
+x-xss-protection: 1; mode=block\r\n</code></pre><p>然后，对这个字符串进行处理。</p><pre class="prettyprint language-javascript"><code>var arr = headers.trim().split(/[\r\n]+/);
+var headerMap = {};
+
+arr.forEach(function (line) {
+  var parts = line.split(&#039;: &#039;);
+  var header = parts.shift();
+  var value = parts.join(&#039;: &#039;);
+  headerMap[header] = value;
+});
+
+headerMap[&#039;content-length&#039;] // &quot;6502&quot;</code></pre><h3><a href="#XMLHttpRequest.abort()" class="header-anchor">#</a> <span>XMLHttpRequest.abort()</span></h3><p><code>XMLHttpRequest.abort()</code>方法用来终止已经发出的 HTTP 请求。调用这个方法以后，<code>readyState</code>属性变为<code>4</code>，<code>status</code>属性变为<code>0</code>。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+xhr.open(&#039;GET&#039;, &#039;http://www.example.com/page.php&#039;, true);
+setTimeout(function () {
+  if (xhr) {
+    xhr.abort();
+    xhr = null;
+  }
+}, 5000);</code></pre><p>上面代码在发出5秒之后，终止一个 AJAX 请求。</p><h2><a href="#XMLHttpRequest-实例的事件" class="header-anchor">#</a> <span>XMLHttpRequest 实例的事件</span></h2><h3><a href="#readyStateChange-事件" class="header-anchor">#</a> <span>readyStateChange 事件</span></h3><p><code>readyState</code>属性的值发生改变，就会触发 readyStateChange 事件。</p><p>我们可以通过<code>onReadyStateChange</code>属性，指定这个事件的监听函数，对不同状态进行不同处理。尤其是当状态变为<code>4</code>的时候，表示通信成功，这时回调函数就可以处理服务器传送回来的数据。</p><h3><a href="#progress-事件" class="header-anchor">#</a> <span>progress 事件</span></h3><p>上传文件时，XMLHTTPRequest 实例对象本身和实例的<code>upload</code>属性，都有一个<code>progress</code>事件，会不断返回上传的进度。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+
+function updateProgress (oEvent) {
+  if (oEvent.lengthComputable) {
+    var percentComplete = oEvent.loaded / oEvent.total;
+  } else {
+    console.log(&#039;无法计算进展&#039;);
+  }
+}
+
+xhr.addEventListener(&#039;progress&#039;, updateProgress);
+
+xhr.open();</code></pre><h3><a href="#load-事件、error-事件、abort-事件" class="header-anchor">#</a> <span>load 事件、error 事件、abort 事件</span></h3><p>load 事件表示服务器传来的数据接收完毕，error 事件表示请求出错，abort 事件表示请求被中断（比如用户取消请求）。</p><pre class="prettyprint language-javascript"><code>var xhr = new XMLHttpRequest();
+
+xhr.addEventListener(&#039;load&#039;, transferComplete);
+xhr.addEventListener(&#039;error&#039;, transferFailed);
+xhr.addEventListener(&#039;abort&#039;, transferCanceled);
+
+xhr.open();
+
+function transferComplete() {
+  console.log(&#039;数据接收完毕&#039;);
+}
+
+function transferFailed() {
+  console.log(&#039;数据接收出错&#039;);
+}
+
+function transferCanceled() {
+  console.log(&#039;用户取消接收&#039;);
+}</code></pre><h3><a href="#loadend-事件" class="header-anchor">#</a> <span>loadend 事件</span></h3><p><code>abort</code>、<code>load</code>和<code>error</code>这三个事件，会伴随一个<code>loadend</code>事件，表示请求结束，但不知道其是否成功。</p><pre class="prettyprint language-javascript"><code>xhr.addEventListener(&#039;loadend&#039;, loadEnd);
+
+function loadEnd(e) {
+  console.log(&#039;请求结束，状态未知&#039;);
+}</code></pre><h3><a href="#timeout-事件" class="header-anchor">#</a> <span>timeout 事件</span></h3><p>服务器超过指定时间还没有返回结果，就会触发 timeout 事件，具体的例子参见<code>timeout</code>属性一节。</p><h2><a href="#Navigator.sendBeacon()" class="header-anchor">#</a> <span>Navigator.sendBeacon()</span></h2><p>用户卸载网页的时候，有时需要向服务器发一些数据。很自然的做法是在<code>unload</code>事件或<code>beforeunload</code>事件的监听函数里面，使用<code>XMLhttpRequest</code>对象发送数据。但是，这样做不是很可靠，因为<code>XMLhttpRequest</code>对象是异步发送，很可能在它即将发送的时候，页面已经卸载了，从而导致发送取消或者发送失败。</p><p>解决方法就是 AJAX 通信改成同步发送，即只有发送完成，页面才能卸载。但是，很多浏览器已经不支持同步的 XMLHttpRequest 对象了（即<code>open()</code>方法的第三个参数为<code>false</code>）。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;unload&#039;, logData, false);
+
+function logData() {
+  var client = new XMLHttpRequest();
+  // 第三个参数表示同步发送
+  client.open(&#039;POST&#039;, &#039;/log&#039;, false);
+  client.setRequestHeader(&#039;Content-Type&#039;, &#039;text/plain;charset=UTF-8&#039;);
+  client.send(analyticsData);
+}</code></pre><p>上面代码指定<code>XMLHttpRequest</code>同步发送，很多浏览器都已经不支持这种写法。</p><p>同步通信有几种变通的方法。一种做法是新建一个<code>&lt;img&gt;</code>元素，数据放在<code>src</code>属性，作为 URL 的查询字符串，这时浏览器会等待图片加载完成（服务器回应），再进行卸载。另一种做法是创建一个循环，规定执行时间为几秒钟，在这几秒钟内把数据发出去，然后再卸载页面。</p><p>这些做法的共同问题是，卸载的时间被硬生生拖长了，后面页面的加载被推迟了，用户体验不好。</p><p>为了解决这个问题，浏览器引入了<code>Navigator.sendBeacon()</code>方法。这个方法还是异步发出请求，但是请求与当前页面脱钩，作为浏览器的任务，因此可以保证会把数据发出去，不拖延卸载流程。</p><pre class="prettyprint language-javascript"><code>window.addEventListener(&#039;unload&#039;, logData, false);
+
+function logData() {
+  navigator.sendBeacon(&#039;/log&#039;, analyticsData);
+}</code></pre><p><code>Navigator.sendBeacon</code>方法接受两个参数，第一个参数是目标服务器的 URL，第二个参数是所要发送的数据（可选），可以是任意类型（字符串、表单对象、二进制对象等等）。</p><pre class="prettyprint language-javascript"><code>navigator.sendBeacon(url, data)</code></pre><p>这个方法的返回值是一个布尔值，成功发送数据为<code>true</code>，否则为<code>false</code>。</p><p>该方法发送数据的 HTTP 方法是 POST，可以跨域，类似于表单提交数据。它不能指定回调函数。</p><p>下面是一个例子。</p><pre class="prettyprint language-javascript"><code>// HTML 代码如下
+// &lt;body onload=&quot;analytics(&#039;start&#039;)&quot; onunload=&quot;analytics(&#039;end&#039;)&quot;&gt;
+
+function analytics(state) {
+  if (!navigator.sendBeacon) return;
+
+  var URL = &#039;http://example.com/analytics&#039;;
+  var data = &#039;state=&#039; + state + &#039;&amp;location=&#039; + window.location;
+  navigator.sendBeacon(URL, data);
+}</code></pre></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

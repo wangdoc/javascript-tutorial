@@ -1,4 +1,4 @@
-# <a> 元素
+# a 元素
 
 `<a>`元素用来设置链接。除了网页元素的通用接口（`Node`接口、`Element`接口、`HTMLElement`接口），它还继承了`HTMLAnchorElement`接口和`HTMLHyperlinkElementUtils`接口。
 

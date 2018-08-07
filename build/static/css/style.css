@@ -1,0 +1,421 @@
+body {
+    font: 13px/21px "Microsoft YaHei","宋体", 'Myriad Pro','Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+*:not(i) {
+    color: #345;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #0ae;
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+ul {
+    margin-left: 0px;
+    padding-left: 15px;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    display:block;
+    content:"clear";
+    height:0;
+    clear:both;
+    overflow:hidden;
+    visibility:hidden;
+}
+
+.main {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.main .tea-menu {
+    float: left;
+    width: 250px;
+    height: 100%;
+    overflow: auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+    background: rgb(255, 255, 255);
+    border-right: 1px solid rgb(221, 221, 221);
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.main .tea-menu-list {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+    list-style-type: none;
+    font-size: 14px;
+
+}
+
+.main .tea-menu-list li {
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+.main .tea-menu-list li ul {
+    overflow: hidden;
+    display: none;
+    transition: max-height 0.5s;
+}
+
+.main .tea-menu-list li ul.unfold {
+    display: block;
+}
+
+.main .tea-menu-list li a > i.fa.fa-angle-down.unfold {
+    transform: rotate(-180deg);
+}
+
+.main .tea-menu-list li a > i.fa.fa-angle-down {
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    right: 10px;
+    top: 0px;
+    width: 30px;
+    color: #E0E0E0;
+    height: 37px;
+    transition: all .5s;
+}
+
+.main .tea-menu-list li a > i.fa.fa-angle-down:hover {
+    color: #333;
+}
+
+.main .tea-menu-list li  a {
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    transition: background-color .25s;
+ }
+
+.main .tea-menu-list li a:hover {
+    color: #333;
+    background-color: #f3f3f3;
+}
+
+.main .tea-menu-list li a.active {
+    color: #000;
+    background-color: #efefef;
+}
+
+.main .tea-menu .tea-menu-title {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.main .tea-menu .tea-version {
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.main .tea-menu .tea-version p {
+    color: #ccc !important;
+}
+
+.main .tea-content {
+    float: right;
+    width: calc(100vw - 250px);
+}
+
+.main .tea-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    background: rgb(255, 255, 255);
+    z-index: 999;
+    border-bottom: 1px solid rgb(243, 243, 243);
+}
+.main .tea-nav .top-title span{
+  margin-left:12px;
+}
+
+.main .tea-menu .tea-menu-search-warp {
+    text-align: center;
+    margin-top: 15px;
+    padding: 5px;
+    position: relative;
+}
+
+.main .tea-menu .tea-menu-search-warp i {
+    position: absolute;
+    top: 17px;
+    left: 35px;
+    font-size: 12px;
+    color: rgb(78, 52, 52);
+}
+
+.main .tea-menu .tea-menu-search-warp input {
+    background-color: rgb(243, 243, 243);
+    border-radius: 36px;
+    width: 215px;
+    border: none;
+    padding: 10px;
+    padding-left: 40px;
+    box-sizing: border-box;
+    font-size: 14px;
+    outline:none;
+}
+
+.main .tea-menu .tea-menu-search-warp input::-webkit-input-placeholder {
+    columns: #e9e9e9;;
+}
+
+.tea-container {
+    background-color: rgb(238, 238, 238);
+    width: 100%;
+    height: calc(100vh - 57px);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.main .gotop{
+  position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 999;
+    font-size: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.main .active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.markdown-body {
+    background-color: #fff;
+    padding: 30px 50px;
+    box-sizing: border-box;
+    min-height: 1000px;
+    max-width: 900px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.markdown-body a.header-anchor {
+    position: absolute;
+    left: -23px;
+    opacity: 0;
+}
+
+.markdown-body h1:hover > a.header-anchor,
+.markdown-body h2:hover > a.header-anchor,
+.markdown-body h3:hover > a.header-anchor,
+.markdown-body h4:hover > a.header-anchor,
+.markdown-body h5:hover > a.header-anchor,
+.markdown-body h6:hover > a.header-anchor
+{
+    opacity: 1;
+}
+
+.loading-warp {
+    background-color: #fff;
+    position: fixed;
+    width: 249px;
+    height: 100vh;
+    z-index: 10;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none; 
+}
+
+.mask {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+
+    transition: all .4s;
+    -moz-transition: all .4s; /* Firefox 4 */
+    -webkit-transition: all .4s; /* Safari 和 Chrome */
+    -o-transition: all .4s; /* Opera */
+}
+
+.mask.show {
+    opacity: 1 !important;
+}
+
+.mask .search-popup {
+    width: 700px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.mask .search-popup .search-popup-header {
+    padding: 5px;
+    height: 36px;
+    background: #f5f5f5;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.mask .search-popup .search-icon,
+.mask .search-popup .popup-btn-close {
+    line-height: 2;
+    display: inline-block;
+    font-size: 18px;
+    color: #999;
+    height: 36px;
+    width: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mask .search-popup .search-icon {
+    float: left;
+}
+
+.mask .search-popup .popup-btn-close {
+    border-left: 1px solid #eee;
+    float: right;
+    cursor: pointer;
+}
+
+.mask .search-popup .local-search-input-wrapper {
+    display: inline-block;
+    width: calc(100% - 90px);
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+}
+
+.mask .search-popup .local-search-input-wrapper input {
+    padding: 8px 0;
+    height: 20px;
+    display: block;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    vertical-align: middle;
+}
+
+.mask .search-popup .search-popup-body {
+    position: relative;
+    min-height: 300px;
+    max-height: 500px;
+    width: 100%;
+    overflow: auto;
+}
+
+.mask .search-popup
+.search-popup-body .search-loding {
+    background-color: #fff;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mask .search-popup
+.search-popup-body .search-result {
+    width: 100%;
+    padding: 5px 25px;
+    box-sizing: border-box;
+    color: #555;
+}
+
+.mask .search-popup
+.search-popup-body .search-result .no-result {
+    display: flex;
+    padding: 150px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    color: #e9e9e9;
+}
+
+.mask .search-popup
+.search-popup-body
+.search-result ul .title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.mask .search-popup
+.search-popup-body
+.search-result ul .title a {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: underline;
+    transition: color .3s;
+}
+
+.mask .search-popup
+.search-popup-body
+.search-result ul .title a:hover {
+    color: #0ae;
+}
+
+.mask .search-popup
+.search-popup-body
+.search-result ul .content {
+    font-size: 14px;
+    margin: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.mask .search-popup
+.search-popup-body
+.search-result ul .content b {
+    border-bottom: 1px dashed #f00;
+    font-weight: bold;
+    color: #f00;
+}

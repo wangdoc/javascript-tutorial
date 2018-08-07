@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>函数 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="active">数据类型<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="">对象</a></li><li><a href="/types/function.html" title="函数" class="active">函数</a></li><li><a href="/types/array.html" title="数组">数组</a></li></ul></li><li><a title="运算符">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台">console 对象与控制台</a></li></ul></li><li><a title="标准库">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象">JSON 对象</a></li></ul></li><li><a title="面向对象编程">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>函数</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#函数" class="header-anchor">#</a> <span>函数</span></h1><p>函数是一段可以反复调用的代码块。函数还能接受输入的参数，不同的参数会返回不同的值。</p><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><h3><a href="#函数的声明" class="header-anchor">#</a> <span>函数的声明</span></h3><p>JavaScript 有三种声明函数的方法。</p><p><strong>（1）function 命令</strong></p><p><code>function</code>命令声明的代码区块，就是一个函数。<code>function</code>命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数。函数体放在大括号里面。</p><pre class="prettyprint language-javascript"><code>function print(s) {
+  console.log(s);
+}</code></pre><p>上面的代码命名了一个<code>print</code>函数，以后使用<code>print()</code>这种形式，就可以调用相应的代码。这叫做函数的声明（Function Declaration）。</p><p><strong>（2）函数表达式</strong></p><p>除了用<code>function</code>命令声明函数，还可以采用变量赋值的写法。</p><pre class="prettyprint language-javascript"><code>var print = function(s) {
+  console.log(s);
+};</code></pre><p>这种写法将一个匿名函数赋值给变量。这时，这个匿名函数又称函数表达式（Function Expression），因为赋值语句的等号右侧只能放表达式。</p><p>采用函数表达式声明函数时，<code>function</code>命令后面不带有函数名。如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。</p><pre class="prettyprint language-javascript"><code>var print = function x(){
+  console.log(typeof x);
+};
+
+x
+// ReferenceError: x is not defined
+
+print()
+// function</code></pre><p>上面代码在函数表达式中，加入了函数名<code>x</code>。这个<code>x</code>只在函数体内部可用，指代函数表达式本身，其他地方都不可用。这种写法的用处有两个，一是可以在函数体内部调用自身，二是方便除错（除错工具显示函数调用栈时，将显示函数名，而不再显示这里是一个匿名函数）。因此，下面的形式声明函数也非常常见。</p><pre class="prettyprint language-javascript"><code>var f = function f() {};</code></pre><p>需要注意的是，函数的表达式需要在语句的结尾加上分号，表示语句结束。而函数的声明在结尾的大括号后面不用加分号。总的来说，这两种声明函数的方式，差别很细微，可以近似认为是等价的。</p><p><strong>（3）Function 构造函数</strong></p><p>第三种声明函数的方式是<code>Function</code>构造函数。</p><pre class="prettyprint language-javascript"><code>var add = new Function(
+  &#039;x&#039;,
+  &#039;y&#039;,
+  &#039;return x + y&#039;
+);
+
+// 等同于
+function add(x, y) {
+  return x + y;
+}</code></pre><p>上面代码中，<code>Function</code>构造函数接受三个参数，除了最后一个参数是<code>add</code>函数的“函数体”，其他参数都是<code>add</code>函数的参数。</p><p>你可以传递任意数量的参数给<code>Function</code>构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。</p><pre class="prettyprint language-javascript"><code>var foo = new Function(
+  &#039;return &quot;hello world&quot;&#039;
+);
+
+// 等同于
+function foo() {
+  return &#039;hello world&#039;;
+}</code></pre><p><code>Function</code>构造函数可以不使用<code>new</code>命令，返回结果完全一样。</p><p>总的来说，这种声明函数的方式非常不直观，几乎无人使用。</p><h3><a href="#函数的重复声明" class="header-anchor">#</a> <span>函数的重复声明</span></h3><p>如果同一个函数被多次声明，后面的声明就会覆盖前面的声明。</p><pre class="prettyprint language-javascript"><code>function f() {
+  console.log(1);
+}
+f() // 2
+
+function f() {
+  console.log(2);
+}
+f() // 2</code></pre><p>上面代码中，后一次的函数声明覆盖了前面一次。而且，由于函数名的提升（参见下文），前一次声明在任何时候都是无效的，这一点要特别注意。</p><h3><a href="#圆括号运算符，return-语句和递归" class="header-anchor">#</a> <span>圆括号运算符，return 语句和递归</span></h3><p>调用函数时，要使用圆括号运算符。圆括号之中，可以加入函数的参数。</p><pre class="prettyprint language-javascript"><code>function add(x, y) {
+  return x + y;
+}
+
+add(1, 1) // 2</code></pre><p>上面代码中，函数名后面紧跟一对圆括号，就会调用这个函数。</p><p>函数体内部的<code>return</code>语句，表示返回。JavaScript 引擎遇到<code>return</code>语句，就直接返回<code>return</code>后面的那个表达式的值，后面即使还有语句，也不会得到执行。也就是说，<code>return</code>语句所带的那个表达式，就是函数的返回值。<code>return</code>语句不是必需的，如果没有的话，该函数就不返回任何值，或者说返回<code>undefined</code>。</p><p>函数可以调用自身，这就是递归（recursion）。下面就是通过递归，计算斐波那契数列的代码。</p><pre class="prettyprint language-javascript"><code>function fib(num) {
+  if (num === 0) return 0;
+  if (num === 1) return 1;
+  return fib(num - 2) + fib(num - 1);
+}
+
+fib(6) // 8</code></pre><p>上面代码中，<code>fib</code>函数内部又调用了<code>fib</code>，计算得到斐波那契数列的第6个元素是8。</p><h3><a href="#第一等公民" class="header-anchor">#</a> <span>第一等公民</span></h3><p>JavaScript 语言将函数看作一种值，与其它值（数值、字符串、布尔值等等）地位相同。凡是可以使用值的地方，就能使用函数。比如，可以把函数赋值给变量和对象的属性，也可以当作参数传入其他函数，或者作为函数的结果返回。函数只是一个可以执行的值，此外并无特殊之处。</p><p>由于函数与其他数据类型地位平等，所以在 JavaScript 语言中又称函数为第一等公民。</p><pre class="prettyprint language-javascript"><code>function add(x, y) {
+  return x + y;
+}
+
+// 将函数赋值给一个变量
+var operator = add;
+
+// 将函数作为参数和返回值
+function a(op){
+  return op;
+}
+a(add)(1, 1)
+// 2</code></pre><h3><a href="#函数名的提升" class="header-anchor">#</a> <span>函数名的提升</span></h3><p>JavaScript 引擎将函数名视同变量名，所以采用<code>function</code>命令声明函数时，整个函数会像变量声明一样，被提升到代码头部。所以，下面的代码不会报错。</p><pre class="prettyprint language-javascript"><code>f();
+
+function f() {}</code></pre><p>表面上，上面代码好像在声明之前就调用了函数<code>f</code>。但是实际上，由于“变量提升”，函数<code>f</code>被提升到了代码头部，也就是在调用之前已经声明了。但是，如果采用赋值语句定义函数，JavaScript 就会报错。</p><pre class="prettyprint language-javascript"><code>f();
+var f = function (){};
+// TypeError: undefined is not a function</code></pre><p>上面的代码等同于下面的形式。</p><pre class="prettyprint language-javascript"><code>var f;
+f();
+f = function () {};</code></pre><p>上面代码第二行，调用<code>f</code>的时候，<code>f</code>只是被声明了，还没有被赋值，等于<code>undefined</code>，所以会报错。因此，如果同时采用<code>function</code>命令和赋值语句声明同一个函数，最后总是采用赋值语句的定义。</p><pre class="prettyprint language-javascript"><code>var f = function () {
+  console.log(&#039;1&#039;);
+}
+
+function f() {
+  console.log(&#039;2&#039;);
+}
+
+f() // 1</code></pre><h2><a href="#函数的属性和方法" class="header-anchor">#</a> <span>函数的属性和方法</span></h2><h3><a href="#name-属性" class="header-anchor">#</a> <span>name 属性</span></h3><p>函数的<code>name</code>属性返回函数的名字。</p><pre class="prettyprint language-javascript"><code>function f1() {}
+f1.name // &quot;f1&quot;</code></pre><p>如果是通过变量赋值定义的函数，那么<code>name</code>属性返回变量名。</p><pre class="prettyprint language-javascript"><code>var f2 = function () {};
+f2.name // &quot;f2&quot;</code></pre><p>但是，上面这种情况，只有在变量的值是一个匿名函数时才是如此。如果变量的值是一个具名函数，那么<code>name</code>属性返回<code>function</code>关键字之后的那个函数名。</p><pre class="prettyprint language-javascript"><code>var f3 = function myName() {};
+f3.name // &#039;myName&#039;</code></pre><p>上面代码中，<code>f3.name</code>返回函数表达式的名字。注意，真正的函数名还是<code>f3</code>，而<code>myName</code>这个名字只在函数体内部可用。</p><p><code>name</code>属性的一个用处，就是获取参数函数的名字。</p><pre class="prettyprint language-javascript"><code>var myFunc = function () {};
+
+function test(f) {
+  console.log(f.name);
+}
+
+test(myFunc) // myFunc</code></pre><p>上面代码中，函数<code>test</code>内部通过<code>name</code>属性，就可以知道传入的参数是什么函数。</p><h3><a href="#length-属性" class="header-anchor">#</a> <span>length 属性</span></h3><p>函数的<code>length</code>属性返回函数预期传入的参数个数，即函数定义之中的参数个数。</p><pre class="prettyprint language-javascript"><code>function f(a, b) {}
+f.length // 2</code></pre><p>上面代码定义了空函数<code>f</code>，它的<code>length</code>属性就是定义时的参数个数。不管调用时输入了多少个参数，<code>length</code>属性始终等于2。</p><p><code>length</code>属性提供了一种机制，判断定义时和调用时参数的差异，以便实现面向对象编程的”方法重载“（overload）。</p><h3><a href="#toString()" class="header-anchor">#</a> <span>toString()</span></h3><p>函数的<code>toString</code>方法返回一个字符串，内容是函数的源码。</p><pre class="prettyprint language-javascript"><code>function f() {
+  a();
+  b();
+  c();
+}
+
+f.toString()
+// function f() {
+//  a();
+//  b();
+//  c();
+// }</code></pre><p>函数内部的注释也可以返回。</p><pre class="prettyprint language-javascript"><code>function f() {/*
+  这是一个
+  多行注释
+*/}
+
+f.toString()
+// &quot;function f(){/*
+//   这是一个
+//   多行注释
+// */}&quot;</code></pre><p>利用这一点，可以变相实现多行字符串。</p><pre class="prettyprint language-javascript"><code>var multiline = function (fn) {
+  var arr = fn.toString().split(&#039;\n&#039;);
+  return arr.slice(1, arr.length - 1).join(&#039;\n&#039;);
+};
+
+function f() {/*
+  这是一个
+  多行注释
+*/}
+
+multiline(f);
+// &quot; 这是一个
+//   多行注释&quot;</code></pre><h2><a href="#函数作用域" class="header-anchor">#</a> <span>函数作用域</span></h2><h3><a href="#定义" class="header-anchor">#</a> <span>定义</span></h3><p>作用域（scope）指的是变量存在的范围。在 ES5 的规范中，Javascript 只有两种作用域：一种是全局作用域，变量在整个程序中一直存在，所有地方都可以读取；另一种是函数作用域，变量只在函数内部存在。ES6 又新增了块级作用域，本教程不涉及。</p><p>函数外部声明的变量就是全局变量（global variable），它可以在函数内部读取。</p><pre class="prettyprint language-javascript"><code>var v = 1;
+
+function f() {
+  console.log(v);
+}
+
+f()
+// 1</code></pre><p>上面的代码表明，函数<code>f</code>内部可以读取全局变量<code>v</code>。</p><p>在函数内部定义的变量，外部无法读取，称为“局部变量”（local variable）。</p><pre class="prettyprint language-javascript"><code>function f(){
+  var v = 1;
+}
+
+v // ReferenceError: v is not defined</code></pre><p>上面代码中，变量<code>v</code>在函数内部定义，所以是一个局部变量，函数之外就无法读取。</p><p>函数内部定义的变量，会在该作用域内覆盖同名全局变量。</p><pre class="prettyprint language-javascript"><code>var v = 1;
+
+function f(){
+  var v = 2;
+  console.log(v);
+}
+
+f() // 2
+v // 1</code></pre><p>上面代码中，变量<code>v</code>同时在函数的外部和内部有定义。结果，在函数内部定义，局部变量<code>v</code>覆盖了全局变量<code>v</code>。</p><p>注意，对于<code>var</code>命令来说，局部变量只能在函数内部声明，在其他区块中声明，一律都是全局变量。</p><pre class="prettyprint language-javascript"><code>if (true) {
+  var x = 5;
+}
+console.log(x);  // 5</code></pre><p>上面代码中，变量<code>x</code>在条件判断区块之中声明，结果就是一个全局变量，可以在区块之外读取。</p><h3><a href="#函数内部的变量提升" class="header-anchor">#</a> <span>函数内部的变量提升</span></h3><p>与全局作用域一样，函数作用域内部也会产生“变量提升”现象。<code>var</code>命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部。</p><pre class="prettyprint language-javascript"><code>function foo(x) {
+  if (x &gt; 100) {
+    var tmp = x - 100;
+  }
+}
+
+// 等同于
+function foo(x) {
+  var tmp;
+  if (x &gt; 100) {
+    tmp = x - 100;
+  };
+}</code></pre><h3><a href="#函数本身的作用域" class="header-anchor">#</a> <span>函数本身的作用域</span></h3><p>函数本身也是一个值，也有自己的作用域。它的作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。</p><pre class="prettyprint language-javascript"><code>var a = 1;
+var x = function () {
+  console.log(a);
+};
+
+function f() {
+  var a = 2;
+  x();
+}
+
+f() // 1</code></pre><p>上面代码中，函数<code>x</code>是在函数<code>f</code>的外部声明的，所以它的作用域绑定外层，内部变量<code>a</code>不会到函数<code>f</code>体内取值，所以输出<code>1</code>，而不是<code>2</code>。</p><p>总之，函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。</p><p>很容易犯错的一点是，如果函数<code>A</code>调用函数<code>B</code>，却没考虑到函数<code>B</code>不会引用函数<code>A</code>的内部变量。</p><pre class="prettyprint language-javascript"><code>var x = function () {
+  console.log(a);
+};
+
+function y(f) {
+  var a = 2;
+  f();
+}
+
+y(x)
+// ReferenceError: a is not defined</code></pre><p>上面代码将函数<code>x</code>作为参数，传入函数<code>y</code>。但是，函数<code>x</code>是在函数<code>y</code>体外声明的，作用域绑定外层，因此找不到函数<code>y</code>的内部变量<code>a</code>，导致报错。</p><p>同样的，函数体内部声明的函数，作用域绑定函数体内部。</p><pre class="prettyprint language-javascript"><code>function foo() {
+  var x = 1;
+  function bar() {
+    console.log(x);
+  }
+  return bar;
+}
+
+var x = 2;
+var f = foo();
+f() // 1</code></pre><p>上面代码中，函数<code>foo</code>内部声明了一个函数<code>bar</code>，<code>bar</code>的作用域绑定<code>foo</code>。当我们在<code>foo</code>外部取出<code>bar</code>执行时，变量<code>x</code>指向的是<code>foo</code>内部的<code>x</code>，而不是<code>foo</code>外部的<code>x</code>。正是这种机制，构成了下文要讲解的“闭包”现象。</p><h2><a href="#参数" class="header-anchor">#</a> <span>参数</span></h2><h3><a href="#概述" class="header-anchor">#</a> <span>概述</span></h3><p>函数运行的时候，有时需要提供外部数据，不同的外部数据会得到不同的结果，这种外部数据就叫参数。</p><pre class="prettyprint language-javascript"><code>function square(x) {
+  return x * x;
+}
+
+square(2) // 4
+square(3) // 9</code></pre><p>上式的<code>x</code>就是<code>square</code>函数的参数。每次运行的时候，需要提供这个值，否则得不到结果。</p><h3><a href="#参数的省略" class="header-anchor">#</a> <span>参数的省略</span></h3><p>函数参数不是必需的，Javascript 允许省略参数。</p><pre class="prettyprint language-javascript"><code>function f(a, b) {
+  return a;
+}
+
+f(1, 2, 3) // 1
+f(1) // 1
+f() // undefined
+
+f.length // 2</code></pre><p>上面代码的函数<code>f</code>定义了两个参数，但是运行时无论提供多少个参数（或者不提供参数），JavaScript 都不会报错。省略的参数的值就变为<code>undefined</code>。需要注意的是，函数的<code>length</code>属性与实际传入的参数个数无关，只反映函数预期传入的参数个数。</p><p>但是，没有办法只省略靠前的参数，而保留靠后的参数。如果一定要省略靠前的参数，只有显式传入<code>undefined</code>。</p><pre class="prettyprint language-javascript"><code>function f(a, b) {
+  return a;
+}
+
+f( , 1) // SyntaxError: Unexpected token ,(…)
+f(undefined, 1) // undefined</code></pre><p>上面代码中，如果省略第一个参数，就会报错。</p><h3><a href="#传递方式" class="header-anchor">#</a> <span>传递方式</span></h3><p>函数参数如果是原始类型的值（数值、字符串、布尔值），传递方式是传值传递（passes by value）。这意味着，在函数体内修改参数值，不会影响到函数外部。</p><pre class="prettyprint language-javascript"><code>var p = 2;
+
+function f(p) {
+  p = 3;
+}
+f(p);
+
+p // 2</code></pre><p>上面代码中，变量<code>p</code>是一个原始类型的值，传入函数<code>f</code>的方式是传值传递。因此，在函数内部，<code>p</code>的值是原始值的拷贝，无论怎么修改，都不会影响到原始值。</p><p>但是，如果函数参数是复合类型的值（数组、对象、其他函数），传递方式是传址传递（pass by reference）。也就是说，传入函数的原始值的地址，因此在函数内部修改参数，将会影响到原始值。</p><pre class="prettyprint language-javascript"><code>var obj = { p: 1 };
+
+function f(o) {
+  o.p = 2;
+}
+f(obj);
+
+obj.p // 2</code></pre><p>上面代码中，传入函数<code>f</code>的是参数对象<code>obj</code>的地址。因此，在函数内部修改<code>obj</code>的属性<code>p</code>，会影响到原始值。</p><p>注意，如果函数内部修改的，不是参数对象的某个属性，而是替换掉整个参数，这时不会影响到原始值。</p><pre class="prettyprint language-javascript"><code>var obj = [1, 2, 3];
+
+function f(o) {
+  o = [2, 3, 4];
+}
+f(obj);
+
+obj // [1, 2, 3]</code></pre><p>上面代码中，在函数<code>f</code>内部，参数对象<code>obj</code>被整个替换成另一个值。这时不会影响到原始值。这是因为，形式参数（<code>o</code>）的值实际是参数<code>obj</code>的地址，重新对<code>o</code>赋值导致<code>o</code>指向另一个地址，保存在原地址上的值当然不受影响。</p><h3><a href="#同名参数" class="header-anchor">#</a> <span>同名参数</span></h3><p>如果有同名的参数，则取最后出现的那个值。</p><pre class="prettyprint language-javascript"><code>function f(a, a) {
+  console.log(a);
+}
+
+f(1, 2) // 2</code></pre><p>上面代码中，函数<code>f</code>有两个参数，且参数名都是<code>a</code>。取值的时候，以后面的<code>a</code>为准，即使后面的<code>a</code>没有值或被省略，也是以其为准。</p><pre class="prettyprint language-javascript"><code>function f(a, a) {
+  console.log(a);
+}
+
+f(1) // undefined</code></pre><p>调用函数<code>f</code>的时候，没有提供第二个参数，<code>a</code>的取值就变成了<code>undefined</code>。这时，如果要获得第一个<code>a</code>的值，可以使用<code>arguments</code>对象。</p><pre class="prettyprint language-javascript"><code>function f(a, a) {
+  console.log(arguments[0]);
+}
+
+f(1) // 1</code></pre><h3><a href="#arguments-对象" class="header-anchor">#</a> <span>arguments 对象</span></h3><p><strong>（1）定义</strong></p><p>由于 JavaScript 允许函数有不定数目的参数，所以需要一种机制，可以在函数体内部读取所有参数。这就是<code>arguments</code>对象的由来。</p><p><code>arguments</code>对象包含了函数运行时的所有参数，<code>arguments[0]</code>就是第一个参数，<code>arguments[1]</code>就是第二个参数，以此类推。这个对象只有在函数体内部，才可以使用。</p><pre class="prettyprint language-javascript"><code>var f = function (one) {
+  console.log(arguments[0]);
+  console.log(arguments[1]);
+  console.log(arguments[2]);
+}
+
+f(1, 2, 3)
+// 1
+// 2
+// 3</code></pre><p>正常模式下，<code>arguments</code>对象可以在运行时修改。</p><pre class="prettyprint language-javascript"><code>var f = function(a, b) {
+  arguments[0] = 3;
+  arguments[1] = 2;
+  return a + b;
+}
+
+f(1, 1) // 5</code></pre><p>上面代码中，函数<code>f</code>调用时传入的参数，在函数内部被修改成<code>3</code>和<code>2</code>。</p><p>严格模式下，<code>arguments</code>对象是一个只读对象，修改它是无效的，但不会报错。</p><pre class="prettyprint language-javascript"><code>var f = function(a, b) {
+  &#039;use strict&#039;; // 开启严格模式
+  arguments[0] = 3; // 无效
+  arguments[1] = 2; // 无效
+  return a + b;
+}
+
+f(1, 1) // 2</code></pre><p>上面代码中，函数体内是严格模式，这时修改<code>arguments</code>对象就是无效的。</p><p>通过<code>arguments</code>对象的<code>length</code>属性，可以判断函数调用时到底带几个参数。</p><pre class="prettyprint language-javascript"><code>function f() {
+  return arguments.length;
+}
+
+f(1, 2, 3) // 3
+f(1) // 1
+f() // 0</code></pre><p><strong>（2）与数组的关系</strong></p><p>需要注意的是，虽然<code>arguments</code>很像数组，但它是一个对象。数组专有的方法（比如<code>slice</code>和<code>forEach</code>），不能在<code>arguments</code>对象上直接使用。</p><p>如果要让<code>arguments</code>对象使用数组方法，真正的解决方法是将<code>arguments</code>转为真正的数组。下面是两种常用的转换方法：<code>slice</code>方法和逐一填入新数组。</p><pre class="prettyprint language-javascript"><code>var args = Array.prototype.slice.call(arguments);
+
+// 或者
+var args = [];
+for (var i = 0; i &lt; arguments.length; i++) {
+  args.push(arguments[i]);
+}</code></pre><p><strong>（3）callee 属性</strong></p><p><code>arguments</code>对象带有一个<code>callee</code>属性，返回它所对应的原函数。</p><pre class="prettyprint language-javascript"><code>var f = function () {
+  console.log(arguments.callee === f);
+}
+
+f() // true</code></pre><p>可以通过<code>arguments.callee</code>，达到调用函数自身的目的。这个属性在严格模式里面是禁用的，因此不建议使用。</p><h2><a href="#函数的其他知识点" class="header-anchor">#</a> <span>函数的其他知识点</span></h2><h3><a href="#闭包" class="header-anchor">#</a> <span>闭包</span></h3><p>闭包（closure）是 Javascript 语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。</p><p>理解闭包，首先必须理解变量作用域。前面提到，JavaScript 有两种作用域：全局作用域和函数作用域。函数内部可以直接读取全局变量。</p><pre class="prettyprint language-javascript"><code>var n = 999;
+
+function f1() {
+  console.log(n);
+}
+f1() // 999</code></pre><p>上面代码中，函数<code>f1</code>可以读取全局变量<code>n</code>。</p><p>但是，函数外部无法读取函数内部声明的变量。</p><pre class="prettyprint language-javascript"><code>function f1() {
+  var n = 999;
+}
+
+console.log(n)
+// Uncaught ReferenceError: n is not defined(</code></pre><p>上面代码中，函数<code>f1</code>内部声明的变量<code>n</code>，函数外是无法读取的。</p><p>如果出于种种原因，需要得到函数内的局部变量。正常情况下，这是办不到的，只有通过变通方法才能实现。那就是在函数的内部，再定义一个函数。</p><pre class="prettyprint language-javascript"><code>function f1() {
+  var n = 999;
+  function f2() {
+　　console.log(n); // 999
+  }
+}</code></pre><p>上面代码中，函数<code>f2</code>就在函数<code>f1</code>内部，这时<code>f1</code>内部的所有局部变量，对<code>f2</code>都是可见的。但是反过来就不行，<code>f2</code>内部的局部变量，对<code>f1</code>就是不可见的。这就是 JavaScript 语言特有的&quot;链式作用域&quot;结构（chain scope），子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p><p>既然<code>f2</code>可以读取<code>f1</code>的局部变量，那么只要把<code>f2</code>作为返回值，我们不就可以在<code>f1</code>外部读取它的内部变量了吗！</p><pre class="prettyprint language-javascript"><code>function f1() {
+  var n = 999;
+  function f2() {
+    console.log(n);
+  }
+  return f2;
+}
+
+var result = f1();
+result(); // 999</code></pre><p>上面代码中，函数<code>f1</code>的返回值就是函数<code>f2</code>，由于<code>f2</code>可以读取<code>f1</code>的内部变量，所以就可以在外部获得<code>f1</code>的内部变量了。</p><p>闭包就是函数<code>f2</code>，即能够读取其他函数内部变量的函数。由于在 JavaScript 语言中，只有函数内部的子函数才能读取内部变量，因此可以把闭包简单理解成“定义在一个函数内部的函数”。闭包最大的特点，就是它可以“记住”诞生的环境，比如<code>f2</code>记住了它诞生的环境<code>f1</code>，所以从<code>f2</code>可以得到<code>f1</code>的内部变量。在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p><p>闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。请看下面的例子，闭包使得内部变量记住上一次调用时的运算结果。</p><pre class="prettyprint language-javascript"><code>function createIncrementor(start) {
+  return function () {
+    return start++;
+  };
+}
+
+var inc = createIncrementor(5);
+
+inc() // 5
+inc() // 6
+inc() // 7</code></pre><p>上面代码中，<code>start</code>是函数<code>createIncrementor</code>的内部变量。通过闭包，<code>start</code>的状态被保留了，每一次调用都是在上一次调用的基础上进行计算。从中可以看到，闭包<code>inc</code>使得函数<code>createIncrementor</code>的内部环境，一直存在。所以，闭包可以看作是函数内部作用域的一个接口。</p><p>为什么会这样呢？原因就在于<code>inc</code>始终在内存中，而<code>inc</code>的存在依赖于<code>createIncrementor</code>，因此也始终在内存中，不会在调用结束后，被垃圾回收机制回收。</p><p>闭包的另一个用处，是封装对象的私有属性和私有方法。</p><pre class="prettyprint language-javascript"><code>function Person(name) {
+  var _age;
+  function setAge(n) {
+    _age = n;
+  }
+  function getAge() {
+    return _age;
+  }
+
+  return {
+    name: name,
+    getAge: getAge,
+    setAge: setAge
+  };
+}
+
+var p1 = Person(&#039;张三&#039;);
+p1.setAge(25);
+p1.getAge() // 25</code></pre><p>上面代码中，函数<code>Person</code>的内部变量<code>_age</code>，通过闭包<code>getAge</code>和<code>setAge</code>，变成了返回对象<code>p1</code>的私有变量。</p><p>注意，外层函数每次运行，都会生成一个新的闭包，而这个闭包又会保留外层函数的内部变量，所以内存消耗很大。因此不能滥用闭包，否则会造成网页的性能问题。</p><h3><a href="#立即调用的函数表达式（IIFE）" class="header-anchor">#</a> <span>立即调用的函数表达式（IIFE）</span></h3><p>在 Javascript 中，圆括号<code>()</code>是一种运算符，跟在函数名之后，表示调用该函数。比如，<code>print()</code>就表示调用<code>print</code>函数。</p><p>有时，我们需要在定义函数之后，立即调用该函数。这时，你不能在函数的定义之后加上圆括号，这会产生语法错误。</p><pre class="prettyprint language-javascript"><code>function(){ /* code */ }();
+// SyntaxError: Unexpected token (</code></pre><p>产生这个错误的原因是，<code>function</code>这个关键字即可以当作语句，也可以当作表达式。</p><pre class="prettyprint language-javascript"><code>// 语句
+function f() {}
+
+// 表达式
+var f = function f() {}</code></pre><p>为了避免解析上的歧义，JavaScript 引擎规定，如果<code>function</code>关键字出现在行首，一律解释成语句。因此，JavaScript引擎看到行首是<code>function</code>关键字之后，认为这一段都是函数的定义，不应该以圆括号结尾，所以就报错了。</p><p>解决方法就是不要让<code>function</code>出现在行首，让引擎将其理解成一个表达式。最简单的处理，就是将其放在一个圆括号里面。</p><pre class="prettyprint language-javascript"><code>(function(){ /* code */ }());
+// 或者
+(function(){ /* code */ })();</code></pre><p>上面两种写法都是以圆括号开头，引擎就会认为后面跟的是一个表示式，而不是函数定义语句，所以就避免了错误。这就叫做“立即调用的函数表达式”（Immediately-Invoked Function Expression），简称 IIFE。</p><p>注意，上面两种写法最后的分号都是必须的。如果省略分号，遇到连着两个 IIFE，可能就会报错。</p><pre class="prettyprint language-javascript"><code>// 报错
+(function(){ /* code */ }())
+(function(){ /* code */ }())</code></pre><p>上面代码的两行之间没有分号，JavaScript 会将它们连在一起解释，将第二行解释为第一行的参数。</p><p>推而广之，任何让解释器以表达式来处理函数定义的方法，都能产生同样的效果，比如下面三种写法。</p><pre class="prettyprint language-javascript"><code>var i = function(){ return 10; }();
+true &amp;&amp; function(){ /* code */ }();
+0, function(){ /* code */ }();</code></pre><p>甚至像下面这样写，也是可以的。</p><pre class="prettyprint language-javascript"><code>!function () { /* code */ }();
+~function () { /* code */ }();
+-function () { /* code */ }();
++function () { /* code */ }();</code></pre><p>通常情况下，只对匿名函数使用这种“立即执行的函数表达式”。它的目的有两个：一是不必为函数命名，避免了污染全局变量；二是 IIFE 内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。</p><pre class="prettyprint language-javascript"><code>// 写法一
+var tmp = newData;
+processData(tmp);
+storeData(tmp);
+
+// 写法二
+(function () {
+  var tmp = newData;
+  processData(tmp);
+  storeData(tmp);
+}());</code></pre><p>上面代码中，写法二比写法一更好，因为完全避免了污染全局变量。</p><h2><a href="#eval-命令" class="header-anchor">#</a> <span>eval 命令</span></h2><h3><a href="#基本用法" class="header-anchor">#</a> <span>基本用法</span></h3><p><code>eval</code>命令接受一个字符串作为参数，并将这个字符串当作语句执行。</p><pre class="prettyprint language-javascript"><code>eval(&#039;var a = 1;&#039;);
+a // 1</code></pre><p>上面代码将字符串当作语句运行，生成了变量<code>a</code>。</p><p>如果参数字符串无法当作语句运行，那么就会报错。</p><pre class="prettyprint language-javascript"><code>eval(&#039;3x&#039;) // Uncaught SyntaxError: Invalid or unexpected token</code></pre><p>放在<code>eval</code>中的字符串，应该有独自存在的意义，不能用来与<code>eval</code>以外的命令配合使用。举例来说，下面的代码将会报错。</p><pre class="prettyprint language-javascript"><code>eval(&#039;return;&#039;); // Uncaught SyntaxError: Illegal return statement</code></pre><p>上面代码会报错，因为<code>return</code>不能单独使用，必须在函数中使用。</p><p>如果<code>eval</code>的参数不是字符串，那么会原样返回。</p><pre class="prettyprint language-javascript"><code>eval(123) // 123</code></pre><p><code>eval</code>没有自己的作用域，都在当前作用域内执行，因此可能会修改当前作用域的变量的值，造成安全问题。</p><pre class="prettyprint language-javascript"><code>var a = 1;
+eval(&#039;a = 2&#039;);
+
+a // 2</code></pre><p>上面代码中，<code>eval</code>命令修改了外部变量<code>a</code>的值。由于这个原因，<code>eval</code>有安全风险。</p><p>为了防止这种风险，JavaScript 规定，如果使用严格模式，<code>eval</code>内部声明的变量，不会影响到外部作用域。</p><pre class="prettyprint language-javascript"><code>(function f() {
+  &#039;use strict&#039;;
+  eval(&#039;var foo = 123&#039;);
+  console.log(foo);  // ReferenceError: foo is not defined
+})()</code></pre><p>上面代码中，函数<code>f</code>内部是严格模式，这时<code>eval</code>内部声明的<code>foo</code>变量，就不会影响到外部。</p><p>不过，即使在严格模式下，<code>eval</code>依然可以读写当前作用域的变量。</p><pre class="prettyprint language-javascript"><code>(function f() {
+  &#039;use strict&#039;;
+  var foo = 1;
+  eval(&#039;foo = 2&#039;);
+  console.log(foo);  // 2
+})()</code></pre><p>上面代码中，严格模式下，<code>eval</code>内部还是改写了外部变量，可见安全风险依然存在。</p><p>总之，<code>eval</code>的本质是在当前作用域之中，注入代码。由于安全风险和不利于 JavaScript 引擎优化执行速度，所以一般不推荐使用。通常情况下，<code>eval</code>最常见的场合是解析 JSON 数据的字符串，不过正确的做法应该是使用原生的<code>JSON.parse</code>方法。</p><h3><a href="#eval-的别名调用" class="header-anchor">#</a> <span>eval 的别名调用</span></h3><p>前面说过<code>eval</code>不利于引擎优化执行速度。更麻烦的是，还有下面这种情况，引擎在静态代码分析的阶段，根本无法分辨执行的是<code>eval</code>。</p><pre class="prettyprint language-javascript"><code>var m = eval;
+m(&#039;var x = 1&#039;);
+x // 1</code></pre><p>上面代码中，变量<code>m</code>是<code>eval</code>的别名。静态代码分析阶段，引擎分辨不出<code>m(&#39;var x = 1&#39;)</code>执行的是<code>eval</code>命令。</p><p>为了保证<code>eval</code>的别名不影响代码优化，JavaScript 的标准规定，凡是使用别名执行<code>eval</code>，<code>eval</code>内部一律是全局作用域。</p><pre class="prettyprint language-javascript"><code>var a = 1;
+
+function f() {
+  var a = 2;
+  var e = eval;
+  e(&#039;console.log(a)&#039;);
+}
+
+f() // 1</code></pre><p>上面代码中，<code>eval</code>是别名调用，所以即使它是在函数中，它的作用域还是全局作用域，因此输出的<code>a</code>为全局变量。这样的话，引擎就能确认<code>e()</code>不会对当前的函数作用域产生影响，优化的时候就可以把这一行排除掉。</p><p><code>eval</code>的别名调用的形式五花八门，只要不是直接调用，都属于别名调用，因为引擎只能分辨<code>eval()</code>这一种形式是直接调用。</p><pre class="prettyprint language-javascript"><code>eval.call(null, &#039;...&#039;)
+window.eval(&#039;...&#039;)
+(1, eval)(&#039;...&#039;)
+(eval, eval)(&#039;...&#039;)</code></pre><p>上面这些形式都是<code>eval</code>的别名调用，作用域都是全局作用域。</p><h2><a href="#参考链接" class="header-anchor">#</a> <span>参考链接</span></h2><ul><li>Ben Alman, <a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">Immediately-Invoked Function Expression (IIFE)</a></li><li>Mark Daggett, <a href="http://markdaggett.com/blog/2013/02/15/functions-explained/">Functions Explained</a></li><li>Juriy Zaytsev, <a href="http://kangax.github.com/nfe/">Named function expressions demystified</a></li><li>Marco Rogers polotek, <a href="http://docs.nodejitsu.com/articles/javascript-conventions/what-is-the-arguments-object">What is the arguments object?</a></li><li>Juriy Zaytsev, <a href="http://perfectionkills.com/global-eval-what-are-the-options/">Global eval. What are the options?</a></li><li>Axel Rauschmayer, <a href="http://www.2ality.com/2014/01/eval.html">Evaluating JavaScript code via eval() and new Function()</a></li></ul></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>

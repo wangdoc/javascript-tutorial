@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="欢迎使用Teadocs文档生成系统"><meta name="keywords" content="teadocs, 文档生成器"><title>对象 - 阮一峰的JavaScript教程</title><script src="/static/js/jquery-3.3.1.min.js"></script><script src="/static/js/vue.min.js"></script><link rel="stylesheet" href="/static/css/normalize.min.css"><link rel="stylesheet" href="/static/css/monaco.css"><link rel="stylesheet" href="/static/css/loading.css"><link rel="stylesheet" href="/static/css/editormd.min.css"><link rel="stylesheet" href="/static/css/style.css"><link rel="stylesheet" href="/static/css/mobile.css"><link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/static/css/highlight.default.min.css"><script src="/static/js/highlight.min.js"></script><script src="https://cdn.bootcss.com/socket.io/2.1.1/socket.io.js"></script><script>window._CONST={THEME_DIR:"{{_CONST.THEME_DIR}}"},hljs.initHighlightingOnLoad()</script></head><body><div class="main"><div class="tea-menu"><div class="tea-menu-title"><i class="fa fa-home" aria-hidden="true"></i> <span>阮一峰的JavaScript教程</span></div><div class="tea-menu-search-warp"><i class="fa fa-search"></i> <input type="text" placeholder="搜索文档" value="" height="100%"></div><html><head></head><body><ul class="tea-menu-list"><li><a href="/index.html" title="关于" class="">关于</a></li><li><a href="/preface.html" title="阮一峰前言" class="">阮一峰前言</a></li><li><a title="教程" class="active">教程<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a title="入门篇" class="">入门篇<i class="fa fa-angle-down"></i></a><ul><li><a href="/basic/introduction.html" title="导论" class="">导论</a></li><li><a href="/basic/history.html" title="历史" class="">历史</a></li><li><a href="/basic/grammar.html" title="基本语法" class="">基本语法</a></li></ul></li><li><a title="数据类型" class="active">数据类型<i class="fa fa-angle-down unfold"></i></a><ul class="unfold"><li><a href="/types/general.html" title="概述" class="">概述</a></li><li><a href="/types/null-undefined-boolean.html" title="null，undefined和布尔值" class="">null，undefined和布尔值</a></li><li><a href="/types/number.html" title="数值" class="">数值</a></li><li><a href="/types/string.html" title="字符串" class="">字符串</a></li><li><a href="/types/object.html" title="对象" class="active">对象</a></li><li><a href="/types/function.html" title="函数">函数</a></li><li><a href="/types/array.html" title="数组">数组</a></li></ul></li><li><a title="运算符">运算符<i class="fa fa-angle-down"></i></a><ul><li><a href="/operators/arithmetic.html" title="算术运算符">算术运算符</a></li><li><a href="/operators/comparison.html" title="比较运算符">比较运算符</a></li><li><a href="/operators/boolean.html" title="布尔运算符">布尔运算符</a></li><li><a href="/operators/bit.html" title="二进制位运算符">二进制位运算符</a></li><li><a href="/operators/priority.html" title="其他运算符，运算顺序">其他运算符，运算顺序</a></li></ul></li><li><a title="语法专题">语法专题<i class="fa fa-angle-down"></i></a><ul><li><a href="/features/conversion.html" title="数据类型的转换">数据类型的转换</a></li><li><a href="/features/error.html" title="错误处理机制">错误处理机制</a></li><li><a href="/features/style.html" title="编程风格">编程风格</a></li><li><a href="/features/console.html" title="console 对象与控制台">console 对象与控制台</a></li></ul></li><li><a title="标准库">标准库<i class="fa fa-angle-down"></i></a><ul><li><a href="/stdlib/object.html" title="Object对象">Object对象</a></li><li><a href="/stdlib/attributes.html" title="属性描述对象">属性描述对象</a></li><li><a href="/stdlib/array.html" title="Array 对象">Array 对象</a></li><li><a href="/stdlib/wrapper.html" title="包装对象">包装对象</a></li><li><a href="/stdlib/boolean.html" title="Boolean 对象">Boolean 对象</a></li><li><a href="/stdlib/number.html" title="Number 对象">Number 对象</a></li><li><a href="/stdlib/string.html" title="String 对象">String 对象</a></li><li><a href="/stdlib/math.html" title="Math 对象">Math 对象</a></li><li><a href="/stdlib/date.html" title="Date 对象">Date 对象</a></li><li><a href="/stdlib/regexp.html" title="RegExp 对象">RegExp 对象</a></li><li><a href="/stdlib/json.html" title="JSON 对象">JSON 对象</a></li></ul></li><li><a title="面向对象编程">面向对象编程<i class="fa fa-angle-down"></i></a><ul><li><a href="/oop/new.html" title="实例对象与 new 命令">实例对象与 new 命令</a></li><li><a href="/oop/this.html" title="this 关键字">this 关键字</a></li><li><a href="/oop/prototype.html" title="对象的继承">对象的继承</a></li><li><a href="/oop/object.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li><li><a href="/oop/strict.html" title="Object 对象的相关方法">Object 对象的相关方法</a></li></ul></li><li><a title="异步操作">异步操作<i class="fa fa-angle-down"></i></a><ul><li><a href="/async/general.html" title="概述">概述</a></li><li><a href="/async/timer.html" title="定时器">定时器</a></li><li><a href="/async/promise.html" title="Promise 对象">Promise 对象</a></li></ul></li><li><a title="DOM">DOM<i class="fa fa-angle-down"></i></a><ul><li><a href="/dom/general.html" title="概述">概述</a></li><li><a href="/dom/node.html" title="Node 接口">Node 接口</a></li><li><a href="/dom/nodelist.html" title="NodeList 接口，HTMLCollection 接口">NodeList 接口，HTMLCollection 接口</a></li><li><a href="/dom/parentnode.html" title="ParentNode 接口，ChildNode 接口">ParentNode 接口，ChildNode 接口</a></li><li><a href="/dom/document.html" title="Document 节点">Document 节点</a></li><li><a href="/dom/element.html" title="Element 节点">Element 节点</a></li><li><a href="/dom/attributes.html" title="属性的操作">属性的操作</a></li><li><a href="/dom/text.html" title="Text 节点和 DocumentFragment 节点">Text 节点和 DocumentFragment 节点</a></li><li><a href="/dom/mutationobserver.html" title="Mutation Observer API">Mutation Observer API</a></li></ul></li><li><a title="事件">事件<i class="fa fa-angle-down"></i></a><ul><li><a href="/events/eventtarget.html" title="EventTarget 接口">EventTarget 接口</a></li><li><a href="/events/model.html" title="事件模型">事件模型</a></li><li><a href="/events/event.html" title="Event 对象">Event 对象</a></li><li><a href="/events/mouse.html" title="鼠标事件">鼠标事件</a></li><li><a href="/events/keyboard.html" title="键盘事件">键盘事件</a></li><li><a href="/events/progress.html" title="进度事件">进度事件</a></li><li><a href="/events/form.html" title="表单事件">表单事件</a></li><li><a href="/events/touch.html" title="触摸事件">触摸事件</a></li><li><a href="/events/drag.html" title="拖拉事件">拖拉事件</a></li><li><a href="/events/common.html" title="其他常见事件">其他常见事件</a></li><li><a href="/events/globaleventhandlers.html" title="拖拉事件">拖拉事件</a></li></ul></li><li><a title="浏览器模型">浏览器模型<i class="fa fa-angle-down"></i></a><ul><li><a href="/bom/engine.html" title="浏览器环境概述">浏览器环境概述</a></li><li><a href="/bom/window.html" title="window 对象">window 对象</a></li><li><a href="/bom/navigator.html" title="Navigator 对象，Screen 对象">Navigator 对象，Screen 对象</a></li><li><a href="/bom/cookie.html" title="cookie">cookie</a></li><li><a href="/bom/xmlhttprequest.html" title="XMLHttpRequest 对象">XMLHttpRequest 对象</a></li><li><a href="/bom/same-origin.html" title="同源限制">同源限制</a></li><li><a href="/bom/cors.html" title="CORS 通信">CORS 通信</a></li><li><a href="/bom/storage.html" title="Storage 接口">Storage 接口</a></li><li><a href="/bom/history.html" title="History 对象">History 对象</a></li><li><a href="/bom/location.html" title="Location 对象，URL 对象，URLSearchParams 对象">Location 对象，URL 对象，URLSearchParams 对象</a></li><li><a href="/bom/arraybuffer.html" title="ArrayBuffer 对象，Blob 对象">ArrayBuffer 对象，Blob 对象</a></li><li><a href="/bom/file.html" title="File 对象，FileList 对象，FileReader 对象">File 对象，FileList 对象，FileReader 对象</a></li><li><a href="/bom/form.html" title="表单，FormData 对象">表单，FormData 对象</a></li><li><a href="/bom/indexeddb.html" title="IndexedDB API">IndexedDB API</a></li><li><a href="/bom/webworker.html" title="Web Worker">Web Worker</a></li></ul></li><li><a title="附录：网页元素接口">附录：网页元素接口<i class="fa fa-angle-down"></i></a><ul><li><a href="/elements/a.html" title="a 元素">a 元素</a></li><li><a href="/elements/image.html" title="img 元素">img 元素</a></li><li><a href="/elements/form.html" title="form 元素">form 元素</a></li><li><a href="/elements/input.html" title="input 元素">input 元素</a></li><li><a href="/elements/button.html" title="button 元素">button 元素</a></li><li><a href="/elements/option.html" title="option 元素">option 元素</a></li><li><a href="/elements/video.html" title="video，audio">video，audio</a></li></ul></li></ul></li></ul></body></html><div class="tea-version"><p>version: v0.0.1</p><p>Built with <a href="https://github.com/lisniuse/teadocs" target="_blank">Teadocs</a></p></div></div><div class="tea-content"><div class="tea-nav"><h3 class="top-title" style="font-weight:500;margin:0;font-size:16px"><i class="fa fa-navicon" aria-hidden="true"></i> <span>对象</span></h3></div><div class="tea-container"><div class="markdown-body"><h1><a href="#对象" class="header-anchor">#</a> <span>对象</span></h1><h2><a href="#概述" class="header-anchor">#</a> <span>概述</span></h2><h3><a href="#生成方法" class="header-anchor">#</a> <span>生成方法</span></h3><p>对象（object）是 JavaScript 语言的核心概念，也是最重要的数据类型。</p><p>什么是对象？简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  foo: &#039;Hello&#039;,
+  bar: &#039;World&#039;
+};</code></pre><p>上面代码中，大括号就定义了一个对象，它被赋值给变量<code>obj</code>，所以变量<code>obj</code>就指向一个对象。该对象内部包含两个键值对（又称为两个“成员”），第一个键值对是<code>foo: &#39;Hello&#39;</code>，其中<code>foo</code>是“键名”（成员的名称），字符串<code>Hello</code>是“键值”（成员的值）。键名与键值之间用冒号分隔。第二个键值对是<code>bar: &#39;World&#39;</code>，<code>bar</code>是键名，<code>World</code>是键值。两个键值对之间用逗号分隔。</p><h3><a href="#键名" class="header-anchor">#</a> <span>键名</span></h3><p>对象的所有键名都是字符串（ES6 又引入了 Symbol 值也可以作为键名），所以加不加引号都可以。上面的代码也可以写成下面这样。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  &#039;foo&#039;: &#039;Hello&#039;,
+  &#039;bar&#039;: &#039;World&#039;
+};</code></pre><p>如果键名是数值，会被自动转为字符串。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  1: &#039;a&#039;,
+  3.2: &#039;b&#039;,
+  1e2: true,
+  1e-2: true,
+  .234: true,
+  0xFF: true
+};
+
+obj
+// Object {
+//   1: &quot;a&quot;,
+//   3.2: &quot;b&quot;,
+//   100: true,
+//   0.01: true,
+//   0.234: true,
+//   255: true
+// }
+
+obj[&#039;100&#039;] // true</code></pre><p>上面代码中，对象<code>obj</code>的所有键名虽然看上去像数值，实际上都被自动转成了字符串。</p><p>如果键名不符合标识名的条件（比如第一个字符为数字，或者含有空格或运算符），且也不是数字，则必须加上引号，否则会报错。</p><pre class="prettyprint language-javascript"><code>// 报错
+var obj = {
+  1p: &#039;Hello World&#039;
+};
+
+// 不报错
+var obj = {
+  &#039;1p&#039;: &#039;Hello World&#039;,
+  &#039;h w&#039;: &#039;Hello World&#039;,
+  &#039;p+q&#039;: &#039;Hello World&#039;
+};</code></pre><p>上面对象的三个键名，都不符合标识名的条件，所以必须加上引号。</p><p>对象的每一个键名又称为“属性”（property），它的“键值”可以是任何数据类型。如果一个属性的值为函数，通常把这个属性称为“方法”，它可以像函数那样调用。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: function (x) {
+    return 2 * x;
+  }
+};
+
+obj.p(1) // 2</code></pre><p>上面代码中，对象<code>obj</code>的属性<code>p</code>，就指向一个函数。</p><p>如果属性的值还是一个对象，就形成了链式引用。</p><pre class="prettyprint language-javascript"><code>var o1 = {};
+var o2 = { bar: &#039;hello&#039; };
+
+o1.foo = o2;
+o1.foo.bar // &quot;hello&quot;</code></pre><p>上面代码中，对象<code>o1</code>的属性<code>foo</code>指向对象<code>o2</code>，就可以链式引用<code>o2</code>的属性。</p><p>对象的属性之间用逗号分隔，最后一个属性后面可以加逗号（trailing comma），也可以不加。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: 123,
+  m: function () { ... },
+}</code></pre><p>上面的代码中，<code>m</code>属性后面的那个逗号，有没有都可以。</p><p>属性可以动态创建，不必在对象声明时就指定。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+obj.foo = 123;
+obj.foo // 123</code></pre><p>上面代码中，直接对<code>obj</code>对象的<code>foo</code>属性赋值，结果就在运行时创建了<code>foo</code>属性。</p><h3><a href="#对象的引用" class="header-anchor">#</a> <span>对象的引用</span></h3><p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p><pre class="prettyprint language-javascript"><code>var o1 = {};
+var o2 = o1;
+
+o1.a = 1;
+o2.a // 1
+
+o2.b = 2;
+o1.b // 2</code></pre><p>上面代码中，<code>o1</code>和<code>o2</code>指向同一个对象，因此为其中任何一个变量添加属性，另一个变量都可以读写该属性。</p><p>此时，如果取消某一个变量对于原对象的引用，不会影响到另一个变量。</p><pre class="prettyprint language-javascript"><code>var o1 = {};
+var o2 = o1;
+
+o1 = 1;
+o2 // {}</code></pre><p>上面代码中，<code>o1</code>和<code>o2</code>指向同一个对象，然后<code>o1</code>的值变为1，这时不会对<code>o2</code>产生影响，<code>o2</code>还是指向原来的那个对象。</p><p>但是，这种引用只局限于对象，如果两个变量指向同一个原始类型的值。那么，变量这时都是值的拷贝。</p><pre class="prettyprint language-javascript"><code>var x = 1;
+var y = x;
+
+x = 2;
+y // 1</code></pre><p>上面的代码中，当<code>x</code>的值发生变化后，<code>y</code>的值并不变，这就表示<code>y</code>和<code>x</code>并不是指向同一个内存地址。</p><h3><a href="#表达式还是语句？" class="header-anchor">#</a> <span>表达式还是语句？</span></h3><p>对象采用大括号表示，这导致了一个问题：如果行首是一个大括号，它到底是表达式还是语句？</p><pre class="prettyprint language-javascript"><code>{ foo: 123 }</code></pre><p>JavaScript 引擎读到上面这行代码，会发现可能有两种含义。第一种可能是，这是一个表达式，表示一个包含<code>foo</code>属性的对象；第二种可能是，这是一个语句，表示一个代码区块，里面有一个标签<code>foo</code>，指向表达式<code>123</code>。</p><p>为了避免这种歧义，V8 引擎规定，如果行首是大括号，一律解释为对象。不过，为了避免歧义，最好在大括号前加上圆括号。</p><pre class="prettyprint language-javascript"><code>({ foo: 123})</code></pre><p>这种差异在<code>eval</code>语句（作用是对字符串求值）中反映得最明显。</p><pre class="prettyprint language-javascript"><code>eval(&#039;{foo: 123}&#039;) // 123
+eval(&#039;({foo: 123})&#039;) // {foo: 123}</code></pre><p>上面代码中，如果没有圆括号，<code>eval</code>将其理解为一个代码块；加上圆括号以后，就理解成一个对象。</p><h2><a href="#属性的操作" class="header-anchor">#</a> <span>属性的操作</span></h2><h3><a href="#属性的读取" class="header-anchor">#</a> <span>属性的读取</span></h3><p>读取对象的属性，有两种方法，一种是使用点运算符，还有一种是使用方括号运算符。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  p: &#039;Hello World&#039;
+};
+
+obj.p // &quot;Hello World&quot;
+obj[&#039;p&#039;] // &quot;Hello World&quot;</code></pre><p>上面代码分别采用点运算符和方括号运算符，读取属性<code>p</code>。</p><p>请注意，如果使用方括号运算符，键名必须放在引号里面，否则会被当作变量处理。</p><pre class="prettyprint language-javascript"><code>var foo = &#039;bar&#039;;
+
+var obj = {
+  foo: 1,
+  bar: 2
+};
+
+obj.foo  // 1
+obj[foo]  // 2</code></pre><p>上面代码中，引用对象<code>obj</code>的<code>foo</code>属性时，如果使用点运算符，<code>foo</code>就是字符串；如果使用方括号运算符，但是不使用引号，那么<code>foo</code>就是一个变量，指向字符串<code>bar</code>。</p><p>方括号运算符内部还可以使用表达式。</p><pre class="prettyprint language-javascript"><code>obj[&#039;hello&#039; + &#039; world&#039;]
+obj[3 + 3]</code></pre><p>数字键可以不加引号，因为会自动转成字符串。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  0.7: &#039;Hello World&#039;
+};
+
+obj[&#039;0.7&#039;] // &quot;Hello World&quot;
+obj[0.7] // &quot;Hello World&quot;</code></pre><p>上面代码中，对象<code>obj</code>的数字键<code>0.7</code>，加不加引号都可以，因为会被自动转为字符串。</p><p>注意，数值键名不能使用点运算符（因为会被当成小数点），只能使用方括号运算符。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  123: &#039;hello world&#039;
+};
+
+obj.123 // 报错
+obj[123] // &quot;hello world&quot;</code></pre><p>上面代码的第一个表达式，对数值键名<code>123</code>使用点运算符，结果报错。第二个表达式使用方括号运算符，结果就是正确的。</p><h3><a href="#属性的赋值" class="header-anchor">#</a> <span>属性的赋值</span></h3><p>点运算符和方括号运算符，不仅可以用来读取值，还可以用来赋值。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+
+obj.foo = &#039;Hello&#039;;
+obj[&#039;bar&#039;] = &#039;World&#039;;</code></pre><p>上面代码中，分别使用点运算符和方括号运算符，对属性赋值。</p><p>JavaScript 允许属性的“后绑定”，也就是说，你可以在任意时刻新增属性，没必要在定义对象的时候，就定义好属性。</p><pre class="prettyprint language-javascript"><code>var obj = { p: 1 };
+
+// 等价于
+
+var obj = {};
+obj.p = 1;</code></pre><h3><a href="#属性的查看" class="header-anchor">#</a> <span>属性的查看</span></h3><p>查看一个对象本身的所有属性，可以使用<code>Object.keys</code>方法。</p><pre class="prettyprint language-javascript"><code>var obj = {
+  key1: 1,
+  key2: 2
+};
+
+Object.keys(obj);
+// [&#039;key1&#039;, &#039;key2&#039;]</code></pre><h3><a href="#属性的删除：delete-命令" class="header-anchor">#</a> <span>属性的删除：delete 命令</span></h3><p><code>delete</code>命令用于删除对象的属性，删除成功后返回<code>true</code>。</p><pre class="prettyprint language-javascript"><code>var obj = { p: 1 };
+Object.keys(obj) // [&quot;p&quot;]
+
+delete obj.p // true
+obj.p // undefined
+Object.keys(obj) // []</code></pre><p>上面代码中，<code>delete</code>命令删除对象<code>obj</code>的<code>p</code>属性。删除后，再读取<code>p</code>属性就会返回<code>undefined</code>，而且<code>Object.keys</code>方法的返回值也不再包括该属性。</p><p>注意，删除一个不存在的属性，<code>delete</code>不报错，而且返回<code>true</code>。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+delete obj.p // true</code></pre><p>上面代码中，对象<code>obj</code>并没有<code>p</code>属性，但是<code>delete</code>命令照样返回<code>true</code>。因此，不能根据<code>delete</code>命令的结果，认定某个属性是存在的。</p><p>只有一种情况，<code>delete</code>命令会返回<code>false</code>，那就是该属性存在，且不得删除。</p><pre class="prettyprint language-javascript"><code>var obj = Object.defineProperty({}, &#039;p&#039;, {
+  value: 123,
+  configurable: false
+});
+
+obj.p // 123
+delete obj.p // false</code></pre><p>上面代码之中，对象<code>obj</code>的<code>p</code>属性是不能删除的，所以<code>delete</code>命令返回<code>false</code>（关于<code>Object.defineProperty</code>方法的介绍，请看《标准库》的 Object 对象一章）。</p><p>另外，需要注意的是，<code>delete</code>命令只能删除对象本身的属性，无法删除继承的属性（关于继承参见《面向对象编程》章节）。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+delete obj.toString // true
+obj.toString // function toString() { [native code] }</code></pre><p>上面代码中，<code>toString</code>是对象<code>obj</code>继承的属性，虽然<code>delete</code>命令返回<code>true</code>，但该属性并没有被删除，依然存在。这个例子还说明，即使<code>delete</code>返回<code>true</code>，该属性依然可能读取到值。</p><h3><a href="#属性是否存在：in-运算符" class="header-anchor">#</a> <span>属性是否存在：in 运算符</span></h3><p><code>in</code>运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），如果包含就返回<code>true</code>，否则返回<code>false</code>。它的左边是一个字符串，表示属性名，右边是一个对象。</p><pre class="prettyprint language-javascript"><code>var obj = { p: 1 };
+&#039;p&#039; in obj // true
+&#039;toString&#039; in obj // true</code></pre><p><code>in</code>运算符的一个问题是，它不能识别哪些属性是对象自身的，哪些属性是继承的。就像上面代码中，对象<code>obj</code>本身并没有<code>toString</code>属性，但是<code>in</code>运算符会返回<code>true</code>，因为这个属性是继承的。</p><p>这时，可以使用对象的<code>hasOwnProperty</code>方法判断一下，是否为对象自身的属性。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+if (&#039;toString&#039; in obj) {
+  console.log(obj.hasOwnProperty(&#039;toString&#039;)) // false
+}</code></pre><h3><a href="#属性的遍历：for...in-循环" class="header-anchor">#</a> <span>属性的遍历：for...in 循环</span></h3><p><code>for...in</code>循环用来遍历一个对象的全部属性。</p><pre class="prettyprint language-javascript"><code>var obj = {a: 1, b: 2, c: 3};
+
+for (var i in obj) {
+  console.log(&#039;键名：&#039;, i);
+  console.log(&#039;键值：&#039;, obj[i]);
+}
+// 键名： a
+// 键值： 1
+// 键名： b
+// 键值： 2
+// 键名： c
+// 键值： 3</code></pre><p><code>for...in</code>循环有两个使用注意点。</p><ul><li>它遍历的是对象所有可遍历（enumerable）的属性，会跳过不可遍历的属性。</li><li>它不仅遍历对象自身的属性，还遍历继承的属性。</li></ul><p>举例来说，对象都继承了<code>toString</code>属性，但是<code>for...in</code>循环不会遍历到这个属性。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+
+// toString 属性是存在的
+obj.toString // toString() { [native code] }
+
+for (var p in obj) {
+  console.log(p);
+} // 没有任何输出</code></pre><p>上面代码中，对象<code>obj</code>继承了<code>toString</code>属性，该属性不会被<code>for...in</code>循环遍历到，因为它默认是“不可遍历”的。关于对象属性的可遍历性，参见《标准库》章节中 Object 一章的介绍。</p><p>如果继承的属性是可遍历的，那么就会被<code>for...in</code>循环遍历到。但是，一般情况下，都是只想遍历对象自身的属性，所以使用<code>for...in</code>的时候，应该结合使用<code>hasOwnProperty</code>方法，在循环内部判断一下，某个属性是否为对象自身的属性。</p><pre class="prettyprint language-javascript"><code>var person = { name: &#039;老张&#039; };
+
+for (var key in person) {
+  if (person.hasOwnProperty(key)) {
+    console.log(key);
+  }
+}
+// name</code></pre><h2><a href="#with-语句" class="header-anchor">#</a> <span>with 语句</span></h2><p><code>with</code>语句的格式如下：</p><pre class="prettyprint language-javascript"><code>with (对象) {
+  语句;
+}</code></pre><p>它的作用是操作同一个对象的多个属性时，提供一些书写的方便。</p><pre class="prettyprint language-javascript"><code>// 例一
+var obj = {
+  p1: 1,
+  p2: 2,
+};
+with (obj) {
+  p1 = 4;
+  p2 = 5;
+}
+// 等同于
+obj.p1 = 4;
+obj.p2 = 5;
+
+// 例二
+with (document.links[0]){
+  console.log(href);
+  console.log(title);
+  console.log(style);
+}
+// 等同于
+console.log(document.links[0].href);
+console.log(document.links[0].title);
+console.log(document.links[0].style);</code></pre><p>注意，如果<code>with</code>区块内部有变量的赋值操作，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量。</p><pre class="prettyprint language-javascript"><code>var obj = {};
+with (obj) {
+  p1 = 4;
+  p2 = 5;
+}
+
+obj.p1 // undefined
+p1 // 4</code></pre><p>上面代码中，对象<code>obj</code>并没有<code>p1</code>属性，对<code>p1</code>赋值等于创造了一个全局变量<code>p1</code>。正确的写法应该是，先定义对象<code>obj</code>的属性<code>p1</code>，然后在<code>with</code>区块内操作它。</p><p>这是因为<code>with</code>区块没有改变作用域，它的内部依然是当前作用域。这造成了<code>with</code>语句的一个很大的弊病，就是绑定对象不明确。</p><pre class="prettyprint language-javascript"><code>with (obj) {
+  console.log(x);
+}</code></pre><p>单纯从上面的代码块，根本无法判断<code>x</code>到底是全局变量，还是对象<code>obj</code>的一个属性。这非常不利于代码的除错和模块化，编译器也无法对这段代码进行优化，只能留到运行时判断，这就拖慢了运行速度。因此，建议不要使用<code>with</code>语句，可以考虑用一个临时变量代替<code>with</code>。</p><pre class="prettyprint language-javascript"><code>with(obj1.obj2.obj3) {
+  console.log(p1 + p2);
+}
+
+// 可以写成
+var temp = obj1.obj2.obj3;
+console.log(temp.p1 + temp.p2);</code></pre><h2><a href="#参考链接" class="header-anchor">#</a> <span>参考链接</span></h2><ul><li>Dr. Axel Rauschmayer，<a href="http://www.2ality.com/2012/10/javascript-properties.html">Object properties in JavaScript</a></li><li>Lakshan Perera, <a href="http://www.laktek.com/2012/12/29/revisiting-javascript-objects/">Revisiting JavaScript Objects</a></li><li>Angus Croll, <a href="http://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/">The Secret Life of JavaScript Primitives</a>i</li><li>Dr. Axel Rauschmayer, <a href="http://www.2ality.com/2011/06/with-statement.html">JavaScript’s with statement and why it’s deprecated</a></li></ul></div></div></div><i class="fa fa-arrow-circle-up gotop" aria-hidden="true"></i><div id="menu-mask"></div></div><script src="/static/js/main.js"></script><script src="/static/js/mobile.js"></script></body></html>
+<script src="/__webscoket__/socket.io.js"></script>
+<script src="/__webscoket__/socket.client.js"></script>
