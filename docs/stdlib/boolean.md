@@ -56,6 +56,7 @@ Boolean(/foo/) // true
 !!0 // false
 !!'' // false
 !!NaN // false
+
 !!1 // true
 !!'false' // true
 !![] // true
