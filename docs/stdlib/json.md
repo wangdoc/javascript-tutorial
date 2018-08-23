@@ -121,7 +121,7 @@ JSON.stringify(arr) // "[null,null]"
 JSON.stringify(/foo/) // "{}"
 ```
 
-`JSON.stringify`方法会忽略对象的不可遍历属性。
+`JSON.stringify`方法会忽略对象的不可遍历的属性。
 
 ```javascript
 var obj = {};
