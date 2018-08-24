@@ -425,6 +425,7 @@ var x = 1;
 switch (x) {
   case true:
     console.log('x 发生类型转换');
+    break;
   default:
     console.log('x 没有发生类型转换');
 }
@@ -435,7 +436,7 @@ switch (x) {
 
 ### 三元运算符 ?:
 
-JavaScript还有一个三元运算符（即该运算符需要三个运算子）`?:`，也可以用于逻辑判断。
+JavaScript 还有一个三元运算符（即该运算符需要三个运算子）`?:`，也可以用于逻辑判断。
 
 ```javascript
 (条件) ? 表达式1 : 表达式2
