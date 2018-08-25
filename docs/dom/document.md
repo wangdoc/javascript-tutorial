@@ -417,7 +417,7 @@ hello
 
 在浏览器打开上面网页，将会显示`hello world`。
 
-`document.write`是JavaScript语言标准化之前就存在的方法，现在完全有更符合标准的方法向文档写入内容（比如对`innerHTML`属性赋值）。所以，除了某些特殊情况，应该尽量避免使用`document.write`这个方法。
+`document.write`是 JavaScript 语言标准化之前就存在的方法，现在完全有更符合标准的方法向文档写入内容（比如对`innerHTML`属性赋值）。所以，除了某些特殊情况，应该尽量避免使用`document.write`这个方法。
 
 `document.writeln`方法与`write`方法完全一致，除了会在输出内容的尾部添加换行符。
 

@@ -20,7 +20,7 @@ var a = 1 + 3;
 var a = 1 + 3 ; var b = 'abc';
 ```
 
-分号前面可以没有任何内容，JavaScript引擎将其视为空语句。
+分号前面可以没有任何内容，JavaScript 引擎将其视为空语句。
 
 ```javascript
 ;;;
@@ -177,7 +177,7 @@ a+b  // 标识符不能包含加号
 var 临时变量 = 1;
 ```
 
-> JavaScript有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。
+> JavaScript 有一些保留字，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield。
 
 ## 注释
 

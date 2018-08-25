@@ -406,7 +406,7 @@ f(1); // 严格模式为[2, 1]
 
 ## 向下一个版本的 JavaScript 过渡
 
-JavaScript语言的下一个版本是 ECMAScript 6，为了平稳过渡，严格模式引入了一些 ES6 语法。
+JavaScript 语言的下一个版本是 ECMAScript 6，为了平稳过渡，严格模式引入了一些 ES6 语法。
 
 ### 非函数代码块不得声明函数
 
