@@ -11,7 +11,7 @@
 - `Math.LN10`：10 的自然对数。
 - `Math.LOG2E`：以 2 为底的`e`的对数。
 - `Math.LOG10E`：以 10 为底的`e`的对数。
-- `Math.PI`：常数 Pi。
+- `Math.PI`：常数`π`。
 - `Math.SQRT1_2`：0.5 的平方根。
 - `Math.SQRT2`：2 的平方根。
 
@@ -40,7 +40,7 @@ Math.SQRT2 // 1.4142135623730951
 - `Math.pow()`：指数运算
 - `Math.sqrt()`：平方根
 - `Math.log()`：自然对数
-- `Math.exp()`：e的指数
+- `Math.exp()`：`e`的指数
 - `Math.round()`：四舍五入
 - `Math.random()`：随机数
 
@@ -208,7 +208,7 @@ function random_str(length) {
   ALPHABET += 'abcdefghijklmnopqrstuvwxyz';
   ALPHABET += '0123456789-_';
   var str = '';
-  for (var i=0; i < length; ++i) {
+  for (var i = 0; i < length; ++i) {
     var rand = Math.floor(Math.random() * ALPHABET.length);
     str += ALPHABET.substring(rand, rand + 1);
   }
