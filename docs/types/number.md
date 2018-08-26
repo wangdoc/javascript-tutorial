@@ -43,7 +43,7 @@ JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整�
 
 上面公式是正常情况下（指数部分在0到2047之间），一个数在 JavaScript 内部实际的表示形式。
 
-精度最多只能到53个二进制位，这意味着，绝对值小于等于2的53次方的整数，即-2<sup>53</sup>到2<sup>53</sup>，都可以精确表示。
+精度最多只能到53个二进制位，这意味着，绝对值小于2的53次方的整数，即-2<sup>53</sup>到2<sup>53</sup>，都可以精确表示。
 
 ```javascript
 Math.pow(2, 53)
@@ -309,7 +309,7 @@ Infinity === -Infinity // false
 
 上面代码中，非零正数除以`-0`，会得到`-Infinity`，负数除以`-0`，会得到`Infinity`。
 
-由于数值正向溢出（overflow）、负向溢出（underflow）和被`0`除，JavaScript 都不报错，而是返回`Infinity`，所以单纯的数学运算几乎没有可能抛出错误。
+由于数值正向溢出（overflow）、负向溢出（underflow）和被`0`除，JavaScript 都不报错，所以单纯的数学运算几乎没有可能抛出错误。
 
 `Infinity`大于一切数值（除了`NaN`），`-Infinity`小于一切数值（除了`NaN`）。
 
