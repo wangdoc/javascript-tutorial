@@ -327,6 +327,18 @@ d.toLocaleTimeString()
 // 英文版浏览器为"12:00:00 AM"
 ```
 
+**（9）Date.prototype.toLocaleString()**
+
+`toLocaleString`方法返回一个字符串，代表时间的当地写法。
+
+```javascript
+var d = new Date(2013, 0, 1);
+
+d.toLocaleString()
+// 中文版浏览器为"2013年1月1日 上午12:00:00"
+// 英文版浏览器为"1/1/2013 12:00:00 AM"
+```
+
 ### get 类方法
 
 `Date`对象提供了一系列`get*`方法，用来获取实例对象某个方面的值。
