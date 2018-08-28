@@ -303,33 +303,15 @@ var d = new Date(2013, 0, 1);
 d.toTimeString() // "00:00:00 GMT+0800 (CST)"
 ```
 
-**（7）Date.prototype.toLocaleDateString()**
+**（7）本地时间**
 
-`toLocaleDateString`方法返回一个字符串，代表日期的当地写法（不含小时、分和秒）。
+以下三种方法，可以将 Date 实例转为表示本地时间的字符串。
 
-```javascript
-var d = new Date(2013, 0, 1);
+- Date.prototype.toLocaleString()：完整的本地时间。
+- Date.prototype.toLocaleDateString()：本地日期（不含小时、分和秒）。
+- Date.prototype.toLocaleTimeString()：本地时间（不含年月日）。
 
-d.toLocaleDateString()
-// 中文版浏览器为"2013年1月1日"
-// 英文版浏览器为"1/1/2013"
-```
-
-**（8）Date.prototype.toLocaleTimeString()**
-
-`toLocaleTimeString`方法返回一个字符串，代表时间的当地写法（不含年月日）。
-
-```javascript
-var d = new Date(2013, 0, 1);
-
-d.toLocaleTimeString()
-// 中文版浏览器为"上午12:00:00"
-// 英文版浏览器为"12:00:00 AM"
-```
-
-**（9）Date.prototype.toLocaleString()**
-
-`toLocaleString`方法返回一个字符串，代表时间的当地写法。
+下面是用法实例。
 
 ```javascript
 var d = new Date(2013, 0, 1);
@@ -337,6 +319,77 @@ var d = new Date(2013, 0, 1);
 d.toLocaleString()
 // 中文版浏览器为"2013年1月1日 上午12:00:00"
 // 英文版浏览器为"1/1/2013 12:00:00 AM"
+
+d.toLocaleDateString()
+// 中文版浏览器为"2013年1月1日"
+// 英文版浏览器为"1/1/2013"
+
+d.toLocaleTimeString()
+// 中文版浏览器为"上午12:00:00"
+// 英文版浏览器为"12:00:00 AM"
+```
+
+这三个方法都有两个可选的参数。
+
+```javascript
+dateObj.toLocaleString([locales[, options]])
+dateObj.toLocaleDateString([locales[, options]])
+dateObj.toLocaleTimeString([locales[, options]])
+```
+
+这两个参数中，`locales`是一个指定所用语言的字符串，`options`是一个配置对象。下面是`locales`的例子。
+
+```javascript
+var d = new Date(2013, 0, 1);
+
+d.toLocaleString('en-US') // "1/1/2013, 12:00:00 AM"
+d.toLocaleString('zh-CN') // "2013/1/1 上午12:00:00"
+
+d.toLocaleDateString('en-US') // "1/1/2013"
+d.toLocaleDateString('zh-CN') // "2013/1/1"
+
+d.toLocaleTimeString('en-US') // "12:00:00 AM"
+d.toLocaleTimeString('zh-CN') // "上午12:00:00"
+```
+
+下面是`options`的例子。
+
+```javascript
+var d = new Date(2013, 0, 1);
+
+// 时间格式
+// 下面的设置是，星期和月份为完整文字，年份和日期为数字
+d.toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})
+// "Tuesday, January 1, 2013"
+
+// 指定时区
+d.toLocaleTimeString('en-US', {
+  timeZone: 'UTC',
+  timeZoneName: 'short'
+})
+// "4:00:00 PM UTC"
+
+d.toLocaleTimeString('en-US', {
+  timeZone: 'Asia/Shanghai',
+  timeZoneName: 'long'
+})
+// "12:00:00 AM China Standard Time"
+
+// 小时周期为12还是24
+d.toLocaleTimeString('en-US', {
+  hour12: false
+})
+// "00:00:00"
+
+d.toLocaleTimeString('en-US', {
+  hour12: true
+})
+// "12:00:00 AM"
 ```
 
 ### get 类方法
