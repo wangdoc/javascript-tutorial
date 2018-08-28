@@ -77,7 +77,7 @@ function add(x, y) {
 
 ```javascript
 var foo = new Function(
-  'return "hello world"'
+  'return "hello world";'
 );
 
 // 等同于
