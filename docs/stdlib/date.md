@@ -307,9 +307,9 @@ d.toTimeString() // "00:00:00 GMT+0800 (CST)"
 
 以下三种方法，可以将 Date 实例转为表示本地时间的字符串。
 
-- Date.prototype.toLocaleString()：完整的本地时间。
-- Date.prototype.toLocaleDateString()：本地日期（不含小时、分和秒）。
-- Date.prototype.toLocaleTimeString()：本地时间（不含年月日）。
+- `Date.prototype.toLocaleString()`：完整的本地时间。
+- `Date.prototype.toLocaleDateString()`：本地日期（不含小时、分和秒）。
+- `Date.prototype.toLocaleTimeString()`：本地时间（不含年月日）。
 
 下面是用法实例。
 
