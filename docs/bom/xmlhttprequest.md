@@ -345,7 +345,7 @@ xhr.onerror = function() {
 
 `XMLHttpRequest.withCredentials`属性是一个布尔值，表示跨域请求时，用户信息（比如 Cookie 和认证的 HTTP 头信息）是否会包含在请求之中，默认为`false`，即向`example.com`发出跨域请求时，不会发送`example.com`设置在本机上的 Cookie（如果有的话）。
 
-如果需要跨域 AJAX 请求发送Cookie，需要`withCredentials`属性设为`true`。注意，同源的请求不需要设置这个属性。
+如果需要跨域 AJAX 请求发送 Cookie，需要`withCredentials`属性设为`true`。注意，同源的请求不需要设置这个属性。
 
 ```javascript
 var xhr = new XMLHttpRequest();

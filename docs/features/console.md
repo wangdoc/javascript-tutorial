@@ -83,7 +83,7 @@ console.log('%d %s balloons', number, color);
 
 上面代码中，第二个参数是数值，对应的占位符是`%d`，第三个参数是字符串，对应的占位符是`%s`。
 
-使用`%c`占位符时，对应的参数必须是 CSS 代码，用来对输出内容进行CSS渲染。
+使用`%c`占位符时，对应的参数必须是 CSS 代码，用来对输出内容进行 CSS 渲染。
 
 ```javascript
 console.log(
