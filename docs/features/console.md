@@ -288,7 +288,7 @@ console.assert(false, '判断条件不成立')
 
 // 相当于
 try {
-  if (false) {
+  if (!false) {
     throw new Error('判断条件不成立');
   }
 } catch(e) {
@@ -333,8 +333,8 @@ console.log('一级分组的内容');
 console.group('二级分组');
 console.log('二级分组的内容');
 
-console.groupEnd(); // 一级分组结束
 console.groupEnd(); // 二级分组结束
+console.groupEnd(); // 一级分组结束
 ```
 
 上面代码会将“二级分组”显示在“一级分组”内部，并且“一级分组”和“二级分组”前面都有一个折叠符号，可以用来折叠本级的内容。
