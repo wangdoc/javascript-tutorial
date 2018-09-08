@@ -45,7 +45,7 @@ JavaScript 提供了一个内部数据结构，用来描述对象的属性，控
 
 ## Object.getOwnPropertyDescriptor()
 
-`Object.getOwnPropertyDescriptor`方法可以获取属性描述对象。它的第一个参数是一个对象，第二个参数是一个字符串，对应该对象的某个属性名。
+`Object.getOwnPropertyDescriptor()`方法可以获取属性描述对象。它的第一个参数是目标对象，第二个参数是一个字符串，对应目标对象的某个属性名。
 
 ```javascript
 var obj = { p: 'a' };
@@ -58,9 +58,9 @@ Object.getOwnPropertyDescriptor(obj, 'p')
 // }
 ```
 
-上面代码中，`Object.getOwnPropertyDescriptor`方法获取`obj.p`的属性描述对象。
+上面代码中，`Object.getOwnPropertyDescriptor()`方法获取`obj.p`的属性描述对象。
 
-注意，`Object.getOwnPropertyDescriptor`方法只能用于对象自身的属性，不能用于继承的属性。
+注意，`Object.getOwnPropertyDescriptor()`方法只能用于对象自身的属性，不能用于继承的属性。
 
 ```javascript
 var obj = { p: 'a' };
@@ -69,7 +69,7 @@ Object.getOwnPropertyDescriptor(obj, 'toString')
 // undefined
 ```
 
-上面代码中，`toString`是`Obj`对象继承的属性，`Object.getOwnPropertyDescriptor`无法获取。
+上面代码中，`toString`是`obj`对象继承的属性，`Object.getOwnPropertyDescriptor()`无法获取。
 
 ## Object.getOwnPropertyNames()
 
@@ -108,7 +108,7 @@ Object.getOwnPropertyNames(Object.prototype)
 
 ## Object.defineProperty()，Object.defineProperties()
 
-`Object.defineProperty`方法允许通过属性描述对象，定义或修改一个属性，然后返回修改后的对象，它的用法如下。
+`Object.defineProperty()`方法允许通过属性描述对象，定义或修改一个属性，然后返回修改后的对象，它的用法如下。
 
 ```javascript
 Object.defineProperty(object, propertyName, attributesObject)
@@ -116,9 +116,9 @@ Object.defineProperty(object, propertyName, attributesObject)
 
 `Object.defineProperty`方法接受三个参数，依次如下。
 
-- 属性所在的对象
-- 属性名（它应该是一个字符串）
-- 属性描述对象
+- object：属性所在的对象
+- propertyName：字符串，表示属性名
+- attributesObject：属性描述对象
 
 举例来说，定义`obj.p`可以写成下面这样。
 
@@ -136,11 +136,11 @@ obj.p = 246;
 obj.p // 123
 ```
 
-上面代码中，`Object.defineProperty`方法定义了`obj.p`属性。由于属性描述对象的`writable`属性为`false`，所以`obj.p`属性不可写。注意，这里的`Object.defineProperty`方法的第一个参数是`{}`（一个新建的空对象），`p`属性直接定义在这个空对象上面，然后返回这个对象，这是`Object.defineProperty`的常见写法。
+上面代码中，`Object.defineProperty()`方法定义了`obj.p`属性。由于属性描述对象的`writable`属性为`false`，所以`obj.p`属性不可写。注意，这里的`Object.defineProperty`方法的第一个参数是`{}`（一个新建的空对象），`p`属性直接定义在这个空对象上面，然后返回这个对象，这是`Object.defineProperty()`的常见用法。
 
-如果属性已经存在，`Object.defineProperty`方法相当于更新该属性的属性描述对象。
+如果属性已经存在，`Object.defineProperty()`方法相当于更新该属性的属性描述对象。
 
-如果一次性定义或修改多个属性，可以使用`Object.defineProperties`方法。
+如果一次性定义或修改多个属性，可以使用`Object.defineProperties()`方法。
 
 ```javascript
 var obj = Object.defineProperties({}, {
@@ -157,7 +157,7 @@ obj.p2 // "abc"
 obj.p3 // "123abc"
 ```
 
-上面代码中，`Object.defineProperties`同时定义了`obj`对象的三个属性。其中，`p3`属性定义了取值函数`get`，即每次读取该属性，都会调用这个取值函数。
+上面代码中，`Object.defineProperties()`同时定义了`obj`对象的三个属性。其中，`p3`属性定义了取值函数`get`，即每次读取该属性，都会调用这个取值函数。
 
 注意，一旦定义了取值函数`get`（或存值函数`set`），就不能将`writable`属性设为`true`，或者同时定义`value`属性，否则会报错。
 
@@ -181,7 +181,7 @@ Object.defineProperty(obj, 'p', {
 
 上面代码中，同时定义了`get`属性和`value`属性，以及将`writable`属性设为`true`，就会报错。
 
-`Object.defineProperty()`和`Object.defineProperties()`的第三个参数，是一个属性对象。它的`writable`、`configurable`、`enumerable`这三个属性的默认值都为`false`。
+`Object.defineProperty()`和`Object.defineProperties()`参数里面的属性描述对象，`writable`、`configurable`、`enumerable`这三个属性的默认值都为`false`。
 
 ```javascript
 var obj = {};
@@ -195,11 +195,11 @@ Object.getOwnPropertyDescriptor(obj, 'foo')
 // }
 ```
 
-上面代码中，定义`obj.p`时用了一个空的属性描述对象，就可以看到各个元属性的默认值。
+上面代码中，定义`obj.foo`时用了一个空的属性描述对象，就可以看到各个元属性的默认值。
 
 ## Object.prototype.propertyIsEnumerable()
 
-实例对象的`propertyIsEnumerable`方法返回一个布尔值，用来判断某个属性是否可遍历。
+实例对象的`propertyIsEnumerable()`方法返回一个布尔值，用来判断某个属性是否可遍历。注意，这个方法只能用于判断对象自身的属性，对于继承的属性一律返回`false`。
 
 ```javascript
 var obj = {};
@@ -209,7 +209,7 @@ obj.propertyIsEnumerable('p') // true
 obj.propertyIsEnumerable('toString') // false
 ```
 
-上面代码中，`obj.p`是可遍历的，而继承自原型对象的`obj.toString`属性是不可遍历的。
+上面代码中，`obj.p`是可遍历的，而`obj.toString`是继承的属性。
 
 ## 元属性
 

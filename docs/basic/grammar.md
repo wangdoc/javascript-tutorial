@@ -58,7 +58,7 @@ var a;
 a = 1;
 ```
 
-如果只是声明变量而没有赋值，则该变量的值是`undefined`。`undefined`是一个 JavaScript 关键字，表示“无定义”。
+如果只是声明变量而没有赋值，则该变量的值是`undefined`。`undefined`是一个特殊的值，表示“无定义”。
 
 ```javascript
 var a;
