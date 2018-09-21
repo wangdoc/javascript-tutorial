@@ -139,7 +139,7 @@ function myFunction(e) {
 - 手动插入文本：`insertText`
 - 粘贴插入文本：`insertFromPaste`
 - 向后删除：`deleteContentBackward`
-- 向前删除：`deleteContentBackward`
+- 向前删除：`deleteContentForward`
 
 **（3）InputEvent.dataTransfer**
 
