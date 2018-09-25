@@ -18,15 +18,19 @@ Web Worker 有以下几个使用注意点。
 
 Worker 线程所在的全局对象，与主线程不一样，无法读取主线程所在网页的 DOM 对象，也无法使用`document`、`window`、`parent`这些对象。但是，Worker 线程可以`navigator`对象和`location`对象。
 
-（3）**通信联系**
+（3）**全局对象限制**
+
+Worker 的全局对象`WorkerGlobalScope`，不同于网页的全局对象`Window`，很多接口拿不到。比如，理论上 Worker 线程不能使用`console.log`，因为标准里面没有提到 Worker 的全局对象存在`console`接口，只定义了`Navigator`接口和`Location`接口。不过，浏览器实际上支持 Worker 线程使用`console.log`，保险的做法还是不使用这个方法。
+
+（4）**通信联系**
 
 Worker 线程和主线程不在同一个上下文环境，它们不能直接通信，必须通过消息完成。
 
-（4）**脚本限制**
+（5）**脚本限制**
 
 Worker 线程不能执行`alert()`方法和`confirm()`方法，但可以使用 XMLHttpRequest 对象发出 AJAX 请求。
 
-（5）**文件限制**
+（6）**文件限制**
 
 Worker 线程无法读取本地文件，即不能打开本机的文件系统（`file://`），它所加载的脚本，必须来自网络。
 
@@ -55,8 +59,7 @@ worker.postMessage({method: 'echo', args: ['Work']});
 
 ```javascript
 worker.onmessage = function (event) {
-  console.log('Received message ' + event.data);
-  doSomething();
+  doSomething(event.data);
 }
 
 function doSomething() {
