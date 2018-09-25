@@ -445,7 +445,7 @@ Object.assign(S.prototype, M2.prototype);
 S.prototype.constructor = S;
 
 var s = new S();
-s.hello // 'hello：'
+s.hello // 'hello'
 s.world // 'world'
 ```
 
