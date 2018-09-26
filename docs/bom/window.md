@@ -344,7 +344,7 @@ var windowB = window.open('windowB.html', 'WindowB');
 windowB.window.name // "WindowB"
 ```
 
-注意，如果新窗口和父窗口不是同源的（即不在同一个域），它们彼此不能窗口对象获取对方的内部属性。
+注意，如果新窗口和父窗口不是同源的（即不在同一个域），它们彼此不能获取对方窗口对象的内部属性。
 
 下面是另一个例子。
 
