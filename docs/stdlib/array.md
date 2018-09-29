@@ -774,11 +774,13 @@ users
 .filter(function (email) {
   return /^t/.test(email);
 })
-.forEach(console.log);
+.forEach(function (email) {
+  console.log(email);
+});
 // "tom@example.com"
 ```
 
-上面代码中，先产生一个所有 Email 地址组成的数组，然后再过滤出以`t`开头的 Email 地址。
+上面代码中，先产生一个所有 Email 地址组成的数组，然后再过滤出以`t`开头的 Email 地址，最后将它打印出来。
 
 ## 参考链接
 
