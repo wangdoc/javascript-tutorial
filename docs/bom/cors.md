@@ -78,28 +78,28 @@ Content-Type: text/html; charset=utf-8
 
 ### withCredentials 属性
 
-上面说到，CORS 请求默认不包含 Cookie 信息（以及 HTTP 认证信息等）。如果需要包含 Cookie 信息，一方面要服务器同意，指定`Access-Control-Allow-Credentials`字段。
+上面说到，CORS 请求默认不包含 Cookie 信息（以及 HTTP 认证信息等），这是为了降低 CSRF 攻击的风险。但是某些场合，服务器可能需要拿到 Cookie，这时需要服务器显式指定`Access-Control-Allow-Credentials`字段，告诉浏览器可以发送 Cookie。
 
 ```http
 Access-Control-Allow-Credentials: true
 ```
 
-另一方面，开发者必须在 AJAX 请求中打开`withCredentials`属性。
+同时，开发者必须在 AJAX 请求中打开`withCredentials`属性。
 
 ```javascript
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 ```
 
-否则，即使服务器同意发送 Cookie，浏览器也不会发送。或者，服务器要求设置 Cookie，浏览器也不会处理。
+否则，即使服务器要求发送 Cookie，浏览器也不会发送。或者，服务器要求设置 Cookie，浏览器也不会处理。
 
-但是，如果省略`withCredentials`设置，有的浏览器还是会一起发送 Cookie。这时，可以显式关闭`withCredentials`。
+但是，有的浏览器默认将`withCredentials`属性设为`true`。这导致如果省略`withCredentials`设置，这些浏览器可能还是会一起发送 Cookie。这时，可以显式关闭`withCredentials`。
 
 ```javascript
 xhr.withCredentials = false;
 ```
 
-需要注意的是，如果要发送 Cookie，`Access-Control-Allow-Origin`就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie 依然遵循同源政策，只有用服务器域名设置的 Cookie 才会上传，其他域名的 Cookie 并不会上传，且（跨域）原网页代码中的`document.cookie`也无法读取服务器域名下的 Cookie。
+需要注意的是，如果服务器要求浏览器发送 Cookie，`Access-Control-Allow-Origin`就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie 依然遵循同源政策，只有用服务器域名设置的 Cookie 才会上传，其他域名的 Cookie 并不会上传，且（跨域）原网页代码中的`document.cookie`也无法读取服务器域名下的 Cookie。
 
 ## 非简单请求
 
@@ -247,7 +247,7 @@ CORS 与 JSONP 的使用目的相同，但是比 JSONP 更强大。JSONP 只支�
 
 ## 参考链接
 
-- Monsur Hossain, [Using CORS](http://www.html5rocks.com/en/tutorials/cors/)
-- MDN, [HTTP access control (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
-- Ryan Miller, [CORS](https://frontendian.co/cors)
-
+- [Using CORS](http://www.html5rocks.com/en/tutorials/cors/), Monsur Hossain
+- [HTTP access control (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS), MDN
+- [CORS](https://frontendian.co/cors), Ryan Miller
+- [Do You Really Know CORS?](http://performantcode.com/web/do-you-really-know-cors), Grzegorz Mirek
