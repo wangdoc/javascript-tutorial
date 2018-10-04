@@ -529,6 +529,91 @@ var selectedText = selObj.toString();
 
 `window.matchMedia()`方法用来检查 CSS 的`mediaQuery`语句，详见《CSS 操作》一章。
 
+### window.requestAnimationFrame()
+
+`window.requestAnimationFrame()`方法跟`setTimeout`类似，都是推迟某个函数的执行。不同之处在于，`setTimeout`必须指定推迟的时间，`window.requestAnimationFrame()`则是推迟到浏览器下一次重流时执行，即在下一次重绘之前执行。重绘通常是 16ms 执行一次，不过浏览器会自动调节这个速率，比如网页切换到后台 Tab 页时，`requestAnimationFrame()`会暂停执行。
+
+如果某个函数会改变网页的布局，一般就放在`window.requestAnimationFrame()`里面执行，这样可以节省系统资源，使得网页效果更加平滑。因为慢速设备会用较慢的速率重流和重绘，而速度更快的设备会有更快的速率。
+
+该方法接受一个回调函数作为参数。
+
+```javascript
+window.requestAnimationFrame(callback)
+```
+
+上面代码中，`callback`是一个回调函数。`callback`执行时，它的参数就是系统传入的一个高精度时间戳（`performance.now()`的返回值），单位是毫秒，表示距离网页加载的时间。
+
+`window.requestAnimationFrame()`的返回值是一个整数，这个整数可以传入`window.cancelAnimationFrame()`，用来取消回调函数的执行。
+
+下面是一个`window.requestAnimationFrame()`执行网页动画的例子。
+
+```javascript
+var element = document.getElementById('animate');
+element.style.position = 'absolute';
+
+var start = null;
+
+function step(timestamp) {
+  if (!start) start = timestamp;
+  var progress = timestamp - start;
+  // 元素不断向左移，最大不超过200像素
+  element.style.left = Math.min(progress / 10, 200) + 'px';
+  // 如果距离第一次执行不超过 2000 毫秒，
+  // 就继续执行动画
+  if (progress < 2000) {
+    window.requestAnimationFrame(step);
+  }
+}
+
+window.requestAnimationFrame(step);
+```
+
+上面代码定义了一个网页动画，持续时间是2秒，会让元素向右移动。
+
+### window.requestIdleCallback()
+
+`window.requestIdleCallback()`跟`setTimeout`类似，也是将某个函数推迟执行，但是它保证将回调函数推迟到系统资源空闲时执行。也就是说，如果某个任务不是很关键，就可以使用`window.requestIdleCallback()`将其推迟执行，以保证网页性能。
+
+它跟`window.requestAnimationFrame()`的区别在于，后者指定回调函数在下一次浏览器重排时执行，问题在于下一次重排时，系统资源未必空闲，不一定能保证在16毫秒之内完成；`window.requestIdleCallback()`可以保证回调函数在系统资源空闲时执行。
+
+该方法接受一个回调函数和一个配置对象作为参数。配置对象可以指定一个推迟执行的最长时间，如果过了这个时间，回调函数不管系统资源有无空虚，都会执行。
+
+```javascript
+window.requestIdleCallback(callback[, options])
+```
+
+`callback`参数是一个回调函数。该回调函数执行时，系统会传入一个`IdleDeadline`对象作为参数。`IdleDeadline`对象有一个`didTimeout`属性（布尔值，表示是否为超时调用）和一个`timeRemaining()`方法（返回该空闲时段剩余的毫秒数）。
+
+`options`参数是一个配置对象，目前只有`timeout`一个属性，用来指定回调函数推迟执行的最大毫秒数。该参数可选。
+
+`window.requestAnimationFrame()`方法返回一个整数。该整数可以传入`window.cancelIdleCallback()`取消回调函数。
+
+下面是一个例子。
+
+```javascript
+requestIdleCallback(myNonEssentialWork);
+
+function myNonEssentialWork(deadline) {
+  while (deadline.timeRemaining() > 0) {
+    doWorkIfNeeded();
+  }
+}
+```
+
+上面代码中，`requestIdleCallback()`用来执行非关键任务`myNonEssentialWork`。该任务先确认本次空闲时段有剩余时间，然后才真正开始执行任务。
+
+下面是指定`timeout`的例子。
+
+```javascript
+requestIdleCallback(processPendingAnalyticsEvents, { timeout: 2000 });
+```
+
+上面代码指定，`processPendingAnalyticsEvents`必须在未来2秒之内执行。
+
+如果由于超时导致回调函数执行，则`deadline.timeRemaining()`返回`0`，`deadline.didTimeout`返回`true`。
+
+如果多次执行`window.requestAnimationFrame()`，指定多个回调函数，那么这些回调函数将排成一个队列，按照先进先出的顺序执行。
+
 ## 事件
 
 `window`对象可以接收以下事件。

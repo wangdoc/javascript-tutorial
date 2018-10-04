@@ -259,6 +259,8 @@ window.addEventListener('scroll', throttle(callback, 1000));
 window.addEventListener('scroll', _.throttle(callback, 1000));
 ```
 
+本书前面介绍过`debounce`的概念，`throttle`与它区别在于，`throttle`是“节流”，确保一段时间内只执行一次，而`debounce`是“防抖”，要连续操作结束后再执行。以网页滚动为例，`debounce`要等到用户停止滚动后才执行，`throttle`则是如果用户一直在滚动网页，那么在滚动过程中还是会执行。
+
 ### resize 事件
 
 `resize`事件在改变浏览器窗口大小时触发，主要发生在`window`对象上面。
