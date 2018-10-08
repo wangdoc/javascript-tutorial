@@ -114,7 +114,7 @@ timeout(100)
 
 Promise 实例的`then`方法，用来添加回调函数。
 
-`then`方法可以接受两个回调函数，第一个是异步操作成功时（变为`fulfilled`状态）时的回调函数，第二个是异步操作失败（变为`rejected`）时的回调函数（该参数可以省略）。一旦状态改变，就调用相应的回调函数。
+`then`方法可以接受两个回调函数，第一个是异步操作成功时（变为`fulfilled`状态）的回调函数，第二个是异步操作失败（变为`rejected`）时的回调函数（该参数可以省略）。一旦状态改变，就调用相应的回调函数。
 
 ```javascript
 var p1 = new Promise(function (resolve, reject) {
