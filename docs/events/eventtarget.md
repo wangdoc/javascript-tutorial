@@ -17,7 +17,7 @@ DOM 的事件操作（监听和触发），都定义在`EventTarget`接口。所
 `EventTarget.addEventListener()`用于在当前节点或对象上，定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。
 
 ```javascript
-target.addEventListener(type, listener[, useCapture]);
+target.addEventListener(type, listener, [useCapture]);
 ```
 
 该方法接受三个参数。
