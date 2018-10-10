@@ -531,7 +531,7 @@ var selectedText = selObj.toString();
 
 ### window.requestAnimationFrame()
 
-`window.requestAnimationFrame()`方法跟`setTimeout`类似，都是推迟某个函数的执行。不同之处在于，`setTimeout`必须指定推迟的时间，`window.requestAnimationFrame()`则是推迟到浏览器下一次重流时执行，即在下一次重绘之前执行。重绘通常是 16ms 执行一次，不过浏览器会自动调节这个速率，比如网页切换到后台 Tab 页时，`requestAnimationFrame()`会暂停执行。
+`window.requestAnimationFrame()`方法跟`setTimeout`类似，都是推迟某个函数的执行。不同之处在于，`setTimeout`必须指定推迟的时间，`window.requestAnimationFrame()`则是推迟到浏览器下一次重流时执行，执行完才会进行下一次重绘。重绘通常是 16ms 执行一次，不过浏览器会自动调节这个速率，比如网页切换到后台 Tab 页时，`requestAnimationFrame()`会暂停执行。
 
 如果某个函数会改变网页的布局，一般就放在`window.requestAnimationFrame()`里面执行，这样可以节省系统资源，使得网页效果更加平滑。因为慢速设备会用较慢的速率重流和重绘，而速度更快的设备会有更快的速率。
 
@@ -586,7 +586,7 @@ window.requestIdleCallback(callback[, options])
 
 `options`参数是一个配置对象，目前只有`timeout`一个属性，用来指定回调函数推迟执行的最大毫秒数。该参数可选。
 
-`window.requestAnimationFrame()`方法返回一个整数。该整数可以传入`window.cancelIdleCallback()`取消回调函数。
+`window.requestIdelCallback()`方法返回一个整数。该整数可以传入`window.cancelIdleCallback()`取消回调函数。
 
 下面是一个例子。
 
@@ -612,7 +612,7 @@ requestIdleCallback(processPendingAnalyticsEvents, { timeout: 2000 });
 
 如果由于超时导致回调函数执行，则`deadline.timeRemaining()`返回`0`，`deadline.didTimeout`返回`true`。
 
-如果多次执行`window.requestAnimationFrame()`，指定多个回调函数，那么这些回调函数将排成一个队列，按照先进先出的顺序执行。
+如果多次执行`window.requestIdelCallback()`，指定多个回调函数，那么这些回调函数将排成一个队列，按照先进先出的顺序执行。
 
 ## 事件
 
