@@ -35,7 +35,7 @@
 - HTMLMediaElement.audioTracks：返回一个类似数组的对象，表示媒体文件包含的音轨。
 - HTMLMediaElement.autoplay：布尔值，表示媒体文件是否自动播放，对应 HTML 属性`autoplay`。
 - HTMLMediaElement.buffered：返回一个 TimeRanges 对象，表示浏览器缓冲的内容。该对象的`length`属性返回缓存里面有多少段内容，`start(rangeId)`方法返回指定的某段内容（从0开始）开始的时间点，`end()`返回指定的某段内容结束的时间点。该属性只读。
-- HTMLMediaElement.controls：布尔值，表示是否显示媒体文件的控制栏，对应 HTML 属性`autoplay`。
+- HTMLMediaElement.controls：布尔值，表示是否显示媒体文件的控制栏，对应 HTML 属性`controls`。
 - HTMLMediaElement.controlsList：返回一个类似数组的对象，表示是否显示控制栏的某些控件。该对象包含三个可能的值：`nodownload`、`nofullscreen`和`noremoteplayback`。该属性只读。
 - HTMLMediaElement.crossOrigin：字符串，表示跨域请求时是否附带用户信息（比如 Cookie），对应 HTML 属性`crossorigin`。该属性只有两个可能的值：`anonymous`和`use-credentials`。
 - HTMLMediaElement.currentSrc：字符串，表示当前正在播放的媒体文件的绝对路径。该属性只读。
