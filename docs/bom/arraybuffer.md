@@ -19,7 +19,7 @@ ArrayBuffer 对象有实例属性`length`和`byteLength`，都表示当前实例
 ```javascript
 var buffer = new ArrayBuffer(8);
 buffer.length // 8
-buffer.length // 8
+buffer.byteLength // 8
 ```
 
 ArrayBuffer 对象有实例方法`slice()`，用来复制一部分内存。它接受两个整数参数，分别表示复制的开始位置（从0开始）和结束位置（复制时不包括结束位置），如果省略第二个参数，则表示一直复制到结束。
