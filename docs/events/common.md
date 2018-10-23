@@ -9,7 +9,7 @@
 如果该事件对象的`returnValue`属性是一个非空字符串，那么浏览器就会弹出一个对话框，询问用户是否要卸载该资源。但是，用户指定的字符串可能无法显示，浏览器会展示预定义的字符串。如果用户点击“取消”按钮，资源就不会卸载。
 
 ```javascript
-window.addEventListener('beforeunload', function(event) {
+window.addEventListener('beforeunload', function (event) {
   event.returnValue = '你确定离开吗？';
 });
 ```
@@ -19,7 +19,7 @@ window.addEventListener('beforeunload', function(event) {
 浏览器对这个事件的行为很不一致，有的浏览器调用`event.preventDefault()`，也会弹出对话框。IE 浏览器需要显式返回一个非空的字符串，才会弹出对话框。而且，大多数浏览器在对话框中不显示指定文本，只显示默认文本。因此，可以采用下面的写法，取得最大的兼容性。
 
 ```javascript
-window.addEventListener('beforeunload', function(e) {
+window.addEventListener('beforeunload', function (e) {
   var confirmationMessage = '确认关闭窗口？';
 
   e.returnValue = confirmationMessage;
@@ -27,9 +27,9 @@ window.addEventListener('beforeunload', function(e) {
 });
 ```
 
-注意，许多手机浏览器默认忽略这个事件，桌面浏览器也有办法忽略这个事件。所以，它可能根本不会生效，不能依赖它来阻止用户关闭窗口。
+注意，许多手机浏览器默认忽略这个事件，桌面浏览器也有办法忽略这个事件。所以，它可能根本不会生效，不能依赖它来阻止用户关闭窗口。另外，一旦使用了`beforeunload`事件，浏览器就不会缓存当前网页。因为执行了这个事件以后，缓存页面就没意义了。
 
-另外，一旦使用了`beforeunload`事件，浏览器就不会缓存当前网页。因为执行了这个事件以后，缓存页面就没意义了。
+基本上，只有一种场合可以监听`unload`事件，其他情况都不应该监听：用户修改了表单，还没有保存就要离开。
 
 ### unload 事件
 
@@ -43,7 +43,7 @@ window.addEventListener('unload', function(event) {
 });
 ```
 
-跟`beforeunload`事件一样，一旦使用了`unload`事件，浏览器就不会缓存当前网页，理由同上。
+手机上，浏览器或系统可能会直接丢弃网页，这时该事件根本不会发生。而且跟`beforeunload`事件一样，一旦使用了`unload`事件，浏览器就不会缓存当前网页，理由同上。因此，任何情况下都不应该依赖这个事件，指定网页卸载时要执行的代码，可以考虑完全不使用这个事件。
 
 ### load 事件，error 事件
 
@@ -90,6 +90,8 @@ window.addEventListener('pageshow', function(event){
 `pagehide`事件实例也有一个`persisted`属性，将这个属性设为`true`，就表示页面要保存在缓存中；设为`false`，表示网页不保存在缓存中，这时如果设置了unload 事件的监听函数，该函数将在 pagehide 事件后立即运行。
 
 如果页面包含`<frame>`或`<iframe>`元素，则`<frame>`页面的`pageshow`事件和`pagehide`事件，都会在主页面之前触发。
+
+注意，这两个事件只在浏览器的`history`对象发生变化时触发，跟网页是否可见没有关系。
 
 ### popstate 事件
 
