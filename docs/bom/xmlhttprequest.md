@@ -430,7 +430,7 @@ xhr.open('POST', encodeURI('someURL'));
 
 ### XMLHttpRequest.send()
 
-`XMLHttpRequest.send()`方法用于实际发出 HTTP 请求。它的参数是可选的，如果不带参数，就表示 HTTP 请求只包含头信息，也就是只有一个 URL，典型例子就是 GET 请求；如果带有参数，就表示除了头信息，还带有包含具体数据的信息体，典型例子就是 POST 请求。
+`XMLHttpRequest.send()`方法用于实际发出 HTTP 请求。它的参数是可选的，如果不带参数，就表示 HTTP 请求只有一个 URL，没有数据体，典型例子就是 GET 请求；如果带有参数，就表示除了头信息，还带有包含具体数据的信息体，典型例子就是 POST 请求。
 
 下面是 GET 请求的例子。
 
@@ -441,14 +441,9 @@ xhr.open('GET',
   true
 );
 xhr.send(null);
-
-// 等同于
-var data = 'id=' + encodeURIComponent(id);
-xhr.open('GET', 'http://www.example.com', true);
-xhr.send(data);
 ```
 
-上面代码中，`GET`请求的参数，可以作为查询字符串附加在 URL 后面，也可以作为`send`方法的参数。
+上面代码中，`GET`请求的参数，作为查询字符串附加在 URL 后面。
 
 下面是发送 POST 请求的例子。
 
@@ -477,7 +472,7 @@ void send(String data);
 void send(FormData data);
 ```
 
-如果发送 DOM 对象，在发送之前，数据会先被串行化。发送二进制数据，最好使用`ArrayBufferView`或`Blob`对象，这使得通过 Ajax 上传文件成为可能。
+如果`send()`发送 DOM 对象，在发送之前，数据会先被串行化。如果发送二进制数据，最好是发送`ArrayBufferView`或`Blob`对象，这使得通过 Ajax 上传文件成为可能。
 
 下面是发送表单数据的例子。`FormData`对象可以用于构造表单数据。
 
@@ -489,11 +484,11 @@ formData.append('email', 'zhangsan@example.com');
 formData.append('birthDate', 1940);
 
 var xhr = new XMLHttpRequest();
-xhr.open("POST", "/register");
+xhr.open('POST', '/register');
 xhr.send(formData);
 ```
 
-上面代码`FormData`对象构造了表单数据，然后使用`send()`方法发送。它的效果与发送下面的表单数据是一样的。
+上面代码中，`FormData`对象构造了表单数据，然后使用`send()`方法发送。它的效果与发送下面的表单数据是一样的。
 
 ```html
 <form id='registration' name='registration' action='/register'>
