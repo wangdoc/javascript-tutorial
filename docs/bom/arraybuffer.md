@@ -32,7 +32,9 @@ var buf2 = buf1.slice(0);
 
 ## Blob 对象
 
-Blob 对象表示一个二进制文件的数据内容，比如一个图片文件的内容就可以通过 Blob 对象读写。它通常用来读写文件。它与 ArrayBuffer 的区别在于，它用于操作二进制文件，而 ArrayBuffer 用于操作内存。
+### 简介
+
+Blob 对象表示一个二进制文件的数据内容，比如一个图片文件的内容就可以通过 Blob 对象读写。它通常用来读写文件，它的名字是 Binary Large Object （二进制大型对象）的缩写。它与 ArrayBuffer 的区别在于，它用于操作二进制文件，而 ArrayBuffer 用于操作内存。
 
 浏览器原生提供`Blob()`构造函数，用来生成实例对象。
 
@@ -56,6 +58,8 @@ var obj = { hello: 'world' };
 var blob = new Blob([ JSON.stringify(obj) ], {type : 'application/json'});
 ```
 
+### 实例属性和实例方法
+
 `Blob`具有两个实例属性`size`和`type`，分别返回数据的大小和类型。
 
 ```javascript
@@ -74,3 +78,73 @@ myBlob.slice(start，end, contentType)
 
 `slice`方法有三个参数，都是可选的。它们依次是起始的字节位置（默认为0）、结束的字节位置（默认为`size`属性的值，该位置本身将不包含在拷贝的数据之中）、新实例的数据类型（默认为空字符串）。
 
+### 读取文件
+
+文件选择器`<input type="file">`用来让用户选取文件。出于安全考虑，浏览器不允许脚本自行设置这个控件的`value`属性，即文件必须是用户手动选取的，不能是脚本指定的。一旦用户选好了文件，脚本就可以读取这个文件。
+
+文件选择器返回一个 FileList 对象，该对象是一个类似数组的成员，每个成员都是一个 File 实例对象。File 实例对象是一个特殊的 Blob 实例，增加了`name`和`lastModifiedDate`属性。
+
+```javascript
+// HTML 代码如下
+// <input type="file" accept="image/*" multiple onchange="fileinfo(this.files)"/>
+
+function fileinfo(files) {
+  for (var i = 0; i < files.length; i++) {
+    var f = files[i];
+    console.log(
+      f.name, // 文件名，不含路径
+      f.size, // 文件大小，Blob 实例属性
+      f.type, // 文件类型，Blob 实例属性
+      f.lastModifiedDate // 文件的最后修改时间
+    );
+  }
+}
+```
+
+除了文件选择器，拖放 API 的`dataTransfer.files`返回的也是一个FileList 对象，它的成员因此也是 File 实例对象。
+
+### 下载文件
+
+AJAX 请求时，如果指定`responseType`属性为`blob`，下载下来的就是一个 Blob 对象。
+
+```javascript
+function getBlob(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url);
+  xhr.responseType = 'blob';
+  xhr.onload = function () {
+    callback(xhr.response);
+  }
+  xhr.send(null);
+}
+```
+
+上面代码中，`xhr.response`拿到的就是一个 Blob 对象。
+
+### 生成 URL
+
+浏览器允许使用`URL.createObjectURL()`方法，针对 Blob 对象生成一个临时 URL，以便于某些 API 使用。这个 URL 以`blob://`开头，表明对应一个 Blob 对象，协议头后面是一个识别符，用来唯一对应内存里面的 Blob 对象。这一点与`data://URL`（URL 包含实际数据）和`file://URL`（本地文件系统里面的文件）都不一样。
+
+```javascript
+var droptarget = document.getElementById('droptarget');
+
+droptarget.ondrop = function (e) {
+  var files = e.dataTransfer.files;
+  for (var i = 0; i < files.length; i++) {
+    var type = files[i].type;
+    if (type.substring(0,6) !== 'image/')
+      continue;
+    var img = document.createElement('img');
+    img.src = URL.createObjectURL(files[i]);
+    img.onload = function () {
+      this.width = 100;
+      document.body.appendChild(this);
+      URL.revokeObjectURL(this.src);
+    }
+  }
+}
+```
+
+上面代码通过为拖放的图片文件生成一个 URL，产生它们的缩略图，从而使得用户可以预览选择的文件。
+
+浏览器处理 Blob URL 就跟普通的 URL 一样，如果 Blob 对象不存在，返回404状态码；如果跨域请求，返回403状态码。Blob URL 之对 GET 请求有效，如果请求成功，返回200状态码。由于 Blob URL 就是普通 URL，因此可以下载。
