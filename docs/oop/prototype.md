@@ -616,7 +616,7 @@ var module1 = (function ($, YAHOO) {
   //attach to the global scope
   window.finalCarousel = {
     init : initialize,
-    destroy : dieCouraselDie
+    destroy : dieCarouselDie
   }
 
 })( jQuery, window, document );
