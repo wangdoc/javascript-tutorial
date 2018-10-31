@@ -78,7 +78,7 @@ myBlob.slice(start，end, contentType)
 
 `slice`方法有三个参数，都是可选的。它们依次是起始的字节位置（默认为0）、结束的字节位置（默认为`size`属性的值，该位置本身将不包含在拷贝的数据之中）、新实例的数据类型（默认为空字符串）。
 
-### 读取文件
+### 获取文件信息
 
 文件选择器`<input type="file">`用来让用户选取文件。出于安全考虑，浏览器不允许脚本自行设置这个控件的`value`属性，即文件必须是用户手动选取的，不能是脚本指定的。一旦用户选好了文件，脚本就可以读取这个文件。
 
@@ -148,3 +148,65 @@ droptarget.ondrop = function (e) {
 上面代码通过为拖放的图片文件生成一个 URL，产生它们的缩略图，从而使得用户可以预览选择的文件。
 
 浏览器处理 Blob URL 就跟普通的 URL 一样，如果 Blob 对象不存在，返回404状态码；如果跨域请求，返回403状态码。Blob URL 之对 GET 请求有效，如果请求成功，返回200状态码。由于 Blob URL 就是普通 URL，因此可以下载。
+
+## 读取文件
+
+取得 Blob 对象以后，可以通过`FileReader`对象，读取 Blob 对象的内容，即文件内容。
+
+FileReader 对象提供四个方法，处理 Blob 对象。Blob 对象作为参数传入这些方法，然后以指定的格式返回。
+
+- FileReader.readAsText()：返回文本，需要指定文本编码，默认为 UTF-8。
+- FileReader.readAsArrayBuffer()：返回 ArrayBuffer 对象。
+- FileReader.readAsDataURL()：返回 Data URL。
+- FileReader.readAsBinaryString()：返回原始的二进制字符串。
+
+下面是`FileReader.readAsText()`方法的例子，用来读取文本文件。
+
+```javascript
+// HTML 代码如下
+// <input type=’file' onchange='readfile(this.files[0])'></input>
+// <pre id='output'></pre>
+function readfile(f) {
+  var reader = new FileReader();
+  reader.readAsText(f);
+  reader.onload = function() {
+    var text = reader.result;
+    var out = document.getElementById('output');
+    out.innerHTML = '';
+    out.appendChild(document.createTextNode(text));
+  }
+  reader.onerror = function(e) {
+    console.log('Error', e);
+  };
+}
+```
+
+上面代码中，通过指定 FileReader 实例对象的`onload`监听函数，在实例的`result`属性上拿到文件内容。
+
+下面是`FileReader.readAsArrayBuffer()`方法的例子，用于读取二进制文件。
+
+```javascript
+// HTML 代码如下
+// <input type="file" onchange="typefile(this.files[0])"></input>
+function typefile(file) {
+  // 文件开头的四个字节，生成一个 Blob 对象
+  var slice = file.slice(0, 4);
+  var reader = new FileReader();
+  // 读取这四个字节
+  reader.readAsArrayBuffer(slice);
+  reader.onload = function (e) {
+    var buffer = reader.result;
+    // 将这四个字节的内容，视作一个32位整数
+    var view = new DataView(buffer);
+    var magic = view.getUint32(0, false);
+    // 根据文件的前四个字节，判断它的类型
+    switch(magic) {
+      case 0x89504E47: file.verified_type = 'image/png'; break;
+      case 0x47494638: file.verified_type = 'image/gif'; break;
+      case 0x25504446: file.verified_type = 'application/pdf'; break;
+      case 0x504b0304: file.verified_type = 'application/zip'; break;
+    }
+    console.log(file.name, file.verified_type);
+  };
+}
+```
