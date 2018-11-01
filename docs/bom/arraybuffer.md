@@ -149,16 +149,16 @@ droptarget.ondrop = function (e) {
 
 浏览器处理 Blob URL 就跟普通的 URL 一样，如果 Blob 对象不存在，返回404状态码；如果跨域请求，返回403状态码。Blob URL 之对 GET 请求有效，如果请求成功，返回200状态码。由于 Blob URL 就是普通 URL，因此可以下载。
 
-## 读取文件
+### 读取文件
 
 取得 Blob 对象以后，可以通过`FileReader`对象，读取 Blob 对象的内容，即文件内容。
 
 FileReader 对象提供四个方法，处理 Blob 对象。Blob 对象作为参数传入这些方法，然后以指定的格式返回。
 
-- FileReader.readAsText()：返回文本，需要指定文本编码，默认为 UTF-8。
-- FileReader.readAsArrayBuffer()：返回 ArrayBuffer 对象。
-- FileReader.readAsDataURL()：返回 Data URL。
-- FileReader.readAsBinaryString()：返回原始的二进制字符串。
+- `FileReader.readAsText()`：返回文本，需要指定文本编码，默认为 UTF-8。
+- `FileReader.readAsArrayBuffer()`：返回 ArrayBuffer 对象。
+- `FileReader.readAsDataURL()`：返回 Data URL。
+- `FileReader.readAsBinaryString()`：返回原始的二进制字符串。
 
 下面是`FileReader.readAsText()`方法的例子，用来读取文本文件。
 
@@ -169,7 +169,7 @@ FileReader 对象提供四个方法，处理 Blob 对象。Blob 对象作为参�
 function readfile(f) {
   var reader = new FileReader();
   reader.readAsText(f);
-  reader.onload = function() {
+  reader.onload = function () {
     var text = reader.result;
     var out = document.getElementById('output');
     out.innerHTML = '';
