@@ -10,7 +10,7 @@
     "prepush": "npm update",
     "build": "loppo --site \"JavaScript 教程\" --id javascript --theme wangdoc",
     "build-and-commit": "npm run build && npm run commit",
-    "commit": "gh-pages --dist dist --dest dist/javascript --branch master --repo git@github.com:wangdoc/website.git",
+    "commit": "gh-pages --dist dist --dest dist/javascript --branch master --add --repo git@github.com:wangdoc/website.git",
     "chapter": "loppo chapter",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,9 +30,9 @@
   },
   "homepage": "https://github.com/wangdoc/javascript-tutorial",
   "dependencies": {
-    "gh-pages": "^1.2.0",
+    "gh-pages": "latest",
     "husky": "^0.14.3",
-    "loppo": "^0.6.14",
-    "loppo-theme-wangdoc": "^0.3.11"
+    "loppo": "latest",
+    "loppo-theme-wangdoc": "latest"
   }
 }
