@@ -226,9 +226,9 @@ if (boolValue) {
 //   ...
 // </article>
 var article = document.getElementById('foo');
-foo.dataset.columns // "3"
-foo.dataset.indexNumber // "12314"
-foo.dataset.parent // "cars"
+article.dataset.columns // "3"
+article.dataset.indexNumber // "12314"
+article.dataset.parent // "cars"
 ```
 
 注意，`dataset`上面的各个属性返回都是字符串。

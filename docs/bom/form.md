@@ -9,7 +9,7 @@
   <div>
     <label for="name">用户名：</label>
     <input type="text" id="name" name="user_name" />
-  <div>
+  </div>
   <div>
     <label for="passwd">密码：</label>
     <input type="password" id="passwd" name="user_passwd" />
