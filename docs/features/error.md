@@ -315,10 +315,12 @@ function cleansUp() {
 
 cleansUp()
 // 完成清理工作
-// Error: 出错了……
+// Uncaught Error: 出错了……
+//    at cleansUp (<anonymous>:3:11)
+//    at <anonymous>:10:1
 ```
 
-上面代码中，由于没有`catch`语句块，所以错误没有捕获。执行`finally`代码块以后，程序就中断在错误抛出的地方。
+上面代码中，由于没有`catch`语句块，一旦发生错误，代码就会中断执行。中断执行之前，会先执行`finally`代码块，然后再向用户提示报错信息。
 
 ```javascript
 function idle(x) {
@@ -326,17 +328,16 @@ function idle(x) {
     console.log(x);
     return 'result';
   } finally {
-    console.log("FINALLY");
+    console.log('FINALLY');
   }
 }
 
 idle('hello')
 // hello
 // FINALLY
-// "result"
 ```
 
-上面代码说明，`try`代码块没有发生错误，而且里面还包括`return`语句，但是`finally`代码块依然会执行。注意，只有在其执行完毕后，才会显示`return`语句的值。
+上面代码中，`try`代码块没有发生错误，而且里面还包括`return`语句，但是`finally`代码块依然会执行。而且，这个函数的返回值还是`result`。
 
 下面的例子说明，`return`语句的执行是排在`finally`代码之前，只是等`finally`代码执行完毕后才返回。
 
@@ -356,7 +357,7 @@ count
 // 1
 ```
 
-上面代码说明，`return`语句的`count`的值，是在`finally`代码块运行之前就获取了。
+上面代码说明，`return`语句里面的`count`的值，是在`finally`代码块运行之前就获取了。
 
 下面是`finally`代码块用法的典型场景。
 
@@ -430,6 +431,24 @@ try {
 ```
 
 上面代码中，进入`catch`代码块之后，一遇到`throw`语句，就会去执行`finally`代码块，其中有`return false`语句，因此就直接返回了，不再会回去执行`catch`代码块剩下的部分了。
+
+```javascript
+try {
+  try {
+    cosnole.log('Hello world!'); // 报错
+  }
+  finally {
+    console.log('Finally');
+  }
+  console.log('Will I run?');
+} catch(error) {
+  console.error(error.message);
+}
+// Finally
+// cosnole is not defined
+```
+
+上面代码中，`try`里面还有一个`try`。内层的`try`报错，这时会执行内层的`finally`代码块，然后抛出错误，被外层的`catch`捕获。
 
 ## 参考连接
 
