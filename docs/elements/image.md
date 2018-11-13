@@ -191,7 +191,7 @@ function loadImage() {
 }
 ```
 
-图像加载完成，会触发`onerror`属性指定的回调函数。
+图像加载过程中发生错误，会触发`onerror`属性指定的回调函数。
 
 ```javascript
 // HTML 代码为 <img src="image.gif" onerror="myFunction()">
@@ -199,3 +199,4 @@ function myFunction() {
   console.log('There is something wrong');
 }
 ```
+
