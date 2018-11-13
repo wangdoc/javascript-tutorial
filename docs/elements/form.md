@@ -11,7 +11,7 @@
 - `target`：字符串，表示表单提交后，服务器返回的数据的展示位置。
 - `action`：字符串，表示表单提交数据的 URL。
 - `enctype`（或`encoding`）：字符串，表示表单提交数据的编码方法，可能的值有`application/x-www-form-urlencoded`、`multipart/form-data`和`text/plain`。
-- `acceptCharset`：字符串，表示服务器所能接受的字符编码，多个编码格式之间或空格分隔。
+- `acceptCharset`：字符串，表示服务器所能接受的字符编码，多个编码格式之间使用逗号或空格分隔。
 - `autocomplete`：字符串`on`或`off`，表示浏览器是否要对`<input>`控件提供自动补全。
 - `noValidate`：布尔值，表示是否关闭表单的自动校验。
 
