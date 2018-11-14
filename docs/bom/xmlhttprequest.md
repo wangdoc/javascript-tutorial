@@ -34,7 +34,7 @@ xhr.open('GET', 'http://www.example.com/page.php', true);
 然后，指定回调函数，监听通信状态（`readyState`属性）的变化。
 
 ```javascript
-ajax.onreadystatechange = handleStateChange;
+xhr.onreadystatechange = handleStateChange;
 
 function handleStateChange() {
   // ...
