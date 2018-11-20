@@ -401,7 +401,25 @@ obj.toString(obj) // "[object Object]"
 obj.toLocaleString(obj) // "[object Object]"
 ```
 
-这个方法的主要作用是留出一个接口，让各种不同的对象实现自己版本的`toLocaleString`，用来返回针对某些地域的特定的值。目前，主要有三个对象自定义了`toLocaleString`方法。
+这个方法的主要作用是留出一个接口，让各种不同的对象实现自己版本的`toLocaleString`，用来返回针对某些地域的特定的值。
+
+```javascript
+var person = {
+  toString(): function () {
+    return 'Henry Norman Bethune';
+  },
+  toLocaleString(): function () {
+    return '白求恩';
+  }
+};
+
+person.toString() // Henry Norman Bethune
+person.toLocaleString() // 白求恩
+```
+
+上面代码中，`toString()`方法返回对象的一般字符串形式，`toLocaleString()`方法返回本地的字符串形式。
+
+目前，主要有三个对象自定义了`toLocaleString`方法。
 
 - Array.prototype.toLocaleString()
 - Number.prototype.toLocaleString()
