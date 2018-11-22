@@ -84,7 +84,7 @@ JSON.stringify('foo') === "foo" // false
 JSON.stringify('foo') === "\"foo\"" // true
 ```
 
-上面代码中，字符串`foo`，被转成了`"\"foo"\"`。这是因为将来还原的时候，内层双引号可以让 JavaScript 引擎知道，这是一个字符串，而不是其他类型的值。
+上面代码中，字符串`foo`，被转成了`"\"foo\""`。这是因为将来还原的时候，内层双引号可以让 JavaScript 引擎知道，这是一个字符串，而不是其他类型的值。
 
 ```javascript
 JSON.stringify(false) // "false"
