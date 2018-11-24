@@ -233,7 +233,7 @@ currentEvent.movementY = currentEvent.screenY - previousEvent.screenY。
 // <body onmousedown="showCoords(event)">
 function showCoords(evt) {
   console.log(
-    'screenX value: ' + evt.screenX + '\n'
+    'screenX value: ' + evt.screenX + '\n',
     'screenY value: ' + evt.screenY + '\n'
   );
 }
