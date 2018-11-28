@@ -127,7 +127,7 @@ DOM 每次发生变化，就会生成一条变动记录（MutationRecord 实例�
 
 `MutationRecord`对象包含了DOM的相关信息，有如下属性：
 
-- `type`：观察的变动类型（`attribute`、`characterData`或者`childList`）。
+- `type`：观察的变动类型（`attributes`、`characterData`或者`childList`）。
 - `target`：发生变动的DOM节点。
 - `addedNodes`：新增的DOM节点。
 - `removedNodes`：删除的DOM节点。
