@@ -145,8 +145,8 @@ d === document // true
 ```javascript
 // HTML 代码如下
 // <div id="d1">hello</div><div id="d2">world</div>
-var div1 = document.getElementById('d1');
-var div2 = document.getElementById('d2');
+var d1 = document.getElementById('d1');
+var d2 = document.getElementById('d2');
 
 d1.nextSibling === d2 // true
 ```

@@ -399,7 +399,6 @@ d.toLocaleTimeString('en-US', {
 - `getTime()`：返回实例距离1970年1月1日00:00:00的毫秒数，等同于`valueOf`方法。
 - `getDate()`：返回实例对象对应每个月的几号（从1开始）。
 - `getDay()`：返回星期几，星期日为0，星期一为1，以此类推。
-- `getYear()`：返回距离1900的年数。
 - `getFullYear()`：返回四位的年份。
 - `getMonth()`：返回月份（0表示1月，11表示12月）。
 - `getHours()`：返回小时（0-23）。
@@ -415,14 +414,12 @@ d.toLocaleTimeString('en-US', {
 - 星期：0（星期天）到 6（星期六）
 - 日期：1 到 31
 - 月份：0（一月）到 11（十二月）
-- 年份：距离1900年的年数
 
 ```javascript
 var d = new Date('January 6, 2013');
 
 d.getDate() // 6
 d.getMonth() // 0
-d.getYear() // 113
 d.getFullYear() // 2013
 d.getTimezoneOffset() // -480
 ```
@@ -465,7 +462,6 @@ d.getUTCDate() // 5
 `Date`对象提供了一系列`set*`方法，用来设置实例对象的各个方面。
 
 - `setDate(date)`：设置实例对象对应的每个月的几号（1-31），返回改变后毫秒时间戳。
-- `setYear(year)`: 设置距离1900年的年数。
 - `setFullYear(year [, month, date])`：设置四位年份。
 - `setHours(hour [, min, sec, ms])`：设置小时（0-23）。
 - `setMilliseconds()`：设置毫秒（0-999）。
@@ -511,7 +507,7 @@ d.setHours(d.getHours() + 6);
 d.setFullYear(d.getFullYear() - 1);
 ```
 
-`set*`系列方法除了`setTime()`和`setYear()`，都有对应的 UTC 版本，即设置 UTC 时区的时间。
+`set*`系列方法除了`setTime()`，都有对应的 UTC 版本，即设置 UTC 时区的时间。
 
 - `setUTCDate()`
 - `setUTCFullYear()`
