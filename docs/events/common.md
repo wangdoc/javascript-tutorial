@@ -299,7 +299,7 @@ document.addEventListener('fullscreenchange', function (event) {
 - `copy`：进行复制动作时触发。
 - `paste`：剪贴板内容粘贴到文档后触发。
 
-这三个事件都是`ClipboardEvent`接口的实例。`ClipboardEvent`有一个实例属性`clipboardData`，是一个 DataTransfer 对象，存放剪贴的数据。具体的 API 接口和操作方法，请参见《触摸事件》的 DataTransfer 对象部分。
+这三个事件都是`ClipboardEvent`接口的实例。`ClipboardEvent`有一个实例属性`clipboardData`，是一个 DataTransfer 对象，存放剪贴的数据。具体的 API 接口和操作方法，请参见《拖拉事件》的 DataTransfer 对象部分。
 
 ```javascript
 document.addEventListener('copy', function (e) {
