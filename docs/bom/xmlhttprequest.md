@@ -95,7 +95,7 @@ if (xhr.readyState === 4) {
 }
 ```
 
-上面代码中，`xhr.readyState`等于`4`时，表明脚本发出的 HTTP 请求已经成功。其他情况，都表示 HTTP 请求还在进行中。
+上面代码中，`xhr.readyState`等于`4`时，表明脚本发出的 HTTP 请求已经完成。其他情况，都表示 HTTP 请求还在进行中。
 
 ### XMLHttpRequest.onreadystatechange
 
@@ -247,7 +247,7 @@ xhr.send(null);
 
 - 200, OK，访问正常
 - 301, Moved Permanently，永久移动
-- 302, Move temporarily，暂时移动
+- 302, Moved temporarily，暂时移动
 - 304, Not Modified，未修改
 - 307, Temporary Redirect，暂时重定向
 - 401, Unauthorized，未授权
