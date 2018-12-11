@@ -448,13 +448,10 @@ function doAction(action) {
   switch (action) {
     case 'hack':
       return 'hack';
-      break;
     case 'slash':
       return 'slash';
-      break;
     case 'run':
       return 'run';
-      break;
     default:
       throw new Error('Invalid action.');
   }
