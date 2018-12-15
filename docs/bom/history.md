@@ -29,6 +29,15 @@ History 对象主要有两个属性。
 - `History.length`：当前窗口访问过的网址数量（包括当前网页）
 - `History.state`：History 堆栈最上层的状态值（详见下文）
 
+```javascript
+// 当前窗口访问过多少个网页
+window.history.length // 1
+
+// Histroy 对象的当前状态
+// 通常是 undefined，即未设置
+window.history.state // undefined
+```
+
 ## 方法
 
 ### History.back()、History.forward()、History.go()
@@ -48,7 +57,7 @@ history.go(-2);
 `history.go(0)`相当于刷新当前页面。
 
 ```javascript
-history.go(0);记录
+history.go(0); // 刷新当前页面
 ```
 
 注意，移动到以前访问过的页面时，页面通常是从浏览器缓存之中加载，而不是重新要求服务器发送新的网页。
