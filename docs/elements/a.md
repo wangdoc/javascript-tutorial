@@ -22,7 +22,7 @@
 
 ```javascript
 // HTML 代码如下
-// <a id="test" href="http://user:passed@example.com:8081/index.html?bar=1#foo">test</a>
+// <a id="test" href="http://user:passwd@example.com:8081/index.html?bar=1#foo">test</a>
 var a = document.getElementById('test');
 a.hash // "#foo"
 a.host // "example.com:8081"
