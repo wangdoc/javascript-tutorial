@@ -11,7 +11,7 @@
 
 `console`对象的浏览器实现，包含在浏览器自带的开发工具之中。以 Chrome 浏览器的“开发者工具”（Developer Tools）为例，可以使用下面三种方法的打开它。
 
-1. 按 F12 或者`Control + Shift + i`（PC）/ `Alt + Command + i`（Mac）。
+1. 按 F12 或者`Control + Shift + i`（PC）/ `Command + Option + i`（Mac）。
 2. 浏览器菜单选择“工具/开发者工具”。
 3. 在一个页面元素上，打开右键菜单，选择其中的“Inspect Element”。
 

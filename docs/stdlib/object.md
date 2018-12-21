@@ -405,10 +405,10 @@ obj.toLocaleString(obj) // "[object Object]"
 
 ```javascript
 var person = {
-  toString(): function () {
+  toString: function () {
     return 'Henry Norman Bethune';
   },
-  toLocaleString(): function () {
+  toLocaleString: function () {
     return '白求恩';
   }
 };
