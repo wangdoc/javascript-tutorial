@@ -146,7 +146,7 @@ mine instanceof Array // true
 
 上面代码中，`mine`是构造函数`MyArray`的实例对象，由于`MyArray.prototype`指向一个数组实例，使得`mine`可以调用数组方法（这些方法定义在数组实例的`prototype`对象上面）。最后那行`instanceof`表达式，用来比较一个对象是否为某个构造函数的实例，结果就是证明`mine`为`Array`的实例，`instanceof`运算符的详细解释详见后文。
 
-上面代码还出现了原型对象的`contructor`属性，这个属性的含义下一节就来解释。
+上面代码还出现了原型对象的`constructor`属性，这个属性的含义下一节就来解释。
 
 ### constructor 属性
 
@@ -219,7 +219,7 @@ Person.prototype.constructor === Person // false
 Person.prototype.constructor === Object // true
 ```
 
-上面代码中，构造函数`Person`的原型对象改掉了，但是没有修改`constructor`属性，导致这个属性不再指向`Person`。由于`Person`的新原型是一个普通对象，而普通对象的`contructor`属性指向`Object`构造函数，导致`Person.prototype.constructor`变成了`Object`。
+上面代码中，构造函数`Person`的原型对象改掉了，但是没有修改`constructor`属性，导致这个属性不再指向`Person`。由于`Person`的新原型是一个普通对象，而普通对象的`constructor`属性指向`Object`构造函数，导致`Person.prototype.constructor`变成了`Object`。
 
 所以，修改原型对象时，一般要同时修改`constructor`属性的指向。
 
