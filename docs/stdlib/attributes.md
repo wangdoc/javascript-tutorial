@@ -550,7 +550,7 @@ extend({}, { get a(){ return 1 } })
 // { get a(){ return 1 } })
 ```
 
-上面代码中，`hasOwnProperty`那一行用来过滤掉继承的属性，否则会报错，因为`Object.getOwnPropertyDescriptor`读不到继承属性的属性描述对象。
+上面代码中，`hasOwnProperty`那一行用来过滤掉继承的属性，否则可能会报错，因为`Object.getOwnPropertyDescriptor`读不到继承属性的属性描述对象。
 
 ## 控制对象状态
 
