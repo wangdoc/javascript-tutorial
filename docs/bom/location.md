@@ -553,7 +553,7 @@ params.toString() // "a=2&a=1&b=3&c=4"
 
 ### URLSearchParams.keys()，URLSearchParams.values()，URLSearchParams.entries()
 
-这三个方法都返回一个遍历器对象，供`for...of`循环消费。它们的区别在于，`keys`方法返回的是键名的遍历器，`values`方法返回的是键值的遍历器，`entries`返回的是键值的遍历器。
+这三个方法都返回一个遍历器对象，供`for...of`循环消费。它们的区别在于，`keys`方法返回的是键名的遍历器，`values`方法返回的是键值的遍历器，`entries`返回的是键值对的遍历器。
 
 ```javascript
 var params = new URLSearchParams('a=1&b=2');
