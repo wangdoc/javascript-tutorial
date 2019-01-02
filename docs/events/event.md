@@ -134,7 +134,7 @@ para.addEventListener('click', hide, false);
 
 ### Event.type
 
-`Event.type`属性返回一个字符串，表示事件类型。事件的类型是在生成事件的时候。该属性只读。
+`Event.type`属性返回一个字符串，表示事件类型。事件的类型是在生成事件的时候指定的。该属性只读。
 
 ```javascript
 var evt = new Event('foo');

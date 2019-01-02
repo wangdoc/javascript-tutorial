@@ -756,7 +756,7 @@ var mdl = window.matchMedia('(min-width: 400px)');
 mdl instanceof MediaQueryList // true
 ```
 
-注意，如果参数不是有效的`MediaQuery`条件语句，`window.matchMedia`不会报错，依然返回的一个 MediaQueryList 实例。
+注意，如果参数不是有效的`MediaQuery`条件语句，`window.matchMedia`不会报错，依然返回一个 MediaQueryList 实例。
 
 ```javascript
 window.matchMedia('bad string') instanceof MediaQueryList // true
