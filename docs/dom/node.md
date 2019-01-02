@@ -558,12 +558,19 @@ wrapper.childNodes.length // 1
 
 ### Node.prototype.getRootNode()
 
-`getRootNode`方法返回当前节点所在文档的根节点，与`ownerDocument`属性的作用相同。
+`getRootNode()`方法返回当前节点所在文档的根节点`document`，与`ownerDocument`属性的作用相同。
 
 ```javascript
 document.body.firstChild.getRootNode() === document
 // true
 document.body.firstChild.getRootNode() === document.body.firstChild.ownerDocument
 // true
+```
+
+该方法可用于`document`节点自身，这一点与`document.ownerDocument`不同。
+
+```javascript
+document.getRootNode() // document
+document.ownerDocument // null
 ```
 
