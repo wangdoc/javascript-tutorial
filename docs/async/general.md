@@ -156,17 +156,24 @@ function final(value) {
   console.log('完成: ', value);
 }
 
-async(1, function(value){
-  async(value, function(value){
-    async(value, function(value){
-      async(value, function(value){
-        async(value, function(value){
-          async(value, final);
+async(1, function (value) {
+  async(2, function (value) {
+    async(3, function (value) {
+      async(4, function (value) {
+        async(5, function (value) {
+          async(6, final);
         });
       });
     });
   });
 });
+// 参数为 1 , 1秒后返回结果
+// 参数为 2 , 1秒后返回结果
+// 参数为 3 , 1秒后返回结果
+// 参数为 4 , 1秒后返回结果
+// 参数为 5 , 1秒后返回结果
+// 参数为 6 , 1秒后返回结果
+// 完成:  12
 ```
 
 上面代码中，六个回调函数的嵌套，不仅写起来麻烦，容易出错，而且难以维护。
