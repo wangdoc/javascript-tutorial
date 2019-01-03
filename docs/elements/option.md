@@ -40,4 +40,3 @@ newOption.selected // false
 ```
 
 上面代码中，`newOption`的`defaultSelected`属性为`true`，但是它没有被选中（即`selected`属性为`false`）。
-

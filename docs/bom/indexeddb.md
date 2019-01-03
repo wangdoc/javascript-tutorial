@@ -597,7 +597,7 @@ DBOpenRequest.onsuccess = function (event) {
   };
 
   transaction.onerror = function (event) {
-    console.log('tansaction error: ' + transaction.error);
+    console.log('transaction error: ' + transaction.error);
   };
 
   var objectStore = transaction.objectStore('items');
@@ -819,11 +819,11 @@ DBOpenRequest.onsuccess = function(event) {
   var transaction = db.transaction(['demo'], 'readwrite');
 
   transaction.oncomplete = function (event) {
-    console.log('transaction success');  
+    console.log('transaction success');
   };
 
   transaction.onerror = function (event) {
-    console.log('tansaction error: ' + transaction.error);
+    console.log('transaction error: ' + transaction.error);
   };
 
   var objectStore = transaction.objectStore('demo');
@@ -920,7 +920,7 @@ IDBIndex 对象有以下方法，它们都是异步的，立即返回的都是�
 
 ## IDBCursor 对象
 
-IDBCursor 对象代表指针对象，用来遍历数据仓库（IDBObjectStroe）或索引（IDBIndex）的记录。
+IDBCursor 对象代表指针对象，用来遍历数据仓库（IDBObjectStore）或索引（IDBIndex）的记录。
 
 IDBCursor 对象一般通过`IDBObjectStore.openCursor()`方法获得。
 
@@ -998,7 +998,7 @@ var r7 = IDBKeyRange.bound(x, y, true, false);
 // All keys ≥ x &&< y
 var r8 = IDBKeyRange.bound(x, y, false, true);
 
-// The key = z	
+// The key = z
 var r9 = IDBKeyRange.only(z);
 ```
 

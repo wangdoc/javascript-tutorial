@@ -118,7 +118,7 @@ pElementText.insertData(7, 'Hello ');
 // 页面显示 Hello WHello
 pElementText.replaceData(7, 5, 'World');
 // 页面显示 Hello WWorld
-pElementText.substringData(7, 10); 
+pElementText.substringData(7, 10);
 // 页面显示不变，返回"World "
 ```
 
@@ -186,7 +186,7 @@ document.querySelector('ul').appendChild(docFrag);
 
 ```javascript
 document
-  .queryselector('ul')
+  .querySelector('ul')
   .appendChild(docFrag.cloneNode(true));
 ```
 
@@ -208,4 +208,3 @@ function reverse(n) {
 - `firstElementChild`：返回当前`DocumentFragment`对象的第一个子元素节点，如果没有则返回`null`。
 - `lastElementChild`：返回当前`DocumentFragment`对象的最后一个子元素节点，如果没有则返回`null`。
 - `childElementCount`：返回当前`DocumentFragment`对象的所有子元素数量。
-

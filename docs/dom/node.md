@@ -539,7 +539,7 @@ p1.isSameNode(p1) // true
 
 ### Node.prototype.normalize()
 
-`normailize`方法用于清理当前节点内部的所有文本节点（text）。它会去除空的文本节点，并且将毗邻的文本节点合并成一个，也就是说不存在空的文本节点，以及毗邻的文本节点。
+`normalize`方法用于清理当前节点内部的所有文本节点（text）。它会去除空的文本节点，并且将毗邻的文本节点合并成一个，也就是说不存在空的文本节点，以及毗邻的文本节点。
 
 ```javascript
 var wrapper = document.createElement('div');
@@ -573,4 +573,3 @@ document.body.firstChild.getRootNode() === document.body.firstChild.ownerDocumen
 document.getRootNode() // document
 document.ownerDocument // null
 ```
-

@@ -97,4 +97,3 @@ for(var i = 0; i < button.labels.length; i++) {
 **（17）HTMLButtonElement.willValidate**
 
 `HTMLButtonElement.willValidate`属性是一个布尔值，表示该按钮提交表单时是否将被校验，默认为`false`。该属性只读。
-

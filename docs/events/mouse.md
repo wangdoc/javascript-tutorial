@@ -384,4 +384,3 @@ var wheelEvent = new WheelEvent(type, options);
 - `WheelEvent.deltaY`：数值，表示滚轮的垂直滚动量。
 - `WheelEvent.deltaZ`：数值，表示滚轮的 Z 轴滚动量。
 - `WheelEvent.deltaMode`：数值，表示上面三个属性的单位，`0`是像素，`1`是行，`2`是页。
-

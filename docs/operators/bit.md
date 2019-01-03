@@ -85,7 +85,7 @@ toInt32(Math.pow(2, 32) - 1) // -1
 ~ 3 // -4
 ```
 
-上面表达式对`3`进行二进制否运算，得到`-4`。之所以会有这样的结果，是因为位运算时，JavaScirpt 内部将所有的运算子都转为32位的二进制整数再进行运算。
+上面表达式对`3`进行二进制否运算，得到`-4`。之所以会有这样的结果，是因为位运算时，JavaScript 内部将所有的运算子都转为32位的二进制整数再进行运算。
 
 `3`的32位整数形式是`00000000000000000000000000000011`，二进制否运算以后得到`11111111111111111111111111111100`。由于第一位（符号位）是1，所以这个数是一个负数。JavaScript 内部采用补码形式表示负数，即需要将这个数减去1，再取一次反，然后加上负号，才能得到这个负数对应的10进制值。这个数减去1等于`11111111111111111111111111111011`，再取一次反得到`00000000000000000000000000000100`，再加上负号就是`-4`。考虑到这样的过程比较麻烦，可以简单记忆成，一个数与自身的取反值相加，等于-1。
 
@@ -354,4 +354,3 @@ flags = ~flags;
 - Michal Budzynski, [JavaScript: The less known parts. Bitwise Operators](http://michalbe.blogspot.co.uk/2013/03/javascript-less-known-parts-bitwise.html)
 - Axel Rauschmayer, [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html)
 - Mozilla Developer Network, [Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
-

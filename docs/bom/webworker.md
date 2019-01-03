@@ -385,4 +385,3 @@ Worker 线程有一些自己的全局属性和方法。
 - self.importScripts()：加载 JS 脚本。
 
 （完）
-

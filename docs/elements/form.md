@@ -30,4 +30,3 @@ f.action = '/cgi-bin/some.cgi';
 f.method = 'POST';
 f.submit();
 ```
-

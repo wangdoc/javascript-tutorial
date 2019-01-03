@@ -112,7 +112,7 @@ r.test(s)
 ```javascript
 var r = /bb/g;
 r.test('bb') // true
-r.test('-bb-') // false 
+r.test('-bb-') // false
 ```
 
 上面代码中，由于正则表达式`r`是从上一次的`lastIndex`位置开始匹配，导致第二次执行`test`方法时出现预期以外的结果。
@@ -766,7 +766,7 @@ regex.test(str); // false
 
 **（2）i 修饰符**
 
-默认情况下，正则对象区分字母的大小写，加上`i`修饰符以后表示忽略大小写（ignorecase）。
+默认情况下，正则对象区分字母的大小写，加上`i`修饰符以后表示忽略大小写（ignoreCase）。
 
 ```javascript
 /abc/.test('ABC') // false

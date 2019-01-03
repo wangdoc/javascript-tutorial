@@ -435,7 +435,7 @@ try {
 ```javascript
 try {
   try {
-    cosnole.log('Hello world!'); // 报错
+    console.log('Hello world!'); // 报错
   }
   finally {
     console.log('Finally');
@@ -445,7 +445,7 @@ try {
   console.error(error.message);
 }
 // Finally
-// cosnole is not defined
+// console is not defined
 ```
 
 上面代码中，`try`里面还有一个`try`。内层的`try`报错，这时会执行内层的`finally`代码块，然后抛出错误，被外层的`catch`捕获。

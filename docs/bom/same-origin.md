@@ -8,7 +8,7 @@
 
 1995年，同源政策由 Netscape 公司引入浏览器。目前，所有浏览器都实行这个政策。
 
-最初，它的含义是指，A 网页设置的 Cookie，B 网页不能打开，除非这两个网页“同源”。所谓“同源”指的是”三个相同“。
+最初，它的含义是指，A 网页设置的 Cookie，B 网页不能打开，除非这两个网页“同源”。所谓“同源”指的是“三个相同”。
 
 > - 协议相同
 > - 域名相同
@@ -379,4 +379,3 @@ CORS 是跨源资源分享（Cross-Origin Resource Sharing）的缩写。它是 
 - Mozilla Developer Network, [Window.postMessage](https://developer.mozilla.org/en-US/docs/Web/API/window.postMessage)
 - Jakub Jankiewicz, [Cross-Domain LocalStorage](http://jcubic.wordpress.com/2014/06/20/cross-domain-localstorage/)
 - David Baron, [setTimeout with a shorter delay](http://dbaron.org/log/20100309-faster-timeouts): 利用 window.postMessage 可以实现0毫秒触发回调函数
-

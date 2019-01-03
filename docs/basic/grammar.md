@@ -181,7 +181,7 @@ var 临时变量 = 1;
 
 ## 注释
 
-源码中被 JavaScript 引擎忽略的部分就叫做注释，它的作用是对代码进行解释。Javascript 提供两种注释的写法：一种是单行注释，用`//`起头；另一种是多行注释，放在`/*`和`*/`之间。
+源码中被 JavaScript 引擎忽略的部分就叫做注释，它的作用是对代码进行解释。JavaScript 提供两种注释的写法：一种是单行注释，用`//`起头；另一种是多行注释，放在`/*`和`*/`之间。
 
 ```javascript
 // 这是单行注释
@@ -333,7 +333,7 @@ else console.log('world');
 ```javascript
 if (m !== 1) {
   if (n === 2) {
-    console.log('hello');	
+    console.log('hello');
   } else {
     console.log('world');
   }
@@ -345,7 +345,7 @@ if (m !== 1) {
 ```javascript
 if (m !== 1) {
   if (n === 2) {
-    console.log('hello');	
+    console.log('hello');
   }
 } else {
   console.log('world');
@@ -728,4 +728,3 @@ top:
 ## 参考链接
 
 - Axel Rauschmayer, [A quick overview of JavaScript](http://www.2ality.com/2011/10/javascript-overview.html)
-

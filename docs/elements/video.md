@@ -129,25 +129,25 @@ if (a.canPlayType('audio/wav')) {
 
 `<video>`和`<audio>`元素有以下事件。
 
-- loadstart：开始加载媒体文件时触发。	
-- progress：媒体文件加载过程中触发，大概是每秒触发2到8次。	
-- loadedmetadata：媒体文件元数据加载成功时触发。	
-- loadeddata：当前播放位置加载成功后触发。	
-- canplay：已经加载了足够的数据，可以开始播放时触发，后面可能还会请求数据。	
-- canplaythrough：已经加载了足够的数据，可以一直播放时触发，后面不需要继续请求数据。	
-- suspend：已经缓冲了足够的数据，暂时停止下载时触发。	
-- stalled：尝试加载数据，但是没有数据返回时触发。	
+- loadstart：开始加载媒体文件时触发。
+- progress：媒体文件加载过程中触发，大概是每秒触发2到8次。
+- loadedmetadata：媒体文件元数据加载成功时触发。
+- loadeddata：当前播放位置加载成功后触发。
+- canplay：已经加载了足够的数据，可以开始播放时触发，后面可能还会请求数据。
+- canplaythrough：已经加载了足够的数据，可以一直播放时触发，后面不需要继续请求数据。
+- suspend：已经缓冲了足够的数据，暂时停止下载时触发。
+- stalled：尝试加载数据，但是没有数据返回时触发。
 - play：调用`play()`方法时或自动播放启动时触发。如果已经加载了足够的数据，这个事件后面会紧跟`playing`事件，否则会触发`waiting`事件。
 - waiting：由于没有足够的缓存数据，无法播放或播放停止时触发。一旦缓冲数据足够开始播放，后面就会紧跟`playing`事件。
 - playing：媒体开始播放时触发。
 - timeupdate：`currentTime`属性变化时触发，每秒可能触发4到60次。
 - pause：调用`pause()`方法、播放暂停时触发。
 - seeking：脚本或者用户要求播放某个没有缓冲的位置，播放停止开始加载数据时触发。此时，`seeking`属性返回`true`。
-- seeked：`seeking`属性变回`false`时触发。	
+- seeked：`seeking`属性变回`false`时触发。
 - ended：媒体文件播放完毕时触发。
 - durationchange：`duration`属性变化时触发。
-- volumechange：音量变回或者静音时触发。	
-- ratechange：播放速度或默认的播放速度变化时触发。	
-- abort：停止加载媒体文件时触发，通常是用户主动要求停止下载。	
-- error：网络或其他原因导致媒体文件无法加载时触发。	
+- volumechange：音量变回或者静音时触发。
+- ratechange：播放速度或默认的播放速度变化时触发。
+- abort：停止加载媒体文件时触发，通常是用户主动要求停止下载。
+- error：网络或其他原因导致媒体文件无法加载时触发。
 - emptied：由于`error`或`abort`事件导致`networkState`属性变成无法获取数据时触发。

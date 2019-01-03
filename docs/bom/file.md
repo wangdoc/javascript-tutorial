@@ -109,7 +109,7 @@ FileReader 有以下的实例属性。
 - FileReader.onload：`load`事件（读取操作完成）的监听函数，通常在这个函数里面使用`result`属性，拿到文件内容。
 - FileReader.onloadstart：`loadstart`事件（读取操作开始）的监听函数。
 - FileReader.onloadend：`loadend`事件（读取操作结束）的监听函数。
-- FileReader.onprogress：`progess`事件（读取操作进行中）的监听函数。
+- FileReader.onprogress：`progress`事件（读取操作进行中）的监听函数。
 
 下面是监听`load`事件的一个例子。
 

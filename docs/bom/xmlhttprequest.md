@@ -268,7 +268,7 @@ if (xhr.readyState === 4) {
 }
 ```
 
-`XMLHttpRequest.statusText`属性返回一个字符串，表示服务器发送的状态提示。不同于`status`属性，该属性包含整个状态信息，比如“OK”和“Not Found”。在请求发送之前（即调用`open()`方法之前），该属性的值是空字符串；如果服务器没有返回状态提示，该属性的值默认为"“OK”。该属性为只读属性。
+`XMLHttpRequest.statusText`属性返回一个字符串，表示服务器发送的状态提示。不同于`status`属性，该属性包含整个状态信息，比如“OK”和“Not Found”。在请求发送之前（即调用`open()`方法之前），该属性的值是空字符串；如果服务器没有返回状态提示，该属性的值默认为“OK”。该属性为只读属性。
 
 ### XMLHttpRequest.timeout，XMLHttpRequestEventTarget.ontimeout
 
@@ -649,7 +649,7 @@ setTimeout(function () {
 
 ### progress 事件
 
-上传文件时，XMLHTTPRequest 实例对象本身和实例的`upload`属性，都有一个`progress`事件，会不断返回上传的进度。
+上传文件时，XMLHttpRequest 实例对象本身和实例的`upload`属性，都有一个`progress`事件，会不断返回上传的进度。
 
 ```javascript
 var xhr = new XMLHttpRequest();
@@ -711,7 +711,7 @@ function loadEnd(e) {
 
 ## Navigator.sendBeacon()
 
-用户卸载网页的时候，有时需要向服务器发一些数据。很自然的做法是在`unload`事件或`beforeunload`事件的监听函数里面，使用`XMLhttpRequest`对象发送数据。但是，这样做不是很可靠，因为`XMLhttpRequest`对象是异步发送，很可能在它即将发送的时候，页面已经卸载了，从而导致发送取消或者发送失败。
+用户卸载网页的时候，有时需要向服务器发一些数据。很自然的做法是在`unload`事件或`beforeunload`事件的监听函数里面，使用`XMLHttpRequest`对象发送数据。但是，这样做不是很可靠，因为`XMLHttpRequest`对象是异步发送，很可能在它即将发送的时候，页面已经卸载了，从而导致发送取消或者发送失败。
 
 解决方法就是 AJAX 通信改成同步发送，即只有发送完成，页面才能卸载。但是，很多浏览器已经不支持同步的 XMLHttpRequest 对象了（即`open()`方法的第三个参数为`false`）。
 

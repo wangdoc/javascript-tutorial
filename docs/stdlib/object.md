@@ -10,7 +10,7 @@ JavaScript 的所有其他对象都继承自`Object`对象，即那些对象都�
 
 **（1）`Object`对象本身的方法**
 
-所谓”本身的方法“就是直接定义在`Object`对象的方法。
+所谓“本身的方法”就是直接定义在`Object`对象的方法。
 
 ```javascript
 Object.print = function (o) { console.log(o) };
@@ -35,7 +35,7 @@ obj.print() // Object
 
 关于原型对象`object.prototype`的详细解释，参见《面向对象编程》章节。这里只要知道，凡是定义在`Object.prototype`对象上面的属性和方法，将被所有实例对象共享就可以了。
 
-以下先介绍`Object`作为函数的用法，然后再介绍`Object`对象的原生方法，分成对象自身的方法（又称为”静态方法“）和实例方法两部分。
+以下先介绍`Object`作为函数的用法，然后再介绍`Object`对象的原生方法，分成对象自身的方法（又称为“静态方法”）和实例方法两部分。
 
 ## Object()
 
@@ -455,6 +455,6 @@ obj.hasOwnProperty('toString') // false
 - Jon Bretman, [Type Checking in JavaScript](http://techblog.badoo.com/blog/2013/11/01/type-checking-in-javascript/)
 - Cody Lindley, [Thinking About ECMAScript 5 Parts](http://tech.pro/tutorial/1671/thinking-about-ecmascript-5-parts)
 - Bjorn Tipling, [Advanced objects in JavaScript](http://bjorn.tipling.com/advanced-objects-in-javascript)
-- Javier Márquez, [Javascript properties are enumerable, writable and configurable](http://arqex.com/967/javascript-properties-enumerable-writable-configurable)
+- Javier Márquez, [JavaScript properties are enumerable, writable and configurable](http://arqex.com/967/javascript-properties-enumerable-writable-configurable)
 - Sella Rafaeli, [Native JavaScript Data-Binding](http://www.sellarafaeli.com/blog/native_javascript_data_binding): 使用存取函数实现model与view的双向绑定
 - Lea Verou, [Copying object properties, the robust way](http://lea.verou.me/2015/08/copying-properties-the-robust-way/)
