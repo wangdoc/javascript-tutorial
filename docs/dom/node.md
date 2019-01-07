@@ -475,7 +475,7 @@ nodeA.contains(nodeA) // true
 
 ### Node.prototype.compareDocumentPosition()
 
-`compareDocumentPosition`方法的用法，与`contains`方法完全一致，返回一个七个比特位的二进制值，表示参数节点与当前节点的关系。
+`compareDocumentPosition`方法的用法，与`contains`方法完全一致，返回一个六个比特位的二进制值，表示参数节点与当前节点的关系。
 
 二进制值 | 十进制值 | 含义
 ---------|------|-----
