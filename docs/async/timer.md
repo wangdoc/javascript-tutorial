@@ -190,6 +190,7 @@ setTimeout(f, 1000) // 12
 
 ```javascript
 (function() {
+  // 每轮事件循环检查一次
   var gid = setInterval(clearAllTimeouts, 0);
 
   function clearAllTimeouts() {
