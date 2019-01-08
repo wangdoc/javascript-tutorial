@@ -85,7 +85,7 @@
 - `click()`：模拟鼠标点击当前的`<input>`元素。
 - `setSelectionRange()`：选中`<input>`元素内部的一段文本，但不会将焦点转移到选中的文本。该方法接受三个参数，第一个参数是开始的位置（从0开始），第二个参数是结束的位置（不包括该位置），第三个参数是可选的，表示选择的方向，有三个可能的值（`forward`、`backward`和默认值`none`）。
 - `setRangeText()`：新文本替换选中的文本。该方法接受四个参数，第一个参数是新文本，第二个参数是替换的开始位置，第三个参数是结束位置，第四个参数表示替换后的行为（可选），有四个可能的值：`select`（选中新插入的文本）、`start`（选中的开始位置移到插入的文本之前）、`end`（选中的文本移到插入的文本之后）、`preserve`（保留原先选中的位置，默认值）。
-- `setCustomValidity()`：该方法调用后，会在校验失败时以自定义的错误信息提示用户。它的参数就是报错的提示信息。
+- `setCustomValidity()`：该方法用于自定义校验失败时的报错信息。它的参数就是报错的提示信息。注意，一旦设置了自定义报错信息，该字段就不会校验通过了，因此用户重新输入时，必须将自定义报错信息设为空字符串，请看下面的例子。
 - `checkValidity()`：返回一个布尔值，表示当前节点的校验结果。如果返回`false`，表示不满足校验要求，否则就是校验成功或不必校验。
 - `stepDown()`：将当前`<input>`节点的值减少一个步长。该方法可以接受一个整数`n`作为参数，表示一次性减少`n`个步长，默认是`1`。有几种情况会抛错：当前`<input>`节点不适合递减或递增、当前节点没有`step`属性、`<input>`节点的值不能转为数字、递减之后的值小于`min`属性或大于`max`属性。
 - `stepUp()`：将当前`<input>`节点的值增加一个步长。其他与`stepDown()`方法相同。
@@ -106,3 +106,30 @@ function SelectText() {
 ```
 
 上面代码中，点击按钮以后，会选中`llo`三个字符。
+
+下面是`setCustomValidity()`的例子。
+
+```javascript
+/* HTML 代码如下
+  <form id="form">
+    <input id="field" type="text" pattern="[a-f,0-9]{4}" autocomplete=off>
+  </form>
+*/
+
+const form   = document.querySelector('#form');
+const field  = document.querySelector('#field');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // 防止这个例子发出 POST 请求
+});
+
+field.oninvalid = (event) => {
+  event.target.setCustomValidity('必须是一个 4 位十六进制数');
+}
+
+field.oninput = (event) => {
+  event.target.setCustomValidity('');
+}
+```
+
+上面代码中，输入框必须输入一个4位的十六进制数。如果不满足条件（比如输入`xxx`），按下回车键以后，就会提示自定义的报错信息。一旦自定义了报错信息，输入框就会一直处于校验失败状态，因此重新输入时，必须把自定义报错信息设为空字符串。另外，为了避免自动补全提示框遮住报错信息，必须将输入框的`autocomplete`属性关闭。
