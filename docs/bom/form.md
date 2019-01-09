@@ -282,8 +282,12 @@ if (!myInput.checkValidity()) {
 如果调用这个方法，并且参数不为空字符串，浏览器就会认为控件没有通过校验，就会立刻显示该方法设置的报错信息。
 
 ```javascript
-// HTML 代码如下
-// <input type="file" id="fs">
+/* HTML 代码如下
+<form>
+  <p><input type="file" id="fs"></p>
+  <p><input type="submit"></p>
+</form>
+*/
 
 document.getElementById('fs').onchange = checkFileSize;
 
@@ -292,13 +296,15 @@ function checkFileSize() {
   var files = fs.files;
   if (files.length > 0) {
      if (files[0].size > 75 * 1024) {
-       fs.setCustomValidity('文件不能大于75KB');
+       fs.setCustomValidity('文件不能大于 75KB');
        return;
      }
   }
   fs.setCustomValidity('');
 }
 ```
+
+上面代码一旦发现文件大于 75KB，就会设置校验失败，同时给出自定义的报错信息。然后，点击提交按钮时，就会显示报错信息。这种校验失败是不会自动消除的，所以如果所有文件都符合条件，要将报错信息设为空字符串，手动消除校验失败的状态。
 
 ### validity 属性
 
