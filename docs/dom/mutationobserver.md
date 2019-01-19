@@ -89,12 +89,13 @@ mutationObserver.observe(document.documentElement, {
 var insertedNodes = [];
 var observer = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutation) {
-    for (var i = 0; i < mutation.addedNodes.length; i++)
+    for (var i = 0; i < mutation.addedNodes.length; i++) {
       insertedNodes.push(mutation.addedNodes[i]);
-  })
+    }
+  });
+  console.log(insertedNodes);
 });
-observer.observe(document, { childList: true });
-console.log(insertedNodes);
+observer.observe(document, { childList: true, subtree: true });
 ```
 
 ### disconnect()，takeRecords（）
