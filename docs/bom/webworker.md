@@ -144,7 +144,7 @@ importScripts('script1.js', 'script2.js');
 ```javascript
 worker.onerror(function (event) {
   console.log([
-    'ERROR: Line ', e.lineno, ' in ', e.filename, ': ', e.message
+    'ERROR: Line ', event.lineno, ' in ', event.filename, ': ', event.message
   ].join(''));
 });
 
