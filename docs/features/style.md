@@ -2,9 +2,9 @@
 
 ## 概述
 
-”编程风格“（programming style）指的是编写代码的样式规则。不同的程序员，往往有不同的编程风格。
+“编程风格”（programming style）指的是编写代码的样式规则。不同的程序员，往往有不同的编程风格。
 
-有人说，编译器的规范叫做”语法规则“（grammar），这是程序员必须遵守的；而编译器忽略的部分，就叫”编程风格“（programming style），这是程序员可以自由选择的。这种说法不完全正确，程序员固然可以自由选择编程风格，但是好的编程风格有助于写出质量更高、错误更少、更易于维护的程序。
+有人说，编译器的规范叫做“语法规则”（grammar），这是程序员必须遵守的；而编译器忽略的部分，就叫“编程风格”（programming style），这是程序员可以自由选择的。这种说法不完全正确，程序员固然可以自由选择编程风格，但是好的编程风格有助于写出质量更高、错误更少、更易于维护的程序。
 
 所以，编程风格的选择不应该基于个人爱好、熟悉程度、打字量等因素，而要考虑如何尽量使代码清晰易读、减少出错。你选择的，不是你喜欢的风格，而是一种能够清晰表达你的意图的风格。这一点，对于 JavaScript 这种语法自由度很高的语言尤其重要。
 
@@ -323,7 +323,7 @@ JavaScript 最大的语法缺点，可能就是全局变量对于任何一个代
 
 ## 变量声明
 
-JavaScript 会自动将变量声明”提升“（hoist）到代码块（block）的头部。
+JavaScript 会自动将变量声明“提升”（hoist）到代码块（block）的头部。
 
 ```javascript
 if (!x) {
@@ -378,7 +378,7 @@ foo = o.bar;
 
 ## 相等和严格相等
 
-JavaScript 有两个表示相等的运算符：”相等“（`==`）和”严格相等“（`===`）。
+JavaScript 有两个表示相等的运算符：“相等”（`==`）和“严格相等”（`===`）。
 
 相等运算符会自动转换变量类型，造成很多意想不到的情况。
 
@@ -490,4 +490,3 @@ function doAction(action) {
 - Axel Rauschmayer, [A meta style guide for JavaScript](http://www.2ality.com/2013/07/meta-style-guide.html)
 - Axel Rauschmayer, [Automatic semicolon insertion in JavaScript](http://www.2ality.com/2011/05/semicolon-insertion.html)
 - Rod Vagg, [JavaScript and Semicolons](http://dailyjs.com/2012/04/19/semicolons/)
-

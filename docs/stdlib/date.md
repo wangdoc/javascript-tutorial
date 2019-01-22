@@ -78,10 +78,10 @@ new Date('02/15/2013')
 new Date('2013-FEB-15')
 new Date('FEB, 15, 2013')
 new Date('FEB 15, 2013')
-new Date('Feberuary, 15, 2013')
-new Date('Feberuary 15, 2013')
+new Date('February, 15, 2013')
+new Date('February 15, 2013')
 new Date('15 Feb 2013')
-new Date('15, Feberuary, 2013')
+new Date('15, February, 2013')
 // Fri Feb 15 2013 00:00:00 GMT+0800 (CST)
 ```
 

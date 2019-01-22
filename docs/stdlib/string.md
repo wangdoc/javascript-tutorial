@@ -34,7 +34,7 @@ String(true) // "true"
 String(5) // "5"
 ```
 
-上面代码将布尔值`ture`和数值`5`，分别转换为字符串。
+上面代码将布尔值`true`和数值`5`，分别转换为字符串。
 
 ## 静态方法
 
@@ -196,7 +196,6 @@ one + two + three // "33"
 
 `substring`方法用于从原字符串取出子字符串并返回，不改变原字符串，跟`slice`方法很相像。它的第一个参数表示子字符串的开始位置，第二个位置表示结束位置（返回结果不含该位置）。
 
-
 ```javascript
 'JavaScript'.substring(0, 4) // "Java"
 ```
@@ -220,7 +219,7 @@ one + two + three // "33"
 如果参数是负数，`substring`方法会自动将负数转为0。
 
 ```javascript
-'Javascript'.substring(-3) // "JavaScript"
+'JavaScript'.substring(-3) // "JavaScript"
 'JavaScript'.substring(4, -3) // "Java"
 ```
 

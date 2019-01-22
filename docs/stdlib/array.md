@@ -701,12 +701,12 @@ function add(prev, cur) {
 下面是一个`reduceRight`方法的例子。
 
 ```javascript
-function substract(prev, cur) {
+function subtract(prev, cur) {
   return prev - cur;
 }
 
-[3, 2, 1].reduce(substract) // 0
-[3, 2, 1].reduceRight(substract) // -4
+[3, 2, 1].reduce(subtract) // 0
+[3, 2, 1].reduceRight(subtract) // -4
 ```
 
 上面代码中，`reduce`方法相当于`3`减去`2`再减去`1`，`reduceRight`方法相当于`1`减去`2`再减去`3`。

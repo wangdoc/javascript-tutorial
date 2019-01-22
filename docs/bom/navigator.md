@@ -166,4 +166,3 @@ if ((screen.width <= 800) && (screen.height <= 600)) {
   window.location.replace('wide.html');
 }
 ```
-

@@ -131,4 +131,3 @@ el.replaceWith(span);
 ```
 
 上面代码中，`el`节点将被`span`节点替换。
-

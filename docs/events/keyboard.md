@@ -74,7 +74,7 @@ document.body.addEventListener('keydown', showChar, false);
 - 方向键：返回`ArrowDown`、`ArrowUp`、`ArrowLeft`、`ArrowRight`
 - Alt 键：返回`AltLeft`或`AltRight`
 - Shift 键：返回`ShiftLeft`或`ShiftRight`
-- Ctrl 键：返回`ControLeft`或`ControlRight`
+- Ctrl 键：返回`ControlLeft`或`ControlRight`
 
 ### KeyboardEvent.key
 
@@ -125,4 +125,3 @@ if (
 ```
 
 上面代码表示，只要`Control`、`Alt`、`Meta`里面，同时按下任意两个或两个以上的键就返回。
-

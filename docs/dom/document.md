@@ -920,4 +920,3 @@ if (document.queryCommandSupported('SelectAll')) {
 ### document.getSelection()
 
 这个方法指向`window.getSelection()`，参见`window`对象一节的介绍。
-

@@ -540,7 +540,7 @@ if ((popup !== null) && !popup.closed) {
 var selObj = window.getSelection();
 ```
 
-使用`Selction`对象的`toString`方法可以得到选中的文本。
+使用`Selection`对象的`toString`方法可以得到选中的文本。
 
 ```javascript
 var selectedText = selObj.toString();

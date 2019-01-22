@@ -33,7 +33,7 @@ History 对象主要有两个属性。
 // 当前窗口访问过多少个网页
 window.history.length // 1
 
-// Histroy 对象的当前状态
+// History 对象的当前状态
 // 通常是 undefined，即未设置
 window.history.state // undefined
 ```
@@ -163,4 +163,3 @@ var currentState = history.state;
 ```
 
 注意，页面第一次加载的时候，浏览器不会触发`popstate`事件。
-

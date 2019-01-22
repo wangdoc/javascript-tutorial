@@ -390,4 +390,3 @@ el.dispatchEvent(myEvent);
 ```
 
 上面代码也说明，CustomEvent 的事件实例，除了具有 Event 接口的实例属性，还具有`detail`属性。
-

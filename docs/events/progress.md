@@ -150,4 +150,3 @@ xhr.upload.addEventListener('abort', transferCanceled, false);
 
 xhr.open();
 ```
-

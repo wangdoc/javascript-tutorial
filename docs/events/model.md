@@ -244,4 +244,3 @@ p.addEventListener('click', function(event) {
 ```
 
 上面代码中，`stopImmediatePropagation`方法可以彻底取消这个事件，使得后面绑定的所有`click`监听函数都不再触发。所以，只会输出1，不会输出2。
-
