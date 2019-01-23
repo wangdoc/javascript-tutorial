@@ -606,20 +606,20 @@ f(1, 1) // 5
 
 上面代码中，函数`f`调用时传入的参数，在函数内部被修改成`3`和`2`。
 
-严格模式下，`arguments`对象是一个只读对象，修改它是无效的，但不会报错。
+严格模式下，`arguments`对象与函数参数不具有联动关系。也就是说，修改`arguments`对象不会影响到实际的函数参数。
 
 ```javascript
 var f = function(a, b) {
   'use strict'; // 开启严格模式
-  arguments[0] = 3; // 无效
-  arguments[1] = 2; // 无效
+  arguments[0] = 3;
+  arguments[1] = 2;
   return a + b;
 }
 
 f(1, 1) // 2
 ```
 
-上面代码中，函数体内是严格模式，这时修改`arguments`对象就是无效的。
+上面代码中，函数体内是严格模式，这时修改`arguments`对象，不会影响到真实参数`a`和`b`。
 
 通过`arguments`对象的`length`属性，可以判断函数调用时到底带几个参数。
 
