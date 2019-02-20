@@ -179,7 +179,7 @@ Object.keys(obj).length // 2
 Object.getOwnPropertyNames(obj).length // 2
 ```
 
-一般情况下，几乎总是使用`Object.keys`方法，遍历数组的属性。
+一般情况下，几乎总是使用`Object.keys`方法，遍历对象的属性。
 
 ### 其他方法
 
