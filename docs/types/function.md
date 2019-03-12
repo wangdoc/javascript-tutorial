@@ -273,6 +273,15 @@ f.toString()
 // }
 ```
 
+对于那些原生的函数，`toString()`方法返回`function (){[native code]}`。
+
+```javascript
+Math.sqrt.toString()
+// "function sqrt() { [native code] }"
+```
+
+上面代码中，`Math.sqrt`是 JavaScript 引擎提供的原生函数，`toString()`方法就返回原生代码的提示。
+
 函数内部的注释也可以返回。
 
 ```javascript
