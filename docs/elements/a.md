@@ -46,7 +46,7 @@ a.username // "user"
 ```javascript
 // HTML 代码如下
 // <a id="test" href="http://example.com">test</a>
-var a = document.getElementById('a');
+var a = document.getElementById('test');
 a.accessKey = 'k';
 ```
 
