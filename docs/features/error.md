@@ -432,10 +432,12 @@ try {
 
 上面代码中，进入`catch`代码块之后，一遇到`throw`语句，就会去执行`finally`代码块，其中有`return false`语句，因此就直接返回了，不再会回去执行`catch`代码块剩下的部分了。
 
+`try`代码块内部，还可以再使用`try`代码块。
+
 ```javascript
 try {
   try {
-    console.log('Hello world!'); // 报错
+    consle.log('Hello world!'); // 报错
   }
   finally {
     console.log('Finally');
@@ -445,10 +447,10 @@ try {
   console.error(error.message);
 }
 // Finally
-// console is not defined
+// consle is not defined
 ```
 
-上面代码中，`try`里面还有一个`try`。内层的`try`报错，这时会执行内层的`finally`代码块，然后抛出错误，被外层的`catch`捕获。
+上面代码中，`try`里面还有一个`try`。内层的`try`报错（`console`拼错了），这时会执行内层的`finally`代码块，然后抛出错误，被外层的`catch`捕获。
 
 ## 参考连接
 
