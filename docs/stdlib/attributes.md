@@ -409,11 +409,12 @@ Object.defineProperty(o2, 'p', {value: 2})
 // 修改成功
 ```
 
-另外，`configurable`为`false`时，直接目标属性赋值，不报错，但不会成功。
+另外，`writable`为`false`时，直接目标属性赋值，不报错，但不会成功。
 
 ```javascript
 var obj = Object.defineProperty({}, 'p', {
   value: 1,
+  writable: false,
   configurable: false
 });
 
@@ -421,7 +422,7 @@ obj.p = 2;
 obj.p // 1
 ```
 
-上面代码中，`obj.p`的`configurable`为`false`，对`obj.p`赋值是不会生效的。如果是严格模式，还会报错。
+上面代码中，`obj.p`的`writable`为`false`，对`obj.p`直接赋值不会生效。如果是严格模式，还会报错。
 
 可配置性决定了目标属性是否可以被删除（delete）。
 
