@@ -295,7 +295,7 @@ test.isConnected // true
 
 ### Node.prototype.appendChild()
 
-`appendChild`方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点。该方法的返回值就是插入文档的子节点。
+`appendChild()`方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点。该方法的返回值就是插入文档的子节点。
 
 ```javascript
 var p = document.createElement('p');
@@ -304,17 +304,16 @@ document.body.appendChild(p);
 
 上面代码新建一个`<p>`节点，将其插入`document.body`的尾部。
 
-如果参数节点是 DOM 已经存在的节点，`appendChild`方法会将其从原来的位置，移动到新位置。
+如果参数节点是 DOM 已经存在的节点，`appendChild()`方法会将其从原来的位置，移动到新位置。
 
 ```javascript
-var element = document
-  .createElement('div')
-  .appendChild(document.createElement('b'));
+var div = document.getElementById('myDiv');
+document.body.appendChild(div);
 ```
 
-上面代码的返回值是`<b></b>`，而不是`<div></div>`。
+上面代码中，插入的是一个已经存在的节点`myDiv`，结果就是该节点会从原来的位置，移动到`document.body`的尾部。
 
-如果`appendChild`方法的参数是`DocumentFragment`节点，那么插入的是`DocumentFragment`的所有子节点，而不是`DocumentFragment`节点本身。返回值是一个空的`DocumentFragment`节点。
+如果`appendChild()`方法的参数是`DocumentFragment`节点，那么插入的是`DocumentFragment`的所有子节点，而不是`DocumentFragment`节点本身。返回值是一个空的`DocumentFragment`节点。
 
 ### Node.prototype.hasChildNodes()
 
