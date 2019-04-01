@@ -292,7 +292,7 @@ Boolean(new Boolean(false)) // true
 
 下面介绍自动转换，它是以强制转换为基础的。
 
-遇到以下三种情况时，JavaScript 会自动转换数据类型，即转换是自动完成的，用户不可见。
+遇到以下四种情况时，JavaScript 会自动转换数据类型，即转换是自动完成的，用户不可见。
 
 第一种情况，不同类型的数据互相运算。
 
@@ -314,7 +314,11 @@ if ('abc') {
 + {foo: 'bar'} // NaN
 - [1, 2, 3] // NaN
 ```
-
+第四种情况，== 运算符会对数据类型进行转换
+```javascript
+true == 1; // true
+1 == 'a' // false
+```
 自动转换的规则是这样的：预期什么类型的值，就调用该类型的转换函数。比如，某个位置预期为字符串，就调用`String`函数进行转换。如果该位置即可以是字符串，也可能是数值，那么默认转为数值。
 
 由于自动转换具有不确定性，而且不易除错，建议在预期为布尔值、数值、字符串的地方，全部使用`Boolean`、`Number`和`String`函数进行显式转换。
@@ -414,6 +418,26 @@ undefined + 1 // NaN
 +true // 1
 -false // 0
 ```
+### ==运算符的隐式转换
+
+若运算符两端有一个Number类型，则全部都转换为Number进行比较
+
+若运算符有一方为Boolean类型，则Boolean转换为Number进行比较
+
+若运算符一方为Object类型，则将Object转换为基本类型进行比较，与Number()方法相同。
+```javascript
+var b = {
+  valueOf() {
+    return 1;
+  },
+  toString() {
+    return 2;
+  }
+}
+console.log(b == 1);	// true
+console.log(b == 2);	// false
+```
+
 
 ## 参考链接
 
