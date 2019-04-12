@@ -304,16 +304,28 @@ window.onmessage = function(e) {
 
 ### JSONP
 
-JSONP 是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务端改造非常小。
+JSONP 是服务器与客户端跨源通信的常用方法。最大特点就是简单易用，没有兼容性问题，老式浏览器全部支持，服务端改造非常小。
 
-它的基本思想是，网页通过添加一个`<script>`元素，向服务器请求 JSON 数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。
+它的做法如下。
 
-首先，网页动态插入`<script>`元素，由它向跨源网址发出请求。
+第一步，网页添加一个`<script>`元素，向服务器请求一个脚本，这不受同源政策限制，可以跨域请求。
+
+```html
+<script src="http://api.foo.com?callback=bar"></script>
+```
+
+注意，请求的脚本网址有一个`callback`参数（`?callback=bar`），用来告诉服务器，客户端的回调函数名称（`bar`）。
+
+第二步，服务器收到请求后，拼接一个字符串，将 JSON 数据放在函数名里面，作为字符串返回（`bar({...})`）。
+
+第三步，客户端会将服务器返回的字符串，作为代码解析，因为浏览器认为，这是`<script>`标签请求的脚本内容。这时，客户端只要定义了`bar()`函数，就能在该函数体内，拿到服务器返回的 JSON 数据。
+
+下面看一个实例。首先，网页动态插入`<script>`元素，由它向跨域网址发出请求。
 
 ```javascript
 function addScriptTag(src) {
   var script = document.createElement('script');
-  script.setAttribute("type","text/javascript");
+  script.setAttribute('type', 'text/javascript');
   script.src = src;
   document.body.appendChild(script);
 }
@@ -333,7 +345,7 @@ function foo(data) {
 
 ```javascript
 foo({
-  "ip": "8.8.8.8"
+  'ip': '8.8.8.8'
 });
 ```
 
