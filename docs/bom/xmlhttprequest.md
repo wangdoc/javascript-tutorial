@@ -713,27 +713,58 @@ function loadEnd(e) {
 
 用户卸载网页的时候，有时需要向服务器发一些数据。很自然的做法是在`unload`事件或`beforeunload`事件的监听函数里面，使用`XMLHttpRequest`对象发送数据。但是，这样做不是很可靠，因为`XMLHttpRequest`对象是异步发送，很可能在它即将发送的时候，页面已经卸载了，从而导致发送取消或者发送失败。
 
-解决方法就是 AJAX 通信改成同步发送，即只有发送完成，页面才能卸载。但是，很多浏览器已经不支持同步的 XMLHttpRequest 对象了（即`open()`方法的第三个参数为`false`）。
+解决方法就是`unload`事件里面，加一些很耗时的同步操作。这样就能留出足够的时间，保证异步 AJAX 能够发送成功。
 
 ```javascript
-window.addEventListener('unload', logData, false);
-
-function logData() {
-  var client = new XMLHttpRequest();
-  // 第三个参数表示同步发送
-  client.open('POST', '/log', false);
-  client.setRequestHeader('Content-Type', 'text/plain;charset=UTF-8');
-  client.send(analyticsData);
+function log() {
+  let xhr = new XMLHttpRequest();
+  xhr.open('post', '/log', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send('foo=bar');
 }
+
+window.addEventListener('unload', function(event) {
+  log();
+
+  // a time-consuming operation
+  for (let i = 1; i < 10000; i++) {
+    for (let m = 1; m < 10000; m++) { continue; }
+  }
+});
 ```
 
-上面代码指定`XMLHttpRequest`同步发送，很多浏览器都已经不支持这种写法。
+上面代码中，强制执行了一次双重循环，拖长了`unload`事件的执行时间，导致异步 AJAX 能够发送成功。
 
-同步通信有几种变通的方法。一种做法是新建一个`<img>`元素，数据放在`src`属性，作为 URL 的查询字符串，这时浏览器会等待图片加载完成（服务器回应），再进行卸载。另一种做法是创建一个循环，规定执行时间为几秒钟，在这几秒钟内把数据发出去，然后再卸载页面。
+类似的还可以使用`setTimeout`。下面是追踪用户点击的例子。
+
+```javascript
+// HTML 代码如下
+// <a id="target" href="https://baidu.com">click</a>
+const clickTime = 350;
+const theLink = document.getElementById('target');
+
+function log() {
+  let xhr = new XMLHttpRequest();
+  xhr.open('post', '/log', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send('foo=bar');
+}
+
+theLink.addEventListener('click', function (event) {
+  event.preventDefault();
+  log();
+
+  setTimeout(function () {
+    window.location.href = theLink.getAttribute('href');
+  }, clickTime);
+});
+```
+
+上面代码使用`setTimeout`，拖延了350毫秒，才让页面跳转，因此使得异步 AJAX 有时间发出。
 
 这些做法的共同问题是，卸载的时间被硬生生拖长了，后面页面的加载被推迟了，用户体验不好。
 
-为了解决这个问题，浏览器引入了`Navigator.sendBeacon()`方法。这个方法还是异步发出请求，但是请求与当前页面脱钩，作为浏览器的任务，因此可以保证会把数据发出去，不拖延卸载流程。
+为了解决这个问题，浏览器引入了`Navigator.sendBeacon()`方法。这个方法还是异步发出请求，但是请求与当前页面线程脱钩，作为浏览器进程的任务，因此可以保证会把数据发出去，不拖延卸载流程。
 
 ```javascript
 window.addEventListener('unload', logData, false);
