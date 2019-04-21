@@ -34,13 +34,14 @@ var regex = /xyz/i;
 
 正则对象的实例属性分成两类。
 
-一类是修饰符相关，返回一个布尔值，表示对应的修饰符是否设置。
+一类是修饰符相关，用于了解设置了什么修饰符。
 
 - `RegExp.prototype.ignoreCase`：返回一个布尔值，表示是否设置了`i`修饰符。
 - `RegExp.prototype.global`：返回一个布尔值，表示是否设置了`g`修饰符。
 - `RegExp.prototype.multiline`：返回一个布尔值，表示是否设置了`m`修饰符。
+- `RegExp.prototype.flags`：返回一个字符串，包含了已经设置的所有修饰符，按字母排序。
 
-上面三个属性都是只读的。
+上面四个属性都是只读的。
 
 ```javascript
 var r = /abc/igm;
@@ -48,13 +49,13 @@ var r = /abc/igm;
 r.ignoreCase // true
 r.global // true
 r.multiline // true
+r.flags // 'gim'
 ```
 
 另一类是与修饰符无关的属性，主要是下面两个。
 
 - `RegExp.prototype.lastIndex`：返回一个整数，表示下一次开始搜索的位置。该属性可读写，但是只在进行连续搜索时有意义，详细介绍请看后文。
 - `RegExp.prototype.source`：返回正则表达式的字符串形式（不包括反斜杠），该属性只读。
-- `RegExp.prototype.flags`：返回正则表达式修饰符的字符串形式，按照字母顺序排序，该属性只读。
 
 ```javascript
 var r = /abc/igm;
