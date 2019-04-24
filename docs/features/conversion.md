@@ -260,13 +260,13 @@ String({
 
 ### Boolean()
 
-`Boolean`函数可以将任意类型的值转为布尔值。
+`Boolean()`函数可以将任意类型的值转为布尔值。
 
 它的转换规则相对简单：除了以下五个值的转换结果为`false`，其他的值全部为`true`。
 
 - `undefined`
 - `null`
-- `-0`或`+0`
+- `0`（包含`-0`和`+0`）
 - `NaN`
 - `''`（空字符串）
 
@@ -276,6 +276,13 @@ Boolean(null) // false
 Boolean(0) // false
 Boolean(NaN) // false
 Boolean('') // false
+```
+
+当然，`true`和`false`这两个布尔值不会发生变化。
+
+```javascript
+Boolean(true) // true
+Boolean(false) // false
 ```
 
 注意，所有对象（包括空对象）的转换结果都是`true`，甚至连`false`对应的布尔对象`new Boolean(false)`也是`true`（详见《原始类型值的包装对象》一章）。
