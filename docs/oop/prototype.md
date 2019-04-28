@@ -282,7 +282,7 @@ d instanceof Object // true
 
 上面代码中，`d`同时是`Date`和`Object`的实例，因此对这两个构造函数都返回`true`。
 
-由于任意对象（除了`null`）都是`Object`的实例，所以`instanceof`运算符可以判断一直是否为非`null`的对象。
+由于任意对象（除了`null`）都是`Object`的实例，所以`instanceof`运算符可以判断一个值是否为非`null`的对象。
 
 ```javascript
 var obj = { foo: 123 };
