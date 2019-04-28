@@ -56,7 +56,7 @@ function showChar(e) {
   console.log('ALT: ' + e.altKey);
   console.log('CTRL: ' + e.ctrlKey);
   console.log('Meta: ' + e.metaKey);
-  console.log('Meta: ' + e.shiftKey);
+  console.log('Shift: ' + e.shiftKey);
 }
 
 document.body.addEventListener('keydown', showChar, false);
