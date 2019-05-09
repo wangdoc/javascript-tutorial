@@ -651,4 +651,4 @@ isFinite(-1) // true
 ## 参考链接
 
 - Dr. Axel Rauschmayer, [How numbers are encoded in JavaScript](http://www.2ality.com/2012/04/number-encoding.html)
-- Humphry, [JavaScript 中 Number 的一些表示上/下限](https://segmentfault.com/a/11900000004076588)
+- Humphry, [JavaScript 中 Number 的一些表示上/下限](https://segmentfault.com/a/1190000000407658)
