@@ -217,13 +217,17 @@ var preloadImage = function (path) {
 };
 ```
 
-上面的`preloadImage`函数用法如下。
+上面代码中，`image`是一个图片对象的实例。它有两个事件监听属性，`onload`属性在图片加载成功后调用，`onerror`属性在加载失败调用。
+
+上面的`preloadImage()`函数用法如下。
 
 ```javascript
 preloadImage('https://example.com/my.jpg')
   .then(function (e) { document.body.append(e.target) })
   .then(function () { console.log('加载成功') })
 ```
+
+上面代码中，图片加载成功以后，`onload`属性会返回一个事件对象，因此第一个`then()`方法的回调函数，会接收到这个事件对象。该对象的`target`属性就是图片加载后生成的 DOM 节点。
 
 ## 小结
 
