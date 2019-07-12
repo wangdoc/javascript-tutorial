@@ -114,23 +114,30 @@ if (event.defaultPrevented) {
 
 ### Event.currentTarget，Event.target
 
-`Event.currentTarget`属性返回事件当前所在的节点，即正在执行的监听函数所绑定的那个节点。
+事件发生以后，会经过捕获和冒泡两个阶段，依次通过多个 DOM 节点。因此，任意时点都有两个与事件相关的节点，一个是事件的原始触发节点（`Event.target`），另一个是事件当前正在通过的节点（`Event.currentTarget`）。前者通常是后者的后代节点。
 
-`Event.target`属性返回原始触发事件的那个节点，即事件最初发生的节点。事件传播过程中，不同节点的监听函数内部的`Event.target`与`Event.currentTarget`属性的值是不一样的，前者总是不变的，后者则是指向监听函数所在的那个节点对象。
+`Event.currentTarget`属性返回事件当前所在的节点，即事件当前正在通过的节点，也就是当前正在执行的监听函数所在的那个节点。随着事件的传播，这个属性的值会变。
+
+`Event.target`属性返回原始触发事件的那个节点，即事件最初发生的节点。这个属性不会随着事件的传播而改变。
+
+事件传播过程中，不同节点的监听函数内部的`Event.target`与`Event.currentTarget`属性的值是不一样的。
 
 ```javascript
-// HTML代码为
+// HTML 代码为
 // <p id="para">Hello <em>World</em></p>
 function hide(e) {
-  console.log(this === e.currentTarget);  // 总是 true
-  console.log(this === e.target);  // 有可能不是 true
-  e.target.style.visibility = 'hidden';
+  // 不管点击 Hello 或 World，总是返回 true
+  console.log(this === e.currentTarget);
+
+  // 点击 Hello，返回 true
+  // 点击 World，返回 false
+  console.log(this === e.target);
 }
 
-para.addEventListener('click', hide, false);
+document.getElementById('para').addEventListener('click', hide, false);
 ```
 
-上面代码中，如果在`para`节点的`<em>`子节点上面点击，则`e.target`指向`<em>`子节点，导致`<em>`子节点（即 World 部分）会不可见。如果点击 Hello  部分，则整个`para`都将不可见。
+上面代码中，`<em>`是`<p>`的子节点，点击`<em>`或者点击`<p>`，都会导致监听函数执行。这时，`e.target`总是指向原始点击位置的那个节点，而`e.currentTarget`指向事件传播过程中正在经过的那个节点。由于监听函数只有事件经过时才会触发，所以`e.currentTarget`总是等同于监听函数内部的`this`。
 
 ### Event.type
 
