@@ -72,12 +72,12 @@ observer.observe(article, options);
 ```javascript
 // 开始监听文档根节点（即<html>标签）的变动
 mutationObserver.observe(document.documentElement, {
-  attributes: true,
-  characterData: true,
-  childList: true,
-  subtree: true,
-  attributeOldValue: true,
-  characterDataOldValue: true
+  'attributes': true,
+  'characterData': true,
+  'childList': true,
+  'subtree': true,
+  'attributeOldValue': true,
+  'characterDataOldValue': true
 });
 ```
 
@@ -95,7 +95,7 @@ var observer = new MutationObserver(function(mutations) {
   });
   console.log(insertedNodes);
 });
-observer.observe(document, { childList: true, subtree: true });
+observer.observe(document, { 'childList': true, 'subtree': true });
 ```
 
 ### disconnect()，takeRecords（）
