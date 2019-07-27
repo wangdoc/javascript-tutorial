@@ -40,7 +40,7 @@ new KeyboardEvent(type, options)
 
 ## KeyboardEvent 的实例属性
 
-### KeyboardEvent.altKey，KeyboardEvent.metaKey.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey
+### KeyboardEvent.altKey，KeyboardEvent.ctrlKey，KeyboardEvent.metaKey，KeyboardEvent.shiftKey
 
 以下属性都是只读属性，返回一个布尔值，表示是否按下对应的键。
 
