@@ -871,6 +871,8 @@ while(treeWalker.nextNode()) {
 
 ### document.execCommand()，document.queryCommandSupported()，document.queryCommandEnabled()
 
+**（1）document.execCommand()**
+
 如果`document.designMode`属性设为`on`，那么整个文档用户可编辑；如果元素的`contenteditable`属性设为`true`，那么该元素可编辑。这两种情况下，可以使用`document.execCommand()`方法，改变内容的样式，比如`document.execCommand('bold')`会使得字体加粗。
 
 ```javascript
@@ -899,24 +901,54 @@ if (url) {
 
 `document.execCommand()`方法可以执行的样式改变有很多种，下面是其中的一些：bold、insertLineBreak、selectAll、createLink、insertOrderedList、subscript、delete、insertUnorderedList、superscript、formatBlock、insertParagraph、undo、forwardDelete、insertText、unlink、insertImage、italic、unselect、insertHTML、redo。这些值都可以用作第一个参数，它们的含义不难从字面上看出来。
 
-`document.queryCommandEnabled()`方法返回一个布尔值，表示浏览器是否允许使用这个方法。
+**（2）document.queryCommandSupported()**
 
-```javascript
-if (document.queryCommandEnabled('SelectAll')) {
-  // ...
-}
-```
-
-`document.queryCommandSupported()`方法返回一个布尔值，表示当前是否可用某种样式改变。比如，加粗只有存在文本选中时才可用，如果没有选中文本，就不可用。
+`document.queryCommandSupported()`方法返回一个布尔值，表示浏览器是否支持`document.execCommand()`的某个命令。
 
 ```javascript
 if (document.queryCommandSupported('SelectAll')) {
-  // ...
+  console.log('浏览器支持选中可编辑区域的所有内容');
 }
 ```
 
-`document.queryCommandEnabled()`方法返回一个布尔值，
+**（3）document.queryCommandEnabled()**
+
+`document.queryCommandEnabled()`方法返回一个布尔值，表示当前是否可用某种样式改变。比如，加粗只有存在文本选中时才可用，如果没有选中文本，就不可用。
+
+```javascript
+// HTML 代码为
+// <input type="button" value="Copy" onclick="doCopy()">
+
+function doCopy(){
+  // 浏览器是否支持 copy 命令
+  if (document.queryCommandSupported('copy')) {
+    copyText('你好');
+  }else{
+    console.log('浏览器不支持');
+  }
+}
+
+function copyText(text) {
+  var input = document.createElement('textarea');
+  document.body.appendChild(input);
+  input.value = text;
+  input.focus();
+  input.select();
+
+  // 当前是否有选中文字
+  if (document.queryCommandEnabled('copy')) {
+    var success = document.execCommand('copy');
+    input.remove();
+    console.log('Copy Ok');
+  } else {
+    console.log('queryCommandEnabled is false');
+  }
+}
+```
+
+上面代码中，先判断浏览器是否支持`copy`命令（允许选中可编辑区域的内容，将其复制到剪贴板），如果支持，就新建一个临时编辑框，里面写入内容“你好”，并将其选中。然后，判断是否选中成功，如果成功，就将“你好”复制到剪贴板，再删除那个临时编辑框。
 
 ### document.getSelection()
 
 这个方法指向`window.getSelection()`，参见`window`对象一节的介绍。
+
