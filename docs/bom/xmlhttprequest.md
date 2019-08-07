@@ -181,7 +181,7 @@ xhr.responseType = 'arraybuffer';
 
 xhr.onload = function(e) {
   var uInt8Array = new Uint8Array(this.response);
-  for (var i = 0, len = binStr.length; i < len; ++i) {
+  for (var i = 0, len = uInt8Array.length; i < len; ++i) {
     // var byte = uInt8Array[i];
   }
 };
