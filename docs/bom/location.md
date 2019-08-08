@@ -12,7 +12,7 @@ URL 是互联网的基础设施之一。浏览器提供了一些原生对象，�
 
 - `Location.href`：整个 URL。
 - `Location.protocol`：当前 URL 的协议，包括冒号（`:`）。
-- `Location.host`：主机，包括冒号（`:`）和端口（默认的80端口和443端口会省略）。
+- `Location.host`：主机名和端口（默认的80端口和443端口会省略）。
 - `Location.hostname`：主机名，不包括端口。
 - `Location.port`：端口号。
 - `Location.pathname`：URL 的路径部分，从根路径`/`开始。
