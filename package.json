@@ -7,12 +7,16 @@
     "doc": "docs"
   },
   "scripts": {
-    "prepush": "npm update",
     "build": "loppo --site \"JavaScript 教程\" --id javascript --theme wangdoc",
     "build-and-commit": "npm run build && npm run commit",
     "commit": "gh-pages --dist dist --dest dist/javascript --branch master --add --repo git@github.com:wangdoc/website.git",
     "chapter": "loppo chapter",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm update"
+    }
   },
   "repository": {
     "type": "git",
