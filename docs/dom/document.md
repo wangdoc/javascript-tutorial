@@ -584,19 +584,6 @@ var element = document.elementFromPoint(50, 50);
 var elements = document.elementsFromPoint(x, y);
 ```
 
-### document.caretPositionFromPoint()
-
-`document.caretPositionFromPoint()`返回一个 CaretPosition 对象，包含了指定坐标点在节点对象内部的位置信息。CaretPosition 对象就是光标插入点的概念，用于确定光标点在文本对象内部的具体位置。
-
-```javascript
-var range = document.caretPositionFromPoint(clientX, clientY);
-```
-
-上面代码中，`range`是指定坐标点的 CaretPosition 对象。该对象有两个属性。
-
-- CaretPosition.offsetNode：该位置的节点对象
-- CaretPosition.offset：该位置在`offsetNode`对象内部，与起始位置相距的字符数。
-
 ### document.createElement()
 
 `document.createElement`方法用来生成元素节点，并返回该节点。
