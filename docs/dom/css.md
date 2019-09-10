@@ -1,10 +1,10 @@
 # CSS 操作
 
-CSS 与 JavaScript 是两个有着明确分工的领域，前者负责页面的视觉效果，后者负责与用户的行为互动。但是，它们毕竟同属网页开发的前端，因此不可避免有着交叉和互相配合。本节介绍如何通过 JavaScript 操作 CSS。
+CSS 与 JavaScript 是两个有着明确分工的领域，前者负责页面的视觉效果，后者负责与用户的行为互动。但是，它们毕竟同属网页开发的前端，因此不可避免有着交叉和互相配合。本章介绍如何通过 JavaScript 操作 CSS。
 
 ## HTML 元素的 style 属性
 
-操作 CSS 样式最简单的方法，就是使用网页元素节点的`getAttribute`方法、`setAttribute`方法和`removeAttribute`方法，直接读写或删除网页元素的`style`属性。
+操作 CSS 样式最简单的方法，就是使用网页元素节点的`getAttribute()`方法、`setAttribute()`方法和`removeAttribute()`方法，直接读写或删除网页元素的`style`属性。
 
 ```javascript
 div.setAttribute(
@@ -756,6 +756,8 @@ var mdl = window.matchMedia('(min-width: 400px)');
 mdl instanceof MediaQueryList // true
 ```
 
+上面代码中，变量`mdl`就是 mediaQueryList 的实例。
+
 注意，如果参数不是有效的`MediaQuery`条件语句，`window.matchMedia`不会报错，依然返回一个 MediaQueryList 实例。
 
 ```javascript
@@ -841,3 +843,6 @@ function mqCallback(e) {
   }
 }
 ```
+
+注意，`MediaQueryList.removeListener()`方法不能撤销`MediaQueryList.onchange`属性指定的监听函数。
+
