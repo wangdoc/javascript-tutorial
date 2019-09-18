@@ -323,7 +323,7 @@ s instanceof String // false
 
 上面代码中，字符串不是`String`对象的实例（因为字符串不是对象），所以返回`false`。
 
-此外，对于`undefined`和`null`，`instanceOf`运算符总是返回`false`。
+此外，对于`undefined`和`null`，`instanceof`运算符总是返回`false`。
 
 ```javascript
 undefined instanceof Object // false
