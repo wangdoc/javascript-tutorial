@@ -214,6 +214,16 @@ for (var pair of formData) {
 
 如果一个控件通过验证，它就会匹配`:valid`的 CSS 伪类，浏览器会继续进行表单提交的流程。如果没有通过验证，该控件就会匹配`:invalid`的 CSS 伪类，浏览器会终止表单提交，并显示一个错误信息。
 
+```css
+input:invalid {
+  border-color: red;
+}
+input,
+input:valid {
+  border-color: #ccc;
+}
+```
+
 ### checkValidity()
 
 除了提交表单的时候，浏览器自动校验表单，还可以手动触发表单的校验。表单元素和表单控件都有`checkValidity()`方法，用于手动触发校验。
@@ -279,7 +289,33 @@ if (!myInput.checkValidity()) {
 
 控件元素的`setCustomValidity()`方法用来定制校验失败时的报错信息。它接受一个字符串作为参数，该字符串就是定制的报错信息。如果参数为空字符串，则上次设置的报错信息被清除。
 
-如果调用这个方法，并且参数不为空字符串，浏览器就会认为控件没有通过校验，就会立刻显示该方法设置的报错信息。
+这个方法可以替换浏览器内置的表单验证报错信息，参数就是要显示的报错信息。
+
+```html
+<form action="somefile.php">
+  <input
+    type="text"
+    name="username"
+    placeholder="Username"
+    pattern="[a-z]{1,15}"
+    id="username"
+  >
+  <input type="submit">
+</form>
+```
+
+上面的表单输入框，要求只能输入小写字母，且不得超过15个字符。如果输入不符合要求（比如输入“ABC”），提交表单的时候，Chrome 浏览器会弹出报错信息“Please match the requested format.”，禁止表单提交。下面使用`setCustomValidity()`方法替换掉报错信息。
+
+```javascript
+var input = document.getElementById('username');
+input.oninvalid = function (event) {
+  event.target.setCustomValidity(
+    '用户名必须是小写字母，不能为空，最长不超过15个字符'
+  );
+}
+```
+
+上面代码中，`setCustomValidity()`方法是在`invalid`事件的监听函数里面调用。该方法也可以直接调用，这时如果参数不为空字符串，浏览器就会认为该控件没有通过校验，就会立刻显示该方法设置的报错信息。
 
 ```javascript
 /* HTML 代码如下
@@ -344,6 +380,37 @@ if (document.getElementById('myInput').validity.rangeOverflow) {
 }
 document.getElementById('prompt').innerHTML = txt;
 ```
+
+如果想禁止浏览器弹出表单验证的报错信息，可以监听`invalid`事件。
+
+```javascript
+var input = document.getElementById('username');
+var form  = document.getElementById('form');
+
+var elem = document.createElement('div');
+elem.id  = 'notify';
+elem.style.display = 'none';
+form.appendChild(elem);
+
+input.addEventListener('invalid', function (event) {
+  event.preventDefault();
+  if (!event.target.validity.valid) {
+    elem.textContent   = '用户名必须是小写字母';
+    elem.className     = 'error';
+    elem.style.display = 'block';
+    input.className    = 'invalid animated shake';
+  }
+});
+
+input.addEventListener('input', function(event){
+  if ( 'block' === elem.style.display ) {
+    input.className = '';
+    elem.style.display = 'none';
+  }
+});
+```
+
+上面代码中，一旦发生`invalid`事件（表单验证失败），`event.preventDefault()`用来禁止浏览器弹出默认的验证失败提示，然后设置定制的报错提示框。
 
 ### 表单的 novalidate 属性
 
@@ -553,3 +620,7 @@ xhr.open('POST', 'myserver/uploads');
 xhr.setRequestHeader('Content-Type', file.type);
 xhr.send(file);
 ```
+
+## 参考链接
+
+- [HTML5 Form Validation With the “pattern” Attribute](https://webdesign.tutsplus.com/tutorials/html5-form-validation-with-the-pattern-attribute--cms-25145), Thoriq Firdaus
