@@ -73,7 +73,7 @@ myBlob.type // "text/html"
 `Blob`具有一个实例方法`slice`，用来拷贝原来的数据，返回的也是一个`Blob`实例。
 
 ```javascript
-myBlob.slice(start，end, contentType)
+myBlob.slice(start, end, contentType)
 ```
 
 `slice`方法有三个参数，都是可选的。它们依次是起始的字节位置（默认为0）、结束的字节位置（默认为`size`属性的值，该位置本身将不包含在拷贝的数据之中）、新实例的数据类型（默认为空字符串）。
