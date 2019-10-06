@@ -35,7 +35,7 @@
   "homepage": "https://github.com/wangdoc/javascript-tutorial",
   "dependencies": {
     "gh-pages": "latest",
-    "husky": "^3.0.5",
+    "husky": "^3.0.7",
     "loppo": "latest",
     "loppo-theme-wangdoc": "latest"
   }
