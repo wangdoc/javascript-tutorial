@@ -171,27 +171,13 @@ decodeURIComponent('%E6%98%A5%E8%8A%82')
 // "春节"
 ```
 
-## URL 对象
+## URL 接口
 
-`URL`对象是浏览器的原生对象，可以用来构造、解析和编码 URL。一般情况下，通过`window.URL`可以拿到这个对象。
-
-`<a>`元素和`<area>`元素都部署了这个接口。这就是说，它们的 DOM 节点对象可以使用 URL 的实例属性和方法。
-
-```javascript
-var a = document.createElement('a');
-a.href = 'http://example.com/?foo=1';
-
-a.hostname // "example.com"
-a.search // "?foo=1"
-```
-
-上面代码中，`a`是`<a>`元素的 DOM 节点对象。可以在这个对象上使用 URL 的实例属性，比如`hostname`和`search`。
+`URL`接口是一个构造函数，浏览器原生提供，可以用来构造、解析和编码 URL。一般情况下，通过`window.URL`可以拿到这个构造函数。
 
 ### 构造函数
 
-`URL`对象本身是一个构造函数，可以生成 URL 实例。
-
-它接受一个表示 URL 的字符串作为参数。如果参数不是合法的 URL，会报错。
+`URL`作为构造函数，可以生成 URL 实例。它接受一个表示 URL 的字符串作为参数。如果参数不是合法的 URL，会报错。
 
 ```javascript
 var url = new URL('http://www.example.com/index.html');
@@ -283,7 +269,7 @@ url.href // "http://example.com/index2.html#part2"
 
 **（1）URL.createObjectURL()**
 
-`URL.createObjectURL`方法用来为上传/下载的文件、流媒体文件生成一个 URL 字符串。这个字符串代表了`File`对象或`Blob`对象的 URL。
+`URL.createObjectURL()`方法用来为上传/下载的文件、流媒体文件生成一个 URL 字符串。这个字符串代表了`File`对象或`Blob`对象的 URL。
 
 ```javascript
 // HTML 代码如下
@@ -306,7 +292,7 @@ function handleFiles(files) {
 }
 ```
 
-上面代码中，`URL.createObjectURL`方法用来为上传的文件生成一个 URL 字符串，作为`<img>`元素的图片来源。
+上面代码中，`URL.createObjectURL()`方法用来为上传的文件生成一个 URL 字符串，作为`<img>`元素的图片来源。
 
 该方法生成的 URL 就像下面的样子。
 
@@ -314,11 +300,11 @@ function handleFiles(files) {
 blob:http://localhost/c745ef73-ece9-46da-8f66-ebes574789b1
 ```
 
-注意，每次使用`URL.createObjectURL`方法，都会在内存里面生成一个 URL 实例。如果不再需要该方法生成的 URL 字符串，为了节省内存，可以使用`URL.revokeObjectURL()`方法释放这个实例。
+注意，每次使用`URL.createObjectURL()`方法，都会在内存里面生成一个 URL 实例。如果不再需要该方法生成的 URL 字符串，为了节省内存，可以使用`URL.revokeObjectURL()`方法释放这个实例。
 
 **（2）URL.revokeObjectURL()**
 
-`URL.revokeObjectURL`方法用来释放`URL.createObjectURL`方法生成的 URL 实例。它的参数就是`URL.createObjectURL`方法返回的 URL 字符串。
+`URL.revokeObjectURL()`方法用来释放`URL.createObjectURL()`方法生成的 URL 实例。它的参数就是`URL.createObjectURL()`方法返回的 URL 字符串。
 
 下面为上一段的示例加上`URL.revokeObjectURL()`。
 
@@ -337,7 +323,7 @@ function handleFiles(files) {
 }
 ```
 
-上面代码中，一旦图片加载成功以后，为本地文件生成的 URL 字符串就没用了，于是可以在`img.onload`回调函数里面，通过`URL.revokeObjectURL`方法卸载这个 URL 实例。
+上面代码中，一旦图片加载成功以后，为本地文件生成的 URL 字符串就没用了，于是可以在`img.onload`回调函数里面，通过`URL.revokeObjectURL()`方法卸载这个 URL 实例。
 
 ## URLSearchParams 对象
 
@@ -390,14 +376,6 @@ var foo = url.searchParams.get('foo') || 'somedefault';
 
 上面代码中，URL 实例的`searchParams`属性就是一个`URLSearchParams`实例，所以可以使用`URLSearchParams`接口的`get`方法。
 
-DOM 的`a`元素节点的`searchParams`属性，就是一个`URLSearchParams`实例。
-
-```javascript
-var a = document.createElement('a');
-a.href = 'https://example.com?filter=api';
-a.searchParams.get('filter') // "api"
-```
-
 `URLSearchParams`实例有遍历器接口，可以用`for...of`循环遍历（详见《ES6 标准入门》的《Iterator》一章）。
 
 ```javascript
@@ -434,7 +412,7 @@ window.location.href = location.pathname + '?' + params;
 
 ### URLSearchParams.append()
 
-`append`方法用来追加一个查询参数。它接受两个参数，第一个为键名，第二个为键值，没有返回值。
+`append()`方法用来追加一个查询参数。它接受两个参数，第一个为键名，第二个为键值，没有返回值。
 
 ```javascript
 var params = new URLSearchParams({'foo': 1 , 'bar': 2});
@@ -442,7 +420,7 @@ params.append('baz', 3);
 params.toString() // "foo=1&bar=2&baz=3"
 ```
 
-`append`方法不会识别是否键名已经存在。
+`append()`方法不会识别是否键名已经存在。
 
 ```javascript
 var params = new URLSearchParams({'foo': 1 , 'bar': 2});
@@ -454,7 +432,7 @@ params.toString() // "foo=1&bar=2&foo=3"
 
 ### URLSearchParams.delete()
 
-`delete`方法用来删除指定的查询参数。它接受键名作为参数。
+`delete()`方法用来删除指定的查询参数。它接受键名作为参数。
 
 ```javascript
 var params = new URLSearchParams({'foo': 1 , 'bar': 2});
@@ -464,7 +442,7 @@ params.toString() // "foo=1"
 
 ### URLSearchParams.has()
 
-`has`方法返回一个布尔值，表示查询字符串是否包含指定的键名。
+`has()`方法返回一个布尔值，表示查询字符串是否包含指定的键名。
 
 ```javascript
 var params = new URLSearchParams({'foo': 1 , 'bar': 2});
@@ -474,7 +452,7 @@ params.has('baz') // false
 
 ### URLSearchParams.set()
 
-`set`方法用来设置查询字符串的键值。
+`set()`方法用来设置查询字符串的键值。
 
 它接受两个参数，第一个是键名，第二个是键值。如果是已经存在的键，键值会被改写，否则会被追加。
 
@@ -509,7 +487,7 @@ window.history.replaceState({}, '', location.pathname + `?` + params);
 
 ### URLSearchParams.get()，URLSearchParams.getAll()
 
-`get`方法用来读取查询字符串里面的指定键。它接受键名作为参数。
+`get()`方法用来读取查询字符串里面的指定键。它接受键名作为参数。
 
 ```javascript
 var params = new URLSearchParams('?foo=1');
@@ -528,7 +506,7 @@ params.get('foo') // "3"
 
 上面代码中，查询字符串有三个`foo`键，`get`方法返回最前面的键值`3`。
 
-`getAll`方法返回一个数组，成员是指定键的所有键值。它接受键名作为参数。
+`getAll()`方法返回一个数组，成员是指定键的所有键值。它接受键名作为参数。
 
 ```javascript
 var params = new URLSearchParams('?foo=1&foo=2');
@@ -539,7 +517,7 @@ params.getAll('foo') // ["1", "2"]
 
 ### URLSearchParams.sort()
 
-`sort`方法对查询字符串里面的键进行排序，规则是按照 Unicode 码点从小到大排列。
+`sort()`方法对查询字符串里面的键进行排序，规则是按照 Unicode 码点从小到大排列。
 
 该方法没有返回值，或者说返回值是`undefined`。
 
