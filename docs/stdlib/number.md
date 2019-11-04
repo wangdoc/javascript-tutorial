@@ -177,7 +177,7 @@ Number.MIN_SAFE_INTEGER // -9007199254740991
 该方法还可以接受第二个参数配置对象，用来定制指定用途的返回字符串。该对象的`style`属性指定输出样式，默认值是`decimal`，表示输出十进制形式。如果值为`percent`，表示输出百分数。
 
 ```javascript
-(123).toLocaleString('zh-Hans-CN', { style: 'persent' })
+(123).toLocaleString('zh-Hans-CN', { style: 'percent' })
 // "12,300%"
 ```
 
