@@ -11,7 +11,7 @@
 - Ajax 操作返回的文档，使用`XMLHttpRequest`对象的`responseXML`属性。
 - 内部节点的`ownerDocument`属性。
 
-`document`对象继承了`EventTarget`接口、`Node`接口、`ParentNode`接口。这意味着，这些接口的方法都可以在`document`对象上调用。除此之外，`document`对象还有很多自己的属性和方法。
+`document`对象继承了`EventTarget`接口和`Node`接口，并且混入（mixin）了`ParentNode`接口。这意味着，这些接口的方法都可以在`document`对象上调用。除此之外，`document`对象还有很多自己的属性和方法。
 
 ## 属性
 
