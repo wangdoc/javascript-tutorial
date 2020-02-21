@@ -327,6 +327,20 @@ var editor = document.getElementById('editor');
 editor.contentDocument.designMode = 'on';
 ```
 
+### document.currentScript
+
+`document.currentScript`属性只用在`<script>`元素的内嵌脚本或加载的外部脚本之中，返回当前脚本所在的那个 DOM 节点，即`<script>`元素的 DOM 节点。
+
+```html
+<script id="foo">
+  console.log(
+    document.currentScript === document.getElementById('foo')
+  ); // true
+</script>
+```
+
+上面代码中，`document.currentScript`就是`<script>`元素节点。
+
 ### document.implementation
 
 `document.implementation`属性返回一个`DOMImplementation`对象。该对象有三个方法，主要用于创建独立于当前文档的新的 Document 对象。

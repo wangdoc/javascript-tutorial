@@ -337,7 +337,7 @@ dateObj.toLocaleDateString([locales[, options]])
 dateObj.toLocaleTimeString([locales[, options]])
 ```
 
-这两个参数中，`locales`是一个指定所用语言的字符串，`options`是一个配置对象。下面是`locales`的例子。
+这两个参数中，`locales`是一个指定所用语言的字符串，`options`是一个配置对象。下面是`locales`的例子，分别采用`en-US`和`zh-CN`语言设定。
 
 ```javascript
 var d = new Date(2013, 0, 1);
@@ -352,13 +352,23 @@ d.toLocaleTimeString('en-US') // "12:00:00 AM"
 d.toLocaleTimeString('zh-CN') // "上午12:00:00"
 ```
 
-下面是`options`的例子。
+`options`配置对象有以下属性。
+
+- `dateStyle`：可能的值为`full`、`long`、`medium`、`short`。
+- `timeStyle`：可能的值为`full`、`long`、`medium`、`short`。
+- `month`：可能的值为`numeric`、`2-digit`、`long`、`short`、`narrow`。
+- `year`：可能的值为`numeric`、`2-digit`。
+- `weekday`：可能的值为`long`、`short`、`narrow`。
+- `day`、`hour`、`minute`、`second`：可能的值为`numeric`、`2-digit`。
+- `timeZone`：可能的值为 IANA 的时区数据库。
+- `timeZooneName`：可能的值为`long`、`short`。
+- `hour12`：24小时周期还是12小时周期，可能的值为`true`、`false`。
+
+下面是用法实例。
 
 ```javascript
 var d = new Date(2013, 0, 1);
 
-// 时间格式
-// 下面的设置是，星期和月份为完整文字，年份和日期为数字
 d.toLocaleDateString('en-US', {
   weekday: 'long',
   year: 'numeric',
@@ -367,7 +377,13 @@ d.toLocaleDateString('en-US', {
 })
 // "Tuesday, January 1, 2013"
 
-// 指定时区
+d.toLocaleDateString('en-US', {
+  day: "2-digit",
+  month: "long",
+  year: "2-digit"
+});
+// "January 01, 13"
+
 d.toLocaleTimeString('en-US', {
   timeZone: 'UTC',
   timeZoneName: 'short'
@@ -380,7 +396,6 @@ d.toLocaleTimeString('en-US', {
 })
 // "12:00:00 AM China Standard Time"
 
-// 小时周期为12还是24
 d.toLocaleTimeString('en-US', {
   hour12: false
 })
