@@ -79,19 +79,15 @@ unknownVariable
 // Uncaught ReferenceError: unknownVariable is not defined
 ```
 
-另一种触发场景是，将一个值分配给无法分配的对象，比如对函数的运行结果或者`this`赋值。
+另一种触发场景是，将一个值分配给无法分配的对象，比如对函数的运行结果赋值。
 
 ```javascript
 // 等号左侧不是变量
 console.log() = 1
 // Uncaught ReferenceError: Invalid left-hand side in assignment
-
-// this 对象不能手动赋值
-this = 1
-// ReferenceError: Invalid left-hand side in assignment
 ```
 
-上面代码对函数`console.log`的运行结果和`this`赋值，结果都引发了`ReferenceError`错误。
+上面代码对函数`console.log`的运行结果赋值，结果引发了`ReferenceError`错误。
 
 ### RangeError 对象
 
