@@ -37,7 +37,7 @@ Math.SQRT2 // 1.4142135623730951
 - `Math.floor()`：向下取整
 - `Math.max()`：最大值
 - `Math.min()`：最小值
-- `Math.pow()`：指数运算
+- `Math.pow()`：幂运算
 - `Math.sqrt()`：平方根
 - `Math.log()`：自然对数
 - `Math.exp()`：`e`的指数
@@ -121,7 +121,7 @@ Math.round(-1.6) // -2
 
 ### Math.pow()
 
-`Math.pow`方法返回以第一个参数为底数、第二个参数为幂的指数值。
+`Math.pow`方法返回以第一个参数为底数、第二个参数为指数的幂运算值。
 
 ```javascript
 // 等同于 2 ** 2
