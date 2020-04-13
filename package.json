@@ -11,6 +11,7 @@
     "build-and-commit": "npm run build && npm run commit",
     "commit": "gh-pages --dist dist --dest dist/javascript --branch master --add --repo git@github.com:wangdoc/website.git",
     "chapter": "loppo chapter",
+    "server": "loppo server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "husky": {
