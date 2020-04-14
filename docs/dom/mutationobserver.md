@@ -36,7 +36,7 @@ var observer = new MutationObserver(function (mutations, observer) {
 
 ### observe()
 
-`observe`方法用来启动监听，它接受两个参数。
+`observe()`方法用来启动监听，它接受两个参数。
 
 - 第一个参数：所要观察的 DOM 节点
 - 第二个参数：一个配置对象，指定所要观察的特定变动
@@ -52,7 +52,7 @@ var  options = {
 observer.observe(article, options);
 ```
 
-上面代码中，`observe`方法接受两个参数，第一个是所要观察的DOM元素是`article`，第二个是所要观察的变动类型（子节点变动和属性变动）。
+上面代码中，`observe()`方法接受两个参数，第一个是所要观察的DOM元素是`article`，第二个是所要观察的变动类型（子节点变动和属性变动）。
 
 观察器所能观察的 DOM 变动类型（即上面代码的`options`对象），有以下几种。
 
@@ -81,7 +81,7 @@ mutationObserver.observe(document.documentElement, {
 });
 ```
 
-对一个节点添加观察器，就像使用`addEventListener`方法一样，多次添加同一个观察器是无效的，回调函数依然只会触发一次。如果指定不同的`options`对象，以后面添加的那个为准，类似覆盖。
+对一个节点添加观察器，就像使用`addEventListener()`方法一样，多次添加同一个观察器是无效的，回调函数依然只会触发一次。如果指定不同的`options`对象，以后面添加的那个为准，类似覆盖。
 
 下面的例子是观察新增的子节点。
 
@@ -100,13 +100,13 @@ observer.observe(document, { childList: true, subtree: true });
 
 ### disconnect()，takeRecords（）
 
-`disconnect`方法用来停止观察。调用该方法后，DOM 再发生变动，也不会触发观察器。
+`disconnect()`方法用来停止观察。调用该方法后，DOM 再发生变动，也不会触发观察器。
 
 ```javascript
 observer.disconnect();
 ```
 
-`takeRecords`方法用来清除变动记录，即不再处理未处理的变动。该方法返回变动记录的数组。
+`takeRecords()`方法用来清除变动记录，即不再处理未处理的变动。该方法返回变动记录的数组。
 
 ```javascript
 observer.takeRecords();

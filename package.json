@@ -38,6 +38,6 @@
     "gh-pages": "latest",
     "husky": "latest",
     "loppo": "latest",
-    "loppo-theme-wangdoc": "latest"
+    "loppo-theme-wangdoc": "^0.4.0"
   }
 }
