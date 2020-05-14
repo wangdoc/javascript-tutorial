@@ -34,8 +34,8 @@ HTML 语言允许在元素的属性中，直接定义某些事件的监听代码
 使用这个方法指定的监听代码，只会在冒泡阶段触发。
 
 ```html
-<div onClick="console.log(2)">
-  <button onClick="console.log(1)">点击</button>
+<div onclick="console.log(2)">
+  <button onclick="console.log(1)">点击</button>
 </div>
 ```
 
