@@ -496,7 +496,7 @@ document.querySelectorAll('DIV, A, SCRIPT');
 
 ### document.getElementsByTagName()
 
-`document.getElementsByTagName`方法搜索 HTML 标签名，返回符合条件的元素。它的返回值是一个类似数组对象（`HTMLCollection`实例），可以实时反映 HTML 文档的变化。如果没有任何匹配的元素，就返回一个空集。
+`document.getElementsByTagName()`方法搜索 HTML 标签名，返回符合条件的元素。它的返回值是一个类似数组对象（`HTMLCollection`实例），可以实时反映 HTML 文档的变化。如果没有任何匹配的元素，就返回一个空集。
 
 ```javascript
 var paras = document.getElementsByTagName('p');
@@ -505,7 +505,7 @@ paras instanceof HTMLCollection // true
 
 上面代码返回当前文档的所有`p`元素节点。
 
-HTML 标签名是大小写不敏感的，因此`getElementsByTagName`方法也是大小写不敏感的。另外，返回结果中，各个成员的顺序就是它们在文档中出现的顺序。
+HTML 标签名是大小写不敏感的，因此`getElementsByTagName()`方法的参数也是大小写不敏感的。另外，返回结果中，各个成员的顺序就是它们在文档中出现的顺序。
 
 如果传入`*`，就可以返回文档中所有 HTML 元素。
 
@@ -524,7 +524,7 @@ var spans = firstPara.getElementsByTagName('span');
 
 ### document.getElementsByClassName()
 
-`document.getElementsByClassName`方法返回一个类似数组的对象（`HTMLCollection`实例），包括了所有`class`名字符合指定条件的元素，元素的变化实时反映在返回结果中。
+`document.getElementsByClassName()`方法返回一个类似数组的对象（`HTMLCollection`实例），包括了所有`class`名字符合指定条件的元素，元素的变化实时反映在返回结果中。
 
 ```javascript
 var elements = document.getElementsByClassName(names);
@@ -542,7 +542,7 @@ var elements = document.getElementsByClassName('foo bar');
 
 注意，正常模式下，CSS 的`class`是大小写敏感的。（`quirks mode`下，大小写不敏感。）
 
-与`getElementsByTagName`方法一样，`getElementsByClassName`方法不仅可以在`document`对象上调用，也可以在任何元素节点上调用。
+与`getElementsByTagName()`方法一样，`getElementsByClassName()`方法不仅可以在`document`对象上调用，也可以在任何元素节点上调用。
 
 ```javascript
 // 非document对象上调用
@@ -551,7 +551,7 @@ var elements = rootElement.getElementsByClassName(names);
 
 ### document.getElementsByName()
 
-`document.getElementsByName`方法用于选择拥有`name`属性的 HTML 元素（比如`<form>`、`<radio>`、`<img>`、`<frame>`、`<embed>`和`<object>`等），返回一个类似数组的的对象（`NodeList`实例），因为`name`属性相同的元素可能不止一个。
+`document.getElementsByName()`方法用于选择拥有`name`属性的 HTML 元素（比如`<form>`、`<radio>`、`<img>`、`<frame>`、`<embed>`和`<object>`等），返回一个类似数组的的对象（`NodeList`实例），因为`name`属性相同的元素可能不止一个。
 
 ```javascript
 // 表单为 <form name="x"></form>
@@ -561,7 +561,7 @@ forms[0].tagName // "FORM"
 
 ### document.getElementById()
 
-`document.getElementById`方法返回匹配指定`id`属性的元素节点。如果没有发现匹配的节点，则返回`null`。
+`document.getElementById()`方法返回匹配指定`id`属性的元素节点。如果没有发现匹配的节点，则返回`null`。
 
 ```javascript
 var elem = document.getElementById('para1');
@@ -569,7 +569,7 @@ var elem = document.getElementById('para1');
 
 注意，该方法的参数是大小写敏感的。比如，如果某个节点的`id`属性是`main`，那么`document.getElementById('Main')`将返回`null`。
 
-`document.getElementById`方法与`document.querySelector`方法都能获取元素节点，不同之处是`document.querySelector`方法的参数使用 CSS 选择器语法，`document.getElementById`方法的参数是元素的`id`属性。
+`document.getElementById()`方法与`document.querySelector()`方法都能获取元素节点，不同之处是`document.querySelector()`方法的参数使用 CSS 选择器语法，`document.getElementById()`方法的参数是元素的`id`属性。
 
 ```javascript
 document.getElementById('myElement')
@@ -582,7 +582,7 @@ document.querySelector('#myElement')
 
 ### document.elementFromPoint()，document.elementsFromPoint()
 
-`document.elementFromPoint`方法返回位于页面指定位置最上层的元素节点。
+`document.elementFromPoint()`方法返回位于页面指定位置最上层的元素节点。
 
 ```javascript
 var element = document.elementFromPoint(50, 50);

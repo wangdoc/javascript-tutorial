@@ -603,14 +603,14 @@ for (var i = 0; i< matches.length; i++) {
 
 ### Element.getElementsByTagName()
 
-`Element.getElementsByTagName`方法返回一个`HTMLCollection`实例，成员是当前节点的所有匹配指定标签名的子元素节点。该方法与`document.getElementsByClassName`方法的用法类似，只是搜索范围不是整个文档，而是当前元素节点。
+`Element.getElementsByTagName()`方法返回一个`HTMLCollection`实例，成员是当前节点的所有匹配指定标签名的子元素节点。该方法与`document.getElementsByClassName()`方法的用法类似，只是搜索范围不是整个文档，而是当前元素节点。
 
 ```javascript
 var table = document.getElementById('forecast-table');
 var cells = table.getElementsByTagName('td');
 ```
 
-注意，该方法的参数是大小写不敏感的。
+注意，该方法的参数是大小写不敏感的，因为 HTML 标签名也是大小写不敏感。
 
 ### Element.closest()
 
