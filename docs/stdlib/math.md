@@ -66,14 +66,14 @@ Math.max() // -Infinity
 
 ### Math.floor()，Math.ceil()
 
-`Math.floor`方法返回小于参数值的最大整数（地板值）。
+`Math.floor`方法返回小于或等于参数值的最大整数（地板值）。
 
 ```javascript
 Math.floor(3.2) // 3
 Math.floor(-3.2) // -4
 ```
 
-`Math.ceil`方法返回大于参数值的最小整数（天花板值）。
+`Math.ceil`方法返回大于或等于参数值的最小整数（天花板值）。
 
 ```javascript
 Math.ceil(3.2) // 4
