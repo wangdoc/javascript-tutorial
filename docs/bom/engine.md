@@ -372,13 +372,13 @@ foo.style.marginTop = '30px';
 - 使用`documentFragment`操作 DOM
 - 动画使用`absolute`定位或`fixed`定位，这样可以减少对其他元素的影响。
 - 只在必要时才显示隐藏元素。
-- 使用`window.requestAnimationFrame()`，因为它可以把代码推迟到下一次重流时执行，而不是立即要求页面重流。
+- 使用`window.requestAnimationFrame()`，因为它可以把代码推迟到下一次重绘之前执行，而不是立即要求页面重绘。
 - 使用虚拟 DOM（virtual DOM）库。
 
 下面是一个`window.requestAnimationFrame()`对比效果的例子。
 
 ```javascript
-// 重绘代价高
+// 重流代价高
 function doubleHeight(element) {
   var currentHeight = element.clientHeight;
   element.style.height = (currentHeight * 2) + 'px';
