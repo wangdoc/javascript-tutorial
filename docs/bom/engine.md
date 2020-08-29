@@ -6,7 +6,7 @@ JavaScript 是浏览器的内置脚本语言。也就是说，浏览器内置了
 
 ## 代码嵌入网页的方法
 
-网页中嵌入 JavaScript 代码，主要有三种方法。
+网页中嵌入 JavaScript 代码，主要有四种方法。
 
 - `<script>`元素直接嵌入代码。
 - `<script>`标签加载外部脚本
@@ -15,7 +15,7 @@ JavaScript 是浏览器的内置脚本语言。也就是说，浏览器内置了
 
 ### script 元素嵌入代码
 
-`<script>`元素内部可以直接写 JavaScript 代码。
+`<script>`元素内部可以直接写入 JavaScript 代码。
 
 ```html
 <script>
