@@ -227,7 +227,7 @@ v1 === v2 // true
 1 === 1.0
 ```
 
-比较不同类型的数据时，相等运算符会先将数据进行类型转换，然后再用严格相等运算符比较。下面分成四种情况，讨论不同类型的值互相比较的规则。
+比较不同类型的数据时，相等运算符会先将数据进行类型转换，然后再用严格相等运算符比较。下面分成几种情况，讨论不同类型的值互相比较的规则。
 
 **（1）原始类型值**
 
@@ -272,38 +272,61 @@ v1 === v2 // true
 
 对象（这里指广义的对象，包括数组和函数）与原始类型的值比较时，对象转换成原始类型的值，再进行比较。
 
+具体来说，先调用对象的`valueOf()`方法，如果得到原始类型的值，就按照上一小节的规则，互相比较；如果得到的还是对象，则再调用`toString()`方法，得到字符串形式，再进行比较。
+
+下面是数组与原始类型值比较的例子。
+
 ```javascript
-// 对象与数值比较时，对象转为数值
+// 数组与数值的比较
 [1] == 1 // true
-// 等同于 Number([1]) == 1
 
-// 对象与字符串比较时，对象转为字符串
+// 数组与字符串的比较
 [1] == '1' // true
-// 等同于 String([1]) == '1'
 [1, 2] == '1,2' // true
-// 等同于 String([1, 2]) == '1,2'
 
-// 对象与布尔值比较时，两边都转为数值
+// 对象与布尔值的比较
 [1] == true // true
-// 等同于 Number([1]) == Number(true)
 [2] == true // false
-// 等同于 Number([2]) == Number(true)
 ```
 
-上面代码中，数组`[1]`与数值进行比较，会先转成数值，再进行比较；与字符串进行比较，会先转成字符串，再进行比较；与布尔值进行比较，对象和布尔值都会先转成数值，再进行比较。
+上面例子中，JavaScript 引擎会先对数组`[1]`调用数组的`valueOf()`方法，由于返回的还是一个数组，所以会接着调用数组的`toString()`方法，得到字符串形式，再按照上一小节的规则进行比较。
+
+下面是一个更直接的例子。
+
+```javascript
+const obj = {
+  valueOf: function () {
+    console.log('执行 valueOf()');
+    return obj;
+  },
+  toString: function () {
+    console.log('执行 toString()');
+    return 'foo';
+  }
+};
+
+obj == 'foo'
+// 执行 valueOf()
+// 执行 toString()
+// true
+```
+
+上面例子中，`obj`是一个自定义了`valueOf()`和`toString()`方法的对象。这个对象与字符串`'foo'`进行比较时，会依次调用`valueOf()`和`toString()`方法，最后返回`'foo'`，所以比较结果是`true`。
 
 **（3）undefined 和 null**
 
-`undefined`和`null`与其他类型的值比较时，结果都为`false`，它们互相比较时结果为`true`。
+`undefined`和`null`只有与自身比较，或者互相比较时，才会返回`true`；与其他类型的值比较时，结果都为`false`。
 
 ```javascript
+undefined == undefined // true
+null == null // true
+undefined == null // true
+
 false == null // false
 false == undefined // false
 
 0 == null // false
 0 == undefined // false
-
-undefined == null // true
 ```
 
 **（4）相等运算符的缺点**
