@@ -66,9 +66,9 @@ document.body.addEventListener('keydown', showChar, false);
 
 `KeyboardEvent.code`属性返回一个字符串，表示当前按下的键的字符串形式。该属性只读。
 
-下面是一些常用键的字符串形式，其他键请查[文档](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code#Code_values)。
+下面是一些常用键的字符串形式，其他键请查[文档](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values)。
 
-- 数字键0 - 9：返回`digital0` - `digital9`
+- 数字键0 - 9：返回`digit0` - `digit9`
 - 字母键A - z：返回`KeyA` - `KeyZ`
 - 功能键F1 - F12：返回 `F1` - `F12`
 - 方向键：返回`ArrowDown`、`ArrowUp`、`ArrowLeft`、`ArrowRight`

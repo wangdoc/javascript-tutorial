@@ -313,7 +313,7 @@ document.body.addEventListener(
 ```javascript
 /*
   HTML 代码如下
-  <div id="outer" style="height:50px;width:50px;border-width:1px solid black;">
+  <div id="outer" style="height:50px;width:50px;border:1px solid black;">
     <div id="inner" style="height:25px;width:25px;border:1px solid black;"></div>
   </div>
 */
