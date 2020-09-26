@@ -59,7 +59,7 @@ JSON 对值的类型和格式有严格的规定。
 
 ### 基本用法
 
-`JSON.stringify`方法用于将一个值转为 JSON 字符串。该字符串符合 JSON 格式，并且可以被`JSON.parse`方法还原。
+`JSON.stringify()`方法用于将一个值转为 JSON 字符串。该字符串符合 JSON 格式，并且可以被`JSON.parse()`方法还原。
 
 ```javascript
 JSON.stringify('abc') // ""abc""
@@ -93,7 +93,7 @@ JSON.stringify('false') // "\"false\""
 
 上面代码中，如果不是内层的双引号，将来还原的时候，引擎就无法知道原始值是布尔值还是字符串。
 
-如果对象的属性是`undefined`、函数或 XML 对象，该属性会被`JSON.stringify`过滤。
+如果对象的属性是`undefined`、函数或 XML 对象，该属性会被`JSON.stringify()`过滤。
 
 ```javascript
 var obj = {
@@ -121,7 +121,7 @@ JSON.stringify(arr) // "[null,null]"
 JSON.stringify(/foo/) // "{}"
 ```
 
-`JSON.stringify`方法会忽略对象的不可遍历的属性。
+`JSON.stringify()`方法会忽略对象的不可遍历的属性。
 
 ```javascript
 var obj = {};
@@ -143,7 +143,7 @@ JSON.stringify(obj); // "{"foo":1}"
 
 ### 第二个参数
 
-`JSON.stringify`方法还可以接受一个数组，作为第二个参数，指定需要转成字符串的属性。
+`JSON.stringify()`方法还可以接受一个数组，作为第二个参数，指定参数对象的哪些属性需要转成字符串。
 
 ```javascript
 var obj = {
@@ -158,7 +158,7 @@ JSON.stringify(obj, selectedProperties)
 // "{"prop1":"value1","prop2":"value2"}"
 ```
 
-上面代码中，`JSON.stringify`方法的第二个参数指定，只转`prop1`和`prop2`两个属性。
+上面代码中，`JSON.stringify()`方法的第二个参数指定，只转`prop1`和`prop2`两个属性。
 
 这个类似白名单的数组，只对对象的属性有效，对数组无效。
 
@@ -172,7 +172,7 @@ JSON.stringify({0: 'a', 1: 'b'}, ['0'])
 
 上面代码中，第二个参数指定 JSON 格式只转`0`号属性，实际上对数组是无效的，只对对象有效。
 
-第二个参数还可以是一个函数，用来更改`JSON.stringify`的返回值。
+第二个参数还可以是一个函数，用来更改`JSON.stringify()`的返回值。
 
 ```javascript
 function f(key, value) {
@@ -191,26 +191,26 @@ JSON.stringify({ a: 1, b: 2 }, f)
 注意，这个处理函数是递归处理所有的键。
 
 ```javascript
-var o = {a: {b: 1}};
+var obj = {a: {b: 1}};
 
 function f(key, value) {
   console.log("["+ key +"]:" + value);
   return value;
 }
 
-JSON.stringify(o, f)
+JSON.stringify(obj, f)
 // []:[object Object]
 // [a]:[object Object]
 // [b]:1
 // '{"a":{"b":1}}'
 ```
 
-上面代码中，对象`o`一共会被`f`函数处理三次，最后那行是`JSON.stringify`的输出。第一次键名为空，键值是整个对象`o`；第二次键名为`a`，键值是`{b: 1}`；第三次键名为`b`，键值为1。
+上面代码中，对象`obj`一共会被`f`函数处理三次，输出的最后那行是`JSON.stringify()`的默认输出。第一次键名为空，键值是整个对象`obj`；第二次键名为`a`，键值是`{b: 1}`；第三次键名为`b`，键值为1。
 
 递归处理中，每一次处理的对象，都是前一次返回的值。
 
 ```javascript
-var o = {a: 1};
+var obj = {a: 1};
 
 function f(key, value) {
   if (typeof value === 'object') {
@@ -219,11 +219,11 @@ function f(key, value) {
   return value * 2;
 }
 
-JSON.stringify(o, f)
+JSON.stringify(obj, f)
 // "{"b": 4}"
 ```
 
-上面代码中，`f`函数修改了对象`o`，接着`JSON.stringify`方法就递归处理修改后的对象`o`。
+上面代码中，`f`函数修改了对象`obj`，接着`JSON.stringify()`方法就递归处理修改后的对象`obj`。
 
 如果处理函数返回`undefined`或没有返回值，则该属性会被忽略。
 
@@ -243,7 +243,26 @@ JSON.stringify({ a: "abc", b: 123 }, f)
 
 ### 第三个参数
 
-`JSON.stringify`还可以接受第三个参数，用于增加返回的 JSON 字符串的可读性。如果是数字，表示每个属性前面添加的空格（最多不超过10个）；如果是字符串（不超过10个字符），则该字符串会添加在每行前面。
+`JSON.stringify()`还可以接受第三个参数，用于增加返回的 JSON 字符串的可读性。
+
+默认返回的是单行字符串，对于大型的 JSON 对象，可读性非常差。第三个参数使得每个属性单独占据一行，并且将每个属性前面添加指定的前缀（不超过10个字符）。
+
+```javascript
+// 默认输出
+JSON.stringify({ p1: 1, p2: 2 })
+// JSON.stringify({ p1: 1, p2: 2 })
+
+// 分行输出
+JSON.stringify({ p1: 1, p2: 2 }, null, '\t')
+// {
+// 	"p1": 1,
+// 	"p2": 2
+// }
+```
+
+上面例子中，第三个属性`\t`在每个属性前面添加一个制表符，然后分行显示。
+
+第三个属性如果是一个数字，则表示每个属性前面添加的空格（最多不超过10个）。
 
 ```javascript
 JSON.stringify({ p1: 1, p2: 2 }, null, 2);
@@ -253,19 +272,11 @@ JSON.stringify({ p1: 1, p2: 2 }, null, 2);
   "p2": 2
 }"
 */
-
-JSON.stringify({ p1:1, p2:2 }, null, '|-');
-/*
-"{
-|-"p1": 1,
-|-"p2": 2
-}"
-*/
 ```
 
-### 参数对象的 toJSON 方法
+### 参数对象的 toJSON() 方法
 
-如果参数对象有自定义的`toJSON`方法，那么`JSON.stringify`会使用这个方法的返回值作为参数，而忽略原对象的其他属性。
+如果参数对象有自定义的`toJSON()`方法，那么`JSON.stringify()`会使用这个方法的返回值作为参数，而忽略原对象的其他属性。
 
 下面是一个普通的对象。
 
@@ -283,7 +294,7 @@ JSON.stringify(user)
 // "{"firstName":"三","lastName":"张","fullName":"张三"}"
 ```
 
-现在，为这个对象加上`toJSON`方法。
+现在，为这个对象加上`toJSON()`方法。
 
 ```javascript
 var user = {
@@ -305,9 +316,9 @@ JSON.stringify(user)
 // "{"name":"张三"}"
 ```
 
-上面代码中，`JSON.stringify`发现参数对象有`toJSON`方法，就直接使用这个方法的返回值作为参数，而忽略原对象的其他参数。
+上面代码中，`JSON.stringify()`发现参数对象有`toJSON()`方法，就直接使用这个方法的返回值作为参数，而忽略原对象的其他参数。
 
-`Date`对象就有一个自己的`toJSON`方法。
+`Date`对象就有一个自己的`toJSON()`方法。
 
 ```javascript
 var date = new Date('2015-01-01');
@@ -315,9 +326,9 @@ date.toJSON() // "2015-01-01T00:00:00.000Z"
 JSON.stringify(date) // ""2015-01-01T00:00:00.000Z""
 ```
 
-上面代码中，`JSON.stringify`发现处理的是`Date`对象实例，就会调用这个实例对象的`toJSON`方法，将该方法的返回值作为参数。
+上面代码中，`JSON.stringify()`发现处理的是`Date`对象实例，就会调用这个实例对象的`toJSON()`方法，将该方法的返回值作为参数。
 
-`toJSON`方法的一个应用是，将正则对象自动转为字符串。因为`JSON.stringify`默认不能转换正则对象，但是设置了`toJSON`方法以后，就可以转换正则对象了。
+`toJSON()`方法的一个应用是，将正则对象自动转为字符串。因为`JSON.stringify()`默认不能转换正则对象，但是设置了`toJSON()`方法以后，就可以转换正则对象了。
 
 ```javascript
 var obj = {
@@ -336,7 +347,7 @@ JSON.stringify(/foo/) // ""/foo/""
 
 ## JSON.parse()
 
-`JSON.parse`方法用于将 JSON 字符串转换成对应的值。
+`JSON.parse()`方法用于将 JSON 字符串转换成对应的值。
 
 ```javascript
 JSON.parse('{}') // {}
@@ -349,7 +360,7 @@ var o = JSON.parse('{"name": "张三"}');
 o.name // 张三
 ```
 
-如果传入的字符串不是有效的 JSON 格式，`JSON.parse`方法将报错。
+如果传入的字符串不是有效的 JSON 格式，`JSON.parse()`方法将报错。
 
 ```javascript
 JSON.parse("'String'") // illegal single quotes
@@ -358,7 +369,7 @@ JSON.parse("'String'") // illegal single quotes
 
 上面代码中，双引号字符串中是一个单引号字符串，因为单引号字符串不符合 JSON 格式，所以报错。
 
-为了处理解析错误，可以将`JSON.parse`方法放在`try...catch`代码块中。
+为了处理解析错误，可以将`JSON.parse()`方法放在`try...catch`代码块中。
 
 ```javascript
 try {
@@ -368,7 +379,7 @@ try {
 }
 ```
 
-`JSON.parse`方法可以接受一个处理函数，作为第二个参数，用法与`JSON.stringify`方法类似。
+`JSON.parse()`方法可以接受一个处理函数，作为第二个参数，用法与`JSON.stringify()`方法类似。
 
 ```javascript
 function f(key, value) {
@@ -382,7 +393,7 @@ JSON.parse('{"a": 1, "b": 2}', f)
 // {a: 11, b: 2}
 ```
 
-上面代码中，`JSON.parse`的第二个参数是一个函数，如果键名是`a`，该函数会将键值加上10。
+上面代码中，`JSON.parse()`的第二个参数是一个函数，如果键名是`a`，该函数会将键值加上10。
 
 ## 参考链接
 
