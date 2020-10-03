@@ -206,7 +206,7 @@ window.addEventListener('scroll', callback);
     obj.addEventListener(type, func);
   };
 
-  // 将 scroll 事件重定义为 optimizedScroll 事件
+  // 将 scroll 事件转为 optimizedScroll 事件
   throttle('scroll', 'optimizedScroll');
 })();
 
@@ -215,9 +215,9 @@ window.addEventListener('optimizedScroll', function() {
 });
 ```
 
-上面代码中，`throttle`函数用于控制事件触发频率，它有一个内部函数`func`，每次`scroll`事件实际上触发的是这个函数。`func`函数内部使用`requestAnimationFrame()`方法，保证只有每次页面重绘时（每秒60次），才可能会触发`optimizedScroll`事件，从而实际上将`scroll`事件转换为`optimizedScroll`事件，触发频率被控制在每秒最多60次。
+上面代码中，`throttle()`函数用于控制事件触发频率，它有一个内部函数`func()`，每次`scroll`事件实际上触发的是这个函数。`func()`函数内部使用`requestAnimationFrame()`方法，保证只有每次页面重绘时（每秒60次），才可能会触发`optimizedScroll`事件，从而实际上将`scroll`事件转换为`optimizedScroll`事件，触发频率被控制在每秒最多60次。
 
-改用`setTimeout`方法，可以放置更大的时间间隔。
+改用`setTimeout()`方法，可以放置更大的时间间隔。
 
 ```javascript
 (function() {
