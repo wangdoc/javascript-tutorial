@@ -303,7 +303,15 @@ document.addEventListener('fullscreenchange', function (event) {
 - `copy`：进行复制动作时触发。
 - `paste`：剪贴板内容粘贴到文档后触发。
 
-这三个事件都是`ClipboardEvent`接口的实例。`ClipboardEvent`有一个实例属性`clipboardData`，是一个 DataTransfer 对象，存放剪贴的数据。具体的 API 接口和操作方法，请参见《拖拉事件》的 DataTransfer 对象部分。
+举例来说，如果希望禁止输入框的粘贴事件，可以使用下面的代码。
+
+```javascript
+inputElement.addEventListener（'paste'，e => e.preventDefault（））;
+```
+
+上面的代码使得用户无法在`<input>`输入框里面粘贴内容。
+
+`cut`、`copy`、`paste`这三个事件的事件对象都是`ClipboardEvent`接口的实例。`ClipboardEvent`有一个实例属性`clipboardData`，是一个 DataTransfer 对象，存放剪贴的数据。具体的 API 接口和操作方法，请参见《拖拉事件》的 DataTransfer 对象部分。
 
 ```javascript
 document.addEventListener('copy', function (e) {
@@ -324,7 +332,7 @@ document.addEventListener('copy', function (e) {
 - `focusin`：元素节点将要获得焦点时触发，发生在`focus`事件之前。该事件会冒泡。
 - `focusout`：元素节点将要失去焦点时触发，发生在`blur`事件之前。该事件会冒泡。
 
-这四个事件都继承了`FocusEvent`接口。`FocusEvent`实例具有以下属性。
+这四个事件的事件对象都继承了`FocusEvent`接口。`FocusEvent`实例具有以下属性。
 
 - `FocusEvent.target`：事件的目标节点。
 - `FocusEvent.relatedTarget`：对于`focusin`事件，返回失去焦点的节点；对于`focusout`事件，返回将要接受焦点的节点；对于`focus`和`blur`事件，返回`null`。
