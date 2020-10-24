@@ -306,7 +306,7 @@ document.addEventListener('fullscreenchange', function (event) {
 举例来说，如果希望禁止输入框的粘贴事件，可以使用下面的代码。
 
 ```javascript
-inputElement.addEventListener（'paste'，e => e.preventDefault（））;
+inputElement.addEventListener('paste', e => e.preventDefault());
 ```
 
 上面的代码使得用户无法在`<input>`输入框里面粘贴内容。
