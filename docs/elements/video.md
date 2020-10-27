@@ -66,7 +66,7 @@
 
 - HTMLMediaElement.addTextTrack()：添加文本轨道（比如字幕）到媒体文件。
 - HTMLMediaElement.captureStream()：返回一个 MediaStream 对象，用来捕获当前媒体文件的流内容。
-- HTMLMediaElement.canPlayType()：该方法接受一个 MIME 字符串作为参数，用来判断这种类型的媒体文件是否可以播放。该反复返回一个字符串，有三种可能的值，`probably`表示似乎可播放，`maybe`表示无法在不播放的情况下判断是否可播放，空字符串表示无法播放。
+- HTMLMediaElement.canPlayType()：该方法接受一个 MIME 字符串作为参数，用来判断这种类型的媒体文件是否可以播放。该方法返回一个字符串，有三种可能的值，`probably`表示似乎可播放，`maybe`表示无法在不播放的情况下判断是否可播放，空字符串表示无法播放。
 - HTMLMediaElement.fastSeek()：该方法接受一个浮点数作为参数，表示指定的时间（单位秒）。该方法将媒体文件移动到指定时间。
 - HTMLMediaElement.load()：重新加载媒体文件。
 - HTMLMediaElement.pause()：暂停播放。该方法没有返回值。
@@ -101,7 +101,7 @@ HTMLVideoElement 接口的属性。
 
 HTMLVideoElement 接口的方法。
 
-- HTMLVideoElement.getVideoPlaybackQuality()：返回一个对象，包含了当前视频回访的一些数据。
+- HTMLVideoElement.getVideoPlaybackQuality()：返回一个对象，包含了当前视频回放的一些数据。
 
 ## HTMLAudioElement 接口
 
@@ -146,8 +146,9 @@ if (a.canPlayType('audio/wav')) {
 - seeked：`seeking`属性变回`false`时触发。
 - ended：媒体文件播放完毕时触发。
 - durationchange：`duration`属性变化时触发。
-- volumechange：音量变回或者静音时触发。
+- volumechange：音量变化时触发。
 - ratechange：播放速度或默认的播放速度变化时触发。
 - abort：停止加载媒体文件时触发，通常是用户主动要求停止下载。
 - error：网络或其他原因导致媒体文件无法加载时触发。
 - emptied：由于`error`或`abort`事件导致`networkState`属性变成无法获取数据时触发。
+
