@@ -262,7 +262,7 @@ v instanceof Vehicle // true
 
 上面代码中，对象`v`是构造函数`Vehicle`的实例，所以返回`true`。
 
-`instanceof`运算符的左边是实例对象，右边是构造函数。它会检查右边构建函数的原型对象（prototype），是否在左边对象的原型链上。因此，下面两种写法是等价的。
+`instanceof`运算符的左边是实例对象，右边是构造函数。它会检查右边构造函数的原型对象（prototype），是否在左边对象的原型链上。因此，下面两种写法是等价的。
 
 ```javascript
 v instanceof Vehicle
@@ -270,7 +270,7 @@ v instanceof Vehicle
 Vehicle.prototype.isPrototypeOf(v)
 ```
 
-上面代码中，`Object.prototype.isPrototypeOf`的详细解释见后文。
+上面代码中，`Object`是对象的构造函数，它的原型对象是`Object.prototype`，`isPrototypeOf()`方法用于检查某个对象是否为另一个对象的原型，详细解释见后文。
 
 由于`instanceof`检查整个原型链，因此同一个实例对象，可能会对多个构造函数都返回`true`。
 
@@ -298,10 +298,10 @@ null instanceof Object // false
 ```javascript
 var obj = Object.create(null);
 typeof obj // "object"
-Object.create(null) instanceof Object // false
+obj instanceof Object // false
 ```
 
-上面代码中，`Object.create(null)`返回一个新对象`obj`，它的原型是`null`（`Object.create`的详细介绍见后文）。右边的构造函数`Object`的`prototype`属性，不在左边的原型链上，因此`instanceof`就认为`obj`不是`Object`的实例。但是，只要一个对象的原型不是`null`，`instanceof`运算符的判断就不会失真。
+上面代码中，`Object.create(null)`返回一个新对象`obj`，它的原型是`null`（`Object.create()`的详细介绍见后文）。右边的构造函数`Object`的`prototype`属性，不在左边的原型链上，因此`instanceof`就认为`obj`不是`Object`的实例。这是唯一的`instanceof`运算符判断会失真的情况（一个对象的原型是`null`）。
 
 `instanceof`运算符的一个用处，是判断值的类型。
 
