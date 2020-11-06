@@ -270,7 +270,7 @@ v instanceof Vehicle
 Vehicle.prototype.isPrototypeOf(v)
 ```
 
-上面代码中，`Object`是对象的构造函数，它的原型对象是`Object.prototype`，`isPrototypeOf()`方法用于检查某个对象是否为另一个对象的原型，详细解释见后文。
+上面代码中，`Vehicle`是对象`v`的构造函数，它的原型对象是`Vehicle.prototype`，`isPrototypeOf()`方法是 JavaScript 提供的原生方法，用于检查某个对象是否为另一个对象的原型，详细解释见后文。
 
 由于`instanceof`检查整个原型链，因此同一个实例对象，可能会对多个构造函数都返回`true`。
 
