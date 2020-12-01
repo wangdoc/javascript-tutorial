@@ -84,9 +84,9 @@ parent.append('Hello', p);
 
 注意，该方法与`Node.prototype.appendChild()`方法有三点不同。
 
-- `append()`允许字符串作为参数，`appendChild()`只允许接受子节点作为参数。
+- `append()`允许字符串作为参数，`appendChild()`只允许子节点作为参数。
 - `append()`没有返回值，而`appendChild()`返回添加的子节点。
-- `append()`可以附加多个子节点和字符串（即允许多个参数），`appendChild()`只能添加一个节点（即只能有一个参数）。
+- `append()`可以添加多个子节点和字符串（即允许多个参数），`appendChild()`只能添加一个节点（即只允许一个参数）。
 
 **（2）ParentNode.prepend()**
 
