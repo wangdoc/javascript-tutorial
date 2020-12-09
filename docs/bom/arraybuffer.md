@@ -164,8 +164,8 @@ FileReader 对象提供四个方法，处理 Blob 对象。Blob 对象作为参�
 
 ```javascript
 // HTML 代码如下
-// <input type=’file' onchange='readfile(this.files[0])'></input>
-// <pre id='output'></pre>
+// <input type="file" onchange="readfile(this.files[0])"></input>
+// <pre id="output"></pre>
 function readfile(f) {
   var reader = new FileReader();
   reader.readAsText(f);
@@ -210,3 +210,4 @@ function typefile(file) {
   };
 }
 ```
+
