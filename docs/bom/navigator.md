@@ -106,7 +106,7 @@ Geolocation 对象提供下面三个方法。
 
 ### Navigator.cookieEnabled
 
-`Navigator.cookieEnabled`属性返回一个布尔值，表示浏览器的 Cookie 功能是否打开。
+`navigator.cookieEnabled`属性返回一个布尔值，表示浏览器的 Cookie 功能是否打开。
 
 ```javascript
 navigator.cookieEnabled // true
@@ -118,7 +118,7 @@ navigator.cookieEnabled // true
 
 ### Navigator.javaEnabled()
 
-`Navigator.javaEnabled()`方法返回一个布尔值，表示浏览器是否能运行 Java Applet 小程序。
+`navigator.javaEnabled()`方法返回一个布尔值，表示浏览器是否能运行 Java Applet 小程序。
 
 ```javascript
 navigator.javaEnabled() // false
@@ -127,6 +127,73 @@ navigator.javaEnabled() // false
 ### Navigator.sendBeacon()
 
 `Navigator.sendBeacon()`方法用于向服务器异步发送数据，详见《XMLHttpRequest 对象》一章。
+
+## Navigator 的实验性属性
+
+Navigator 对象有一些实验性属性，在部分浏览器可用。
+
+### Navigator.deviceMemory
+
+`navigator.deviceMemory`属性返回当前计算机的内存数量（单位为 GB）。该属性只读，只在 HTTPS 环境下可用。
+
+它的返回值是一个近似值，四舍五入到最接近的2的幂，通常是 0.25、0.5、1、2、4、8。实际内存超过 8GB，也返回`8`。
+
+```javascript
+if (navigator.deviceMemory > 1) {
+  await import('./costly-module.js');
+}
+```
+
+上面示例中，只有当前内存大于 1GB，才加载大型的脚本。
+
+### Navigator.hardwareConcurrency
+
+`navigator.hardwareConcurrency`属性返回用户计算机上可用的逻辑处理器的数量。该属性只读。
+
+现代计算机的 CPU 有多个物理核心，每个物理核心有时支持一次运行多个线程。因此，四核 CPU 可以提供八个逻辑处理器核心。
+
+```javascript
+if (navigator.hardwareConcurrency > 4) {
+  await import('./costly-module.js');
+}
+```
+
+上面示例中，可用的逻辑处理器大于4，才会加载大型脚本。
+
+该属性通过用于创建 Web Worker，每个可用的逻辑处理器都创建一个 Worker。
+
+```javascript
+let workerList = [];
+
+for (let i = 0; i < window.navigator.hardwareConcurrency; i++) {
+  let newWorker = {
+    worker: new Worker('cpuworker.js'),
+    inUse: false
+  };
+  workerList.push(newWorker);
+}
+```
+
+上面示例中，有多少个可用的逻辑处理器，就创建多少个 Web Worker。
+
+### Navigator.connection
+
+`navigator.connection`属性返回一个对象，包含当前网络连接的相关信息。
+
+- downlink：有效带宽估计值（单位：兆比特/秒，Mbps），四舍五入到每秒 25KB 的最接近倍数。
+- downlinkMax：当前连接的最大下行链路速度（单位：兆比特每秒，Mbps）。
+- effectiveType：返回连接的等效类型，可能的值为`slow-2g`、`2g`、`3g`、`4g`。
+- rtt：当前连接的估计有效往返时间，四舍五入到最接近的25毫秒的倍数。
+- saveData：用户是否设置了浏览器的减少数据使用量选项（比如不加载图片），返回`true`或者`false`。
+- type：当前连接的介质类型，可能的值为`bluetooth`、`cellular`、`ethernet`、`none`、`wifi`、`wimax`、`other`、`unknown`。
+
+```javascript
+if (navigator.connection.effectiveType === '4g') {
+  await import('./costly-module.js');
+}
+```
+
+上面示例中，如果网络连接是 4G，则加载大型脚本。
 
 ## Screen 对象
 
@@ -166,3 +233,4 @@ if ((screen.width <= 800) && (screen.height <= 600)) {
   window.location.replace('wide.html');
 }
 ```
+
