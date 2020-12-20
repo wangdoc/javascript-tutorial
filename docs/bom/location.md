@@ -173,11 +173,11 @@ decodeURIComponent('%E6%98%A5%E8%8A%82')
 
 ## URL 接口
 
-`URL`接口是一个构造函数，浏览器原生提供，可以用来构造、解析和编码 URL。一般情况下，通过`window.URL`可以拿到这个构造函数。
+浏览器原生提供`URL()`接口，它是一个构造函数，用来构造、解析和编码 URL。一般情况下，通过`window.URL`可以拿到这个构造函数。
 
 ### 构造函数
 
-`URL`作为构造函数，可以生成 URL 实例。它接受一个表示 URL 的字符串作为参数。如果参数不是合法的 URL，会报错。
+`URL()`作为构造函数，可以生成 URL 实例。它接受一个表示 URL 的字符串作为参数。如果参数不是合法的 URL，会报错。
 
 ```javascript
 var url = new URL('http://www.example.com/index.html');
@@ -185,7 +185,9 @@ url.href
 // "http://www.example.com/index.html"
 ```
 
-如果参数是另一个 URL 实例，构造函数会自动读取该实例的`href`属性，作为实际参数。
+上面示例生成了一个 URL 实例，用来代表指定的网址。
+
+除了字符串，`URL()`的参数也可以是另一个 URL 实例。这时，`URL()`会自动读取该实例的`href`属性，作为实际参数。
 
 如果 URL 字符串是一个相对路径，那么需要表示绝对路径的第二个参数，作为计算基准。
 
@@ -251,7 +253,7 @@ url.username
 // "user"
 ```
 
-这些属性里面，只有`origin`属性是只读的，其他属性都可写。
+这些属性里面，只有`origin`属性是只读的，其他属性都可写，并且会立即生效。
 
 ```javascript
 var url = new URL('http://example.com/index.html#part1');
@@ -367,7 +369,7 @@ fetch('https://example.com/api', {
 
 上面代码中，`fetch`命令向服务器发送命令时，可以直接使用`URLSearchParams`实例。
 
-`URLSearchParams`可以与`URL`接口结合使用。
+`URLSearchParams`可以与`URL()`接口结合使用。
 
 ```javascript
 var url = new URL(window.location);

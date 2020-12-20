@@ -80,15 +80,15 @@ formElement.reset()
 
 ### 概述
 
-表单数据以键值对的形式向服务器发送，这个过程是浏览器自动完成的。但是有时候，我们希望通过脚本完成过程，构造和编辑表单键值对，然后通过`XMLHttpRequest.send()`方法发送。浏览器原生提供了 FormData 对象来完成这项工作。
+表单数据以键值对的形式向服务器发送，这个过程是浏览器自动完成的。但是有时候，我们希望通过脚本完成这个过程，构造或编辑表单的键值对，然后通过脚本发送给服务器。浏览器原生提供了 FormData 对象来完成这项工作。
 
-FormData 首先是一个构造函数，用来生成实例。
+`FormData()`首先是一个构造函数，用来生成表单的实例。
 
 ```javascript
 var formdata = new FormData(form);
 ```
 
-`FormData()`构造函数的参数是一个表单元素，这个参数是可选的。如果省略参数，就表示一个空的表单，否则就会处理表单元素里面的键值对。
+`FormData()`构造函数的参数是一个 DOM 的表单元素，构造函数会自动处理表单的键值对。这个参数是可选的，如果省略该参数，就表示一个空的表单。
 
 下面是一个表单。
 
@@ -110,7 +110,7 @@ var formdata = new FormData(form);
 </form>
 ```
 
-我们用 FormData 对象处理上面这个表单。
+我们用`FormData()`处理上面这个表单。
 
 ```javascript
 var myForm = document.getElementById('myForm');
