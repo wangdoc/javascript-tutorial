@@ -143,7 +143,7 @@ xhr.onreadystatechange = function () {
 
 ### XMLHttpRequest.responseType
 
-`XMLHttpRequest.responseType`属性是一个字符串，表示服务器返回数据的类型。这个属性是可写的，可以在调用`open()`方法之后、调用`send()`方法之前，设置这个属性的值，告诉服务器返回指定类型的数据。如果`responseType`设为空字符串，就等同于默认值`text`。
+`XMLHttpRequest.responseType`属性是一个字符串，表示服务器返回数据的类型。这个属性是可写的，可以在调用`open()`方法之后、调用`send()`方法之前，设置这个属性的值，告诉浏览器如何解读返回的数据。如果`responseType`设为空字符串，就等同于默认值`text`。
 
 `XMLHttpRequest.responseType`属性可以等于以下值。
 
