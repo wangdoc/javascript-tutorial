@@ -481,7 +481,7 @@ params.toString() // "foo=3"
 ```javascript
 // URL: https://example.com?version=1.0
 var params = new URLSearchParams(location.search.slice(1));
-params.set('version', 2.0);
+params.set('version', '2.0');
 
 window.history.replaceState({}, '', location.pathname + `?` + params);
 // URL: https://example.com?version=2.0
