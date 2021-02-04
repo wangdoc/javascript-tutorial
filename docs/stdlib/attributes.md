@@ -635,7 +635,7 @@ Object.getOwnPropertyDescriptor(obj, 'p')
 //   configurable: false
 // }
 
-Object.defineProperty(o, 'p', {
+Object.defineProperty(obj, 'p', {
   enumerable: false
 })
 // TypeError: Cannot redefine property: p
