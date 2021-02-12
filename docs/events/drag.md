@@ -200,7 +200,7 @@ source.addEventListener('dragstart', function (e) {
 });
 
 target.addEventListener('dragover', function (e) {
-  ev.dataTransfer.dropEffect = 'move';
+  e.dataTransfer.dropEffect = 'move';
 });
 ```
 
