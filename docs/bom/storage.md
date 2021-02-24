@@ -86,7 +86,7 @@ window.localStorage.clear()
 
 ### Storage.key()
 
-`Storage.key()`接受一个整数作为参数（从零开始），返回该位置对应的键值。
+`Storage.key()`接受一个整数作为参数（从零开始），返回该位置对应的键名。
 
 ```javascript
 window.sessionStorage.setItem('key', 'value');
