@@ -9,7 +9,7 @@ var err = new Error('出错了');
 err.message // "出错了"
 ```
 
-上面代码中，我们调用`Error`构造函数，生成一个实例对象`err`。`Error`构造函数接受一个参数，表示错误提示，可以从实例的`message`属性读到这个参数。抛出`Error`实例对象以后，整个程序就中断在发生错误的地方，不再往下执行。
+上面代码中，我们调用`Error()`构造函数，生成一个实例对象`err`。`Error()`构造函数接受一个参数，表示错误提示，可以从实例的`message`属性读到这个参数。抛出`Error`实例对象以后，整个程序就中断在发生错误的地方，不再往下执行。
 
 JavaScript 语言标准只提到，`Error`实例对象必须有`message`属性，表示出错时的提示信息，没有提到其他属性。大多数 JavaScript 引擎，对`Error`实例还提供`name`和`stack`属性，分别表示错误的名称和错误的堆栈，但它们是非标准的，不是每种实现都有。
 
@@ -105,7 +105,7 @@ new Array(-1)
 
 ```javascript
 new 123
-// Uncaught TypeError: number is not a func
+// Uncaught TypeError: 123 is not a constructor
 
 var obj = {};
 obj.unknownMethod()
