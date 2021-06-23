@@ -47,6 +47,10 @@ x(3)
 
 print
 // ƒ x(a){
+//     console.log(a);
+// }
+
+print(3)
 // 3
 ```
 
