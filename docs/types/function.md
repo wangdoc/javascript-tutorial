@@ -35,15 +35,19 @@ var print = function(s) {
 采用函数表达式声明函数时，`function`命令后面不带有函数名。如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。
 
 ```javascript
-var print = function x(){
-  console.log(typeof x);
+var print = function x(a){
+  console.log(a);
 };
 
 x
 // ReferenceError: x is not defined
 
-print()
-// function
+x(3)
+// ReferenceError: x is not defined
+
+print
+// ƒ x(a){
+// 3
 ```
 
 上面代码在函数表达式中，加入了函数名`x`。这个`x`只在函数体内部可用，指代函数表达式本身，其他地方都不可用。这种写法的用处有两个，一是可以在函数体内部调用自身，二是方便除错（除错工具显示函数调用栈时，将显示函数名，而不再显示这里是一个匿名函数）。因此，下面的形式声明函数也非常常见。
