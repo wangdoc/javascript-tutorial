@@ -33,7 +33,7 @@ JavaScript 提供了一个内部数据结构，用来描述对象的属性，控
 
 （4）`configurable`
 
-`configurable`是一个布尔值，表示可配置性，默认为`true`。如果设为`false`，将阻止某些操作改写该属性，比如无法删除该属性，也不得改变该属性的属性描述对象（`value`属性除外）。也就是说，`configurable`属性控制了属性描述对象的可写性。
+`configurable`是一个布尔值，表示属性的可配置性，默认为`true`。如果设为`false`，将阻止某些操作改写属性描述对象，比如无法删除该属性，也不得改变各种元属性（`value`属性除外）。也就是说，`configurable`属性控制了属性描述对象的可写性。
 
 （5）`get`
 
@@ -350,7 +350,7 @@ JSON.stringify(obj) // "{}"
 
 ### configurable
 
-`configurable`(可配置性）返回一个布尔值，决定了是否可以修改属性描述对象。也就是说，`configurable`为`false`时，`value`、`writable`、`enumerable`和`configurable`都不能被修改了。
+`configurable`(可配置性）返回一个布尔值，决定了是否可以修改属性描述对象。也就是说，`configurable`为`false`时，`writable`、`enumerable`和`configurable`都不能被修改了。
 
 ```javascript
 var obj = Object.defineProperty({}, 'p', {
@@ -360,9 +360,6 @@ var obj = Object.defineProperty({}, 'p', {
   configurable: false
 });
 
-Object.defineProperty(obj, 'p', {value: 2})
-// TypeError: Cannot redefine property: p
-
 Object.defineProperty(obj, 'p', {writable: true})
 // TypeError: Cannot redefine property: p
 
@@ -371,11 +368,14 @@ Object.defineProperty(obj, 'p', {enumerable: true})
 
 Object.defineProperty(obj, 'p', {configurable: true})
 // TypeError: Cannot redefine property: p
+
+Object.defineProperty(obj, 'p', {value: 2})
+// TypeError: Cannot redefine property: p
 ```
 
-上面代码中，`obj.p`的`configurable`为`false`。然后，改动`value`、`writable`、`enumerable`、`configurable`，结果都报错。
+上面代码中，`obj.p`的`configurable`属性为`false`。然后，改动`writable`、`enumerable`、`configurable`，结果都报错。
 
-注意，`writable`只有在`false`改为`true`会报错，`true`改为`false`是允许的。
+注意，`writable`属性只有在`false`改为`true`时会报错，`true`改为`false`是允许的。
 
 ```javascript
 var obj = Object.defineProperty({}, 'p', {
@@ -387,7 +387,7 @@ Object.defineProperty(obj, 'p', {writable: false})
 // 修改成功
 ```
 
-至于`value`，只要`writable`和`configurable`有一个为`true`，就允许改动。
+`value`属性的情况比较特殊。只要`writable`和`configurable`有一个为`true`，就允许改动`value`。
 
 ```javascript
 var o1 = Object.defineProperty({}, 'p', {
@@ -409,7 +409,7 @@ Object.defineProperty(o2, 'p', {value: 2})
 // 修改成功
 ```
 
-另外，`writable`为`false`时，直接目标属性赋值，不报错，但不会成功。
+另外，`writable`为`false`时，直接对目标属性赋值，不报错，但不会成功。
 
 ```javascript
 var obj = Object.defineProperty({}, 'p', {
