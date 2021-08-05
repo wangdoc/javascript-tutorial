@@ -145,11 +145,11 @@ if (scripts.length !== 0 ) {
 
 **（6）document.styleSheets**
 
-`document.styleSheets`属性返回文档内嵌或引入的样式表集合，详细介绍请看《CSS 对象模型》一章。
+`document.styleSheets`属性返回网页内嵌或引入的 CSS 样式表集合，详细介绍请看《CSS 操作》一章。
 
 **（7）小结**
 
-除了`document.styleSheets`，以上的集合属性返回的都是`HTMLCollection`实例。
+除了`document.styleSheets`属性，以上的其他集合属性返回的都是`HTMLCollection`实例。`document.styleSheets`属性返回的是`StyleSheetList`实例。
 
 ```javascript
 document.links instanceof HTMLCollection // true
@@ -159,7 +159,7 @@ document.embeds instanceof HTMLCollection // true
 document.scripts instanceof HTMLCollection // true
 ```
 
-`HTMLCollection`实例是类似数组的对象，所以这些属性都有`length`属性，都可以使用方括号运算符引用成员。如果成员有`id`或`name`属性，还可以用这两个属性的值，在`HTMLCollection`实例上引用到这个成员。
+`HTMLCollection`实例是类似数组的对象，所以上面这些属性都有`length`属性，都可以使用方括号运算符引用成员。如果成员有`id`或`name`属性，还可以用这两个属性的值，在`HTMLCollection`实例上引用到这个成员。
 
 ```javascript
 // HTML 代码如下
