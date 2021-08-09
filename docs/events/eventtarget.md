@@ -8,25 +8,33 @@ DOM 的事件操作（监听和触发），都定义在`EventTarget`接口。所
 
 该接口主要提供三个实例方法。
 
-- `addEventListener`：绑定事件的监听函数
-- `removeEventListener`：移除事件的监听函数
-- `dispatchEvent`：触发事件
+- `addEventListener()`：绑定事件的监听函数
+- `removeEventListener()`：移除事件的监听函数
+- `dispatchEvent()`：触发事件
 
 ## EventTarget.addEventListener()
 
-`EventTarget.addEventListener()`用于在当前节点或对象上，定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。
+`EventTarget.addEventListener()`用于在当前节点或对象上（即部署了 EventTarget 接口的对象），定义一个特定事件的监听函数。一旦这个事件发生，就会执行监听函数。该方法没有返回值。
 
 ```javascript
+targent.addEventListener(type, listener[, options]);
+// 或者
 target.addEventListener(type, listener[, useCapture]);
 ```
 
-该方法接受三个参数。
+该方法接受三个参数，前两个参数的含义如下。
 
 - `type`：事件名称，大小写敏感。
 - `listener`：监听函数。事件发生时，会调用该监听函数。
-- `useCapture`：布尔值，表示监听函数是否在捕获阶段（capture）触发（参见后文《事件的传播》部分），默认为`false`（监听函数只在冒泡阶段被触发）。该参数可选。
 
-下面是一个例子。
+第三个参数有两种形式。如果是一个对象`options`，表示监听器的配置对象，用来对监听行为进行配置，有以下属性。
+
+- `capture`：布尔值，如果设为`true`，表示监听函数在捕获阶段触发，默认为`false`，在冒泡阶段触发。
+- `once`：布尔值，如果设为`true`，表示监听函数触发后，只执行一次就会被移除。同样事件再次发生时，该监听函数将不存在。该属性默认值为`false`。
+- `passive`：布尔值，设为`true`时，表示监听函数不会调用`preventDefault()`阻止浏览器的默认行为，如果调用这个函数，将没有任何效果，并且控制台会打印一条报错信息。这个属性默认值为`false`。
+- `signal`：该属性的值为一个 AbortSignal 对象，为监听器设置了一个信号通道，用来在需要时发出信号，移除监听函数。
+
+第三个参数如果是一个布尔值`useCapture`，则表示监听函数是否在捕获阶段（capture）触发（参见后文《事件的传播》部分）。该参数可选，默认值为`false`（监听函数只在冒泡阶段被触发）。下面是一个例子。
 
 ```javascript
 function hello() {
