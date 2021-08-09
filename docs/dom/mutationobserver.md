@@ -98,7 +98,7 @@ var observer = new MutationObserver(function(mutations) {
 observer.observe(document, { childList: true, subtree: true });
 ```
 
-### disconnect()，takeRecords（）
+### disconnect()，takeRecords()
 
 `disconnect()`方法用来停止观察。调用该方法后，DOM 再发生变动，也不会触发观察器。
 
