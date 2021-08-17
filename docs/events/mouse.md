@@ -2,23 +2,30 @@
 
 ## 鼠标事件的种类
 
-鼠标事件指与鼠标相关的事件，继承了`MouseEvent`接口。具体的事件主要有以下一些。
+鼠标事件主要有下面这些，所有事件都继承了`MouseEvent`接口（详见后文）。
+
+（1）点击事件
+
+鼠标点击相关的有四个事件。
 
 - `click`：按下鼠标（通常是按下主按钮）时触发。
 - `dblclick`：在同一个元素上双击鼠标时触发。
 - `mousedown`：按下鼠标键时触发。
 - `mouseup`：释放按下的鼠标键时触发。
+
+`click`事件可以看成是两个事件组成的：用户在同一个位置先触发`mousedown`，再触发`mouseup`。因此，触发顺序是，`mousedown`首先触发，`mouseup`接着触发，`click`最后触发。
+
+双击时，`dblclick`事件则会在`mousedown`、`mouseup`、`click`之后触发。
+
+（2）移动事件
+
+鼠标移动相关的有五个事件。
+
 - `mousemove`：当鼠标在一个节点内部移动时触发。当鼠标持续移动时，该事件会连续触发。为了避免性能问题，建议对该事件的监听函数做一些限定，比如限定一段时间内只能运行一次。
 - `mouseenter`：鼠标进入一个节点时触发，进入子节点不会触发这个事件（详见后文）。
 - `mouseover`：鼠标进入一个节点时触发，进入子节点会再一次触发这个事件（详见后文）。
 - `mouseout`：鼠标离开一个节点时触发，离开父节点也会触发这个事件（详见后文）。
 - `mouseleave`：鼠标离开一个节点时触发，离开父节点不会触发这个事件（详见后文）。
-- `contextmenu`：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文菜单键”时触发。
-- `wheel`：滚动鼠标的滚轮时触发，该事件继承的是`WheelEvent`接口。
-
-`click`事件指的是，用户在同一个位置先完成`mousedown`动作，再完成`mouseup`动作。因此，触发顺序是，`mousedown`首先触发，`mouseup`接着触发，`click`最后触发。
-
-`dblclick`事件则会在`mousedown`、`mouseup`、`click`之后触发。
 
 `mouseover`事件和`mouseenter`事件，都是鼠标进入一个节点时触发。两者的区别是，`mouseenter`事件只触发一次，而只要鼠标在节点内部移动，`mouseover`事件会在子节点上触发多次。
 
@@ -27,7 +34,7 @@
  <ul>
    <li>item 1</li>
    <li>item 2</li>
-  <li>item 3</li>
+   <li>item 3</li>
  </ul>
 */
 
@@ -62,7 +69,7 @@ ul.addEventListener('mouseover', function (event) {
  <ul>
    <li>item 1</li>
    <li>item 2</li>
-  <li>item 3</li>
+   <li>item 3</li>
  </ul>
 */
 
@@ -90,19 +97,24 @@ ul.addEventListener('mouseout', function (event) {
 
 上面代码中，在父节点内部离开子节点，不会触发`mouseleave`事件，但是会触发`mouseout`事件。
 
-## MouseEvent 接口概述
+（3）其他事件
+
+- `contextmenu`：按下鼠标右键时（上下文菜单出现前）触发，或者按下“上下文”菜单键时触发。
+- `wheel`：滚动鼠标的滚轮时触发，该事件继承的是`WheelEvent`接口。
+
+## MouseEvent 接口
 
 `MouseEvent`接口代表了鼠标相关的事件，单击（click）、双击（dblclick）、松开鼠标键（mouseup）、按下鼠标键（mousedown）等动作，所产生的事件对象都是`MouseEvent`实例。此外，滚轮事件和拖拉事件也是`MouseEvent`实例。
 
-`MouseEvent`接口继承了`Event`接口，所以拥有`Event`的所有属性和方法。它还有自己的属性和方法。
+`MouseEvent`接口继承了`Event`接口，所以拥有`Event`的所有属性和方法，并且还提供鼠标独有的属性和方法。
 
-浏览器原生提供一个`MouseEvent`构造函数，用于新建一个`MouseEvent`实例。
+浏览器原生提供一个`MouseEvent()`构造函数，用于新建一个`MouseEvent`实例。
 
 ```javascript
 var event = new MouseEvent(type, options);
 ```
 
-`MouseEvent`构造函数接受两个参数。第一个参数是字符串，表示事件名称；第二个参数是一个事件配置对象，该参数可选。除了`Event`接口的实例配置属性，该对象可以配置以下属性，所有属性都是可选的。
+`MouseEvent()`构造函数接受两个参数。第一个参数是字符串，表示事件名称；第二个参数是一个事件配置对象，该参数可选。除了`Event`接口的实例配置属性，该对象可以配置以下属性，所有属性都是可选的。
 
 - `screenX`：数值，鼠标相对于屏幕的水平位置（单位像素），默认值为0，设置该属性不会移动鼠标。
 - `screenY`：数值，鼠标相对于屏幕的垂直位置（单位像素），其他与`screenX`相同。
@@ -384,3 +396,4 @@ var wheelEvent = new WheelEvent(type, options);
 - `WheelEvent.deltaY`：数值，表示滚轮的垂直滚动量。
 - `WheelEvent.deltaZ`：数值，表示滚轮的 Z 轴滚动量。
 - `WheelEvent.deltaMode`：数值，表示上面三个属性的单位，`0`是像素，`1`是行，`2`是页。
+
