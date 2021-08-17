@@ -337,10 +337,10 @@ inner.addEventListener('mouseover', function (event) {
 inner.addEventListener('mouseenter', function (event) {
   console.log('进入' + event.target.id + ' 离开' + event.relatedTarget.id);
 });
-inner.addEventListener('mouseout', function () {
+inner.addEventListener('mouseout', function (event) {
   console.log('离开' + event.target.id + ' 进入' + event.relatedTarget.id);
 });
-inner.addEventListener("mouseleave", function (){
+inner.addEventListener("mouseleave", function (event){
   console.log('离开' + event.target.id + ' 进入' + event.relatedTarget.id);
 });
 
