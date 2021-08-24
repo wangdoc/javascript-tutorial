@@ -62,7 +62,7 @@ history.go(0); // 刷新当前页面
 
 注意，移动到以前访问过的页面时，页面通常是从浏览器缓存之中加载，而不是重新要求服务器发送新的网页。
 
-### History.pushState()，
+### History.pushState()
 
 `History.pushState()`方法用于在历史中添加一条记录。
 
