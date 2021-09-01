@@ -56,7 +56,7 @@
 - HTMLMediaElement.readyState：整数，表示媒体文件的准备状态，可能的值为0（没有任何数据）、1（已获取元数据）、2（可播放当前帧，但不足以播放多个帧）、3（可以播放多帧，至少为两帧）、4（可以流畅播放）。该属性只读。
 - HTMLMediaElement.seekable：返回一个 TimeRanges 对象，表示一个用户可以搜索的媒体内容范围。该属性只读。
 - HTMLMediaElement.seeking：布尔值，表示媒体文件是否正在寻找新位置。该属性只读。
-- HTMLMediaElement.src：布尔值，表示媒体文件的 URL，对应 HTML 属性`src`。
+- HTMLMediaElement.src：字符串，表示媒体文件所在的 URL，对应 HTML 属性`src`。
 - HTMLMediaElement.srcObject：返回`src`属性对应的媒体文件资源，可能是`MediaStream`、`MediaSource`、`Blob`或`File`对象。直接指定这个属性，就可以播放媒体文件。
 - HTMLMediaElement.textTracks：返回一个类似数组的对象，包含所有文本轨道。该属性只读。
 - HTMLMediaElement.videoTracks：返回一个类似数组的对象，包含多有视频轨道。该属性只读。
