@@ -932,15 +932,14 @@ objectStore.openCursor(null, 'next').onsuccess = function(event) {
   var cursor = event.target.result;
   if (cursor) {
     var listItem = document.createElement('li');
-      listItem.innerHTML = cursor.value.albumTitle + ', ' + cursor.value.year;
-      list.appendChild(listItem);
+    listItem.innerHTML = cursor.value.albumTitle + ', ' + cursor.value.year;
+    list.appendChild(listItem);
 
-      console.log(cursor.source);
-      cursor.continue();
-    } else {
-      console.log('Entries all displayed.');
-    }
-  };
+    console.log(cursor.source);
+    cursor.continue();
+  } else {
+    console.log('Entries all displayed.');
+  }
 };
 ```
 
