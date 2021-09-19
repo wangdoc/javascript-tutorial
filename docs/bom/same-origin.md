@@ -89,10 +89,10 @@ var allCookie = document.cookie;
 
 注意，这种方法只适用于 Cookie 和 iframe 窗口，LocalStorage 和 IndexedDB 无法通过这种方法，规避同源政策，而要使用下文介绍 PostMessage API。
 
-另外，服务器也可以在设置 Cookie 的时候，指定 Cookie 的所属域名为一级域名，比如`.example.com`。
+另外，服务器也可以在设置 Cookie 的时候，指定 Cookie 的所属域名为一级域名，比如`example.com`。
 
 ```http
-Set-Cookie: key=value; domain=.example.com; path=/
+Set-Cookie: key=value; domain=example.com; path=/
 ```
 
 这样的话，二级域名和三级域名不用做任何设置，都可以读取这个 Cookie。
