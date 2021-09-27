@@ -6,7 +6,7 @@
 
 ### Navigator.userAgent
 
-`navigator.userAgent`属性返回浏览器的 User Agent 字符串，表示浏览器的厂商和版本信息。
+`navigator.userAgent`属性返回浏览器的 User Agent 字符串，表示用户设备信息，包含了浏览器的厂商、版本、操作系统等信息。
 
 下面是 Chrome 浏览器的`userAgent`。
 
@@ -22,7 +22,7 @@ navigator.userAgent
 ```javascript
 var ua = navigator.userAgent.toLowerCase();
 
-if (/mobi/i.test(ua)) {
+if (/mobi/.test(ua)) {
   // 手机浏览器
 } else {
   // 非手机浏览器
@@ -32,7 +32,7 @@ if (/mobi/i.test(ua)) {
 如果想要识别所有移动设备的浏览器，可以测试更多的特征字符串。
 
 ```javascript
-/mobi|android|touch|mini/i.test(ua)
+/mobi|android|touch|mini/.test(ua)
 ```
 
 ### Navigator.plugins

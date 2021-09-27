@@ -749,7 +749,7 @@ styleSheet.cssRules[0].conditionText
 
 ### 基本用法
 
-`window.matchMedia`方法用来将 CSS 的[`MediaQuery`](https://developer.mozilla.org/en-US/docs/DOM/Using_media_queries_from_code)条件语句，转换成一个 MediaQueryList 实例。
+`window.matchMedia()`方法用来将 CSS 的[`Media Query`](https://developer.mozilla.org/en-US/docs/DOM/Using_media_queries_from_code)条件语句，转换成一个 MediaQueryList 实例。
 
 ```javascript
 var mdl = window.matchMedia('(min-width: 400px)');
