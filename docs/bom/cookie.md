@@ -175,9 +175,19 @@ Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT;
 
 ### Domain，Path
 
-`Domain`属性指定浏览器发出 HTTP 请求时，哪些域名要附带这个 Cookie。如果没有指定该属性，浏览器会默认将其设为当前域名，这时子域名将不会附带这个 Cookie。比如，`example.com`不设置 Cookie 的`domain`属性，那么`sub.example.com`将不会附带这个 Cookie。如果指定了`domain`属性，那么子域名也会附带这个 Cookie。如果服务器指定的域名不属于当前域名，浏览器会拒绝这个 Cookie。
+`Domain`属性指定 Cookie 属于哪个域名，以后浏览器向服务器发送 HTTP 请求时，通过这个属性判断是否要附带某个 Cookie。
 
-`Path`属性指定浏览器发出 HTTP 请求时，哪些路径要附带这个 Cookie。只要浏览器发现，`Path`属性是 HTTP 请求路径的开头一部分，就会在头信息里面带上这个 Cookie。比如，`PATH`属性是`/`，那么请求`/docs`路径也会包含该 Cookie。当然，前提是域名必须一致。
+服务器设定 Cookie 时，如果没有指定 Domain 属性，浏览器会默认将其设为浏览器的当前域名。如果当前域名是一个 IP 地址，则不得设置 Domain 属性。
+
+如果指定 Domain 属性，需要遵守下面规则：Domain 属性只能是当前域名或者当前域名的上级域名，但设为上级域名时，不能设为顶级域名或公共域名。（顶级域名指的是 .com、.net 这样的域名，公共域名指的是开放给外部用户设置子域名的域名，比如 github.io。）如果不符合上面这条规则，浏览器会拒绝设置这个 Cookie。
+
+举例来说，当前域名为`x.y.z.com`，那么 Domain 属性可以设为`x.y.z.com`，或者`y.z.com`，或者`z.com`，但不能设为`foo.x.y.z.com`，或者`another.domain.com`。
+
+另一个例子是，当前域名为`wangdoc.github.io`，则 Domain 属性只能设为`wangdoc.github.io`，不能设为`github.io`，因为后者是一个公共域名。
+
+浏览器发送 Cookie 时，Domain 属性必须与当前域名一致，或者是当前域名的上级域名（公共域名除外）。比如，Domain 属性是`y.z.com`，那么适用于`y.z.com`、`x.y.z.com`、`foo.x.y.z.com`等域名。再比如，Domain 属性是公共域名`github.io`，那么只适用于`github.io`这个域名本身，不适用于它的子域名`wangdoc.github.io`。
+
+`Path`属性指定浏览器发出 HTTP 请求时，哪些路径要附带这个 Cookie。只要浏览器发现，`Path`属性是 HTTP 请求路径的开头一部分，就会在头信息里面带上这个 Cookie。比如，`Path`属性是`/`，那么请求`/docs`路径也会包含该 Cookie。当然，前提是 Domain 属性必须符合条件。
 
 ### Secure，HttpOnly
 
