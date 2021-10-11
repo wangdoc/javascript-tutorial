@@ -248,7 +248,7 @@ JavaScript 对 UTF-16 的支持是不完整的，由于历史原因，只支持�
 
 JavaScript 原生提供两个 Base64 相关的方法。
 
-- `btoa()`：任意值转为 Base64 编码
+- `btoa()`：任意字符串值转为 Base64 编码
 - `atob()`：Base64 编码转为原来的值
 
 ```javascript
