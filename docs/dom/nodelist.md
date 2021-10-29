@@ -179,7 +179,7 @@ var img0 = c.item(0);
 
 ### HTMLCollection.prototype.namedItem()
 
-`namedItem`方法的参数是一个字符串，表示`id`属性或`name`属性的值，返回对应的元素节点。如果没有对应的节点，则返回`null`。
+`namedItem`方法的参数是一个字符串，表示`id`属性或`name`属性的值，返回当前集合中对应的元素节点。如果没有对应的节点，则返回`null`。
 
 ```javascript
 // HTML 代码如下
@@ -188,3 +188,6 @@ var img0 = c.item(0);
 var pic = document.getElementById('pic');
 document.images.namedItem('pic') === pic // true
 ```
+
+`Collection.namedItem('value')`等同于`Collection['value']`。
+
