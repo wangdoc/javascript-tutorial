@@ -361,7 +361,7 @@ d.toLocaleTimeString('zh-CN') // "上午12:00:00"
 - `weekday`：可能的值为`long`、`short`、`narrow`。
 - `day`、`hour`、`minute`、`second`：可能的值为`numeric`、`2-digit`。
 - `timeZone`：可能的值为 IANA 的时区数据库。
-- `timeZooneName`：可能的值为`long`、`short`。
+- `timeZoneName`：可能的值为`long`、`short`。
 - `hour12`：24小时周期还是12小时周期，可能的值为`true`、`false`。
 
 下面是用法实例。
