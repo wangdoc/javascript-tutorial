@@ -637,4 +637,4 @@ var module1 = (function ($, YAHOO) {
 
 ## 参考链接
 
-- [JavaScript Modules: A Beginner’s Guide](https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc), by Preethi Kasireddy
+- [JavaScript Modules: A Beginner’s Guide](https://www.freecodecamp.org/news/javascript-modules-a-beginner-s-guide-783f7d7a5fcc), by Preethi Kasireddy
