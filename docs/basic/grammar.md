@@ -727,4 +727,4 @@ top:
 
 ## 参考链接
 
-- Axel Rauschmayer, [A quick overview of JavaScript](http://www.2ality.com/2011/10/javascript-overview.html)
+- Axel Rauschmayer, [Basic JavaScript for the impatient programmer](https://2ality.com/2013/06/basic-javascript.html)
