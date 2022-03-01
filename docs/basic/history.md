@@ -181,7 +181,7 @@ JavaScript 伴随着互联网的发展一起发展。互联网周边技术的快
 
 ## 参考链接
 
-- Axel Rauschmayer, [The Past, Present, and Future of JavaScript](http://oreilly.com/javascript/radarreports/past-present-future-javascript.csp)
+- Axel Rauschmayer, [The Past, Present, and Future of JavaScript](https://www.oreilly.com/library/view/the-past-present/9781449343545/)
 - John Dalziel, [The race for speed part 4: The future for JavaScript](http://creativejs.com/2013/06/the-race-for-speed-part-4-the-future-for-javascript/)
-- Axel Rauschmayer, [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html)
-- resin.io, [Happy 18th Birthday JavaScript! A look at an unlikely past and bright future](http://resin.io/happy-18th-birthday-javascript/)
+- Axel Rauschmayer, [Basic JavaScript for the impatient programmer](https://www.2ality.com/2013/06/basic-javascript.html)
+- balena.io, [Happy 18th Birthday JavaScript! A look at an unlikely past and bright future](https://www.balena.io/blog/happy-18th-birthday-javascript/)

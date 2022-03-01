@@ -545,5 +545,5 @@ d // Sun Jan 06 2013 06:00:00 GMT+0800 (CST)
 
 ## 参考链接
 
-- Rakhitha Nimesh，[Getting Started with the Date Object](http://jspro.com/raw-javascript/beginners-guide-to-javascript-date-and-time/)
-- Ilya Kantor, [Date/Time functions](http://javascript.info/tutorial/datetime-functions)
+- Rakhitha Nimesh，[Getting Started with the Date Object](https://www.sitepoint.com/beginners-guide-to-javascript-date-and-time/)
+- Ilya Kantor, [Date/Time functions](https://javascript.info/date)
