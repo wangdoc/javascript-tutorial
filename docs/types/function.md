@@ -992,7 +992,7 @@ window.eval('...')
 ## 参考链接
 
 - Ben Alman, [Immediately-Invoked Function Expression (IIFE)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
-- Mark Daggett, [Functions Explained](http://markdaggett.com/blog/2013/02/15/functions-explained/)
+- Mark Daggett, [Functions Explained](https://web.archive.org/web/20160911170816/http://markdaggett.com/blog/2013/02/15/functions-explained/)
 - Juriy Zaytsev, [Named function expressions demystified](http://kangax.github.io/nfe/)
 - Marco Rogers polotek, [What is the arguments object?](http://docs.nodejitsu.com/articles/javascript-conventions/what-is-the-arguments-object)
 - Juriy Zaytsev, [Global eval. What are the options?](http://perfectionkills.com/global-eval-what-are-the-options/)
