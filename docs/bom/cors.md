@@ -162,7 +162,6 @@ Content-Encoding: gzip
 Content-Length: 0
 Keep-Alive: timeout=2, max=100
 Connection: Keep-Alive
-Content-Type: text/plain
 ```
 
 上面的 HTTP 回应中，关键的是`Access-Control-Allow-Origin`字段，表示`http://api.bob.com`可以请求数据。该字段也可以设为星号，表示同意任意跨源请求。
