@@ -75,7 +75,18 @@
 - `labels`：返回一个`NodeList`实例，代表绑定当前`<input>`节点的`<label>`元素。该属性只读。
 - `step`：字符串，表示在`min`属性到`max`属性之间，每次递增或递减时的数值或时间。
 - `valueAsDate`：`Date`实例，一旦设置，该`<input>`元素的值会被解释为指定的日期。如果无法解析该属性的值，`<input>`节点的值将是`null`。
-- `valueAsNumber`：浮点数，当前`<input>`元素的值会被解析为这个数值。
+- `valueAsNumber`：浮点数，当前`<input>`元素的值会被解析为这个数值。如果输入框为空，该属性返回`NaN`。
+
+下面是`valueAsNumber`属性的例子。
+
+```javascript
+/* HTML 代码如下
+   <input type="number" value="1.234" />
+*/
+
+input.value // "1.234"
+input.valueAsNumber // 1.234
+```
 
 ## HTMLInputElement 的实例方法
 
