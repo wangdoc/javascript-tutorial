@@ -743,7 +743,7 @@ window.addEventListener('unload', function(event) {
 
 上面代码中，强制执行了一次双重循环，拖长了`unload`事件的执行时间，导致异步 AJAX 能够发送成功。
 
-类似的还可以使用`setTimeout`。下面是追踪用户点击的例子。
+类似的还可以使用`setTimeout()`。下面是追踪用户点击的例子。
 
 ```javascript
 // HTML 代码如下
@@ -768,7 +768,7 @@ theLink.addEventListener('click', function (event) {
 });
 ```
 
-上面代码使用`setTimeout`，拖延了350毫秒，才让页面跳转，因此使得异步 AJAX 有时间发出。
+上面代码使用`setTimeout()`，拖延了350毫秒，才让页面跳转，因此使得异步 AJAX 有时间发出。
 
 这些做法的共同问题是，卸载的时间被硬生生拖长了，后面页面的加载被推迟了，用户体验不好。
 
@@ -778,11 +778,13 @@ theLink.addEventListener('click', function (event) {
 window.addEventListener('unload', logData, false);
 
 function logData() {
-  navigator.sendBeacon('/log', analyticsData);
+  navigator.sendBeacon('/log', JSON.stringify({
+    some: "data"
+  }));
 }
 ```
 
-`Navigator.sendBeacon`方法接受两个参数，第一个参数是目标服务器的 URL，第二个参数是所要发送的数据（可选），可以是任意类型（字符串、表单对象、二进制对象等等）。
+`Navigator.sendBeacon()`方法接受两个参数，第一个参数是目标服务器的 URL，第二个参数是所要发送的数据（可选），可以是任意类型（字符串、表单对象、二进制对象等等）。
 
 ```javascript
 navigator.sendBeacon(url, data)
@@ -806,3 +808,16 @@ function analytics(state) {
   navigator.sendBeacon(URL, data);
 }
 ```
+
+该方法不允许自定义 HTTP 标头，为了以“application/json”的形式发送数据，可以使用 Blob 对象。
+
+```javascript
+const blob = new Blob(
+  [ JSON.stringify({ some: "data" }) ],
+  { type: 'application/json; charset=UTF-8' }
+);
+navigator.sendBeacon('/log', blob));
+```
+
+这个方法的优先级较低，不会占用页面资源。一般是在浏览器空闲的时候，才会发送。
+
