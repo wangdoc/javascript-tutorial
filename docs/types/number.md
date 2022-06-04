@@ -552,7 +552,15 @@ parseFloat('3.14more non-digit characters') // 3.14
 parseFloat('\t\v\r12.34\n ') // 12.34
 ```
 
-如果参数不是字符串，或者字符串的第一个字符不能转化为浮点数，则返回`NaN`。
+如果参数不是字符串，则会先转为字符串再转换。
+
+```javascript
+parseFloat([1.23]) // 1.23
+// 等同于
+parseFloat(String([1.23])) // 1.23
+```
+
+如果字符串的第一个字符不能转化为浮点数，则返回`NaN`。
 
 ```javascript
 parseFloat([]) // NaN
