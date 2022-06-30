@@ -479,7 +479,7 @@ d.getUTCDate() // 5
 - `setDate(date)`：设置实例对象对应的每个月的几号（1-31），返回改变后毫秒时间戳。
 - `setFullYear(year [, month, date])`：设置四位年份。
 - `setHours(hour [, min, sec, ms])`：设置小时（0-23）。
-- `setMilliseconds()`：设置毫秒（0-999）。
+- `setMilliseconds(ms)`：设置毫秒（0-999）。
 - `setMinutes(min [, sec, ms])`：设置分钟（0-59）。
 - `setMonth(month [, date])`：设置月份（0-11）。
 - `setSeconds(sec [, ms])`：设置秒（0-59）。
