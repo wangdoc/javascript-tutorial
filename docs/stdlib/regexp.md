@@ -104,7 +104,7 @@ r.lastIndex = 4;
 r.test(s) // false
 
 r.lastIndex // 0
-r.test(s)
+r.test(s) // true
 ```
 
 上面代码指定从字符串的第五个位置开始搜索，这个位置为空，所以返回`false`。同时，`lastIndex`属性重置为`0`，所以第二次执行`r.test(s)`会返回`true`。
