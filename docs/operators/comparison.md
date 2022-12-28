@@ -99,7 +99,7 @@ x > '11' // true
 
 x.valueOf = function () { return '1' };
 x > '11' // false
-// 等同于 [2].valueOf() > '11'
+// 等同于 (function () { return '1' })() > '11'
 // 即 '1' > '11'
 ```
 
@@ -115,7 +115,7 @@ x > '11' // false
 // 即 '2' > '11'
 
 { x: 2 } >= { x: 1 } // true
-// 等同于 { x: 2 }.valueOf().toString() >= { x: 1 }.valueOf().toString()
+// 等同于 ({ x: 2 }).valueOf().toString() >= ({ x: 1 }).valueOf().toString()
 // 即 '[object Object]' >= '[object Object]'
 ```
 
