@@ -342,7 +342,7 @@ document.cookie = "foo=bar; expires=Fri, 31 Dec 2020 23:59:59 GMT";
 各个属性的写入注意点如下。
 
 - `path`属性必须为绝对路径，默认为当前路径。
-- `domain`属性值必须是当前发送 Cookie 的域名的一部分。比如，当前域名是`example.com`，就不能将其设为`foo.com`。该属性默认为当前的一级域名（不含二级域名）。
+- `domain`属性值必须是当前发送 Cookie 的域名的一部分。比如，当前域名是`example.com`，就不能将其设为`foo.com`。该属性默认为当前的一级域名（不含二级域名）。如果显式设置该属性，则该域名的任意子域名也可以读取 Cookie。
 - `max-age`属性的值为秒数。
 - `expires`属性的值为 UTC 格式，可以使用`Date.prototype.toUTCString()`进行日期格式转换。
 
@@ -352,8 +352,10 @@ document.cookie = "foo=bar; expires=Fri, 31 Dec 2020 23:59:59 GMT";
 document.cookie = 'fontSize=14; '
   + 'expires=' + someDate.toGMTString() + '; '
   + 'path=/subdirectory; '
-  + 'domain=.example.com';
+  + 'domain=example.com';
 ```
+
+注意，上面的`domain`属性，以前的写法是`.example.com`，表示子域名也可以读取该 Cookie，新的写法可以省略前面的点。
 
 Cookie 的属性一旦设置完成，就没有办法读取这些属性的值。
 
