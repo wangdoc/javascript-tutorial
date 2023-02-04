@@ -352,7 +352,7 @@ document.cookie = "foo=bar; expires=Fri, 31 Dec 2020 23:59:59 GMT";
 document.cookie = 'fontSize=14; '
   + 'expires=' + someDate.toGMTString() + '; '
   + 'path=/subdirectory; '
-  + 'domain=*.example.com';
+  + 'domain=.example.com';
 ```
 
 Cookie 的属性一旦设置完成，就没有办法读取这些属性的值。
