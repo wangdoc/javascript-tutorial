@@ -29,11 +29,11 @@ JavaScript 提供了一个内部数据结构，用来描述对象的属性，控
 
 （3）`enumerable`
 
-`enumerable`是一个布尔值，表示该属性是否可遍历，默认为`true`。如果设为`false`，会使得某些操作（比如`for...in`循环、`Object.keys()`）跳过该属性。
+`enumerable`是一个布尔值，表示该属性是否可遍历，默认为`false`。会使得某些操作（比如`for...in`循环、`Object.keys()`）跳过该属性。
 
 （4）`configurable`
 
-`configurable`是一个布尔值，表示属性的可配置性，默认为`true`。如果设为`false`，将阻止某些操作改写属性描述对象，比如无法删除该属性，也不得改变各种元属性（`value`属性除外）。也就是说，`configurable`属性控制了属性描述对象的可写性。
+`configurable`是一个布尔值，表示属性的可配置性，默认为`false`。将阻止某些操作改写属性描述对象，比如无法删除该属性，也不得改变各种元属性（`value`属性除外）。也就是说，`configurable`属性控制了属性描述对象的可写性。
 
 （5）`get`
 
