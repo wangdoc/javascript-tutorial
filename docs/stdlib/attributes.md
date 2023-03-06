@@ -25,7 +25,7 @@ JavaScript 提供了一个内部数据结构，用来描述对象的属性，控
 
 （2）`writable`
 
-`writable`是一个布尔值，表示属性值（value）是否可改变（即是否可写），默认为`true`。
+`writable`是一个布尔值，表示属性值（value）是否可改变（即是否可写），默认为`false`。
 
 （3）`enumerable`
 
