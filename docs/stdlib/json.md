@@ -395,6 +395,15 @@ JSON.parse('{"a": 1, "b": 2}', f)
 
 上面代码中，`JSON.parse()`的第二个参数是一个函数，如果键名是`a`，该函数会将键值加上10。
 
+`JSON.parse()`和`JSON.stringify()`可以结合使用，像下面这样写，实现对象的深拷贝。
+
+```javascript
+JSON.parse(JSON.stringify(obj))
+```
+
+上面这种写法，可以深度克隆一个对象，但是对象内部不能有 JSON
+不允许的数据类型，比如函数、正则对象、日期对象等。
+
 ## 参考链接
 
 - MDN, [Using native JSON](https://developer.mozilla.org/en-US/docs/Using_native_JSON)
