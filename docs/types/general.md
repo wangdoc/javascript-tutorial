@@ -2,7 +2,7 @@
 
 ## 简介
 
-JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有六种。（ES6 又新增了第七种 Symbol 类型的值，本教程不涉及。）
+JavaScript 语言的每一个值，都属于某一种数据类型。JavaScript 的数据类型，共有六种。（ES6 又新增了 Symbol 和 BigInt 数据类型，本教程不涉及。）
 
 - 数值（number）：整数和小数（比如`1`和`3.14`）。
 - 字符串（string）：文本（比如`Hello World`）。
