@@ -271,7 +271,7 @@ function launcher() {
       running--;
       if(items.length > 0) {
         launcher();
-      } else if(running == 0) {
+      } else if(running === 0) {
         final(results);
       }
     });
