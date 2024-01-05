@@ -371,8 +371,8 @@ document.body.scrollHeight
 
 ```javascript
 // HTML 代码如下
-// <div id="myDiv" style="height: 200px; overflow: hidden;">...<div>
-document.getElementById('myDiv').scrollHeight // 356
+// <div id="myDiv" style="height: 200px; overflow: hidden;">...</div>
+document.getElementById('myDiv').scrollHeight // 200
 ```
 
 上面代码中，即使`myDiv`元素的 CSS 高度只有200像素，且溢出部分不可见，但是`scrollHeight`仍然会返回该元素的原始高度。
