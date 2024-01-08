@@ -44,7 +44,7 @@ var observer = new MutationObserver(function (mutations, observer) {
 ```javascript
 var article = document.querySelector('article');
 
-var  options = {
+var options = {
   'childList': true,
   'attributes':true
 } ;
