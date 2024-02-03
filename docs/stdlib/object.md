@@ -308,7 +308,7 @@ var obj = {};
 obj.toString() // "[object Object]"
 ```
 
-上面代码调用空对象的`toString`方法，结果返回一个字符串`object Object`，其中第二个`Object`表示该值的构造函数。这是一个十分有用的判断数据类型的方法。
+上面代码调用空对象的`toString`方法，结果返回一个字符串`[object Object]`，其中第二个`Object`表示该值的构造函数。这是一个十分有用的判断数据类型的方法。
 
 由于实例对象可能会自定义`toString`方法，覆盖掉`Object.prototype.toString`方法，所以为了得到类型字符串，最好直接使用`Object.prototype.toString`方法。通过函数的`call`方法，可以在任意值上调用这个方法，帮助我们判断这个值的类型。
 
