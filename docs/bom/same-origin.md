@@ -194,7 +194,7 @@ window.addEventListener('message', function (e) {
 `message`事件的参数是事件对象`event`，提供以下三个属性。
 
 > - `event.source`：发送消息的窗口
-> - `event.origin`: 消息发向的网址
+> - `event.origin`: 消息发送者的源（origin），即协议、域名、端口。
 > - `event.data`: 消息内容
 
 下面的例子是，子窗口通过`event.source`属性引用父窗口，然后发送消息。
@@ -208,7 +208,7 @@ function receiveMessage(event) {
 
 上面代码有几个地方需要注意。首先，`receiveMessage`函数里面没有过滤信息的来源，任意网址发来的信息都会被处理。其次，`postMessage`方法中指定的目标窗口的网址是一个星号，表示该信息可以向任意网址发送。通常来说，这两种做法是不推荐的，因为不够安全，可能会被恶意利用。
 
-`event.origin`属性可以过滤不是发给本窗口的消息。
+`event.origin`属性可以过滤非许可地址发来的消息。
 
 ```javascript
 window.addEventListener('message', receiveMessage);
