@@ -363,7 +363,7 @@ document.replaceChild(
 );
 ```
 
-上面代码中，第一步生成一个新的 HTML 文档`doc`，然后用它的根元素`document.documentElement`替换掉`document.documentElement`。这会使得当前文档的内容全部消失，变成`hello world`。
+上面代码中，第一步生成一个新的 HTML 文档`doc`，然后用它的根元素`doc.documentElement`替换掉`document.documentElement`。这会使得当前文档的内容全部消失，变成`hello world`。
 
 ## 方法
 
@@ -716,7 +716,7 @@ var element  = document.getElementById('ul');
 element.appendChild(docfrag);
 ```
 
-上面代码中，文档片断`docfrag`包含四个`<li>`节点，这些子节点被一次性插入了当前文档。
+上面代码中，文档片段`docfrag`包含四个`<li>`节点，这些子节点被一次性插入了当前文档。
 
 ### document.createEvent()
 
