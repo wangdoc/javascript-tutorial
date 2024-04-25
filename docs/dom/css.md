@@ -401,9 +401,9 @@ myStyleSheet instanceof StyleSheet // true
 
 注意，`disabled`属性只能在 JavaScript 脚本中设置，不能在 HTML 语句中设置。
 
-**（2）Stylesheet.href**
+**（2）StyleSheet.href**
 
-`Stylesheet.href`返回样式表的网址。对于内嵌样式表，该属性返回`null`。该属性只读。
+`StyleSheet.href`返回样式表的网址。对于内嵌样式表，该属性返回`null`。该属性只读。
 
 ```javascript
 document.styleSheets[0].href
