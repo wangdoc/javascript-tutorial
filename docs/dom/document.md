@@ -69,7 +69,10 @@ document.scrollingElement.scrollTop = 0;
 `document.fullscreenElement`属性返回当前以全屏状态展示的 DOM 元素。如果不是全屏状态，该属性返回`null`。
 
 ```javascript
-if (document.fullscreenElement.nodeName == 'VIDEO') {
+if (
+  document.fullscreenElement && 
+  document.fullscreenElement.nodeName == 'VIDEO'
+) {
   console.log('全屏播放视频');
 }
 ```
