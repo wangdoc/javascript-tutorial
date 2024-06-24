@@ -579,7 +579,7 @@ var start = null;
 function step(timestamp) {
   if (!start) start = timestamp;
   var progress = timestamp - start;
-  // 元素不断向左移，最大不超过200像素
+  // 元素不断向右移，最大不超过200像素
   element.style.left = Math.min(progress / 10, 200) + 'px';
   // 如果距离第一次执行不超过 2000 毫秒，
   // 就继续执行动画
