@@ -679,19 +679,19 @@ Array.prototype.slice.apply({length: 1}) // [undefined]
 前面的按钮点击事件的例子，可以改写如下。
 
 ```javascript
-var o = new Object();
+var obj = new Object();
 
-o.f = function () {
-  console.log(this === o);
+var func = function () {
+  console.log(this === obj);
 }
 
-var f = function (){
-  o.f.apply(o);
-  // 或者 o.f.call(o);
+var handler = function (){
+  func.apply(obj);
+  // 或者 f.call(obj);
 };
 
 // jQuery 的写法
-$('#button').on('click', f);
+$('#button').on('click', handler);
 ```
 
 上面代码中，点击按钮以后，控制台将会显示`true`。由于`apply()`方法（或者`call()`方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。更简洁的写法是采用下面介绍的`bind()`方法。
