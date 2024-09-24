@@ -35,7 +35,7 @@ undefined == null
 
 既然含义与用法都差不多，为什么要同时设置两个这样的值，这不是无端增加复杂度，令初学者困扰吗？这与历史原因有关。
 
-1995年 JavaScript 诞生时，最初像 Java 一样，只设置了`null`表示"无"。根据 C 语言的传统，`null`可以自动转为`0`。
+1995年 JavaScript 诞生时，最初像 Java 一样，只设置了`null`表示“无”。根据 C 语言的传统，`null`可以自动转为`0`。
 
 ```javascript
 Number(null) // 0
