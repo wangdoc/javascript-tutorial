@@ -23,11 +23,11 @@
 如果要在单引号字符串的内部，使用单引号，就必须在内部的单引号前面加上反斜杠，用来转义。双引号字符串内部使用双引号，也是如此。
 
 ```javascript
-'Did she say \'Hello\'?'
-// "Did she say 'Hello'?"
+console.log('Did she say \'Hello\'?')
+// Did she say 'Hello'?
 
-"Did she say \"Hello\"?"
-// "Did she say "Hello"?"
+console.log("Did she say \"Hello\"?")
+// Did she say "Hello"?
 ```
 
 由于 HTML 语言的属性值使用双引号，所以很多项目约定 JavaScript 语言的字符串只使用单引号，本教程遵守这个约定。当然，只使用双引号也完全可以。重要的是坚持使用一种风格，不要一会使用单引号表示字符串，一会又使用双引号表示。
@@ -146,8 +146,8 @@ console.log('1\n2')
 如果字符串的正常内容之中，需要包含反斜杠，则反斜杠前面需要再加一个反斜杠，用来对自身转义。
 
 ```javascript
-"Prev \\ Next"
-// "Prev \ Next"
+console.log("Prev \\ Next")
+// Prev \ Next
 ```
 
 ### 字符串与数组
