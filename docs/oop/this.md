@@ -687,7 +687,7 @@ var func = function () {
 
 var handler = function (){
   func.apply(obj);
-  // 或者 f.call(obj);
+  // 或者 func.call(obj);
 };
 
 // jQuery 的写法
