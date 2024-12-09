@@ -375,7 +375,7 @@ document.body.scrollHeight
 document.getElementById('myDiv').scrollHeight // 350
 ```
 
-上面代码中，即使`myDiv`元素的 CSS 高度只有200像素，且溢出部分不可见，但是`scrollHeight`仍然会返回该元素的原始高度。
+上面代码中，即使`myDiv`元素的 CSS 高度只有200像素，且溢出部分不可见，但是`scrollHeight`仍然会返回该元素的总高度。
 
 ### Element.scrollLeft，Element.scrollTop
 
