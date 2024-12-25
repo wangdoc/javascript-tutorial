@@ -108,7 +108,7 @@ function notStrict() {
 ```javascript
 // 对只读属性赋值会报错
 'use strict';
-Object.defineProperty({}, 'a', {
+var obj = Object.defineProperty({}, 'a', {
   value: 37,
   writable: false
 });
